@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : BasicTile
+public class Movement : Stats
 {
 	private bool GoUp, GoDown, GoLeft, GoRight, GoUpRight, GoDownRight, GoDownLeft, GoUpLeft;
 	protected float x;

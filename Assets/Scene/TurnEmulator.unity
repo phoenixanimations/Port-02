@@ -116,10 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &212407747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,10 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &351959008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,10 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &530686315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -368,10 +368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &853172988
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -452,10 +452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &882794293
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -536,10 +536,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &899025209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -620,10 +620,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1000203875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04aa8f8213a647d7a41d688d72db835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meh: []
+  ListofCreatures: []
 --- !u!4 &1007939983
 Transform:
   m_ObjectHideFlags: 0
@@ -744,10 +744,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1019722208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -914,10 +914,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1663496190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1036,10 +1036,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921bc0de0b91c4920874f9e9c6bebdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 1
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 1
 --- !u!61 &1698535208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1082,10 +1082,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1699489790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1166,10 +1166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1748893387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1250,10 +1250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1782380572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1334,10 +1334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1879860909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1418,10 +1418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Turn: 0
+  Player: 0
 --- !u!61 &1976964654
 BoxCollider2D:
   m_ObjectHideFlags: 0

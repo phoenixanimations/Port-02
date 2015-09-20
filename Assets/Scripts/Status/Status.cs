@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Status : Movement {
+public class Status : Movement 
+{
 	protected RaycastHit2D Hit;
 	protected override void Start () 
 	{
 		Physics2D.raycastsStartInColliders = false;
-		//this.GetComponent<Creature>().
+		this.gameObject.GetComponent<Creature>().AddStatus += Activate;
 	}
+
 	protected void HitDirection (string Direction, float Distance)
 	{
 		switch (Direction)
@@ -26,9 +28,15 @@ public class Status : Movement {
 			break;
 		}
 	}
-	public virtual void Activate ()
+
+	protected virtual void Activate ()
 	{
-		Debug.Log ("Activated");
+	
 	}
 
+	public virtual void Deactivate ()
+	{
+		this.gameObject.GetComponent<Creature>().AddStatus -= Activate;
+		Destroy(this);
+	}
 }
