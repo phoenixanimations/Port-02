@@ -23,6 +23,9 @@ public class Character_Controller : MonoBehaviour {
 	}
 	void test () 
 	{
+		//Did it work?
+
+
 	//	YESITLIVING gu;
 	//	UseAbility(gu);
 //		YESITLIVES ugh = new YESITLIVES();
