@@ -24,6 +24,7 @@ public class Character_Controller : MonoBehaviour {
 	void test () 
 	{
 		//Did it work?
+		//test
 
 
 	//	YESITLIVING gu;
