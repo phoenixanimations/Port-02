@@ -6865,6 +6865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -8407,6 +8411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921bc0de0b91c4920874f9e9c6bebdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -14787,6 +14795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -18781,7 +18793,7 @@ GameObject:
   - 114: {fileID: 837159276}
   - 61: {fileID: 837159279}
   m_Layer: 0
-  m_Name: wall (2) up
+  m_Name: wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18798,6 +18810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -27775,7 +27791,7 @@ GameObject:
   - 114: {fileID: 1249644724}
   - 61: {fileID: 1249644727}
   m_Layer: 0
-  m_Name: wall right
+  m_Name: wall (9) right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27792,6 +27808,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -28362,6 +28382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -30673,6 +30697,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -33049,7 +33077,7 @@ GameObject:
   - 114: {fileID: 1461669118}
   - 61: {fileID: 1461669117}
   m_Layer: 0
-  m_Name: wall (8) left
+  m_Name: wall (8) up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33079,6 +33107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -36012,6 +36044,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -36961,6 +36997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -37027,6 +37067,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a3542fc724f41a2926ad8a1836c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
@@ -43324,6 +43368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestTier: 0
+  Result: 0
+  ListDamage: []
+  TotalDamage: 0
   Health: 0
   Damage: 0
   Turn: 0
