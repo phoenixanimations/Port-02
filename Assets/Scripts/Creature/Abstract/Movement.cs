@@ -1,17 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : Stats
+public class Movement : Raycast
 {
 	private bool GoUp, GoDown, GoLeft, GoRight, GoUpRight, GoDownRight, GoDownLeft, GoUpLeft;
-	protected float x;
-	protected float y;
-	
-	protected override void Start ()
-	{
-		x = GetComponent<SpriteRenderer> ().bounds.size.x;
-		y = GetComponent<SpriteRenderer> ().bounds.size.y;
-	}
 
 	protected void AllowMovement()
 	{

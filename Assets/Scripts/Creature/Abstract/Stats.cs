@@ -18,4 +18,9 @@ public class Stats : BasicTile
 		for (int i = 0; i < IntArray.Count; i++) Total += IntArray[i];
 		return Total;
 	}
+
+	public void AddDamage    (int DamageAmount)  {Damage += DamageAmount;}
+	public void RemoveDamage (int DamageAmount)  {Damage -= DamageAmount;}
+	public void AddHealth    (int HealthAmount)  {Health += HealthAmount;}
+	public void RemoveHealth (int HealthAmount)  {Health -= HealthAmount;}
 }

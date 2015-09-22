@@ -2,24 +2,42 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour {
-
-	public static List<Creature> creature = new List<Creature>();
-	public List<Creature> ListofCreatures = new List<Creature>();
-
-	private int i;
-
+public class GameManager : MonoBehaviour 
+{
+	public static List<Creature> crystal = new List<Creature>();
+	public static List<Creature> castles = new List<Creature>();
+	bool plague;
+	int empathy;
 	void Update () 
 	{
-		if (creature[i].Player && creature[i].Turn) return;
-		while (i < creature.Count)
+
+		if (castles[empathy].Turn && plague) return;
+		if (plague) empathy++;
+		if (empathy < castles.Count)
 		{
-			i++;
-			if (i == creature.Count) i = 0;
-			creature[i].Turn = true;
-			creature[i].CleanUp();
-			creature[i].AI ();
-			if (creature[i].Player) break;	
+			castles[empathy].Turn = true;
+			castles[empathy].CleanUp();
+			plague = true;
+			return;
 		}
+		if (empathy == castles.Count)
+		{
+			empathy = 0;
+			plague = false;
+		}
+
+
+		for (int i = crystal.Count - 1; i > -1; i--)
+		{
+			crystal[i].Dead();
+		}
+
+		for (int i = crystal.Count - 1; i > -1; i--)
+		{
+			crystal[i].Turn = true;
+			crystal[i].CleanUp();
+			crystal[i].AI ();
+		}
+			
 	}
 }

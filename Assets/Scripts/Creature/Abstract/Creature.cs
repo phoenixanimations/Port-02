@@ -11,7 +11,7 @@ public class Creature : Movement
 	public bool Turn;
 	public bool Player; 
 	protected Type Weapon, Helmet, Chest, Legs, DNA;
-//	protected List<Item> Inventory = new List<Item>();
+	protected List<Type> Inventory = new List<Type>();
 	private RaycastHit2D RightHit, LeftHit, UpHit, DownHit;
 
 	private void ActivateRaycast () 
@@ -20,6 +20,16 @@ public class Creature : Movement
 		LeftHit = Physics2D.Raycast(transform.position,-transform.right, x); 
 		UpHit = Physics2D.Raycast(transform.position,transform.up, y);  
 		DownHit = Physics2D.Raycast(transform.position,-transform.up, y);
+	}
+	
+	public void Dead ()
+	{
+		if (Health < 1) 
+		{
+			if (!Player) GameManager.crystal.Remove(this);
+			if (Player) GameManager.castles.Remove (this);
+			Destroy (this.gameObject);
+		}
 	}
 
 	private void ActivateStatus () 
@@ -31,7 +41,8 @@ public class Creature : Movement
 	{
 		base.Start();
 		Physics2D.raycastsStartInColliders = false;
-		GameManager.creature.Add(this);
+		if (!Player) GameManager.crystal.Add(this);
+		if (Player) GameManager.castles.Add (this);
 		if (Player) gameObject.AddComponent<Character_Controller>();
 	}
 
@@ -65,6 +76,12 @@ public class Creature : Movement
 		AddUse();												
 	}
 
+	public void Attack (Vector3 Direction) 
+	{
+		Hit = Physics2D.Raycast(transform.position, Direction, x);
+		if (Hit.collider != null) Hit.collider.GetComponent<Creature>().RemoveHealth(Damage);
+	}
+
 	public void Equip (Type Equipment) 
 	{
 		gameObject.AddComponent(Equipment);
@@ -72,6 +89,6 @@ public class Creature : Movement
 
 	public void UnEquip () 
 	{
-
+	
 	}
 }
