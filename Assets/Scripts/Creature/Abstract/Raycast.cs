@@ -13,7 +13,7 @@ public class Raycast : Stats
 		base.Start ();
 		x = GetComponent<SpriteRenderer> ().bounds.size.x;
 		y = GetComponent<SpriteRenderer> ().bounds.size.y;
-		Physics2D.raycastsStartInColliders = false;
+		Physics2D.queriesStartInColliders = false;
 
 	}
 }

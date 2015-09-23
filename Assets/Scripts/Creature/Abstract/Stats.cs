@@ -88,9 +88,15 @@ public class Stats : BasicTile
  * 
  * int ID;
  *
+ *
+ *
  * float Hitpoints = Tier ((Weapon.Hitpoints) + (Shield.Hitpoints) + (Helmet.Hitpoints) + (Chest.Hitpoints) + (Legs.Hitpoints) + Modify_Hitpoints_Level);
- * float Accuracy;
- * float Evade;
+ * 
+ **********In a FUNCTION**********
+ * float Primary_Accuracy = ((Primary.Accuracy + Modify_Class_Level) / Enemy.Evade + Modify_Class_Level) * 0.5;
+ * float Secondary_Accuracy = ((Secondary.Accuracy + Modify_Melee_Level) / Enemy.Evade + Modify_Class_Level) * 0.5;
+ * float Evade = Primary.Evade + Secondary.Evade + Modify_Class_Level;
+ **********In a FUNCTION**********
  * 
  * float True_Hitpoints_Level;
  * float True_Melee_Level;
@@ -100,21 +106,25 @@ public class Stats : BasicTile
  * float Hitpoints_Level_Bonus;
  * 
  * float Modify_Hitpoints_Level = Tier(True_Hitpoints_Level + Hitpoints_Level_Bonus);
- * float Modify_Melee_Level = Tier(True_Melee_Level + Bonus);
- * float Modify_Magic_Level
- * float Modify_Archery_Level
+ * float Modify_Melee_Level = Tier(True_Melee_Level + Melee_Level_Bonus);
+ * float Modify_Magic_Level = Tier(True_Magic_Level + Magic_Level_Bonus);
+ * float Modify_Archery_Level = Tier(True_Archery_Level + Archery_Level_Bonus);
  * 
- * float Primary_Melee_Damage = Modify_Melee_Level + Weapon.Melee;
- * float Secondary_Melee_Damage = Modify_Melee_Level + Weapon.Melee;
+ * float Primary_Melee_Damage = Modify_Melee_Level + Primary.Melee;
+ * float Secondary_Melee_Damage = Modify_Melee_Level + Secondary.Melee;
+ * 
+ * [component]
  * 
  * if (DW) 
  * Melee_Level_Bonus = -10;
+ * Archery_Level_Bonus = -10;
+ * Magic_Level_Bonus = -10;
  * 
- * float Primary_Archery_Damage
- * float Secondary_Archery_Damage
+ * float Primary_Archery_Damage = Modify_Archery_Level + Weapon.Archery;
+ * float Secondary_Archery_Damage = Modify_Archery_Level + Secondary.Melee;
  * 
- * float Primary_Magic_Damage
- * float Secondary_Magic_Damage
+ * float Primary_Magic_Damage = Modify_Magic_Level + Weapon.Archery;
+ * float Secondary_Magic_Damage = Modify_Magic_Level + Weapon.Archery;
  * 
  * int Defect_Chance = Weapon.Defect_Chance + Shield.Defect_Chance + Helmet.Defect_Chance + Chest.Defect_Chance + Legs.Defect_Chance;
  * Delegate Defect;

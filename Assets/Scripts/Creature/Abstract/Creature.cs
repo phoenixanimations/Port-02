@@ -40,7 +40,7 @@ public class Creature : Movement
 	protected override void Start () 
 	{
 		base.Start();
-		Physics2D.raycastsStartInColliders = false;
+		Physics2D.queriesStartInColliders = false;
 		if (!Player) GameManager.crystal.Add(this);
 		if (Player) GameManager.castles.Add (this);
 		if (Player) gameObject.AddComponent<Character_Controller>();

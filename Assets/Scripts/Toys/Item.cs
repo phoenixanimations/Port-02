@@ -10,7 +10,7 @@ public class Item : Movement
 	{
 		base.Start ();
 		Initiate();
-		Physics2D.raycastsStartInColliders = false;
+		Physics2D.queriesStartInColliders = false;
 		this.gameObject.GetComponent<Creature>().AddUse += Use; //Check to make sure it's only running once.
 		this.gameObject.GetComponent<Creature>().AddDamage(Damage);
 	}
