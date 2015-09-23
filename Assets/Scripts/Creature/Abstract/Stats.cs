@@ -114,10 +114,19 @@ public class Stats : BasicTile
  * [component]
  * 
  * if (DualWielding) {
- * 	Melee_Level_Bonus = -10;
- * 	Magic_Level_Bonus = -10;
- * 	Archery_Level_Bonus = -10;
- * 	Demo_Level_Bonus = -10;
+ * 	Melee_Level_DualWieldNerf = -10;
+ * 	Magic_Level_DualWieldNerf = -10;
+ * 	Archery_Level_DualWieldNerf = -10;
+ * 	Demo_Level_DualWieldNerf = -10;
+ *
+ *	Melee_PrimaryDamage_Bonus = Mathf.floor(0.5 * Melee_Bonus);
+ *	Melee_SecondaryDamage_Bonus = Mathf.floor(0.5 * Melee_Bonus);
+ *	Magic_PrimaryDamage_Bonus = Mathf.floor(0.5 * Magic_Bonus);
+ *	Magic_SecondaryDamage_Bonus = Mathf.floor(0.5 * Magic_Bonus);
+ *	Archery_PrimaryDamage_Bonus = Mathf.floor(0.5 * Archery_Bonus);
+ *	Archery_SecondaryDamage_Bonus = Mathf.floor(0.5 * Archery_Bonus);
+ *	Demo_PrimaryDamage_Bonus = Mathf.floor(0.5 * Demo_Bonus);
+ *	Demo_SecondaryDamage_Bonus = Mathf.floor(0.5 * Demo_Bonus);
  * }
  * 
  * float Hitpoints_Level_Bonus;
