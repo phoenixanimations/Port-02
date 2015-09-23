@@ -96,12 +96,12 @@ public class Stats : BasicTile
  *
  *
  *
- * float Hitpoints = ((Weapon.Hitpoints) + (Shield.Hitpoints) + (Helmet.Hitpoints) + (Chest.Hitpoints) + (Legs.Hitpoints) + TierArray(Modified_Hitpoints_Level));
+ * float Hitpoints = TierArray((Weapon.Hitpoints) + (Shield.Hitpoints) + (Helmet.Hitpoints) + (Chest.Hitpoints) + (Legs.Hitpoints) + (Modified_Hitpoints_Level));
  * 
  **********In a FUNCTION**********
- * float Primary_Accuracy = Mathf.floor(0.5 * ((Primary.Accuracy + Modified_Class_Level + Accuracy_Bonus) / (Enemy.Evade + Modified_Class_Level)));
- * float Secondary_Accuracy = Mathf.floor(0.5 * ((Secondary.Accuracy + Modified_Class_Level + Accuracy_Bonus) / (Enemy.Evade + Modified_Class_Level)));
- * float Evade = Mathf.floor(Primary.Evade + Secondary.Evade + Modified_Class_Level + Evade_Bonus);
+ * float Primary_Accuracy = Mathf.floor(0.5 * (TierArray(Primary.Accuracy + Modified_Class_Level + Accuracy_Bonus) / TierArray(Enemy.Evade + Modified_Class_Level)));
+ * float Secondary_Accuracy = Mathf.floor(0.5 * (TierArray(Secondary.Accuracy + Modified_Class_Level + Accuracy_Bonus) / TierArray(Enemy.Evade + Modified_Class_Level)));
+ * float Evade = Mathf.floor(TierArray(Primary.Evade + Secondary.Evade + Modified_Class_Level + Evade_Bonus));
  **********In a FUNCTION**********
  * 
  * float True_Hitpoints_Level;
@@ -114,13 +114,13 @@ public class Stats : BasicTile
  * [component]
  * 
  * if (DualWielding) {
- * Melee_Level_Bonus = -10;
- * Magic_Level_Bonus = -10;
- * Archery_Level_Bonus = -10;
- * Demo_Level_Bonus = -10;
+ * 	Melee_Level_Bonus = -10;
+ * 	Magic_Level_Bonus = -10;
+ * 	Archery_Level_Bonus = -10;
+ * 	Demo_Level_Bonus = -10;
  * }
  * 
- * float Hitpoints_Level_Bonus = 50;
+ * float Hitpoints_Level_Bonus;
  * 
  * float Modified_Hitpoints_Level = (True_Hitpoints_Level + 50 + Hitpoints_Level_Bonus);
  * float Modified_Melee_Level = (True_Melee_Level + Melee_Level_Bonus);
