@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AddDamage : Status {
+public class AddDamage : StatusFoundation
+{
 	public bool OnceOnly = true;
 
 	protected override void Start ()
@@ -10,23 +11,17 @@ public class AddDamage : Status {
 		Damage = 10;
 	}
 
-	protected override void Activate ()
+	protected override void Status ()
 	{
-		base.Activate ();
+		base.Status ();
 		if (OnceOnly)
-		this.gameObject.GetComponent<Creature>().Damage+=Damage;
+			Cache.AddDamage(Damage);
 		OnceOnly = false; 
 	}
 
 	public override void Deactivate ()
 	{
 		base.Deactivate ();
-		this.gameObject.GetComponent<Creature>().Damage-=Damage;
+		Cache.RemoveDamage(Damage);
 	}
-
-
-
-
-
-
 }

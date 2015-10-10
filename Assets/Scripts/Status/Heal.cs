@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Heal : Status {
-	protected override void Start ()
+public class Heal : StatusFoundation {
+	protected int AddHeal = 10;
+
+	protected override void Status ()
 	{
-		base.Start ();
+		base.Status ();
+		Cache.AddHealth(AddHeal);
 	}
 }

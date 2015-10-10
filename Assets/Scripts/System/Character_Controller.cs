@@ -3,28 +3,63 @@ using System.Collections;
 
 public class Character_Controller : MonoBehaviour
 {
-	void Update () 
+	private Creature Cache;
+	private MonoBehaviour[] CacheMonoBehaviour;
+	
+	private void Start ()
 	{
-		if (this.GetComponent<Creature>().Turn)
+		Cache = this.GetComponent<Creature>();
+	}
+	
+	private void Update () 
+	{
+		if (Cache.Turn)
 		{
-			if(Input.GetKeyDown(KeyCode.UpArrow))	{this.GetComponent<Creature>().Move("Up");   Attack (transform.up);}
-			if(Input.GetKeyDown(KeyCode.DownArrow)) {this.GetComponent<Creature>().Move("Down"); Attack (-transform.up);}
-			if(Input.GetKeyDown(KeyCode.LeftArrow)) {this.GetComponent<Creature>().Move("Left"); Attack (-transform.right);}
-			if(Input.GetKeyDown(KeyCode.RightArrow)){this.GetComponent<Creature>().Move("Right");Attack (transform.right);}
-			if(Input.GetKeyDown (KeyCode.A)) UseWeapon();
+			if(Input.GetKey (KeyCode.A))
+			{
+				if(Input.GetKeyDown(KeyCode.UpArrow)) ChangeFront(Vector3.up);
+				if(Input.GetKeyDown(KeyCode.DownArrow)) ChangeFront(Vector3.down);
+				if(Input.GetKeyDown(KeyCode.LeftArrow)) ChangeFront(Vector3.left);
+				if(Input.GetKeyDown(KeyCode.RightArrow)) ChangeFront(Vector3.right);
+				return;
+			}
 
-			if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.Space))
-			this.GetComponent<Creature>().Turn = false;
+			if (Input.GetKeyUp (KeyCode.A)) UseWeapon ();
+			if (Input.GetKeyDown (KeyCode.S)) UseVehicle();
+			if (Input.GetKeyDown (KeyCode.Space)) Idle ();
+			if(Input.GetKeyDown(KeyCode.UpArrow)) Attack(Vector3.up);
+			if(Input.GetKeyDown(KeyCode.DownArrow)) Attack(Vector3.down);
+			if(Input.GetKeyDown(KeyCode.LeftArrow)) Attack(Vector3.left);
+			if(Input.GetKeyDown(KeyCode.RightArrow)) Attack(Vector3.right);
+			
+			if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown (KeyCode.Space))
+				Cache.Turn = false;
 		}
 	}
-
-	void UseWeapon () 
+	
+	private void UseWeapon () 
 	{
-		this.GetComponent<Creature>().Use ();
+		Cache.Use ();
+	}
+	
+	private void Attack (Vector3 Direction)
+	{
+		Cache.MoveAttack (Direction);
+	}
+	
+	private void ChangeFront (Vector3 Direction) 
+	{
+		Cache.ModifyFront(Direction);
+	}
+	
+	private void UseVehicle ()
+	{
+		Cache.VehicleRequest();
 	}
 
-	void Attack (Vector3 Direction)
+	private void Idle ()
 	{
-		gameObject.GetComponent<Creature>().Attack (Direction);
+		Cache.Idle();
 	}
+	
 }

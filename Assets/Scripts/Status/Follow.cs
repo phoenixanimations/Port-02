@@ -1,46 +1,72 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Follow : Status {
+public class Follow : StatusFoundation
+{
+	//Front might be glitchy. Check it out. Change follow to drag have follow polymorph drag.  
+	public string Name;
+	private bool Loop;
 
-	protected override void Activate ()
+	protected override void Status ()
 	{
-		base.Activate ();
-		Hit = Physics2D.Raycast(transform.position,transform.right,(x * 2));
-		if (Hit.collider != null)
-		Hit.collider.transform.position = (transform.position + new Vector3 (x,0,0));
+		base.Status ();
+		RaycastFollow(Vector3.up);
+		RaycastFollow(Vector3.down);
+		RaycastFollow(Vector3.left);
+		RaycastFollow(Vector3.right);
+		UpRight();
+		UpLeft();
+		DownLeft();
+		DownRight();
+	} 
 
-		Hit = Physics2D.Raycast(transform.position,transform.up,(x * 2));
-		if (Hit.collider != null)
-		Hit.collider.transform.position = (transform.position + new Vector3 (0,y,0));
-
-		Hit = Physics2D.Raycast(transform.position,-transform.right,(x * 2));
-		if (Hit.collider != null)
-		Hit.collider.transform.position = (transform.position + new Vector3 (-x,0,0));
-
-		Hit = Physics2D.Raycast(transform.position,-transform.up,(x * 2));
-		if (Hit.collider != null)
-		Hit.collider.transform.position = (transform.position + new Vector3 (0,-y,0));
-
-		Diagonal (transform.up + transform.right);
-		Diagonal (transform.up + -transform.right);
-		Diagonal (-transform.up + -transform.right);
-		Diagonal (-transform.up + transform.right);
-
+	private void RaycastFollow (Vector3 Direction)
+	{
+			Hit = Physics2D.Raycast(transform.position,Direction,x * 2f);
+			if (Hit.collider != null && Hit.collider.name == Name)
+			{
+				Cache.Move(Direction);
+				Cache.ModifyFront(Direction);
+			}
 	}
 
-	private void Diagonal (Vector3 Direction)
+	private void UpRight ()
 	{
-//		HitArray = Physics2D.RaycastAll(transform.position,Direction,(x * 2));
-//		if (Hit.collider != null)
-//		{
-//			foreach (RaycastHit2D Collided in HitArray)
-//			{
-//
-//					if (Collided.transform.position == (gameObject.transform.position + (new Vector3 (x,y,0) * Direction)))
-//					Collided.collider.transform.position = (transform.position + (new Vector3 (x,y,0) * Direction));
-//			}
-//		}
+		Hit = Physics2D.Raycast(transform.position,Vector3.up + Vector3.right,x * 2f);
+		if (Hit.collider != null && Hit.collider.name == Name)
+		{
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.up) {Cache.Move(Vector3.right);Cache.ModifyFront(Vector3.right);}
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.right) {Cache.Move(Vector3.up);Cache.ModifyFront(Vector3.up);}
+		}
 	}
 
+	private void UpLeft ()
+	{
+		Hit = Physics2D.Raycast(transform.position,Vector3.up + Vector3.left,x * 2f);
+		if (Hit.collider != null && Hit.collider.name == Name)
+		{
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.up) {Cache.Move(Vector3.left);Cache.ModifyFront(Vector3.left);}
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.left) {Cache.Move(Vector3.up);Cache.ModifyFront(Vector3.up);}
+		}
+	}
+
+	private void DownRight ()
+	{
+		Hit = Physics2D.Raycast(transform.position,Vector3.down + Vector3.right,x * 2f);
+		if (Hit.collider != null && Hit.collider.name == Name)
+		{
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.down) {Cache.Move(Vector3.right);Cache.ModifyFront(Vector3.right);}
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.right) {Cache.Move(Vector3.down);Cache.ModifyFront(Vector3.down);}
+		}	
+	}
+
+	private void DownLeft ()
+	{
+		Hit = Physics2D.Raycast(transform.position,Vector3.down + Vector3.left,x * 2f);
+		if (Hit.collider != null && Hit.collider.name == Name)
+		{
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.down) {Cache.Move(Vector3.left);Cache.ModifyFront(Vector3.left);}
+			if (Hit.collider.GetComponent<Creature>().Front == Vector3.left) {Cache.Move(Vector3.down);Cache.ModifyFront(Vector3.down);}
+		}		
+	}
 }

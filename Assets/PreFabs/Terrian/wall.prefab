@@ -10,8 +10,7 @@ GameObject:
   - 4: {fileID: 434148}
   - 212: {fileID: 21293848}
   - 61: {fileID: 6198660}
-  - 50: {fileID: 5091356}
-  - 114: {fileID: 11473226}
+  - 114: {fileID: 11472888}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -31,22 +30,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5091356
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157574}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6198660
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -60,7 +43,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .5, y: .5}
---- !u!114 &11473226
+--- !u!114 &11472888
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -68,13 +51,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 157574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78ee55f192f44ab4b7347466fcef0cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 75ac0e2e463804c1c8a140f22967297e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turn: 0
-  Player: 0
   Health: 0
   Damage: 0
+  Player: 0
+  Turn: 0
+  Type: 
+  State: 
 --- !u!212 &21293848
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -107,7 +92,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157574}
