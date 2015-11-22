@@ -15,6 +15,7 @@ public class CreatureFoundation : Movement
 	protected Type Helmet;
 	protected Type Chest;
 	protected Type Legs;
-	protected Type DNA;
 	protected bool EnableState;
+
+
 }
