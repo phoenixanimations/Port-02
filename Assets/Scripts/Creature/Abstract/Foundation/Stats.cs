@@ -5,28 +5,87 @@ using System.Collections.Generic;
 
 public class Stats : BasicTile
 {
-	public int Health;
+	
+
+	public string Name;
+	public string Description;
+	public enum Assign_Class {Melee, Magic, Archery};
+	public Assign_Class Class {get; set;}	
+	public enum Assign_Subclass {Arrow, Bolt};
+	public Assign_Subclass Subclass {get; set;}
+	public int ID;
+	public float Hitpoints;
+	public float Melee_Damage;
+	public float Magic_Damage;
+	public float Archery_Damage;
+	public float Evade;
+	public float Accuracy;
+	public float Defect_Chance;
+
 	public int Damage;
-	protected float Eye;
-	protected float Ear;
-	protected float Nose;
 
 	protected List<int> ListHealth = new List<int>();
 	protected List<int> ListDamage = new List<int>();
 	
 	protected int CalculateList (List<int> IntArray)
 	{
+
 		int Total = 0;
 		for (int i = 0; i < IntArray.Count; i++) Total += IntArray[i];
 		return Total;
 	}
 
+	public float TierArray (float TierNumber) 
+	{
+		float lastdigit = (TierNumber % 10);
+		float firstdigit =	TierNumber * .1f;
+		if (TierNumber < 10 && TierNumber > 0)
+			firstdigit = 0;
+		if (TierNumber < 1)
+		{
+			if (TierNumber == 0)
+				return 10;
+			if (TierNumber == -1 || TierNumber == -2)
+				return 9;
+			if (TierNumber == -3 || TierNumber == -4)
+				return 8;
+			if (TierNumber == -5 || TierNumber == -6)
+				return 7;
+			if (TierNumber == -7 || TierNumber == -8)
+				return 6;
+			if (TierNumber == -9 || TierNumber == -10)
+				return 5;
+			if (TierNumber <= -11 && TierNumber > -15)
+				return 4;
+			if (TierNumber <= -15 && TierNumber > -19)
+				return 3;
+			if (TierNumber <= -19 && TierNumber > -25)
+				return 2;
+			if (TierNumber <= -25 && TierNumber > -35)
+				return 1;
+			if (TierNumber <= -35)
+				return 0;	
+		}
+		return (10 + lastdigit) * (Mathf.Pow(2,Mathf.Floor(firstdigit)));
+	}
+
+
+
 	public void AddDamage    (int DamageAmount)  {Damage += DamageAmount;}
 	public void RemoveDamage (int DamageAmount)  {Damage -= DamageAmount;}
-	public void AddHealth    (int HealthAmount)  {Health += HealthAmount;}
-	public void RemoveHealth (int HealthAmount)  {Health -= HealthAmount;}
+	public void AddHealth    (int HealthAmount)  {Hitpoints += HealthAmount;}
+	public void RemoveHealth (int HealthAmount)  {Hitpoints -= HealthAmount;}
 }
 
+
+
+/*
+
+Accuracy = TierArray(Class_Level);
+Evade = TierArray(Enemy.Class_Level) + Primary.Evade + Secondary.Evade + Armor.Evade; 
+Primary_Accuracy = 0.5 * (Accuracy + Primary.Accuracy + Armor.Accuracy) / Enemy.Evade
+Secondary_Accuracy = 0.5 * (Accuracy + Secondary.Accuracy + Armor.Accuracy) / Enemy.Evade
+*/
 /*
  **********PLAYER**********
  * String Name;

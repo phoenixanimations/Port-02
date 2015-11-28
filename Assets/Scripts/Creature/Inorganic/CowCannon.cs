@@ -11,7 +11,7 @@ public class CowCannon : Creature
 	{
 		base.Start ();
 		Type = "Vehicle";
-		Health = 5;
+		Hitpoints = 5;
 	}
 
 	public void VehicleMessage (GameObject creature)

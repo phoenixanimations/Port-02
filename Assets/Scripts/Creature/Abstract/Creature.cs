@@ -8,7 +8,7 @@ public class Creature : CreatureMethods
 	public override void Dead ()
 	{
 		base.Dead ();
-		if (Health < 1) 
+		if (Hitpoints < 1) 
 		{
 			if (!Player) GameManager.crystal.Remove(this);
 			if (Player) GameManager.castles.Remove (this);

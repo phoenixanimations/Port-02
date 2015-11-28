@@ -4,7 +4,6 @@ using System.Collections;
 
 public class ItemFoundation : Movement
 {
-	public string Name;
 	protected Creature Cache;
 
 	protected override void Start ()

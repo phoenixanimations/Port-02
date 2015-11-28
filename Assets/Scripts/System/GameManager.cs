@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 		AI = crystal;
 		Player = castles;
 
+
 		if (vietnam == 0) {castles[empathy].Status();}
 		if (vietnam == 1 && castles[empathy].Turn) return;
 		if (vietnam == 2) {castles[empathy].CleanUpStatus();}
@@ -30,8 +31,7 @@ public class GameManager : MonoBehaviour
 			castles[empathy].Turn = true;
 			vietnam = 0;
 			return;
-		}
-
+		}		
 		for (int i = castles.Count - 1; i > -1; i--)
 		{
 			castles[i].Dead();

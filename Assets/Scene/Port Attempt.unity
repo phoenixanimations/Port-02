@@ -912,7 +912,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d8b9cce120b488a9010c92c0055dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Name: 
+  Description: 
+  ID: 0
+  Hitpoints: 0
+  Melee_Damage: 0
+  Magic_Damage: 0
+  Archery_Damage: 0
+  Evade: 0
+  Accuracy: 0
+  Defect_Chance: 0
   Damage: 0
   Player: 1
   Turn: 0

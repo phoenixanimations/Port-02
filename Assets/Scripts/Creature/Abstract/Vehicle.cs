@@ -11,7 +11,7 @@ public class Vehicle : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-		Health = 2;
+		Hitpoints = 2;
 		Type = "Vehicle";
 	}
 

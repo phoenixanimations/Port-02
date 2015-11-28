@@ -6,7 +6,7 @@ public class Alien : Creature
 	protected override void Start ()
 	{
 		base.Start();
-		Health = 2;
+		Hitpoints = 2;
 //		Weapon = typeof(Duplicator);
 //		Weapon = typeof(FireInTheDisco);
 //		Weapon = typeof(Grapple);
