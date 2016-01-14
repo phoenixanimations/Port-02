@@ -18,6 +18,8 @@ public class CreatureFoundation : Movement
 	protected Assign_Subclass Subclass;
 	protected float PrimaryDamage;
 	protected float SecondaryDamage;
+	protected float PrimaryAccuracy;
+	protected float SecondaryAccuracy;
 
 	public string CreatureType;
 	public string State;

@@ -67,7 +67,7 @@ public class CreatureMethods : CreatureFoundation
 		EnableState = TrueFalse;
 	}
 
-	public void Equip (Type Equipment) 
+	public void Equip (Type Equipment, string PrimaryOrSecondary = "None") 
 	{
 		gameObject.AddComponent(Equipment);
 	}
@@ -81,11 +81,14 @@ public class CreatureMethods : CreatureFoundation
 		Hit = Physics2D.Raycast(transform.position, Front, x);
 		if (Hit.collider != null)
 			{
-				//Global Passives vs Attack Passives 
+				//Global Passives vs Attack Passives *
+//				Primary_Accuracy = ((TA[Class_Level] + Primary_Accuracy + Helmet_Evade + Chest_Evade + Legs_Evade) / (TA[Class_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
+/*			    Secondary_Accuracy = (TA[Class_Level] + Secondary_Accuracy + Helmet_Evade + Chest_Evade + Legs_Evade) / (TA[Class_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
+*/
+
+
 				
-				
-//Change this!!!!!!
-//				Hit.collider.GetComponent<Creature>().RemoveHealth(Damage);
+
 			}
 	}
 }

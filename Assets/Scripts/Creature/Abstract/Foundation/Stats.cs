@@ -13,12 +13,15 @@ public class Stats : BasicTile
 
 	public float Hitpoints;
 
+	protected float Melee_Resistance;
+	protected float Magic_Resistance;
+	protected float Archery_Resistance;
+
 	public float Melee_Damage;
 	public float Magic_Damage;
 	public float Archery_Damage;
 
 	protected float Evade;
-	protected float Accuracy;
 	protected float Defect_Chance;
 	protected float Passive_Chance;
 
@@ -37,6 +40,9 @@ public class Stats : BasicTile
 //	protected float Critical_Chance {get; private set;}
 //	protected float Critical_Damage {get; private set;}
 
+//!!!!!!!!!!!!!!!!!!them all Enums? !!!!!!!!!!!!!!!!!
+
+
 	public void ModifyHitpoints (float HitpointsAmount) //, bool SetHitpoints = false
 	{
 		Hitpoints += HitpointsAmount;
@@ -52,10 +58,6 @@ public class Stats : BasicTile
 	public void ModifyEvade (float ModifyEvadePercent)
 	{
 		Evade += ModifyEvadePercent;
-	}
-	public void ModifyAccuracy (float ModifyAccuracyPercent)
-	{
-		Accuracy += ModifyAccuracyPercent;
 	}
 
 	public void ModifyDefectChance (float DefectChanceAmount)
@@ -74,6 +76,12 @@ public class Stats : BasicTile
 		Critical_Damage += Critical_DamageAmount;
 	}
 
+	public void ModifyResistance (float ModifyMeleeResistance = 0f, float ModifyMagicResistance = 0f, float ModifyArcheryResistance = 0f)
+	{
+		Melee_Resistance += ModifyMeleeResistance;
+    	Magic_Resistance += ModifyMagicResistance;
+    	Archery_Resistance += ModifyArcheryResistance;
+	}
 }
 
 

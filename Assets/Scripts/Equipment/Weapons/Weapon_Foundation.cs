@@ -11,3 +11,7 @@ public class Weapon_Foundation : Equipment_Foundation
 
 	
 }
+
+
+//Make one function with enum support, so it's just ModifyStats(enum) 
+//Take a look at any weird code. 
