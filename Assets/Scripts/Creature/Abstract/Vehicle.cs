@@ -11,8 +11,8 @@ public class Vehicle : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-		Hitpoints = 2;
-		Type = "Vehicle";
+		ModifyHitpoints(2);
+		CreatureType = "Vehicle";
 	}
 
 	public void VehicleMessage (GameObject creature)

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System_Control;
 
 public class Raycast : Stats 
 {
@@ -14,5 +15,7 @@ public class Raycast : Stats
 		x = GetComponent<SpriteRenderer> ().bounds.size.x;
 		y = GetComponent<SpriteRenderer> ().bounds.size.y;
 		Physics2D.queriesStartInColliders = false;
+
 	}
+
 }

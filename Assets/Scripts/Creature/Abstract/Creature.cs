@@ -18,11 +18,16 @@ public class Creature : CreatureMethods
 
 	protected override void Start ()
 	{
-		base.Start ();
-		Type = "Creature";
+		CreatureType = "Creature";
 		EnableState = true;
 		if (!Player) GameManager.crystal.Add(this);
 		if (Player) GameManager.castles.Add (this);
 		if (Player) gameObject.AddComponent<Character_Controller>();
+		ModifyLevel(1,1,1,1);	
+
+		base.Start ();
+	
+
+
 	}
 }

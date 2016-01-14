@@ -6,7 +6,7 @@ public class Wall : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-		Hitpoints = 100;
+		ModifyLevel(HitpointsLevelAmount:100);
 	}
 
 	public override void AI ()

@@ -10,8 +10,8 @@ public class CowCannon : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-		Type = "Vehicle";
-		Hitpoints = 5;
+		CreatureType = "Vehicle";
+		ModifyLevel(HitpointsLevelAmount:5);
 	}
 
 	public void VehicleMessage (GameObject creature)

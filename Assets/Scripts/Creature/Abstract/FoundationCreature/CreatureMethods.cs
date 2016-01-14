@@ -52,7 +52,7 @@ public class CreatureMethods : CreatureFoundation
 		if (EnableState)
 		{
 			Hit = Physics2D.Raycast(transform.position,Front,x);
-			if (Hit.collider != null && Hit.collider.gameObject.GetComponent<Creature>().Type == "Vehicle")
+			if (Hit.collider != null && Hit.collider.gameObject.GetComponent<Creature>().CreatureType == "Vehicle")
 				Hit.collider.SendMessage("VehicleMessage", gameObject); //Possibly Cache.
 		}
 	}
@@ -81,7 +81,11 @@ public class CreatureMethods : CreatureFoundation
 		Hit = Physics2D.Raycast(transform.position, Front, x);
 		if (Hit.collider != null)
 			{
-				Hit.collider.GetComponent<Creature>().RemoveHealth(Damage);
+				//Global Passives vs Attack Passives 
+				
+				
+//Change this!!!!!!
+//				Hit.collider.GetComponent<Creature>().RemoveHealth(Damage);
 			}
 	}
 }

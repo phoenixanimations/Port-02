@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 			for (int i = crystal.Count - 1; i > -1; i--)
 			{
 				RememberMe = crystal[i];
-				if (crystal[i].Type == "Vehicle")
+				if (crystal[i].CreatureType == "Vehicle")
 				{
 					crystal.RemoveAt(i);
 					crystal.Insert(0,RememberMe);

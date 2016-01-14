@@ -2,79 +2,78 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+//using System_Control;
+//Change every space to a _
 public class Stats : BasicTile
 {
-	
-
 	public string Name;
 	public string Description;
-	public enum Assign_Class {Melee, Magic, Archery};
-	public Assign_Class Class {get; set;}	
-	public enum Assign_Subclass {Arrow, Bolt};
-	public Assign_Subclass Subclass {get; set;}
+	
 	public int ID;
+
 	public float Hitpoints;
+
 	public float Melee_Damage;
 	public float Magic_Damage;
 	public float Archery_Damage;
-	public float Evade;
-	public float Accuracy;
-	public float Defect_Chance;
 
-	public int Damage;
+	protected float Evade;
+	protected float Accuracy;
+	protected float Defect_Chance;
+	protected float Passive_Chance;
 
-	protected List<int> ListHealth = new List<int>();
-	protected List<int> ListDamage = new List<int>();
+	protected float Critical_Chance;
+	protected float Critical_Damage;
+
+//	protected float Melee_Damage {get; private set;}
+//	protected float Magic_Damage {get; private set;}
+//	protected float Archery_Damage {get; private set;}
+//
+//	protected float Evade {get; private set;}
+//	protected float Accuracy {get; private set;}
+//	protected float Defect_Chance {get; private set;}
+//	protected float Passive_Chance {get; private set;}
+//
+//	protected float Critical_Chance {get; private set;}
+//	protected float Critical_Damage {get; private set;}
+
+	public void ModifyHitpoints (float HitpointsAmount) //, bool SetHitpoints = false
+	{
+		Hitpoints += HitpointsAmount;
+	}
+
+	public void ModifyDamage (float ModifyMeleeDamage = 0f, float ModifyMagicDamage = 0f, float ModifyArcheryDamage = 0f)  
+	{
+			Melee_Damage += Mathf.Floor(ModifyMeleeDamage);
+			Magic_Damage +=  Mathf.Floor(ModifyMagicDamage);
+			Archery_Damage +=  Mathf.Floor(ModifyArcheryDamage);
+	}
+
+	public void ModifyEvade (float ModifyEvadePercent)
+	{
+		Evade += ModifyEvadePercent;
+	}
+	public void ModifyAccuracy (float ModifyAccuracyPercent)
+	{
+		Accuracy += ModifyAccuracyPercent;
+	}
+
+	public void ModifyDefectChance (float DefectChanceAmount)
+	{
+		DefectChanceAmount += Defect_Chance;
+	}
 	
-	protected int CalculateList (List<int> IntArray)
+	public void ModifyPassiveChance (float PassiveChanceAmount)
 	{
-
-		int Total = 0;
-		for (int i = 0; i < IntArray.Count; i++) Total += IntArray[i];
-		return Total;
+		Passive_Chance += PassiveChanceAmount;
 	}
 
-	public float TierArray (float TierNumber) 
+	public void ModifyCritical (float Critical_ChanceAmount, float Critical_DamageAmount)
 	{
-		float lastdigit = (TierNumber % 10);
-		float firstdigit =	TierNumber * .1f;
-		if (TierNumber < 10 && TierNumber > 0)
-			firstdigit = 0;
-		if (TierNumber < 1)
-		{
-			if (TierNumber == 0)
-				return 10;
-			if (TierNumber == -1 || TierNumber == -2)
-				return 9;
-			if (TierNumber == -3 || TierNumber == -4)
-				return 8;
-			if (TierNumber == -5 || TierNumber == -6)
-				return 7;
-			if (TierNumber == -7 || TierNumber == -8)
-				return 6;
-			if (TierNumber == -9 || TierNumber == -10)
-				return 5;
-			if (TierNumber <= -11 && TierNumber > -15)
-				return 4;
-			if (TierNumber <= -15 && TierNumber > -19)
-				return 3;
-			if (TierNumber <= -19 && TierNumber > -25)
-				return 2;
-			if (TierNumber <= -25 && TierNumber > -35)
-				return 1;
-			if (TierNumber <= -35)
-				return 0;	
-		}
-		return (10 + lastdigit) * (Mathf.Pow(2,Mathf.Floor(firstdigit)));
+		Critical_Chance += Critical_ChanceAmount;
+		Critical_Damage += Critical_DamageAmount;
 	}
 
-
-
-	public void AddDamage    (int DamageAmount)  {Damage += DamageAmount;}
-	public void RemoveDamage (int DamageAmount)  {Damage -= DamageAmount;}
-	public void AddHealth    (int HealthAmount)  {Hitpoints += HealthAmount;}
-	public void RemoveHealth (int HealthAmount)  {Hitpoints -= HealthAmount;}
 }
 
 
