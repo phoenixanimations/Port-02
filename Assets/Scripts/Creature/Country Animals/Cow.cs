@@ -6,7 +6,7 @@ public class Cow : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-		ModifyLevel(HitpointsLevelAmount:1);
+//		ModifyLevel(HitpointsLevelAmount:1);
 	}
 
 	public override void AI ()

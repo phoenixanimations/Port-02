@@ -5,13 +5,12 @@ using System_Control;
 public class Melee_Vanilla_One_Handed : Weapon_Foundation
 {
 
-protected override void Start ()
+	protected override void Awake ()
 	{
- 		ModifyDamage(ModifyMeleeDamage:1.5f * Tier.Formula(Equip_Level));
-		ModifyAccuracy(Tier.Formula(Equip_Level));
-		ModifyEvade(Tier.Formula(Equip_Level));
-		base.Start ();
-
+		base.Awake ();
+		Get_Stat(Stat.Melee_Damage,1.5f * Tier.Formula(Get_Stat(Stat.Equip_Level)));
+		Get_Stat(Stat.Accuracy,Tier.Formula(Get_Stat(Stat.Equip_Level)));
+		Get_Stat(Stat.Evade,0.5f * Tier.Formula(Get_Stat(Stat.Equip_Level)));
 	}
 
 }

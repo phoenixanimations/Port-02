@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System_Control;
 
 public class Vehicle : Creature 
 {
@@ -11,7 +12,7 @@ public class Vehicle : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-		ModifyHitpoints(2);
+		Get_Stat(Stat.Hitpoints,2f,true);
 		CreatureType = "Vehicle";
 	}
 

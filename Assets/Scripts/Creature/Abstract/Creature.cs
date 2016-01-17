@@ -2,13 +2,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System_Control;
 
 public class Creature : CreatureMethods 
 { 
 	public override void Dead ()
 	{
 		base.Dead ();
-		if (Hitpoints < 1) 
+		if (Get_Stat(Stat.Hitpoints) < 1) 
 		{
 			if (!Player) GameManager.crystal.Remove(this);
 			if (Player) GameManager.castles.Remove (this);
@@ -16,18 +17,24 @@ public class Creature : CreatureMethods
 		}
 	}
 
-	protected override void Start ()
+	protected override void Awake ()
 	{
+		base.Awake ();
 		CreatureType = "Creature";
 		EnableState = true;
 		if (!Player) GameManager.crystal.Add(this);
 		if (Player) GameManager.castles.Add (this);
 		if (Player) gameObject.AddComponent<Character_Controller>();
-		ModifyLevel(1,1,1,1);	
+		Get_Stat(Stat.Hitpoints_Level,1f,true);
+		Get_Stat(Stat.Melee_Level,1f,true);
+		Get_Stat(Stat.Magic_Level,1f,true);
+		Get_Stat(Stat.Archery_Level,1f,true);
 
+	}
+
+	protected override void Start ()
+	{
 		base.Start ();
-	
-
-
+		Get_Stat(Stat.Hitpoints,50 * Tier.Formula(Get_Stat(Stat.Hitpoints_Level)));
 	}
 }

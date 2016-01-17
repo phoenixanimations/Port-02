@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System_Control;
 public class CowCannon : Creature
 {
 	public GameObject Cow;
@@ -11,7 +11,7 @@ public class CowCannon : Creature
 	{
 		base.Start ();
 		CreatureType = "Vehicle";
-		ModifyLevel(HitpointsLevelAmount:5);
+		Get_Stat(Stat.Hitpoints,2f,true);
 	}
 
 	public void VehicleMessage (GameObject creature)

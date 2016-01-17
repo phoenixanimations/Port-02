@@ -2,7 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-//using System_Control;
+using System_Control;
+using System.Reflection;
+
 //Change every space to a _
 public class Stats : BasicTile
 {
@@ -11,76 +13,37 @@ public class Stats : BasicTile
 	
 	public int ID;
 
-	public float Hitpoints;
-
-	protected float Melee_Resistance;
-	protected float Magic_Resistance;
-	protected float Archery_Resistance;
-
-	public float Melee_Damage;
-	public float Magic_Damage;
-	public float Archery_Damage;
-
-	protected float Evade;
-	protected float Defect_Chance;
-	protected float Passive_Chance;
-
-	protected float Critical_Chance;
-	protected float Critical_Damage;
-
-//	protected float Melee_Damage {get; private set;}
-//	protected float Magic_Damage {get; private set;}
-//	protected float Archery_Damage {get; private set;}
-//
-//	protected float Evade {get; private set;}
-//	protected float Accuracy {get; private set;}
-//	protected float Defect_Chance {get; private set;}
-//	protected float Passive_Chance {get; private set;}
-//
-//	protected float Critical_Chance {get; private set;}
-//	protected float Critical_Damage {get; private set;}
-
-//!!!!!!!!!!!!!!!!!!them all Enums? !!!!!!!!!!!!!!!!!
-
-
-	public void ModifyHitpoints (float HitpointsAmount) //, bool SetHitpoints = false
+	protected Dictionary<string, float> Stat_Dictionary = new Dictionary<string, float>()
 	{
-		Hitpoints += HitpointsAmount;
-	}
+		{"Hitpoints",0},
+		{"Melee_Resistance",0}, {"Magic_Resistance",0}, {"Archery_Resistance",0},
+		{"Melee_Damage",0},		{"Magic_Damage",0},		{"Archery_Damage",0},
+		{"Accuracy",0},
+		{"Evade",0},
+		{"Defect_Chance",0},
+		{"Passive_Chance",0},
+		{"Critical_Chance",0},
+		{"Critical_Damage",0}
+	};
 
-	public void ModifyDamage (float ModifyMeleeDamage = 0f, float ModifyMagicDamage = 0f, float ModifyArcheryDamage = 0f)  
+	public void Get_Stat (Stat Change_Stat_Selected, float Amount, bool MakeNumberEqualToAmount = false)
 	{
-			Melee_Damage += Mathf.Floor(ModifyMeleeDamage);
-			Magic_Damage +=  Mathf.Floor(ModifyMagicDamage);
-			Archery_Damage +=  Mathf.Floor(ModifyArcheryDamage);
-	}
+		float TrueOrFalse;
+		if (!Stat_Dictionary.TryGetValue(Change_Stat_Selected.ToString(),out TrueOrFalse)) Debug.LogError("This Class doesn't have the variable you won't");
+		if (Stat_Dictionary.TryGetValue(Change_Stat_Selected.ToString(),out TrueOrFalse))
+		{
+			if (MakeNumberEqualToAmount)
+			{
+				Stat_Dictionary[Change_Stat_Selected.ToString()] = Amount;
+				return;
+			}
+		 Stat_Dictionary[Change_Stat_Selected.ToString()] += Amount;
+		}
+	}	
 
-	public void ModifyEvade (float ModifyEvadePercent)
+	public float Get_Stat (Stat Change_Stat_Selected)
 	{
-		Evade += ModifyEvadePercent;
-	}
-
-	public void ModifyDefectChance (float DefectChanceAmount)
-	{
-		DefectChanceAmount += Defect_Chance;
-	}
-	
-	public void ModifyPassiveChance (float PassiveChanceAmount)
-	{
-		Passive_Chance += PassiveChanceAmount;
-	}
-
-	public void ModifyCritical (float Critical_ChanceAmount, float Critical_DamageAmount)
-	{
-		Critical_Chance += Critical_ChanceAmount;
-		Critical_Damage += Critical_DamageAmount;
-	}
-
-	public void ModifyResistance (float ModifyMeleeResistance = 0f, float ModifyMagicResistance = 0f, float ModifyArcheryResistance = 0f)
-	{
-		Melee_Resistance += ModifyMeleeResistance;
-    	Magic_Resistance += ModifyMagicResistance;
-    	Archery_Resistance += ModifyArcheryResistance;
+		return Stat_Dictionary[Change_Stat_Selected.ToString()];
 	}
 }
 

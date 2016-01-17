@@ -4,12 +4,10 @@ using System_Control;
 
 public class Nude_Hand : Melee_Vanilla_One_Handed
 {
-
-protected override void Start ()
+protected override void Awake ()
 	{
-		ModifyDamage(Tier.Formula(Equip_Level * 2));
-		base.Start ();
-
+		base.Awake ();
+		Get_Stat(Stat.Melee_Damage,Tier.Formula(2f));
 	}
 
 }

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System_Control;
 
 public class Wall : Creature 
 {
 	protected override void Start ()
 	{
 		base.Start ();
-		ModifyLevel(HitpointsLevelAmount:100);
+		Get_Stat(Stat.Hitpoints,100f);
 	}
 
 	public override void AI ()

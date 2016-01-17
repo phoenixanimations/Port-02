@@ -6,7 +6,7 @@ public class Alien : Creature
 	protected override void Start ()
 	{
 		base.Start();
-		ModifyLevel(HitpointsLevelAmount:2);
+//		ModifyLevel(HitpointsLevelAmount:2);
 		//Hitpoints = 2;
 //		Weapon = typeof(Duplicator);
 //		Weapon = typeof(FireInTheDisco);

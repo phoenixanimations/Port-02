@@ -82,8 +82,8 @@ public class CreatureMethods : CreatureFoundation
 		if (Hit.collider != null)
 			{
 				//Global Passives vs Attack Passives *
-//				Primary_Accuracy = ((TA[Class_Level] + Primary_Accuracy + Helmet_Evade + Chest_Evade + Legs_Evade) / (TA[Class_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
-/*			    Secondary_Accuracy = (TA[Class_Level] + Secondary_Accuracy + Helmet_Evade + Chest_Evade + Legs_Evade) / (TA[Class_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
+//				Primary_Accuracy = ((Tier[Class_Level] + Primary_Accuracy + Helmet_Evade + Chest_Evade + Legs_Evade) / (TA[Class_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
+/*			    Secondary_Accuracy = (Tier[Class_Level] + Secondary_Accuracy + Helmet_Evade + Chest_Evade + Legs_Evade) / (TA[Class_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
 */
 
 

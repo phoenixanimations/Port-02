@@ -5,8 +5,12 @@ using System_Control;
 public class Equipment_Foundation : Raycast 
 {
 	protected Creature Cache;
-	protected float Equip_Level = 1f;
-	protected float Accuracy;
+
+	protected override void Awake ()
+	{
+		base.Awake ();
+		Stat_Dictionary.Add("Equip_Level",0f);
+	}
 
 	protected override void Start ()
 	{
@@ -15,14 +19,20 @@ public class Equipment_Foundation : Raycast
 		Cache.AddStatus += Status;
 		Cache.AddCleanUpStatus += CleanUpStatus;
 		
-		Cache.ModifyHitpoints(Hitpoints);
-		Cache.ModifyDamage (Melee_Damage, Magic_Damage, Archery_Damage);
-//		Cache.ModifyAccuracy(Accuracy);
-		Cache.ModifyEvade(Evade);
-		Cache.ModifyDefectChance(Defect_Chance);
-		Cache.ModifyPassiveChance(Passive_Chance);
-		Cache.ModifyCritical(Critical_Chance,Critical_Damage);
-		Cache.ModifyResistance(Melee_Resistance,Magic_Resistance,Archery_Resistance); 
+		Cache.Get_Stat(Stat.Hitpoints,				Get_Stat(Stat.Hitpoints));
+		Cache.Get_Stat(Stat.Melee_Damage,			Get_Stat(Stat.Melee_Damage));
+		Cache.Get_Stat(Stat.Magic_Damage,			Get_Stat(Stat.Magic_Damage));
+		Cache.Get_Stat(Stat.Archery_Damage,			Get_Stat(Stat.Archery_Damage));
+		Cache.Get_Stat(Stat.Critical_Damage,		Get_Stat(Stat.Critical_Damage));
+		Cache.Get_Stat(Stat.Critical_Chance,		Get_Stat(Stat.Critical_Chance));
+		Cache.Get_Stat(Stat.Accuracy,				Get_Stat(Stat.Accuracy));	
+		Cache.Get_Stat(Stat.Evade,					Get_Stat(Stat.Evade));
+		Cache.Get_Stat(Stat.Defect_Chance,			Get_Stat(Stat.Defect_Chance));
+		Cache.Get_Stat(Stat.Passive_Chance,			Get_Stat(Stat.Passive_Chance));
+		Cache.Get_Stat(Stat.Melee_Resistance,		Get_Stat(Stat.Melee_Resistance));
+		Cache.Get_Stat(Stat.Magic_Resistance,		Get_Stat(Stat.Magic_Resistance));
+		Cache.Get_Stat(Stat.Archery_Resistance,		Get_Stat(Stat.Archery_Resistance));
+	
 	}
 
 	protected virtual void Status (){}
@@ -31,29 +41,27 @@ public class Equipment_Foundation : Raycast
 
 	public virtual void Deactivate ()
 	{
-		Cache.ModifyHitpoints(-Hitpoints);
-		Cache.ModifyDamage (-Melee_Damage, -Magic_Damage, -Archery_Damage);
-//		Cache.ModifyAccuracy(-Accuracy);
-		Cache.ModifyEvade(-Evade);
-		Cache.ModifyDefectChance(-Defect_Chance);
-		Cache.ModifyPassiveChance(-Passive_Chance);
-		Cache.ModifyCritical(-Critical_Chance,-Critical_Damage);
-		Cache.ModifyResistance(-Melee_Resistance,-Magic_Resistance,-Archery_Resistance); 
-		
+		if (Cache.Get_Stat(Stat.Hitpoints) >= (Cache.Get_Stat(Stat.Hitpoints) - Get_Stat (Stat.Hitpoints)))
+		{
+			Cache.Get_Stat(Stat.Hitpoints, -Get_Stat(Stat.Hitpoints));
+		}
+		Cache.Get_Stat(Stat.Melee_Damage,			-Get_Stat(Stat.Melee_Damage));
+		Cache.Get_Stat(Stat.Magic_Damage,			-Get_Stat(Stat.Magic_Damage));
+		Cache.Get_Stat(Stat.Archery_Damage,			-Get_Stat(Stat.Archery_Damage));
+		Cache.Get_Stat(Stat.Critical_Damage,		-Get_Stat(Stat.Critical_Damage));
+		Cache.Get_Stat(Stat.Critical_Chance,		-Get_Stat(Stat.Critical_Chance));
+		Cache.Get_Stat(Stat.Accuracy,				-Get_Stat(Stat.Accuracy));	
+		Cache.Get_Stat(Stat.Evade,					-Get_Stat(Stat.Evade));
+		Cache.Get_Stat(Stat.Defect_Chance,			-Get_Stat(Stat.Defect_Chance));
+		Cache.Get_Stat(Stat.Passive_Chance,			-Get_Stat(Stat.Passive_Chance));
+		Cache.Get_Stat(Stat.Melee_Resistance,		-Get_Stat(Stat.Melee_Resistance));
+		Cache.Get_Stat(Stat.Magic_Resistance,		-Get_Stat(Stat.Magic_Resistance));
+		Cache.Get_Stat(Stat.Archery_Resistance,		-Get_Stat(Stat.Archery_Resistance));	
+
 		Cache.AddStatus -= Status;
 		Cache.AddCleanUpStatus -= CleanUpStatus;
 		Destroy(this);
 	}
-	
-	public void ModifyEquip_Level (float ModifyTierLevel) 
-	{
-		Equip_Level += ModifyTierLevel;
-	}
-	public void ModifyAccuracy (float ModifyAccuracyPercent)
-	{
-		Accuracy += ModifyAccuracyPercent;
-	}
-
 
 }
 
