@@ -27,10 +27,10 @@ public class CreatureFoundation : Movement
 	protected override void Awake ()
 	{
 		base.Awake ();
-		Stat_Dictionary.Add("Hitpoints_Level", 0f);
-		Stat_Dictionary.Add("Melee_Level",0f);
-		Stat_Dictionary.Add("Magic_Level",0f);
-		Stat_Dictionary.Add("Archery_Level",0f);
+		Stat_Dictionary.Add("Hitpoints_Level", 1f);
+		Stat_Dictionary.Add("Melee_Level",1f);
+		Stat_Dictionary.Add("Magic_Level",1f);
+		Stat_Dictionary.Add("Archery_Level",1f);
 		Stat_Dictionary.Add("PrimaryDamage",0f);
 		Stat_Dictionary.Add("SecondaryDamage",0f);
 		Stat_Dictionary.Add("PrimaryAccuracy",0f);

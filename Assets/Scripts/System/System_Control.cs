@@ -34,3 +34,5 @@ namespace System_Control
 	}
 }
 
+
+///Get_Stat (statname,amount,timestierarray?

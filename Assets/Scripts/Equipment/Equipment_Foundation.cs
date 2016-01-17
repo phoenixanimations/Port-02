@@ -9,7 +9,7 @@ public class Equipment_Foundation : Raycast
 	protected override void Awake ()
 	{
 		base.Awake ();
-		Stat_Dictionary.Add("Equip_Level",0f);
+		Stat_Dictionary.Add("Equip_Level",1f);
 	}
 
 	protected override void Start ()

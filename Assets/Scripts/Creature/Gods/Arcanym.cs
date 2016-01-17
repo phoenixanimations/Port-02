@@ -18,7 +18,17 @@ public class Arcanym : Creature
 		Equip(Helmet);
 		Equip(Chest);
 		Equip(Legs);
-//		
+
+	}
+
+protected override void Update ()
+	{
+		base.Update ();
+		Debug.Log("Hitpoints: " + Get_Stat(Stat.Hitpoints));
+		Debug.Log("Melee Damage: " + Get_Stat(Stat.Melee_Damage));
+		Debug.Log("Accuracy: " + Get_Stat(Stat.Accuracy));
+		Debug.Log("Evade: "+ Get_Stat(Stat.Evade));
+
 
 	}
 

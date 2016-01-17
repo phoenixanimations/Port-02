@@ -35,6 +35,6 @@ public class Creature : CreatureMethods
 	protected override void Start ()
 	{
 		base.Start ();
-		Get_Stat(Stat.Hitpoints,50 * Tier.Formula(Get_Stat(Stat.Hitpoints_Level)));
+		Get_Stat(Stat.Hitpoints,50,Stat.Hitpoints_Level);
 	}
 }
