@@ -69,7 +69,7 @@ public class CreatureMethods : CreatureFoundation
 
 	public void Equip (Type Equipment, string PrimaryOrSecondary = "None") 
 	{
-		gameObject.AddComponent(Equipment);
+		gameObject.AddComponent(Equipment).hideFlags = HideFlags.HideInInspector;
 	}
 
 	public virtual void Dead () {}

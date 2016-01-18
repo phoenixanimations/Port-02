@@ -429,6 +429,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1848192415}
   - 212: {fileID: 1848192414}
+  - 114: {fileID: 1848192416}
   m_Layer: 0
   m_Name: sand 4
   m_TagString: Untagged
@@ -478,6 +479,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1848192416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1848192413}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb9b49a36c7d417db0976a4226a1804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringToEdit: Click Me
+  Name: Data
+  _Name: 
 --- !u!1 &2059090653
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +562,7 @@ GameObject:
   - 212: {fileID: 2141664682}
   - 58: {fileID: 2141664684}
   - 114: {fileID: 2141664681}
+  - 114: {fileID: 2141664685}
   m_Layer: 8
   m_Name: player
   m_TagString: Untagged
@@ -628,3 +644,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &2141664685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141664680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Melee_Damage: 0
