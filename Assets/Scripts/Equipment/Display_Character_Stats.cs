@@ -13,6 +13,10 @@ public class Display_Character_Stats : MonoBehaviour
 	public float Melee_Damage;
 	public float Magic_Damage;
 	public float Archery_Damage;
+	[Header("Class Resistance")]
+	public float Melee_Resistance;
+	public float Magic_Resistance;
+	public float Archery_Resistance;
 
 	protected void Start ()
 	{
