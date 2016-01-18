@@ -11,6 +11,8 @@ public class Display_Character_Stats : MonoBehaviour
 	public float Hitpoints;
 	[Header("Class Damage")]
 	public float Melee_Damage;
+	public float Magic_Damage;
+	public float Archery_Damage;
 
 	protected void Start ()
 	{
@@ -26,6 +28,8 @@ public class Display_Character_Stats : MonoBehaviour
 		
 		
 	}
+
+
 
 // ID,
 //					  Hitpoints, 		    
