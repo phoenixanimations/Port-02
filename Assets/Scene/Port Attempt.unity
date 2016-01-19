@@ -562,7 +562,6 @@ GameObject:
   - 212: {fileID: 2141664682}
   - 58: {fileID: 2141664684}
   - 114: {fileID: 2141664681}
-  - 114: {fileID: 2141664685}
   m_Layer: 8
   m_Name: player
   m_TagString: Untagged
@@ -644,16 +643,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &2141664685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Melee_Damage: 0

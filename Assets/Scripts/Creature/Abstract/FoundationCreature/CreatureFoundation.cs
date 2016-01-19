@@ -39,6 +39,12 @@ public class CreatureFoundation : Movement
 	
 	}
 
+	protected override void Start ()
+	{
+		base.Start ();
+		gameObject.AddComponent<Display_Character_Stats>();
+	}
+
 	
 	public void ModifyClass (Assign_Class ChangePrimary = Assign_Class.None, Assign_Class ChangeSecondary = Assign_Class.None, Assign_Subclass ChangeSubclass = Assign_Subclass.None)
 	{
