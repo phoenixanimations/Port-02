@@ -12,22 +12,15 @@ public class Arcanym : Creature
 		Helmet = typeof(Nude_Helmet);
 		Chest = typeof(Nude_Chest);
 		Legs = typeof (Nude_Legs);
-
-		Equip(Primary_Weapon);
-		Equip(Secondary_Weapon);
+		Equip(Primary_Weapon,Assign_Hand.Primary);
+		Equip(Secondary_Weapon,Assign_Hand.Secondary);
 		Equip(Helmet);
 		Equip(Chest);
 		Equip(Legs);
-
+		
 	}
 
-protected override void Update ()
-	{
-		base.Update ();
-//		Debug.Log("Hitpoints: " + Get_Stat(Stat.Hitpoints));
-//		Debug.Log("Melee Damage: " + Get_Stat(Stat.Melee_Damage));
-//		Debug.Log("Accuracy: " + Get_Stat(Stat.Accuracy));
-//		Debug.Log("Evade: "+ Get_Stat(Stat.Evade));
-	}
+
+
 
 }

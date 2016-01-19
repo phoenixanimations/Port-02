@@ -25,11 +25,6 @@ public class Creature : CreatureMethods
 		if (!Player) GameManager.crystal.Add(this);
 		if (Player) GameManager.castles.Add (this);
 		if (Player) gameObject.AddComponent<Character_Controller>().hideFlags = HideFlags.HideInInspector;
-		Get_Stat(Stat.Hitpoints_Level,1f,true);
-		Get_Stat(Stat.Melee_Level,1f,true);
-		Get_Stat(Stat.Magic_Level,1f,true);
-		Get_Stat(Stat.Archery_Level,1f,true);
-
 	}
 
 	protected override void Start ()

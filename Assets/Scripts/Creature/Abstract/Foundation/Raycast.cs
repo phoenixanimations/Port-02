@@ -15,7 +15,6 @@ public class Raycast : Stats
 		x = GetComponent<SpriteRenderer> ().bounds.size.x;
 		y = GetComponent<SpriteRenderer> ().bounds.size.y;
 		Physics2D.queriesStartInColliders = false;
-
 	}
 
 }

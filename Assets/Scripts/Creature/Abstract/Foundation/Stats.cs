@@ -14,12 +14,10 @@ public class Stats : BasicTile
 	protected Dictionary<string, float> Stat_Dictionary = new Dictionary<string, float>()
 	{
 		{"Hitpoints",0},
+		{"Melee_Damage",0}, 	{"Magic_Damage",0}, 	{"Archery_Damage",0},
 		{"Melee_Resistance",0}, {"Magic_Resistance",0}, {"Archery_Resistance",0},
-		{"Melee_Damage",0},		{"Magic_Damage",0},		{"Archery_Damage",0},
 		{"Accuracy",0},
 		{"Evade",0},
-		{"Defect_Chance",0},
-		{"Passive_Chance",0},
 		{"Critical_Chance",0},
 		{"Critical_Damage",0}
 	};	
