@@ -2,15 +2,15 @@
 using System.Collections;
 using System_Control;
 
-public class Equipment_Foundation : Raycast 
+public class Equipment_Foundation : Stats 
 {
 	protected Creature Cache;
 	public Assign_Class Class {get; protected set;}
 	public Assign_Subclass Subclass {get; protected set;}
 
-	protected override void Awake ()
+	protected override void Assign_Stats ()
 	{
-		base.Awake ();
+		base.Assign_Stats ();
 		Stat_Dictionary.Add("Equip_Level",1f);
 		Stat_Dictionary.Add("Defect_Chance",1f);
 		Stat_Dictionary.Add("Passive_Chance",1f);
@@ -24,8 +24,6 @@ public class Equipment_Foundation : Raycast
 	{
 		base.Start ();
 		Cache = gameObject.GetComponent<Creature>();
-		Cache.AddStatus += Status;
-		Cache.AddCleanUpStatus += CleanUpStatus;
 		
 		Cache.Get_Stat(Stat.Hitpoints,				Get_Stat(Stat.Hitpoints));	
 		Cache.Get_Stat(Stat.Evade,					Get_Stat(Stat.Evade));
@@ -34,10 +32,6 @@ public class Equipment_Foundation : Raycast
 		Cache.Get_Stat(Stat.Archery_Resistance,		Get_Stat(Stat.Archery_Resistance));
 
 	}
-
-	protected virtual void Status (){}
-
-	protected virtual void CleanUpStatus (){}
 
 	public virtual void Deactivate ()
 	{
@@ -51,8 +45,6 @@ public class Equipment_Foundation : Raycast
 		Cache.Get_Stat(Stat.Magic_Resistance,		-Get_Stat(Stat.Magic_Resistance));
 		Cache.Get_Stat(Stat.Archery_Resistance,		-Get_Stat(Stat.Archery_Resistance));	
 
-		Cache.AddStatus -= Status;
-		Cache.AddCleanUpStatus -= CleanUpStatus;
 		Destroy(this);
 	}
 

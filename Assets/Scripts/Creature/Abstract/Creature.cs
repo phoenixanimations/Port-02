@@ -17,19 +17,19 @@ public class Creature : CreatureMethods
 		}
 	}
 
-	protected override void Awake ()
+	protected override void Assign_Stats ()
 	{
-		base.Awake ();
+		base.Assign_Stats ();
 		CreatureType = "Creature";
-		EnableState = true;
-		if (!Player) GameManager.crystal.Add(this);
-		if (Player) GameManager.castles.Add (this);
-		if (Player) gameObject.AddComponent<Character_Controller>().hideFlags = HideFlags.HideInInspector;
+		Get_Stat(Stat.Hitpoints,50,Stat.Hitpoints_Level);
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
-		Get_Stat(Stat.Hitpoints,50,Stat.Hitpoints_Level);
+		EnableState = true;
+		if (!Player) GameManager.crystal.Add(this);
+		if (Player) GameManager.castles.Add (this);
+		if (Player) gameObject.AddComponent<Character_Controller>().hideFlags = HideFlags.HideInInspector;
 	}
 }

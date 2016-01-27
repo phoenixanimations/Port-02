@@ -5,8 +5,16 @@ using System_Control;
 
 public class CreatureMethods : CreatureFoundation
 {
-	public event Delegate AddStatus = delegate {};
-	public event Delegate AddCleanUpStatus = delegate {};
+	public event Delegate Beginning_Of_Turn = delegate {};
+	
+//	public delegate Attack_Delegate (string Attack_Phase);
+
+//	public event Delegate Attack_Status  = delegate {};
+	
+	public event Delegate End_Of_Turn = delegate {};
+
+
+
 	public event Delegate AddUse = delegate {};
 
 	public override void Move (Vector3 Direction)
@@ -17,16 +25,19 @@ public class CreatureMethods : CreatureFoundation
 		base.Move (Direction);
 	}
 	
-	public void Status ()
-	{
-		AddStatus();
-	}
+	public void Status () 			   { Beginning_Of_Turn(); }
+	public void CleanUpStatus ()	   { End_Of_Turn(); }
 
-	public void CleanUpStatus ()
-	{
-		AddCleanUpStatus();
-	}
 
+
+//	public void Begin_Status () 	   { Attack_Begin(); }
+//	public void Miss_Status ()  	   { Attack_Miss(); }
+//	public void End_Status ()   	   { Attack_End(); }
+//
+//	public void Enemy_Begin_Status ()  { Enemy_Attack_Begin(); }
+//    public void Enemy_Miss_Status ()   { Enemy_Attack_Miss(); }
+//    public void Enemy_End_Status ()    { Enemy_Attack_End(); }
+	
 	public virtual void Use () 
 	{
 		State = "Use";
@@ -72,90 +83,64 @@ public class CreatureMethods : CreatureFoundation
 	{
 		gameObject.AddComponent(Equipment).hideFlags = HideFlags.HideInInspector;
 		Equipment_Foundation Equipped = gameObject.GetComponent(Equipment) as Equipment_Foundation;
+		Weapon_Foundation Weapon;
 		if (Equipped.Class != Assign_Class.None && Primary_Or_Secondary != Assign_Hand.None)
 		{
-			Get_Stat(
-				Primary_Or_Secondary.ToString() + "_Damage",
-				//+//
-				Equipped.Get_Stat(Equipped.Class.ToString() + "_Damage")
-			);
-			Get_Stat(
-				Primary_Or_Secondary.ToString() + "_Critical_Chance",
-				//+//
-				Equipped.Get_Stat(Stat.Critical_Chance)
-			);
-			Get_Stat(
-				Primary_Or_Secondary.ToString() + "_Accuracy",
-				//+//
-				Equipped.Get_Stat(Stat.Accuracy)
-			);
-
-			Get_Stat(
-				Primary_Or_Secondary.ToString() + "_Defect_Chance",
-				//+//
-				Equipped.Get_Stat(Stat.Defect_Chance)
-			);
-
-			Get_Stat(
-				Primary_Or_Secondary.ToString() + "_Passive_Chance",
-				//+//
-				Equipped.Get_Stat(Stat.Passive_Chance)
-			);
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Primary_Class = Equipped.Class;
-			if (Primary_Or_Secondary == Assign_Hand.Secondary) Secondary_Class = Equipped.Class;
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Primary_Subclass = Equipped.Subclass;
-			if (Primary_Or_Secondary == Assign_Hand.Secondary) Secondary_Subclass = Equipped.Subclass;
-		} 
-
-		if (Equipped.Subclass == Assign_Subclass.Armor)
-		{
-			if (Secondary_Subclass != Assign_Subclass.One_Handed && Primary_Class != Assign_Class.None)
-			{
-				Get_Stat(Stat.Primary_Damage,
-					//+//
-					Equipped.Get_Stat(Primary_Class.ToString() + "_Damage")
-				);
-			}
-			if (Secondary_Subclass == Assign_Subclass.One_Handed)
-			{
-				Get_Stat(Stat.Primary_Damage,
-					//+//
-					Equipped.Get_Stat(Equipped.Class.ToString() + "_Damage")//Divided by what?
-				);
-				Get_Stat(Stat.Secondary_Damage,
-					//+//
-					Equipped.Get_Stat(Equipped.Class.ToString() + "_Damage")//Divided by what?
-				);
-			}
-			//Crit chance modifer?
-
+			Weapon = gameObject.GetComponent(Equipment) as Weapon_Foundation;
+			if (Primary_Or_Secondary == Assign_Hand.Primary) Cache_Attack.Primary = Weapon;
+			if (Primary_Or_Secondary == Assign_Hand.Secondary) Cache_Attack.Secondary = Weapon;
 		}
-
 		
+		if (Equipped.Subclass == Assign_Subclass.Helmet)
+		{
+			Cache_Attack.Helmet = Equipped;
+		}
+	
+		if (Equipped.Subclass == Assign_Subclass.Chest)
+		{
+			Cache_Attack.Chest = Equipped;
+		}
+	
+		if (Equipped.Subclass == Assign_Subclass.Legs)
+		{
+			Cache_Attack.Legs = Equipped;
+		}
+			
+	}
 
+	public void Unequip ()
+	{
+		
 	}
 
 	public virtual void Dead () {}
 
 	public virtual void AI () {}
 	
-	private void Attack () 
+	private void Attack () //Make one attack that accepts Primary or Secondary. Make attack getcomponent?
 	{
-		Hit = Physics2D.Raycast(transform.position, Front, x);
- 
-		if (Hit.collider != null)
-			{
+	
+		
 
-//			Get_Stat(Stat.Primary_Accuracy,Tier.Formula())
-				//Global Passives vs Attack Passives *
-//				Primary_Accuracy = 50 * ((Tier[Player_Class_Level] + Primary_Accuracy + Helmet_Accuracy + Chest_Accuracy + Legs_Accuracy) / (TA[Enemy_(Player_Class)_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
-/*			    Secondary_Accuracy = 50 * (Tier[Player_Class_Level] + Secondary_Accuracy + Helmet_Accuracy + Chest_Accuracy + Legs_Accuracy) / (TA[Enemy_(Player_Class)_Level] + Primary_Evade + Secondary_Evade + Helmet_Evade + Chest_Evade + Legs_Evade))
-*/		
-//			Get_Stat(Stat.Primary_Accuracy) = Tier.Formula(Get_Stat.)
 
-//			Primary Damage = Equipment/2 level/2 
+	}
+	
+}
+
+//Activates minus the energy ***REDUCE energy cost*** activates check to make sure you have enough to minus. otherwise ignore.
+//
 //		Get_Stat(Stat.Critical_Damage,			Equipped.Get_Stat(Stat.Critical_Damage));
 
-			}
-	}
-}
+
+//Status
+//Cleanup Status
+
+//Inate 
+
+//pre roll Stats
+
+//Res calc
+
+//crit calc
+
+// hitpoinys

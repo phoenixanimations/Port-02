@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System_Control;
 
-public class Raycast : Stats 
+public class Raycast : BasicTile 
 {
 	protected float x, y;
 	protected RaycastHit2D Hit;

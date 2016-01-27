@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System_Control;
 
-public class Stats : BasicTile
+public class Stats : Raycast
 {
 	public string Name;
 	public string Description;
@@ -21,6 +21,14 @@ public class Stats : BasicTile
 		{"Critical_Chance",0},
 		{"Critical_Damage",0}
 	};	
+
+	protected virtual void Assign_Stats() {}
+
+	protected override void Start ()
+	{
+		base.Start ();
+		Assign_Stats();
+	}
 
     //****************************************//
    //****************************************//

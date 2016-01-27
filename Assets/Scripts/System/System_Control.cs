@@ -2,9 +2,10 @@
 using System.Collections;
 namespace System_Control
 {
-	public enum Assign_Hand {None, Primary, Secondary}
+	public enum Assign_Hand {None, Primary, Secondary};
 	public enum Assign_Class {None, Melee, Magic, Archery};
-	public enum Assign_Subclass {None, One_Handed, Two_Handed, Armor, Shield, Arrow, Bolt};
+	public enum Phase {Attack_Begin,Attack_Miss,Attack_End};
+	public enum Assign_Subclass {None, One_Handed, Two_Handed, Helmet, Chest, Legs, Shield, Arrow, Bolt};
 	public enum Stat {
 					  //Everyone
 					  Hitpoints, 		    
@@ -24,10 +25,12 @@ namespace System_Control
 					  Primary_Passive_Chance, 	 Secondary_Passive_Chance,
 					  Primary_Critical_Damage, 	 Secondary_Critical_Damage,
 					  Primary_Critical_Chance,   Secondary_Critical_Chance,
+					  Primary_Number_Of_Attacks, Secondary_Number_Of_Attacks,
+					  Energy,
 
-					  //Weapons
-					  Equip_Level
-			}
+					  //Weapon and or Equipment
+					  Equip_Level, Number_Of_Attacks
+			};
 		
 	class Tier
 	{

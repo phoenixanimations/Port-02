@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : Raycast
+public class Movement : Stats
 {
 	public Vector3 Front {get;private set;}
 	private bool AllowMove;

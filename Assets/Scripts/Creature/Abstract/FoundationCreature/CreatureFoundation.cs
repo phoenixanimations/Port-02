@@ -9,15 +9,16 @@ public class CreatureFoundation : Movement
 	public bool Player;
 	public bool Turn;
 
-	protected Assign_Class Primary_Class;
-	protected Assign_Class Secondary_Class;	
-	protected Assign_Subclass Primary_Subclass;
-	protected Assign_Subclass Secondary_Subclass;
-
+	public Assign_Class Primary_Class {protected set; get;}
+	public Assign_Class Secondary_Class {protected set; get;}	
+	public Assign_Subclass Primary_Subclass {protected set; get;}
+	public Assign_Subclass Secondary_Subclass {protected set; get;}
 	
 	public string CreatureType;
 	public string State;
 	public delegate void Delegate ();
+	
+	protected Attack Cache_Attack;
 	protected List<Type> Inventory = new List<Type>();
 	protected Type Primary_Weapon;
 	protected Type Secondary_Weapon;
@@ -26,9 +27,10 @@ public class CreatureFoundation : Movement
 	protected Type Legs;
 	protected bool EnableState;
 
-	protected override void Awake ()
+
+	protected override void Assign_Stats ()
 	{
-		base.Awake ();
+		base.Assign_Stats ();
 		Stat_Dictionary.Add("Hitpoints_Level", 1f);
 		Stat_Dictionary.Add("Melee_Level",1f);
 		Stat_Dictionary.Add("Magic_Level",1f);
@@ -43,18 +45,18 @@ public class CreatureFoundation : Movement
 		Stat_Dictionary.Add("Primary_Critical_Chance",0f);
 		Stat_Dictionary.Add("Secondary_Critical_Damage",0f);
 		Stat_Dictionary.Add("Secondary_Critical_Chance",0f);
-		
-		Stat_Dictionary.Add("Primary_Defect_Chance",0f);
-		Stat_Dictionary.Add("Primary_Passive_Chance",0f);
-		Stat_Dictionary.Add("Secondary_Defect_Chance",0f);
-		Stat_Dictionary.Add("Secondary_Passive_Chance",0f);
 
+		Stat_Dictionary.Add("Primary_Number_Of_Attacks",0f);
+		Stat_Dictionary.Add("Secondary_Number_Of_Attacks",0f);
+		Stat_Dictionary.Add("Energy", 0f);
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
 		gameObject.AddComponent<Display_Character_Stats>();
+		gameObject.AddComponent<Attack>();
+		Cache_Attack = GetComponent<Attack>();
 	}
 
 	
