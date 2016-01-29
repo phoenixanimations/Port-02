@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System_Control;
 
 public class Status_Foundation : Movement
 {
+	
 	protected Creature Cache;
+	public delegate void Attack_Delegate (Phase Set_Phase);
 	protected override void Start ()
 	{
-		base.Start ();
+		base.Start ();	
+		if (gameObject.GetComponent<Creature>() == null)
+		{
+			Debug.LogError("Attach Status to a Creature!");
+			return;
+		}
 		Cache = gameObject.GetComponent<Creature>();
+
 		Cache.Beginning_Of_Turn += Beginning_Of_Turn;
 		
 //		Cache.Attack_Begin += Attack_Begin;

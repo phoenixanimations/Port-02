@@ -5,7 +5,6 @@ using System_Control;
 public class Melee_Vanilla_One_Handed : Weapon_Foundation
 {
 
-	public Status_Foundation Passive;
 
 	protected override void Assign_Stats ()
 	{

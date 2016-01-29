@@ -19,13 +19,13 @@ namespace System_Control
 					  //Creatures
 					  Hitpoints_Level,
 				      Melee_Level,         		 Magic_Level,           		Archery_Level,
-					  Primary_Damage, 			 Secondary_Damage,
-					  Primary_Accuracy, 		 Secondary_Accuracy,
-					  Primary_Defect_Chance, 	 Secondary_Defect_Chance,
-					  Primary_Passive_Chance, 	 Secondary_Passive_Chance,
-					  Primary_Critical_Damage, 	 Secondary_Critical_Damage,
-					  Primary_Critical_Chance,   Secondary_Critical_Chance,
-					  Primary_Number_Of_Attacks, Secondary_Number_Of_Attacks,
+					  Primary_Damage, 			 Secondary_Damage,//DELETE
+					  Primary_Accuracy, 		 Secondary_Accuracy,//DELETE
+					  Primary_Defect_Chance, 	 Secondary_Defect_Chance,//DELETE
+					  Primary_Passive_Chance, 	 Secondary_Passive_Chance,//DELETE
+					  Primary_Critical_Damage, 	 Secondary_Critical_Damage,//DELETE
+					  Primary_Critical_Chance,   Secondary_Critical_Chance,//DELETE
+					  Primary_Number_Of_Attacks, Secondary_Number_Of_Attacks,//DELETE
 					  Energy,
 
 					  //Weapon and or Equipment
@@ -40,11 +40,6 @@ namespace System_Control
 		}
 	}
 }
-
-//Magic staff increases critical
-
-//Magic staff AOE
-
 
 //Sword Bow anything secondary is the ammo.
 //Bow canon. It's canon.

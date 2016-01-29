@@ -3,5 +3,9 @@ using System.Collections;
 
 public class Healing_Strike : Status_Foundation
  {
-
+	protected override void Assign_Stats ()
+	{
+		base.Assign_Stats ();
+		Name = "Healing Strike";	
+	}
 }

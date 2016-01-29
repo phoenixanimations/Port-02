@@ -6,27 +6,19 @@ using System_Control;
 
 public class CreatureFoundation : Movement
 {
-	public bool Player;
+	[HideInInspector]
 	public bool Turn;
-
-	public Assign_Class Primary_Class {protected set; get;}
-	public Assign_Class Secondary_Class {protected set; get;}	
-	public Assign_Subclass Primary_Subclass {protected set; get;}
-	public Assign_Subclass Secondary_Subclass {protected set; get;}
-	
-	public string CreatureType;
-	public string State;
+	public bool Player;
+	[HideInInspector]
+	public string CreatureType, State;
+	public GameObject Primary_Weapon;
+	public GameObject Secondary_Weapon;
+	public GameObject Helmet;
+	public GameObject Chest;
+	public GameObject Legs;
 	public delegate void Delegate ();
-	
-	protected Attack Cache_Attack;
-	protected List<Type> Inventory = new List<Type>();
-	protected Type Primary_Weapon;
-	protected Type Secondary_Weapon;
-	protected Type Helmet;
-	protected Type Chest;
-	protected Type Legs;
-	protected bool EnableState;
 
+	protected bool EnableState;	
 
 	protected override void Assign_Stats ()
 	{
@@ -56,16 +48,5 @@ public class CreatureFoundation : Movement
 		base.Start ();
 		gameObject.AddComponent<Display_Character_Stats>();
 		gameObject.AddComponent<Attack>();
-		Cache_Attack = GetComponent<Attack>();
-	}
-
-	
-	public void Modify_Class (Assign_Class ChangePrimary = Assign_Class.None, Assign_Class ChangeSecondary = Assign_Class.None, Assign_Subclass ChangeSubclass = Assign_Subclass.None)
-	{
-		if (ChangePrimary != Assign_Class.None) Primary_Class = ChangePrimary;
-		if (ChangeSecondary != Assign_Class.None) Secondary_Class = ChangeSecondary;
-		if (ChangeSubclass != Assign_Subclass.None) Primary_Subclass = ChangeSubclass;
-		if (ChangeSubclass != Assign_Subclass.None) Secondary_Subclass = ChangeSubclass;
-
 	}
 }

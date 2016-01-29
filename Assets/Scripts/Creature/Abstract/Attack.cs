@@ -18,26 +18,6 @@ public class Attack : Raycast
 		Cache = GetComponent<Creature>();
 	}
 
-	private void Passive (Assign_Hand Primary_Or_Secondary, string Attack_Phase) 
-	{
-		if (Attack_Phase == "Begin")
-		{
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Primary.Attack_Begin();
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Secondary.Attack_Begin();
-		}
-
-		if (Attack_Phase == "Miss")
-		{
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Primary.Attack_Miss();
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Secondary.Attack_Miss();
-		}
-
-		if (Attack_Phase == "End")
-		{
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Primary.Attack_End();
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Secondary.Attack_End();
-		}
-	}
 
 	public void Hit_Me_Baby (Assign_Hand Primary_Or_Secondary) //Assign Weapon; Look into prefabs.
 	{
@@ -57,7 +37,7 @@ public class Attack : Raycast
 			while (One_More_Time < How_Many_Times)
 			{
 //				Cache.Begin_Status();
-				Passive (Primary_Or_Secondary, "Begin");
+//				Passive (Primary_Or_Secondary, "Begin");
 //				Adversary.Enemy_Begin_Status();
 
 				How_Many_Times = Cache.Get_Stat(Primary_Or_Secondary_String + "_Number_Of_Attacks");
@@ -126,29 +106,29 @@ public class Attack : Raycast
 					
 					if (Primary_Or_Secondary == Assign_Hand.Primary)
 					{
-						if (Cache.Primary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
-						if (Cache.Primary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
-						if (Cache.Primary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
+//						if (Cache.Primary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
+//						if (Cache.Primary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
+//						if (Cache.Primary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
 					}
 					
 					if (Primary_Or_Secondary == Assign_Hand.Secondary)
 					{
-						if (Cache.Secondary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
-						if (Cache.Secondary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
-						if (Cache.Secondary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
+//						if (Cache.Secondary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
+//						if (Cache.Secondary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
+//						if (Cache.Secondary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
 					}
 				}
 				else
 				{
 //					Cache.Miss_Status();
-					Passive (Primary_Or_Secondary, "Miss");
+//					Passive (Primary_Or_Secondary, "Miss");
 //					Adversary.Enemy_Miss_Status();
 				}
 				One_More_Time++;
 			}
 		}
 //		Cache.End_Status();
-		Passive (Primary_Or_Secondary, "End");
+//		Passive (Primary_Or_Secondary, "End");
 //		Adversary.Enemy_End_Status();
 	}
 

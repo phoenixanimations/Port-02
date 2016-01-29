@@ -359,11 +359,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  ID: 0
-  Player: 0
   Turn: 0
+  Player: 0
   CreatureType: 
   State: 
+  Primary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
+  Secondary_Weapon: {fileID: 0}
+  Helmet: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
 --- !u!58 &1819462886
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -582,11 +586,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  ID: 0
-  Player: 1
   Turn: 0
+  Player: 1
   CreatureType: 
   State: 
+  Primary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
+  Secondary_Weapon: {fileID: 0}
+  Helmet: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
 --- !u!212 &2141664682
 SpriteRenderer:
   m_ObjectHideFlags: 0

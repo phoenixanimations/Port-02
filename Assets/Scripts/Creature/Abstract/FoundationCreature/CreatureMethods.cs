@@ -6,11 +6,7 @@ using System_Control;
 public class CreatureMethods : CreatureFoundation
 {
 	public event Delegate Beginning_Of_Turn = delegate {};
-	
-//	public delegate Attack_Delegate (string Attack_Phase);
-
-//	public event Delegate Attack_Status  = delegate {};
-	
+		
 	public event Delegate End_Of_Turn = delegate {};
 
 
@@ -79,33 +75,9 @@ public class CreatureMethods : CreatureFoundation
 		EnableState = TrueFalse;
 	}
 
-	public void Equip (Type Equipment, Assign_Hand Primary_Or_Secondary = Assign_Hand.None) 
+	public void Equip () 
 	{
-		gameObject.AddComponent(Equipment).hideFlags = HideFlags.HideInInspector;
-		Equipment_Foundation Equipped = gameObject.GetComponent(Equipment) as Equipment_Foundation;
-		Weapon_Foundation Weapon;
-		if (Equipped.Class != Assign_Class.None && Primary_Or_Secondary != Assign_Hand.None)
-		{
-			Weapon = gameObject.GetComponent(Equipment) as Weapon_Foundation;
-			if (Primary_Or_Secondary == Assign_Hand.Primary) Cache_Attack.Primary = Weapon;
-			if (Primary_Or_Secondary == Assign_Hand.Secondary) Cache_Attack.Secondary = Weapon;
-		}
 		
-		if (Equipped.Subclass == Assign_Subclass.Helmet)
-		{
-			Cache_Attack.Helmet = Equipped;
-		}
-	
-		if (Equipped.Subclass == Assign_Subclass.Chest)
-		{
-			Cache_Attack.Chest = Equipped;
-		}
-	
-		if (Equipped.Subclass == Assign_Subclass.Legs)
-		{
-			Cache_Attack.Legs = Equipped;
-		}
-			
 	}
 
 	public void Unequip ()
@@ -119,9 +91,6 @@ public class CreatureMethods : CreatureFoundation
 	
 	private void Attack () //Make one attack that accepts Primary or Secondary. Make attack getcomponent?
 	{
-	
-		
-
 
 	}
 	

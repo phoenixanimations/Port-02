@@ -8,8 +8,7 @@ public class Stats : Raycast
 {
 	public string Name;
 	public string Description;
-	
-	public int ID;
+//	public int ID;
 
 	protected Dictionary<string, float> Stat_Dictionary = new Dictionary<string, float>()
 	{
