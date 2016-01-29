@@ -9,10 +9,8 @@ public class Raycast : BasicTile
 	protected RaycastHit2D Hit;
 	protected RaycastHit2D[] HitArray;
 	
-	protected override void Start ()
+	protected void Raycast_Stats ()
 	{
-		base.Start ();
-		
 		if (GetComponent(typeof(SpriteRenderer)) != null)
 		{
 			x = GetComponent<SpriteRenderer> ().bounds.size.x;

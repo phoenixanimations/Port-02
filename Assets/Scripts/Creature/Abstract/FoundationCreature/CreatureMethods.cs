@@ -5,14 +5,6 @@ using System_Control;
 
 public class CreatureMethods : CreatureFoundation
 {
-	public event Delegate Beginning_Of_Turn = delegate {};
-		
-	public event Delegate End_Of_Turn = delegate {};
-
-
-
-	public event Delegate AddUse = delegate {};
-
 	public override void Move (Vector3 Direction)
 	{
 		AllowMovement(true);
@@ -21,26 +13,37 @@ public class CreatureMethods : CreatureFoundation
 		base.Move (Direction);
 	}
 	
-	public void Status () 			   { Beginning_Of_Turn(); }
-	public void CleanUpStatus ()	   { End_Of_Turn(); }
+	protected override void Start ()
+	{
+		base.Start ();
+		
+	}
 
-
-
-//	public void Begin_Status () 	   { Attack_Begin(); }
-//	public void Miss_Status ()  	   { Attack_Miss(); }
-//	public void End_Status ()   	   { Attack_End(); }
-//
-//	public void Enemy_Begin_Status ()  { Enemy_Attack_Begin(); }
-//    public void Enemy_Miss_Status ()   { Enemy_Attack_Miss(); }
-//    public void Enemy_End_Status ()    { Enemy_Attack_End(); }
+	public void Status () 			   
+	{
+		if (Primary_Weapon != null)   Primary_Weapon.Beginning_Of_Turn();
+		if (Secondary_Weapon != null) Secondary_Weapon.Beginning_Of_Turn();
+		if (Helmet != null)			  Helmet.Beginning_Of_Turn();
+		if (Chest != null) 			  Chest.Beginning_Of_Turn();
+		if (Legs != null) 	  		  Legs.Beginning_Of_Turn();
+	}	
+	
+	public void Clean_Up_Status ()	   
+	{
+		if (Primary_Weapon != null)   Primary_Weapon.End_Of_Turn();
+		if (Secondary_Weapon != null) Secondary_Weapon.End_Of_Turn();
+		if (Helmet != null)			  Helmet.End_Of_Turn();
+		if (Chest != null) 			  Chest.End_Of_Turn();
+		if (Legs != null) 	  		  Legs.End_Of_Turn();
+	}
 	
 	public virtual void Use () 
 	{
 		State = "Use";
-		if (EnableState)
-		{
-			AddUse();
-		}
+//		if (EnableState)
+//		{
+//			AddUse();
+//		}
 	}
 	
 	public void MoveAttack (Vector3 Direction) //change to attackmove
@@ -89,27 +92,8 @@ public class CreatureMethods : CreatureFoundation
 
 	public virtual void AI () {}
 	
-	private void Attack () //Make one attack that accepts Primary or Secondary. Make attack getcomponent?
+	private void Attack ()
 	{
 
-	}
-	
+	}	
 }
-
-//Activates minus the energy ***REDUCE energy cost*** activates check to make sure you have enough to minus. otherwise ignore.
-//
-//		Get_Stat(Stat.Critical_Damage,			Equipped.Get_Stat(Stat.Critical_Damage));
-
-
-//Status
-//Cleanup Status
-
-//Inate 
-
-//pre roll Stats
-
-//Res calc
-
-//crit calc
-
-// hitpoinys

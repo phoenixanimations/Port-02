@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3500f4a23f7d47c2ad2ce6f533d69e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: hi
+  Name: 
   Description: 
 --- !u!114 &11464210
 MonoBehaviour:
@@ -55,25 +55,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Melee Vanilla One Handed
   Description: Lame
-  Hitpoints: 0
-  Melee_Damage: 0
-  Magic_Damage: 0
-  Archery_Damage: 0
-  Critical_Damage: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0
-  Critical_Chance: 0
-  Accuracy: 0
-  Evade: 0
-  Defect_Chance: 2
-  Passive_Chance: 3
+  ID: 0
   Class: 1
   Subclass: 1
-  Status: {fileID: 11418022}
-  Assign_Stat: 0
-  Amount: 0
-  Set_Stat: 0
+  Status:
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -82,12 +68,24 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: Status.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: Status
       value: 
       objectReference: {fileID: 11418022}
     - target: {fileID: 0}
       propertyPath: Name
-      value: hi
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Status.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Status.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

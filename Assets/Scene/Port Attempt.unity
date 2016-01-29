@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1442650292}
   - 114: {fileID: 1442650291}
+  - 114: {fileID: 1442650293}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -270,6 +271,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &1442650293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442650290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731044a347ea646aebc39da8aa3da0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_List:
+  - {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
+  - {fileID: 198642, guid: 020cdcd27145845d584837601c0923ed, type: 2}
+  - {fileID: 192194, guid: 46e0d2021cca840d29dc135da917568a, type: 2}
+  - {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
+  - {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
+  - {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
 --- !u!1 &1632844382
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,17 +376,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086576dffbf0f4523a14be825a1502cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Patrick Bateman
+  Description: I want to touch your heart
   Turn: 0
   Player: 0
   CreatureType: 
   State: 
-  Primary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
-  Secondary_Weapon: {fileID: 0}
-  Helmet: {fileID: 0}
-  Chest: {fileID: 0}
-  Legs: {fileID: 0}
+  Equip_Primary_Weapon: {fileID: 198642, guid: 020cdcd27145845d584837601c0923ed, type: 2}
+  Equip_Secondary_Weapon: {fileID: 0}
+  Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
+  Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
+  Equip_Legs: {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
 --- !u!58 &1819462886
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -433,7 +452,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1848192415}
   - 212: {fileID: 1848192414}
-  - 114: {fileID: 1848192416}
   m_Layer: 0
   m_Name: sand 4
   m_TagString: Untagged
@@ -483,20 +501,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1848192416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1848192413}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecb9b49a36c7d417db0976a4226a1804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stringToEdit: Click Me
-  Name: Data
-  _Name: 
 --- !u!1 &2059090653
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +570,7 @@ GameObject:
   - 212: {fileID: 2141664682}
   - 58: {fileID: 2141664684}
   - 114: {fileID: 2141664681}
+  - 114: {fileID: 2141664685}
   m_Layer: 8
   m_Name: player
   m_TagString: Untagged
@@ -584,17 +589,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086576dffbf0f4523a14be825a1502cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Arcanym
+  Description: Full on nude
   Turn: 0
   Player: 1
   CreatureType: 
   State: 
-  Primary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
-  Secondary_Weapon: {fileID: 0}
-  Helmet: {fileID: 0}
-  Chest: {fileID: 0}
-  Legs: {fileID: 0}
+  Equip_Primary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
+  Equip_Secondary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc,
+    type: 2}
+  Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
+  Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
+  Equip_Legs: {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
 --- !u!212 &2141664682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -651,3 +657,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &2141664685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141664680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Primary_Damage: 0
+  Secondary_Damage: 0
+  Critical_Chance: 0
+  Critical_Damage: 0
+  Primary_Accuracy: 0
+  Secondary_Accuracy: 0
+  Melee_Resistance: 0
+  Magic_Resistance: 0
+  Archery_Resistance: 0

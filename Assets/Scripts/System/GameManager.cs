@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
 		if (vietnam == 0) {castles[empathy].Status();}
 		if (vietnam == 1 && castles[empathy].Turn) return;
-		if (vietnam == 2) {castles[empathy].CleanUpStatus();}
+		if (vietnam == 2) {castles[empathy].Clean_Up_Status();}
 		vietnam++;
 		if (vietnam < 3) return;
 		empathy++;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 			crystal[i].Turn = true;
 			crystal[i].Status();
 			crystal[i].AI();
-			crystal[i].CleanUpStatus();
+			crystal[i].Clean_Up_Status();
 		}	
 
 

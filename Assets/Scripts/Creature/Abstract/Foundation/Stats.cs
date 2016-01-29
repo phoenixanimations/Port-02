@@ -8,7 +8,6 @@ public class Stats : Raycast
 {
 	public string Name;
 	public string Description;
-//	public int ID;
 
 	protected Dictionary<string, float> Stat_Dictionary = new Dictionary<string, float>()
 	{
@@ -18,10 +17,18 @@ public class Stats : Raycast
 		{"Accuracy",0},
 		{"Evade",0},
 		{"Critical_Chance",0},
-		{"Critical_Damage",0}
+		{"Critical_Damage",0}, 
+		{"Energy", 0f}, 
+
+		{"Hitpoints_Level", 1f}, {"Melee_Level",1f},{"Magic_Level",1f},{"Archery_Level",1f}, 
+
+		{"Equip_Level",1f}
 	};	
 
-	protected virtual void Assign_Stats() {}
+	public virtual void Assign_Stats() 
+	{
+		Raycast_Stats();
+	}
 
 	protected override void Start ()
 	{

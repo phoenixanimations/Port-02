@@ -6,12 +6,12 @@ public class Movement : Stats
 	public Vector3 Front {get;private set;}
 	private bool AllowMove;
 
-	protected override void Start ()
+	public override void Assign_Stats ()
 	{
-		base.Start ();
+		base.Assign_Stats ();
 		Front = transform.right;
 	}
-	
+
 	protected void AllowMovement(bool TrueOrFalse)
 	{
 		AllowMove = TrueOrFalse;

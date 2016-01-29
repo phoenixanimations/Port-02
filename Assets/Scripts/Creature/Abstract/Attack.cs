@@ -19,13 +19,12 @@ public class Attack : Raycast
 	}
 
 
-	public void Hit_Me_Baby (Assign_Hand Primary_Or_Secondary) //Assign Weapon; Look into prefabs.
+	public void Hit_Me_Baby (Weapon_Foundation Primary_Or_Secondary) //Assign Weapon; Look into prefabs.
 	{
 		Creature Adversary;
-		string Primary_Or_Secondary_String = Primary_Or_Secondary.ToString();
 		float Accuracy = 0f;
-		float Resistance = 0f;
-		float Critical = 0f;
+//		float Resistance = 0f;
+//		float Critical = 0f;
 		float Damage = 0f;
 		float How_Many_Times = 0f;
 		float One_More_Time = 0f;
@@ -40,61 +39,61 @@ public class Attack : Raycast
 //				Passive (Primary_Or_Secondary, "Begin");
 //				Adversary.Enemy_Begin_Status();
 
-				How_Many_Times = Cache.Get_Stat(Primary_Or_Secondary_String + "_Number_Of_Attacks");
+//				How_Many_Times = Cache.Get_Stat(Primary_Or_Secondary_String + "_Number_Of_Attacks");
 
   //**************************************//
  //*********Calculate: Accuracy**********//
 //**************************************//
 	
-				Accuracy += (
-								50f 
-								* 
-								(
-									Tier.Formula(Cache.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Level")) 
-									+ 
-									Cache.Get_Stat(Stat.Primary_Accuracy)
-								)
-								/ 
-								(
-									(Adversary.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Level")) 
-									+ 
-									Cache.Get_Stat(Stat.Evade)
-								)
-							);
+//				Accuracy += (
+//								50f 
+//								* 
+//								(
+//									Tier.Formula(Cache.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Level")) 
+//									+ 
+//									Cache.Get_Stat(Stat.Primary_Accuracy)
+//								)
+//								/ 
+//								(
+//									(Adversary.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Level")) 
+//									+ 
+//									Cache.Get_Stat(Stat.Evade)
+//								)
+//							);
 	
   //**************************************//
  //******Calculate: Base Damage**********//
 //**************************************//
 	
-				Damage += Tier.Formula(Cache.Get_Stat(Primary_Or_Secondary_String + "_Level")) 
-						  + 
-						  Cache.Get_Stat(Primary_Or_Secondary_String + "_Damage");
+//				Damage += Tier.Formula(Cache.Get_Stat(Primary_Or_Secondary_String + "_Level")) 
+//						  + 
+//						  Cache.Get_Stat(Primary_Or_Secondary_String + "_Damage");
 	
   //**************************************//
  //*****Calculate: Critical Damage*******//
 //**************************************//
 
-				Critical += (
-								Damage 
-								* 
-								Cache.Get_Stat(Primary_Or_Secondary_String + "_Critical_Damage")
-							);
+//				Critical += (
+//								Damage 
+//								* 
+//								Cache.Get_Stat(Primary_Or_Secondary_String + "_Critical_Damage")
+//							);
 
   //**************************************//
  //*****Calculate: Resistance Damage*****//
 //**************************************//
 	
-				Resistance += (
-								Damage
-								*
-								(Cache.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Resistance") / 100)
-							  );
+//				Resistance += (
+//								Damage
+//								*
+//								(Cache.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Resistance") / 100)
+//							  );
 
   //**************************************//
  //*****Calculate: Total Damage**********//
 //**************************************//
 	
-				Damage += -Resistance + Critical;
+//				Damage += -Resistance + Critical;
 
   //**************************************//
  //**************Dice Roll***************//
@@ -104,19 +103,19 @@ public class Attack : Raycast
 				{					
 					Adversary.Get_Stat(Stat.Hitpoints,-Damage);	
 					
-					if (Primary_Or_Secondary == Assign_Hand.Primary)
-					{
-//						if (Cache.Primary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
-//						if (Cache.Primary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
-//						if (Cache.Primary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
-					}
+//					if (Primary_Or_Secondary == Assign_Hand.Primary)
+//					{
+////						if (Cache.Primary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
+////						if (Cache.Primary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
+////						if (Cache.Primary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
+//					}
 					
-					if (Primary_Or_Secondary == Assign_Hand.Secondary)
-					{
-//						if (Cache.Secondary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
-//						if (Cache.Secondary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
-//						if (Cache.Secondary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
-					}
+//					if (Primary_Or_Secondary == Assign_Hand.Secondary)
+//					{
+////						if (Cache.Secondary_Class == Assign_Class.Melee) Cache.Get_Stat(Stat.Energy,15);
+////						if (Cache.Secondary_Class == Assign_Class.Magic) Cache.Get_Stat(Stat.Energy,20);
+////						if (Cache.Secondary_Class == Assign_Class.Archery) Cache.Get_Stat(Stat.Energy,5);
+//					}
 				}
 				else
 				{

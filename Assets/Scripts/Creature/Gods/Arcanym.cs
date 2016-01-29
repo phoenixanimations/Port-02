@@ -8,12 +8,14 @@ public class Arcanym : Creature
 protected override void Start ()
 	{
 		base.Start ();
-		
-		Name = "Arcanym";
-		Debug.Log(Primary_Weapon.GetComponent<Weapon_Foundation>().Status.Name);
+//		Primary_Weapon.Assign_Stats();
+//		Secondary_Weapon.Assign_Stats();
+//		Helmet.Assign_Stats();
+//		Chest.Assign_Stats();
+//		Legs.Assign_Stats();
 	}
 
-	
+
 
 
 

@@ -38,10 +38,10 @@ public class Display_Character_Stats : MonoBehaviour
 		Hitpoints = Cache.Get_Stat(Stat.Hitpoints);	
 		Critical_Chance = Cache.Get_Stat(Stat.Critical_Chance);
 		Critical_Damage = Cache.Get_Stat(Stat.Critical_Damage);
-		Primary_Damage = Cache.Get_Stat(Stat.Primary_Damage);
-		Secondary_Damage = Cache.Get_Stat(Stat.Secondary_Damage);
-		Primary_Accuracy = Cache.Get_Stat(Stat.Primary_Accuracy);
-		Secondary_Damage = Cache.Get_Stat(Stat.Secondary_Accuracy);
+//		Primary_Damage = Cache.Get_Stat(Stat.Primary_Damage);
+//		Secondary_Damage = Cache.Get_Stat(Stat.Secondary_Damage);
+//		Primary_Accuracy = Cache.Get_Stat(Stat.Primary_Accuracy);
+//		Secondary_Damage = Cache.Get_Stat(Stat.Secondary_Accuracy);
 
 // 		Primary_Defect = Cache.Get_Stat(Stat.Primary_Defect_Chance);
 //		Secondary_Defect = Cache.Get_Stat(Stat.Secondary_Defect_Chance);

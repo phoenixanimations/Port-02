@@ -11,42 +11,27 @@ public class CreatureFoundation : Movement
 	public bool Player;
 	[HideInInspector]
 	public string CreatureType, State;
-	public GameObject Primary_Weapon;
-	public GameObject Secondary_Weapon;
-	public GameObject Helmet;
-	public GameObject Chest;
-	public GameObject Legs;
+	public GameObject Equip_Primary_Weapon;
+	public GameObject Equip_Secondary_Weapon;
+	public GameObject Equip_Helmet;
+	public GameObject Equip_Chest;
+	public GameObject Equip_Legs;
+
+	public Weapon_Foundation Primary_Weapon, Secondary_Weapon;
+	public Equipment_Foundation Helmet, Chest, Legs;
+
 	public delegate void Delegate ();
 
 	protected bool EnableState;	
 
-	protected override void Assign_Stats ()
-	{
-		base.Assign_Stats ();
-		Stat_Dictionary.Add("Hitpoints_Level", 1f);
-		Stat_Dictionary.Add("Melee_Level",1f);
-		Stat_Dictionary.Add("Magic_Level",1f);
-		Stat_Dictionary.Add("Archery_Level",1f);
-
-		Stat_Dictionary.Add("Primary_Damage",0f);
-		Stat_Dictionary.Add("Primary_Accuracy",0f);
-		Stat_Dictionary.Add("Secondary_Damage",0f);
-		Stat_Dictionary.Add("Secondary_Accuracy",0f);
-	
-		Stat_Dictionary.Add("Primary_Critical_Damage",0f);
-		Stat_Dictionary.Add("Primary_Critical_Chance",0f);
-		Stat_Dictionary.Add("Secondary_Critical_Damage",0f);
-		Stat_Dictionary.Add("Secondary_Critical_Chance",0f);
-
-		Stat_Dictionary.Add("Primary_Number_Of_Attacks",0f);
-		Stat_Dictionary.Add("Secondary_Number_Of_Attacks",0f);
-		Stat_Dictionary.Add("Energy", 0f);
-	}
-
 	protected override void Start ()
 	{
 		base.Start ();
-		gameObject.AddComponent<Display_Character_Stats>();
-		gameObject.AddComponent<Attack>();
+		gameObject.AddComponent<Attack>().hideFlags = HideFlags.HideInInspector;
+		if (Equip_Primary_Weapon != null) 	Primary_Weapon   = Equip_Primary_Weapon.GetComponent<Weapon_Foundation>();
+		if (Equip_Secondary_Weapon != null) Secondary_Weapon = Equip_Secondary_Weapon.GetComponent<Weapon_Foundation>();
+		if (Equip_Chest != null)  			Helmet 			 = Equip_Helmet.GetComponent<Equipment_Foundation>();
+		if (Equip_Helmet != null) 			Chest 		     = Equip_Chest.GetComponent<Equipment_Foundation>();
+		if (Equip_Legs != null)   			Legs 	  	 	 = Equip_Legs.GetComponent<Equipment_Foundation>();
 	}
 }

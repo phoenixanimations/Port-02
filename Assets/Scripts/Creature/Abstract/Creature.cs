@@ -17,7 +17,7 @@ public class Creature : CreatureMethods
 		}
 	}
 
-	protected override void Assign_Stats ()
+	public override void Assign_Stats ()
 	{
 		base.Assign_Stats ();
 		CreatureType = "Creature";

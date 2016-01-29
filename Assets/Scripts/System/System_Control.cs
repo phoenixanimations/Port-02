@@ -5,7 +5,7 @@ namespace System_Control
 	public enum Assign_Hand {None, Primary, Secondary};
 	public enum Assign_Class {None, Melee, Magic, Archery};
 	public enum Phase {Attack_Begin,Attack_Miss,Attack_End};
-	public enum Assign_Subclass {None, One_Handed, Two_Handed, Helmet, Chest, Legs, Shield, Arrow, Bolt};
+	public enum Assign_Subclass {None, One_Handed, Two_Handed, Shield, Helmet, Chest, Legs, Arrow, Bolt};
 	public enum Stat {
 					  //Everyone
 					  Hitpoints, 		    
@@ -13,23 +13,30 @@ namespace System_Control
 					  Melee_Resistance,    		  	Magic_Resistance,      	   Archery_Resistance,
 					  Critical_Chance,      	  	Critical_Damage, 
 					  Accuracy,             		Evade,
-					  Defect_Chance, 
-					  Passive_Chance,
 
 					  //Creatures
 					  Hitpoints_Level,
 				      Melee_Level,         		 Magic_Level,           		Archery_Level,
-					  Primary_Damage, 			 Secondary_Damage,//DELETE
-					  Primary_Accuracy, 		 Secondary_Accuracy,//DELETE
-					  Primary_Defect_Chance, 	 Secondary_Defect_Chance,//DELETE
-					  Primary_Passive_Chance, 	 Secondary_Passive_Chance,//DELETE
-					  Primary_Critical_Damage, 	 Secondary_Critical_Damage,//DELETE
-					  Primary_Critical_Chance,   Secondary_Critical_Chance,//DELETE
-					  Primary_Number_Of_Attacks, Secondary_Number_Of_Attacks,//DELETE
 					  Energy,
 
 					  //Weapon and or Equipment
 					  Equip_Level, Number_Of_Attacks
+			};
+	public enum ID
+			{
+					  //One_Handed
+					  Melee_Vanilla_One_Handed,
+					  //Two_Handed
+					  Melee_Vanilla_Two_Handed,
+					  //Shield
+					  Melee_Vanilla_Shield,
+					  //Helmet
+					  Nude_Helmet,
+					  //Chest
+					  Nude_Chest,
+					  //Legs
+					  Nude_Legs
+
 			};
 		
 	class Tier

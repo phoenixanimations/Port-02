@@ -5,7 +5,7 @@ using System_Control;
 public class Armor_Base : Equipment_Foundation
  {
 
-	protected override void Assign_Stats ()
+	public override void Assign_Stats ()
 	{
 		base.Assign_Stats ();
 		Get_Stat(Stat.Equip_Level,1f,true);

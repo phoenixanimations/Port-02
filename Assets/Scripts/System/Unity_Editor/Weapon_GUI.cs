@@ -7,27 +7,39 @@ using System_Control;
 
 public class Weapon_GUI : Editor 
 {
+	static bool Damage_Foldout = false;
 	static bool Resistance_Foldout = false;
-	static bool Random_Foldout = false;
 	static bool Assign_Stats_Foldout = false;
 	static bool Class_Foldout = false;
 
- 	SerializedProperty Serialized_Status;
+	Stat Assign_Stat;
+	float Amount;
+	bool Set_Stat;
 
+	Stat Add_Assign_Stat;
+	float Add_Amount;
+	bool Add_Set_Stat;
+
+
+ 	SerializedProperty 	Status;
+ 	SerializedProperty	Hitpoints, 		    
+					    Melee_Damage,         		Magic_Damage,         	   Archery_Damage,
+					    Melee_Resistance,    		Magic_Resistance,      	   Archery_Resistance,
+					    Critical_Chance,      	  	Critical_Damage, 
+					    Accuracy,             		Evade,
+						Equip_Level,       			Number_Of_Attacks;
 
 	public void OnEnable()
     {
- 		Serialized_Status = serializedObject.FindProperty("Status");
+		Status = serializedObject.FindProperty("Status");
     }
 
 	public override void OnInspectorGUI()
     {
+		serializedObject.Update();
 		Weapon_Foundation Weapon_Editor = (Weapon_Foundation)target;
-		Weapon_Foundation Get_Stats_Button = (Weapon_Foundation)target;
-
      	Weapon_Editor.Name = EditorGUILayout.TextField("Name", Weapon_Editor.Name);
 		Weapon_Editor.Description = EditorGUILayout.TextField("Description", Weapon_Editor.Description);
-
 		Class_Foldout = EditorGUILayout.Foldout(Class_Foldout, "Class");
 
 		if (Class_Foldout)
@@ -37,75 +49,82 @@ public class Weapon_GUI : Editor
 			Weapon_Editor.Subclass = (Assign_Subclass)EditorGUILayout.EnumPopup("Subclass",Weapon_Editor.Subclass);
 			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 		}
-		
-	    EditorGUILayout.LabelField("Damage", EditorStyles.boldLabel);
-		EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-		Weapon_Editor.Melee_Damage = EditorGUILayout.FloatField("Melee Damage", Weapon_Editor.Melee_Damage);
-		Weapon_Editor.Magic_Damage = EditorGUILayout.FloatField("Magic Damage", Weapon_Editor.Magic_Damage);
-		Weapon_Editor.Archery_Damage = EditorGUILayout.FloatField("Archery Damage", Weapon_Editor.Archery_Damage);
-		EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 
-		EditorGUILayout.LabelField("Critical", EditorStyles.boldLabel);
-		EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-		Weapon_Editor.Critical_Damage = EditorGUILayout.FloatField("Critical Damage", Weapon_Editor.Critical_Damage);
-		Weapon_Editor.Critical_Chance = EditorGUILayout.FloatField("Critical Chance", Weapon_Editor.Critical_Chance);
-		EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
-		
-		EditorGUILayout.LabelField("Accuracy", EditorStyles.boldLabel);
-		EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-		Weapon_Editor.Accuracy = EditorGUILayout.FloatField("Accuracy", Weapon_Editor.Accuracy);
-		Weapon_Editor.Evade = EditorGUILayout.FloatField("Evade", Weapon_Editor.Evade);
-		EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+		Damage_Foldout = EditorGUILayout.Foldout(Damage_Foldout, "Damage");
+
+		if (Damage_Foldout)
+		{
+		    EditorGUILayout.LabelField("Hitpoints", EditorStyles.boldLabel);
+			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+			EditorGUILayout.FloatField("Hitpoints", Weapon_Editor.Get_Stat(Stat.Hitpoints));
+			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+		    EditorGUILayout.LabelField("Damage", EditorStyles.boldLabel);
+			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+			EditorGUILayout.FloatField("Melee Damage", Weapon_Editor.Get_Stat(Stat.Melee_Damage));
+			EditorGUILayout.FloatField("Magic Damage", Weapon_Editor.Get_Stat(Stat.Magic_Damage));
+			EditorGUILayout.FloatField("Archery Damage", Weapon_Editor.Get_Stat(Stat.Archery_Damage));
+			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+	
+			EditorGUILayout.LabelField("Critical", EditorStyles.boldLabel);
+			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+			EditorGUILayout.FloatField("Critical Damage", Weapon_Editor.Get_Stat(Stat.Critical_Damage));
+			EditorGUILayout.FloatField("Critical Chance", Weapon_Editor.Get_Stat(Stat.Critical_Chance));
+			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+			
+			EditorGUILayout.LabelField("Accuracy", EditorStyles.boldLabel);
+			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+			EditorGUILayout.FloatField("Accuracy", Weapon_Editor.Get_Stat(Stat.Accuracy));
+			EditorGUILayout.FloatField("Evade", Weapon_Editor.Get_Stat(Stat.Evade));
+			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+		}
 
 		Resistance_Foldout = EditorGUILayout.Foldout( Resistance_Foldout, "Resistance" );
 			
 		if (Resistance_Foldout)
 		{
 			 EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			 Weapon_Editor.Melee_Resistance = EditorGUILayout.FloatField("Melee_Resistance", Weapon_Editor.Melee_Resistance);
-			 Weapon_Editor.Magic_Resistance = EditorGUILayout.FloatField("Magic_Resistance", Weapon_Editor.Magic_Resistance);
-			 Weapon_Editor.Archery_Resistance = EditorGUILayout.FloatField("Archery_Resistance", Weapon_Editor.Archery_Resistance);
+			 EditorGUILayout.FloatField("Melee Resistance", Weapon_Editor.Get_Stat(Stat.Melee_Resistance));
+			 EditorGUILayout.FloatField("Magic Resistance", Weapon_Editor.Get_Stat(Stat.Magic_Resistance));
+			 EditorGUILayout.FloatField("Archery Resistance", Weapon_Editor.Get_Stat(Stat.Archery_Resistance));
 		     EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
-		}
-
-		Random_Foldout = EditorGUILayout.Foldout( Random_Foldout, "Random" );
-
-		if (Random_Foldout)
-		{
-			 EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			 Weapon_Editor.Critical_Chance = EditorGUILayout.FloatField("Critical_Chance", Weapon_Editor.Critical_Chance);
-			 Weapon_Editor.Defect_Chance = EditorGUILayout.FloatField("Defect_Chance", Weapon_Editor.Defect_Chance);
-			 Weapon_Editor.Passive_Chance = EditorGUILayout.FloatField("Passive_Chance", Weapon_Editor.Passive_Chance);
-        	 EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 		}
 
 		Assign_Stats_Foldout = EditorGUILayout.Foldout(Assign_Stats_Foldout, "Change Stats");
 		if (Assign_Stats_Foldout)
 		{
+
 			EditorGUILayout.BeginHorizontal ();
-
-
-			if(GUILayout.Button("DO IT"))
+			EditorGUILayout.LabelField("Tier:", EditorStyles.boldLabel,GUILayout.Width(30f));
+			Assign_Stat = (Stat)EditorGUILayout.EnumPopup(Assign_Stat,GUILayout.Width(120f));
+			Amount = EditorGUILayout.FloatField(Amount,GUILayout.Width(40f));
+			Set_Stat = EditorGUILayout.Toggle(Set_Stat,GUILayout.Width(15f));
+			if(GUILayout.Button("DO IT",GUILayout.Width(40f),GUILayout.Height(15f)))
 	        {
-	
-	            Get_Stats_Button.Get_Stat(Get_Stats_Button.Assign_Stat,Get_Stats_Button.Amount,Get_Stats_Button.Set_Stat);
+				Weapon_Editor.Get_Stat(Assign_Stat,Amount,Tier.Formula(Weapon_Editor.Get_Stat(Stat.Equip_Level)),Set_Stat);
 	        }
+			if(GUILayout.Button("Mistakes were made",GUILayout.Width(120f),GUILayout.Height(15f)))
+	        {
+				Weapon_Editor.Get_Stat(Assign_Stat,0,true);
+	        }
+			EditorGUILayout.EndHorizontal ();
 			
-				
+			EditorGUILayout.BeginHorizontal ();
+			EditorGUILayout.LabelField("Add: ", EditorStyles.boldLabel, GUILayout.Width(30f));
+			Add_Assign_Stat = (Stat)EditorGUILayout.EnumPopup(Add_Assign_Stat,GUILayout.Width(120f));
+			Add_Amount = EditorGUILayout.FloatField(Add_Amount,GUILayout.Width(40f));
+			Add_Set_Stat = EditorGUILayout.Toggle(Add_Set_Stat,GUILayout.Width(15f));
+			if(GUILayout.Button("DO IT",GUILayout.Width(40f),GUILayout.Height(15f)))
+	        {
+				Weapon_Editor.Get_Stat(Add_Assign_Stat,Add_Amount,Add_Set_Stat);
+	        }
+			if(GUILayout.Button("Mistakes were made",GUILayout.Width(120f),GUILayout.Height(15f)))
+	        {
+				Weapon_Editor.Get_Stat(Add_Assign_Stat,0,true);
+	        }
 			EditorGUILayout.EndHorizontal ();
 		}
 
-		serializedObject.Update();
-		EditorGUILayout.PropertyField(Serialized_Status);
-		serializedObject.ApplyModifiedProperties();
-//		Weapon_Editor.Status = EditorGUILayout.ObjectField("Status", Weapon_Editor.Status, typeof(Status_Foundation), true) as Status_Foundation ;
-		
-
-	
-
+		EditorGUILayout.PropertyField(Status,true);
+		serializedObject.ApplyModifiedProperties();		
     }
 }
-
-
-
-//		DrawDefaultInspector();'
