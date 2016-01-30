@@ -10,7 +10,7 @@ public class Attack : Raycast
 	public Equipment_Foundation Helmet;
 	public Equipment_Foundation Chest;
 	public Equipment_Foundation Legs;
-	private Creature Creature;
+	private Creature Cache_Creature;
 
 	string Class;
 	float Class_Level = 0f;
@@ -30,12 +30,12 @@ public class Attack : Raycast
 	protected override void Start ()
 	{
 		base.Start ();
-		Creature = GetComponent<Creature>();
-		Primary = Creature.Primary_Weapon;
-		Secondary = Creature.Secondary_Weapon;
-		Helmet = Creature.Helmet;
-		Chest = Creature.Chest;
-		Legs = Creature.Legs;
+		Cache_Creature = gameObject.GetComponent<Creature>();
+		Primary = Cache_Creature.Primary_Weapon;
+		Secondary = Cache_Creature.Secondary_Weapon;
+		Helmet = Cache_Creature.Helmet;
+		Chest = Cache_Creature.Chest;
+		Legs = Cache_Creature.Legs;
 	}
 	
 	private void Passives (Equipment_Foundation Primary_Or_Secondary, Creature Adversary, Phase Attack_Phase)
@@ -49,18 +49,21 @@ public class Attack : Raycast
 
 	public void Hit_Me_Baby (Equipment_Foundation Primary_Or_Secondary) //Assign Weapon; Look into prefabs. 
 	{
-		Creature Adversary;
-		Adversary = Hit.collider.GetComponent<Creature>();
 
-		Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
-		Class_Level = Creature.Get_Stat(Primary_Or_Secondary.Class + "_Level");
-		Class = Primary_Or_Secondary.Class.ToString();
+
 		
-		Hit = Physics2D.Raycast(transform.position, Creature.Front, Creature.x * Creature.Get_Stat(Stat.Distance));
+		Hit = Physics2D.Raycast(transform.position, Cache_Creature.Front, Cache_Creature.x * Cache_Creature.Get_Stat(Stat.Distance));
 		if (Hit.collider != null)
 		{
+
+		Creature Adversary;
+		Adversary = Hit.collider.GetComponent<Creature>();
+		Class_Level = Cache_Creature.Get_Stat(Primary_Or_Secondary.Class.ToString() + "_Level");
+		Class = Primary_Or_Secondary.Class.ToString();
+
 			while (One_More_Time < How_Many_Times)
 			{
+				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
 				How_Many_Times = Primary_Or_Secondary.Get_Stat(Stat.Number_Of_Attacks);
 
   //**************************************//
@@ -85,13 +88,13 @@ public class Attack : Raycast
 				
 				if (Dual_Wield_Equipped ())
 				{
-					Damage += (Tier.Formula(Creature.Get_Stat(Class + "_Level")) * 0.5f) +
+					Damage += (Tier.Formula(Cache_Creature.Get_Stat(Class + "_Level")) * 0.5f) +
 							   Primary_Or_Secondary.Get_Stat(Class + "_Damage") + 
 							  ((Helmet.Get_Stat(Class + "_Damage") + Chest.Get_Stat(Class + "_Damage") + Legs.Get_Stat(Class + "_Damage")) * 0.5f );
 				}
 				if (!Dual_Wield_Equipped ()) 
 				{
-					Damage += (Tier.Formula(Creature.Get_Stat(Class + "_Level"))) +
+					Damage += (Tier.Formula(Cache_Creature.Get_Stat(Class + "_Level"))) +
 							   Primary_Or_Secondary.Get_Stat(Class + "_Damage") + 
 							  ((Helmet.Get_Stat(Class + "_Damage") + Chest.Get_Stat(Class + "_Damage") + Legs.Get_Stat(Class + "_Damage")));
 				}
@@ -103,7 +106,7 @@ public class Attack : Raycast
 				Critical += (
 								Damage 
 								* 
-								(Creature.Get_Stat(Stat.Critical_Damage) / 100)
+								(Cache_Creature.Get_Stat(Stat.Critical_Damage) / 100)
 							);
 
   //**************************************//
@@ -113,7 +116,7 @@ public class Attack : Raycast
 				Resistance += (
 								Damage
 								*
-								(Creature.Get_Stat(Class + "_Resistance") / 100)
+								(Cache_Creature.Get_Stat(Class + "_Resistance") / 100)
 							  );
 
   //**************************************//
@@ -130,17 +133,18 @@ public class Attack : Raycast
 				{	
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Hit);				
 					Adversary.Get_Stat(Stat.Hitpoints,-Damage);	
-					if (Primary_Or_Secondary.Class == Assign_Class.Melee) Creature.Get_Stat(Stat.Energy,15f);
-					if (Primary_Or_Secondary.Class == Assign_Class.Magic) Creature.Get_Stat(Stat.Energy,25f);
-					if (Primary_Or_Secondary.Class == Assign_Class.Archery) Creature.Get_Stat(Stat.Energy,5f);
+					if (Primary_Or_Secondary.Class == Assign_Class.Melee) Cache_Creature.Get_Stat(Stat.Energy,15f);
+					if (Primary_Or_Secondary.Class == Assign_Class.Magic) Cache_Creature.Get_Stat(Stat.Energy,25f);
+					if (Primary_Or_Secondary.Class == Assign_Class.Archery) Cache_Creature.Get_Stat(Stat.Energy,5f);
 				}
 				else
 				{
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Miss);				
 				}
 				One_More_Time++;
+				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_End);
 			}
 		}
-		Passives (Primary_Or_Secondary, Adversary, Phase.Attack_End);
+		
 	}
 }
