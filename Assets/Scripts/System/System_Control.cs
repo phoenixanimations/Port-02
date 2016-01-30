@@ -21,7 +21,7 @@ namespace System_Control
 					  Energy,
 
 					  //Weapon and or Equipment
-					  Equip_Level, Number_Of_Attacks
+					  Item_Tier, Number_Of_Attacks
 			};
 		
 	class Tier

@@ -28,7 +28,7 @@ public class Stats : Raycast
 
 		{"Hitpoints_Level", 1f}, {"Melee_Level",1f},{"Magic_Level",1f},{"Archery_Level",1f}, 
 
-		{"Equip_Level",1f}, {"Number_Of_Attacks", 1f}
+		{"Item_Tier",1f}, {"Number_Of_Attacks", 1f}
 	};	
 
 	public virtual void Assign_Stats() 
@@ -66,7 +66,7 @@ public class Stats : Raycast
 				return;
 			}
 			Stat_Dictionary[Change_Stat_Selected.ToString()] += Mathf.Floor(Amount);
-		}
+		 }
 	}
 
 	private void Get_Stat_Generic<T> (T Change_Stat_Selected, float Amount, float Times_Tier_Formula_Float, bool MakeNumberEqualToAmount = false)

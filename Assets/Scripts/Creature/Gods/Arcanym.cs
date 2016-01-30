@@ -6,6 +6,5 @@ public class Arcanym : Creature
 	protected override void Start ()
 	{
 		base.Start ();
-
 	}
 }

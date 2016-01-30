@@ -15,14 +15,14 @@ public class Weapon_GUI : Editor
 
 	Stat Assign_Stat;
 	float Amount;
-	bool Set_Stat;
+	bool Set_Stat = true;
 	bool Left, Upper_Left, Up,   Upper_Right, Right,
 		 	   Lower_Left, Down, Lower_Right, Center;
 	bool Diamond, Plus_Shaped, Square;
 
 	Stat Add_Assign_Stat;
 	float Add_Amount;
-	bool Add_Set_Stat;
+	bool Add_Set_Stat = true;
 
  	SerializedProperty 	Status;
 
@@ -128,7 +128,6 @@ public class Weapon_GUI : Editor
 
 		if (Assign_Stats_Foldout)
 		{
-
 			EditorGUILayout.BeginHorizontal ();
 			EditorGUILayout.LabelField("Tier:", EditorStyles.boldLabel,GUILayout.Width(30f));
 			Assign_Stat = (Stat)EditorGUILayout.EnumPopup(Assign_Stat,GUILayout.Width(120f));
@@ -136,7 +135,7 @@ public class Weapon_GUI : Editor
 			Set_Stat = EditorGUILayout.Toggle(Set_Stat,GUILayout.Width(15f));
 			if(GUILayout.Button("DO IT",GUILayout.Width(40f),GUILayout.Height(15f)))
 	        {
-				Weapon_Editor.Get_Stat(Assign_Stat,Amount,Tier.Formula(Weapon_Editor.Get_Stat(Stat.Equip_Level)),Set_Stat);
+				Weapon_Editor.Get_Stat(Assign_Stat,Amount,Weapon_Editor.Get_Stat(Stat.Item_Tier),Set_Stat);
 			}
 			if(GUILayout.Button("Mistakes were made",GUILayout.Width(120f),GUILayout.Height(15f)))
 	        {

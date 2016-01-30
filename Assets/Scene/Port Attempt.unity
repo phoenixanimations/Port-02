@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID_List:
   - {fileID: 0}
-  - {fileID: 198642, guid: 020cdcd27145845d584837601c0923ed, type: 2}
+  - {fileID: 0}
   - {fileID: 192194, guid: 46e0d2021cca840d29dc135da917568a, type: 2}
   - {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
   - {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
@@ -393,11 +393,12 @@ MonoBehaviour:
     - Critical_Chance
     - Critical_Damage
     - Energy
+    - Distance
     - Hitpoints_Level
     - Melee_Level
     - Magic_Level
     - Archery_Level
-    - Equip_Level
+    - Item_Tier
     - Number_Of_Attacks
     _values:
     - 0
@@ -412,6 +413,7 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+    - 1
     - 1
     - 1
     - 1
@@ -669,11 +671,12 @@ MonoBehaviour:
     - Critical_Chance
     - Critical_Damage
     - Energy
+    - Distance
     - Hitpoints_Level
     - Melee_Level
     - Magic_Level
     - Archery_Level
-    - Equip_Level
+    - Item_Tier
     - Number_Of_Attacks
     _values:
     - 0
@@ -694,6 +697,7 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 1
   Turn: 0
   Player: 1
   CreatureType: 
@@ -701,9 +705,9 @@ MonoBehaviour:
   Equip_Primary_Weapon: {fileID: 188600, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
   Equip_Secondary_Weapon: {fileID: 188600, guid: 61666e0a5968b4e7bae004a6087746bc,
     type: 2}
-  Equip_Helmet: {fileID: 0}
-  Equip_Chest: {fileID: 0}
-  Equip_Legs: {fileID: 0}
+  Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
+  Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
+  Equip_Legs: {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
   Helmet: {fileID: 0}
