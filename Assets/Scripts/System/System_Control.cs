@@ -32,8 +32,3 @@ namespace System_Control
 		}
 	}
 }
-
-//Sword Bow anything secondary is the ammo.
-//Bow canon. It's canon.
-
-//Bow shield shield + accuracy bow any higher % accuracy is an attack
