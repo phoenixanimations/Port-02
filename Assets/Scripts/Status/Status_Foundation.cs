@@ -13,6 +13,7 @@ public class Status_Foundation : Movement
 		Physics2D.queriesStartInColliders = false;
 		Creature = Equipped_Creature;
 	}
+
 	public virtual void Beginning_Of_Turn () {}
 	public virtual void Attack_Status (Phase Activate_On_What_Phase) {}
 	public virtual void End_Of_Turn () {}

@@ -21,6 +21,12 @@ public class Creature : CreatureMethods
 	{
 		base.Assign_Stats ();
 		CreatureType = "Creature";
+		if (Primary_Weapon != null) 	Get_Stat(Stat.Hitpoints,Primary_Weapon.Get_Stat(Stat.Hitpoints));
+		if (Secondary_Weapon != null)   Get_Stat(Stat.Hitpoints,Secondary_Weapon.Get_Stat(Stat.Hitpoints));
+		if (Helmet != null)			 	Get_Stat(Stat.Hitpoints,Helmet.Get_Stat(Stat.Hitpoints));
+		if (Chest != null) 				Get_Stat(Stat.Hitpoints,Chest.Get_Stat(Stat.Hitpoints));
+		if (Legs != null) 				Get_Stat(Stat.Hitpoints,Legs.Get_Stat(Stat.Hitpoints));
+
 		Get_Stat(Stat.Hitpoints,50,Stat.Hitpoints_Level);
 		Get_Stat(Stat.Melee_Damage,1,Stat.Melee_Level);
 		Get_Stat(Stat.Magic_Damage,1,Stat.Magic_Level);

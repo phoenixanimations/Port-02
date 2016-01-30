@@ -31,10 +31,7 @@ public class CreatureMethods : CreatureFoundation
 	public virtual void Use () 
 	{
 		State = "Use";
-//		if (EnableState)
-//		{
-//			AddUse();
-//		}
+		Attack ();
 	}
 	
 	public void MoveAttack (Vector3 Direction) //change to attackmove
@@ -85,7 +82,9 @@ public class CreatureMethods : CreatureFoundation
 	
 	public void Attack ()
 	{
-//		Attack_Cache
+		State = "Attack";
+		Attack_Cache.Hit_Me_Baby(Primary_Weapon);
+		Attack_Cache.Hit_Me_Baby(Secondary_Weapon);
 	}	
 	
 	public void Counter_Attack(Phase During_Which_Phase)

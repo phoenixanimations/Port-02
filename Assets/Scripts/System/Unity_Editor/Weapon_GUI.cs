@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System_Control;
 
-[CustomEditor(typeof(Weapon_Foundation))]
+[CustomEditor(typeof(Equipment_Foundation))]
 
 public class Weapon_GUI : Editor 
 {
@@ -16,6 +16,9 @@ public class Weapon_GUI : Editor
 	Stat Assign_Stat;
 	float Amount;
 	bool Set_Stat;
+	bool Left, Upper_Left, Up,   Upper_Right, Right,
+		 	   Lower_Left, Down, Lower_Right, Center;
+	bool Diamond, Plus_Shaped, Square;
 
 	Stat Add_Assign_Stat;
 	float Add_Amount;
@@ -32,7 +35,7 @@ public class Weapon_GUI : Editor
     {
 		GUI.changed = false;
 		serializedObject.Update();
-		Weapon_Foundation Weapon_Editor = (Weapon_Foundation)target;
+		Equipment_Foundation Weapon_Editor = (Equipment_Foundation)target;
      	Weapon_Editor.Name = EditorGUILayout.TextField("Name", Weapon_Editor.Name);
 		Weapon_Editor.Description = EditorGUILayout.TextField("Description", Weapon_Editor.Description);
 		
@@ -51,8 +54,31 @@ public class Weapon_GUI : Editor
 		if (Config_Foldout)
 		{
 			EditorGUILayout.FloatField("Numer of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
-			
+			EditorGUILayout.FloatField("Distance", Weapon_Editor.Get_Stat(Stat.Distance));
 
+			EditorGUILayout.BeginHorizontal ();
+			Upper_Left = EditorGUILayout.Toggle(Upper_Left,GUILayout.Width(15f));
+			Up = EditorGUILayout.Toggle(Up,GUILayout.Width(15f));
+			Upper_Right = EditorGUILayout.Toggle(Upper_Right,GUILayout.Width(124f));
+			Diamond = EditorGUILayout.Toggle(Diamond,GUILayout.Width(15f));
+			EditorGUILayout.LabelField("Diamond", GUILayout.Width(60f));
+			EditorGUILayout.EndHorizontal ();
+
+			EditorGUILayout.BeginHorizontal ();
+			Left = EditorGUILayout.Toggle(Left,GUILayout.Width(15f));
+			Center = EditorGUILayout.Toggle(Center,GUILayout.Width(15f));
+			Right = EditorGUILayout.Toggle(Right,GUILayout.Width(124f));
+			Square = EditorGUILayout.Toggle(Square,GUILayout.Width(15f));			
+			EditorGUILayout.LabelField("Square");
+			EditorGUILayout.EndHorizontal ();
+
+			EditorGUILayout.BeginHorizontal ();
+			Lower_Left = EditorGUILayout.Toggle(Lower_Left,GUILayout.Width(15f));
+			Down = EditorGUILayout.Toggle(Down,GUILayout.Width(15f));
+			Lower_Right = EditorGUILayout.Toggle(Lower_Right,GUILayout.Width(124f));
+			Plus_Shaped = EditorGUILayout.Toggle(Plus_Shaped,GUILayout.Width(15f));
+			EditorGUILayout.LabelField("Plus");
+			EditorGUILayout.EndHorizontal ();
 
 		}
 
