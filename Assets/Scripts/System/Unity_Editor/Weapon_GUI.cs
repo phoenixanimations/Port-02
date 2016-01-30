@@ -11,6 +11,7 @@ public class Weapon_GUI : Editor
 	static bool Resistance_Foldout = false;
 	static bool Assign_Stats_Foldout = false;
 	static bool Class_Foldout = false;
+	static bool Config_Foldout = false;
 
 	Stat Assign_Stat;
 	float Amount;
@@ -20,14 +21,7 @@ public class Weapon_GUI : Editor
 	float Add_Amount;
 	bool Add_Set_Stat;
 
-
  	SerializedProperty 	Status;
- 	SerializedProperty	Hitpoints, 		    
-					    Melee_Damage,         		Magic_Damage,         	   Archery_Damage,
-					    Melee_Resistance,    		Magic_Resistance,      	   Archery_Resistance,
-					    Critical_Chance,      	  	Critical_Damage, 
-					    Accuracy,             		Evade,
-						Equip_Level,       			Number_Of_Attacks;
 
 	public void OnEnable()
     {
@@ -36,10 +30,12 @@ public class Weapon_GUI : Editor
 
 	public override void OnInspectorGUI()
     {
+		GUI.changed = false;
 		serializedObject.Update();
 		Weapon_Foundation Weapon_Editor = (Weapon_Foundation)target;
      	Weapon_Editor.Name = EditorGUILayout.TextField("Name", Weapon_Editor.Name);
 		Weapon_Editor.Description = EditorGUILayout.TextField("Description", Weapon_Editor.Description);
+		
 		Class_Foldout = EditorGUILayout.Foldout(Class_Foldout, "Class");
 
 		if (Class_Foldout)
@@ -49,6 +45,19 @@ public class Weapon_GUI : Editor
 			Weapon_Editor.Subclass = (Assign_Subclass)EditorGUILayout.EnumPopup("Subclass",Weapon_Editor.Subclass);
 			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 		}
+		
+		Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
+
+		if (Config_Foldout)
+		{
+			EditorGUILayout.FloatField("Numer of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
+			
+
+
+		}
+
+		
+		
 
 		Damage_Foldout = EditorGUILayout.Foldout(Damage_Foldout, "Damage");
 
@@ -87,9 +96,10 @@ public class Weapon_GUI : Editor
 			 EditorGUILayout.FloatField("Magic Resistance", Weapon_Editor.Get_Stat(Stat.Magic_Resistance));
 			 EditorGUILayout.FloatField("Archery Resistance", Weapon_Editor.Get_Stat(Stat.Archery_Resistance));
 		     EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
-		}
+		}		
 
 		Assign_Stats_Foldout = EditorGUILayout.Foldout(Assign_Stats_Foldout, "Change Stats");
+
 		if (Assign_Stats_Foldout)
 		{
 
@@ -101,11 +111,13 @@ public class Weapon_GUI : Editor
 			if(GUILayout.Button("DO IT",GUILayout.Width(40f),GUILayout.Height(15f)))
 	        {
 				Weapon_Editor.Get_Stat(Assign_Stat,Amount,Tier.Formula(Weapon_Editor.Get_Stat(Stat.Equip_Level)),Set_Stat);
-	        }
+			}
 			if(GUILayout.Button("Mistakes were made",GUILayout.Width(120f),GUILayout.Height(15f)))
 	        {
 				Weapon_Editor.Get_Stat(Assign_Stat,0,true);
 	        }
+			
+			
 			EditorGUILayout.EndHorizontal ();
 			
 			EditorGUILayout.BeginHorizontal ();
@@ -120,11 +132,12 @@ public class Weapon_GUI : Editor
 			if(GUILayout.Button("Mistakes were made",GUILayout.Width(120f),GUILayout.Height(15f)))
 	        {
 				Weapon_Editor.Get_Stat(Add_Assign_Stat,0,true);
-	        }
+			}
 			EditorGUILayout.EndHorizontal ();
 		}
 
 		EditorGUILayout.PropertyField(Status,true);
-		serializedObject.ApplyModifiedProperties();		
+		serializedObject.ApplyModifiedProperties();	
+		
     }
 }

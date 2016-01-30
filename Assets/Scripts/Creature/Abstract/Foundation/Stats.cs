@@ -3,26 +3,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System_Control;
+using System.Linq;
+
+[System.Serializable]
+public class Serialize_Dictionary : SerializableDictionary<string, float> {}
 
 public class Stats : Raycast
 {
 	public string Name;
 	public string Description;
-
-	protected Dictionary<string, float> Stat_Dictionary = new Dictionary<string, float>()
+	
+	[SerializeField]	
+	public Serialize_Dictionary Stat_Dictionary = new Serialize_Dictionary()
 	{
 		{"Hitpoints",0},
-		{"Melee_Damage",0}, 	{"Magic_Damage",0}, 	{"Archery_Damage",0},
+		{"Melee_Damage",0f}, 	{"Magic_Damage",0}, 	{"Archery_Damage",0},
 		{"Melee_Resistance",0}, {"Magic_Resistance",0}, {"Archery_Resistance",0},
 		{"Accuracy",0},
 		{"Evade",0},
 		{"Critical_Chance",0},
 		{"Critical_Damage",0}, 
 		{"Energy", 0f}, 
+		{"Distance", 1f},
 
 		{"Hitpoints_Level", 1f}, {"Melee_Level",1f},{"Magic_Level",1f},{"Archery_Level",1f}, 
 
-		{"Equip_Level",1f}
+		{"Equip_Level",1f}, {"Number_Of_Attacks", 1f}
 	};	
 
 	public virtual void Assign_Stats() 

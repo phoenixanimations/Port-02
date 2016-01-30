@@ -17,15 +17,6 @@ public class CreatureMethods : CreatureFoundation
 	{
 		base.Start ();
 		
-	}
-
-	public void Status () 			   
-	{
-		if (Primary_Weapon != null)   Primary_Weapon.Beginning_Of_Turn();
-		if (Secondary_Weapon != null) Secondary_Weapon.Beginning_Of_Turn();
-		if (Helmet != null)			  Helmet.Beginning_Of_Turn();
-		if (Chest != null) 			  Chest.Beginning_Of_Turn();
-		if (Legs != null) 	  		  Legs.Beginning_Of_Turn();
 	}	
 	
 	public void Clean_Up_Status ()	   
@@ -92,8 +83,17 @@ public class CreatureMethods : CreatureFoundation
 
 	public virtual void AI () {}
 	
-	private void Attack ()
+	public void Attack ()
 	{
-
+//		Attack_Cache
 	}	
+	
+	public void Counter_Attack(Phase During_Which_Phase)
+	{	
+		if (Primary_Weapon != null)   Primary_Weapon.Attack_Status(During_Which_Phase);
+		if (Secondary_Weapon != null) Secondary_Weapon.Attack_Status(During_Which_Phase);
+		if (Helmet != null)			  Helmet.Attack_Status(During_Which_Phase);
+		if (Chest != null) 			  Chest.Attack_Status(During_Which_Phase);
+		if (Legs != null) 	  		  Legs.Attack_Status(During_Which_Phase);
+	}
 }

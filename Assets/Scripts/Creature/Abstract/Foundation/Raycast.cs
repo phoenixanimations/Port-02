@@ -5,7 +5,8 @@ using System_Control;
 
 public class Raycast : BasicTile 
 {
-	protected float x, y;
+	public float x {get; private set;}
+	public float y {get; private set;}
 	protected RaycastHit2D Hit;
 	protected RaycastHit2D[] HitArray;
 	

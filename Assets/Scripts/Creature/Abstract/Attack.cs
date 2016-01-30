@@ -10,48 +10,60 @@ public class Attack : Raycast
 	public Equipment_Foundation Helmet;
 	public Equipment_Foundation Chest;
 	public Equipment_Foundation Legs;
-	private Creature Cache;
+	private Creature Creature;
 	
 	protected override void Start ()
 	{
 		base.Start ();
-		Cache = GetComponent<Creature>();
+		Creature = GetComponent<Creature>();
+		Primary = Creature.Primary_Weapon;
+		Secondary = Creature.Secondary_Weapon;
+		Helmet = Creature.Helmet;
+		Chest = Creature.Chest;
+		Legs = Creature.Legs;
 	}
 
 
 	public void Hit_Me_Baby (Weapon_Foundation Primary_Or_Secondary) //Assign Weapon; Look into prefabs.
 	{
 		Creature Adversary;
+//		float Class_Level = Creature.Get_Stat(Primary_Or_Secondary.Class + "_Level");
 		float Accuracy = 0f;
 //		float Resistance = 0f;
 //		float Critical = 0f;
 		float Damage = 0f;
 		float How_Many_Times = 0f;
 		float One_More_Time = 0f;
+//AOE
+//Distance
+//***
+//***
+//***
 
 		Adversary = Hit.collider.GetComponent<Creature>();
-		Hit = Physics2D.Raycast(transform.position, Cache.Front, x);
+		Hit = Physics2D.Raycast(transform.position, Creature.Front, Creature.x * Creature.Get_Stat(Stat.Distance));
 		if (Hit.collider != null)
 		{
 			while (One_More_Time < How_Many_Times)
 			{
-//				Cache.Begin_Status();
-//				Passive (Primary_Or_Secondary, "Begin");
-//				Adversary.Enemy_Begin_Status();
+				Primary_Or_Secondary.Attack_Status(Phase.Attack_Begin);
+				Helmet.Attack_Status(Phase.Attack_Begin);
+				Chest.Attack_Status(Phase.Attack_Begin);
+				Legs.Attack_Status(Phase.Attack_Begin);
+				Adversary.Counter_Attack(Phase.Attack_Begin);
 
-//				How_Many_Times = Cache.Get_Stat(Primary_Or_Secondary_String + "_Number_Of_Attacks");
+				How_Many_Times = Primary_Or_Secondary.Get_Stat(Stat.Number_Of_Attacks);
 
   //**************************************//
  //*********Calculate: Accuracy**********//
 //**************************************//
-	
 //				Accuracy += (
 //								50f 
 //								* 
 //								(
-//									Tier.Formula(Cache.Get_Stat(Cache.Get_Stat(Primary_Or_Secondary_String + "_Class") + "_Level")) 
+//									Tier.Formula(Class_Level) 
 //									+ 
-//									Cache.Get_Stat(Stat.Primary_Accuracy)
+//									Creature.Get_Stat(Stat.Primary_Accuracy)
 //								)
 //								/ 
 //								(

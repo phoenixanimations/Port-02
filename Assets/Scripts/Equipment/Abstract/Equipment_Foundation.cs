@@ -10,15 +10,23 @@ public class Equipment_Foundation : Stats
 	public Assign_Class Class;
 	public Assign_Subclass Subclass;
 	public List<Status_Foundation> Status = new List<Status_Foundation>();
-	protected Creature Cache;
 
-	public void Beginning_Of_Turn ()
+	public void Assign_Status (Creature Equipped_Creature)
 	{
 		if (Status_Less_Than_Zero()) return;
-//		Debug.Log();
 		foreach (var i in Status) 
 		{
-//			i.Beginning_Of_Turn();
+			i.Assign_Status(Equipped_Creature);
+		}
+	}
+
+	public void Beginning_Of_Turn (Creature Equipped_Creature)
+	{
+		if (Status_Less_Than_Zero()) return;
+		Assign_Status(Equipped_Creature);
+		foreach (var i in Status) 
+		{
+			i.Beginning_Of_Turn();
 		}
 	}
 
@@ -27,7 +35,7 @@ public class Equipment_Foundation : Stats
 		if (Status_Less_Than_Zero()) return;
 		foreach (var i in Status) 
 		{
-//			i.Attack_Status(Which_Phase);
+			i.Attack_Status(Which_Phase);
 		}
 	}
 
@@ -36,51 +44,13 @@ public class Equipment_Foundation : Stats
 		if (Status_Less_Than_Zero()) return;
 		foreach (var i in Status) 
 		{
-//			i.End_Of_Turn();
+			i.End_Of_Turn();
 		}
 	}
 
-	public override void Assign_Stats ()
+
+	public virtual void Terminate ()
 	{
-		base.Assign_Stats ();
-
-		if (gameObject.GetComponent<Creature>() == null)
-		{
-			Debug.LogError("Attach Equipment to a creature!");
-			return;
-		}	
-		Cache = gameObject.GetComponent<Creature>();
-
-		Cache.Get_Stat(Stat.Hitpoints,			Get_Stat(Stat.Hitpoints));	
-		Cache.Get_Stat(Stat.Melee_Damage,		Get_Stat(Stat.Melee_Damage));
-		Cache.Get_Stat(Stat.Magic_Damage,		Get_Stat(Stat.Magic_Damage));
-		Cache.Get_Stat(Stat.Archery_Damage,		Get_Stat(Stat.Archery_Damage));
-		Cache.Get_Stat(Stat.Critical_Damage,	Get_Stat(Stat.Critical_Damage));
-		Cache.Get_Stat(Stat.Critical_Chance,	Get_Stat(Stat.Critical_Chance));
-		Cache.Get_Stat(Stat.Accuracy,			Get_Stat(Stat.Accuracy));
-		Cache.Get_Stat(Stat.Evade,				Get_Stat(Stat.Evade));
-		Cache.Get_Stat(Stat.Melee_Resistance,	Get_Stat(Stat.Melee_Resistance));
-		Cache.Get_Stat(Stat.Magic_Resistance,	Get_Stat(Stat.Magic_Resistance));
-		Cache.Get_Stat(Stat.Archery_Resistance,	Get_Stat(Stat.Archery_Resistance));
-	}
-
-	public virtual void Terminate_Stats ()
-	{
-		if (Cache.Get_Stat(Stat.Hitpoints) >= (Cache.Get_Stat(Stat.Hitpoints) - Get_Stat (Stat.Hitpoints)))
-		{
-			Cache.Get_Stat(Stat.Hitpoints, -Get_Stat(Stat.Hitpoints));
-		}
-		Cache.Get_Stat(Stat.Melee_Damage,		-Get_Stat(Stat.Melee_Damage));
-		Cache.Get_Stat(Stat.Magic_Damage,		-Get_Stat(Stat.Magic_Damage));
-		Cache.Get_Stat(Stat.Archery_Damage,		-Get_Stat(Stat.Archery_Damage));
-		Cache.Get_Stat(Stat.Critical_Damage,	-Get_Stat(Stat.Critical_Damage));
-		Cache.Get_Stat(Stat.Critical_Chance,	-Get_Stat(Stat.Critical_Chance));
-		Cache.Get_Stat(Stat.Accuracy,			-Get_Stat(Stat.Accuracy));
-		Cache.Get_Stat(Stat.Evade,				-Get_Stat(Stat.Evade));
-		Cache.Get_Stat(Stat.Melee_Resistance,	-Get_Stat(Stat.Melee_Resistance));
-		Cache.Get_Stat(Stat.Magic_Resistance,	-Get_Stat(Stat.Magic_Resistance));
-		Cache.Get_Stat(Stat.Archery_Resistance,	-Get_Stat(Stat.Archery_Resistance));
-
 		Terminate_Status ();
 		Destroy(this);
 	}
@@ -89,7 +59,7 @@ public class Equipment_Foundation : Stats
 	{
 		foreach (var i in Status)
 		{
-			i.Terminate_Stats();
+			i.Terminate_Status();
 		}
 	}
 	

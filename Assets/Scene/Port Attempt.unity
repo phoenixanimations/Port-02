@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID_List:
-  - {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
+  - {fileID: 0}
   - {fileID: 198642, guid: 020cdcd27145845d584837601c0923ed, type: 2}
   - {fileID: 192194, guid: 46e0d2021cca840d29dc135da917568a, type: 2}
   - {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
@@ -357,6 +357,7 @@ GameObject:
   - 4: {fileID: 1819462888}
   - 212: {fileID: 1819462887}
   - 58: {fileID: 1819462886}
+  - 114: {fileID: 1819462889}
   - 114: {fileID: 1819462885}
   m_Layer: 8
   m_Name: player (1)
@@ -378,6 +379,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Patrick Bateman
   Description: I want to touch your heart
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Equip_Level
+    - Number_Of_Attacks
+    _values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
   Turn: 0
   Player: 0
   CreatureType: 
@@ -387,6 +427,11 @@ MonoBehaviour:
   Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
   Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
   Equip_Legs: {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
+  Primary_Weapon: {fileID: 0}
+  Secondary_Weapon: {fileID: 0}
+  Helmet: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
 --- !u!58 &1819462886
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -443,6 +488,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1819462889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819462884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Primary_Damage: 0
+  Secondary_Damage: 0
+  Critical_Chance: 0
+  Critical_Damage: 0
+  Primary_Accuracy: 0
+  Secondary_Accuracy: 0
+  Melee_Resistance: 0
+  Magic_Resistance: 0
+  Archery_Resistance: 0
 --- !u!1 &1848192413
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,8 +635,8 @@ GameObject:
   - 4: {fileID: 2141664683}
   - 212: {fileID: 2141664682}
   - 58: {fileID: 2141664684}
-  - 114: {fileID: 2141664681}
   - 114: {fileID: 2141664685}
+  - 114: {fileID: 2141664681}
   m_Layer: 8
   m_Name: player
   m_TagString: Untagged
@@ -590,17 +656,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Arcanym
-  Description: Full on nude
+  Description: Full on nude.
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Equip_Level
+    - Number_Of_Attacks
+    _values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
   Turn: 0
   Player: 1
   CreatureType: 
   State: 
-  Equip_Primary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
-  Equip_Secondary_Weapon: {fileID: 187012, guid: 61666e0a5968b4e7bae004a6087746bc,
+  Equip_Primary_Weapon: {fileID: 188600, guid: 61666e0a5968b4e7bae004a6087746bc, type: 2}
+  Equip_Secondary_Weapon: {fileID: 188600, guid: 61666e0a5968b4e7bae004a6087746bc,
     type: 2}
   Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
   Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
   Equip_Legs: {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
+  Primary_Weapon: {fileID: 0}
+  Secondary_Weapon: {fileID: 0}
+  Helmet: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
 --- !u!212 &2141664682
 SpriteRenderer:
   m_ObjectHideFlags: 0
