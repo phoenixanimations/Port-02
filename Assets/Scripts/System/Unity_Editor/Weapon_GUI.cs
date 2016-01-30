@@ -25,6 +25,8 @@ public class Weapon_GUI : Editor
 
 	Stat Add_Assign_Stat;
 	float Add_Amount;
+	
+	bool Not_Armor = true;
 
  	SerializedProperty 	Status;
 
@@ -43,44 +45,48 @@ public class Weapon_GUI : Editor
 		
 		Weapon_Editor.Class = (Assign_Class)EditorGUILayout.EnumPopup("Class",Weapon_Editor.Class);
 		Weapon_Editor.Subclass = (Assign_Subclass)EditorGUILayout.EnumPopup("Subclass",Weapon_Editor.Subclass);
-
 		
-		Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
-
-		if (Config_Foldout)
+		if (Weapon_Editor.Subclass == Assign_Subclass.Helmet || Weapon_Editor.Subclass == Assign_Subclass.Chest || Weapon_Editor.Subclass == Assign_Subclass.Legs)
 		{
+			Not_Armor = false;
+		}		
 
-			Weapon_Editor.Stat_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
-			Weapon_Editor.Stat_Dictionary[Stat.Distance.ToString()] = EditorGUILayout.FloatField("Distance", Weapon_Editor.Get_Stat(Stat.Distance));
-
-			EditorGUILayout.BeginHorizontal ();
-			Upper_Left = EditorGUILayout.Toggle(Upper_Left,GUILayout.Width(15f));
-			Up = EditorGUILayout.Toggle(Up,GUILayout.Width(15f));
-			Upper_Right = EditorGUILayout.Toggle(Upper_Right,GUILayout.Width(124f));
-			Diamond = EditorGUILayout.Toggle(Diamond,GUILayout.Width(15f));
-			EditorGUILayout.LabelField("Diamond", GUILayout.Width(60f));
-			EditorGUILayout.EndHorizontal ();
-
-			EditorGUILayout.BeginHorizontal ();
-			Left = EditorGUILayout.Toggle(Left,GUILayout.Width(15f));
-			Center = EditorGUILayout.Toggle(Center,GUILayout.Width(15f));
-			Right = EditorGUILayout.Toggle(Right,GUILayout.Width(124f));
-			Square = EditorGUILayout.Toggle(Square,GUILayout.Width(15f));			
-			EditorGUILayout.LabelField("Square");
-			EditorGUILayout.EndHorizontal ();
-
-			EditorGUILayout.BeginHorizontal ();
-			Lower_Left = EditorGUILayout.Toggle(Lower_Left,GUILayout.Width(15f));
-			Down = EditorGUILayout.Toggle(Down,GUILayout.Width(15f));
-			Lower_Right = EditorGUILayout.Toggle(Lower_Right,GUILayout.Width(124f));
-			Plus_Shaped = EditorGUILayout.Toggle(Plus_Shaped,GUILayout.Width(15f));
-			EditorGUILayout.LabelField("Plus");
-			EditorGUILayout.EndHorizontal ();
-
+		if (Not_Armor)
+		{
+			Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
+	
+			if (Config_Foldout)
+			{
+	
+				Weapon_Editor.Stat_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
+				Weapon_Editor.Stat_Dictionary[Stat.Distance.ToString()] = EditorGUILayout.FloatField("Distance", Weapon_Editor.Get_Stat(Stat.Distance));
+	
+				EditorGUILayout.BeginHorizontal ();
+				Upper_Left = EditorGUILayout.Toggle(Upper_Left,GUILayout.Width(15f));
+				Up = EditorGUILayout.Toggle(Up,GUILayout.Width(15f));
+				Upper_Right = EditorGUILayout.Toggle(Upper_Right,GUILayout.Width(124f));
+				Diamond = EditorGUILayout.Toggle(Diamond,GUILayout.Width(15f));
+				EditorGUILayout.LabelField("Diamond", GUILayout.Width(60f));
+				EditorGUILayout.EndHorizontal ();
+	
+				EditorGUILayout.BeginHorizontal ();
+				Left = EditorGUILayout.Toggle(Left,GUILayout.Width(15f));
+				Center = EditorGUILayout.Toggle(Center,GUILayout.Width(15f));
+				Right = EditorGUILayout.Toggle(Right,GUILayout.Width(124f));
+				Square = EditorGUILayout.Toggle(Square,GUILayout.Width(15f));			
+				EditorGUILayout.LabelField("Square");
+				EditorGUILayout.EndHorizontal ();
+	
+				EditorGUILayout.BeginHorizontal ();
+				Lower_Left = EditorGUILayout.Toggle(Lower_Left,GUILayout.Width(15f));
+				Down = EditorGUILayout.Toggle(Down,GUILayout.Width(15f));
+				Lower_Right = EditorGUILayout.Toggle(Lower_Right,GUILayout.Width(124f));
+				Plus_Shaped = EditorGUILayout.Toggle(Plus_Shaped,GUILayout.Width(15f));
+				EditorGUILayout.LabelField("Plus");
+				EditorGUILayout.EndHorizontal ();
+	
+			}
 		}
-
-		
-		
 
 		Damage_Foldout = EditorGUILayout.Foldout(Damage_Foldout, "Stats");
 

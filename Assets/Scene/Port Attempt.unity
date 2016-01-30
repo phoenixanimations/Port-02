@@ -288,7 +288,7 @@ MonoBehaviour:
   - {fileID: 192194, guid: 46e0d2021cca840d29dc135da917568a, type: 2}
   - {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
   - {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
-  - {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
+  - {fileID: 0}
 --- !u!1 &1632844382
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,11 +424,11 @@ MonoBehaviour:
   Player: 0
   CreatureType: 
   State: 
-  Equip_Primary_Weapon: {fileID: 0}
+  Equip_Primary_Weapon: {fileID: 184230, guid: 0331206a7e86b46f3879ad1d9f5b8f3c, type: 2}
   Equip_Secondary_Weapon: {fileID: 0}
-  Equip_Helmet: {fileID: 0}
-  Equip_Chest: {fileID: 0}
-  Equip_Legs: {fileID: 0}
+  Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
+  Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
+  Equip_Legs: {fileID: 134838, guid: b6901d2c9012646a5a335130cd2bb219, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
   Helmet: {fileID: 0}
@@ -702,11 +702,12 @@ MonoBehaviour:
   Player: 1
   CreatureType: 
   State: 
-  Equip_Primary_Weapon: {fileID: 0}
-  Equip_Secondary_Weapon: {fileID: 0}
+  Equip_Primary_Weapon: {fileID: 120270, guid: 15795a7b2526f470a8716a867e78ecc1, type: 2}
+  Equip_Secondary_Weapon: {fileID: 120270, guid: 15795a7b2526f470a8716a867e78ecc1,
+    type: 2}
   Equip_Helmet: {fileID: 144000, guid: 55fdb93eaa3a341e7962d5e7f41da32c, type: 2}
   Equip_Chest: {fileID: 152208, guid: 5268822bbcc6c43efba051f50e89c668, type: 2}
-  Equip_Legs: {fileID: 139666, guid: d1f7d8dc17d0e4a52b6dff45e20714a8, type: 2}
+  Equip_Legs: {fileID: 134838, guid: b6901d2c9012646a5a335130cd2bb219, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
   Helmet: {fileID: 0}

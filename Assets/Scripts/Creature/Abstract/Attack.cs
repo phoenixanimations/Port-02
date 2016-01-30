@@ -5,14 +5,17 @@ using System_Control;
 
 public class Attack : Raycast
 {
+
 	public Equipment_Foundation Primary;
 	public Equipment_Foundation Secondary;
 	public Equipment_Foundation Helmet;
 	public Equipment_Foundation Chest;
 	public Equipment_Foundation Legs;
-	private Creature Cache_Creature;
 
-	string Class;
+	Creature Adversary;
+	Creature Creature;
+
+	string Class;//Fix
 	float Class_Level = 0f;
 	float Accuracy = 0f;
 	float Resistance = 0f;
@@ -23,19 +26,23 @@ public class Attack : Raycast
 
 	private bool Dual_Wield_Equipped ()
 	{
-		if (Secondary.Subclass == Assign_Subclass.One_Handed) return true;
+		if (Secondary.Subclass == Assign_Subclass.One_Handed || Secondary.Subclass == Assign_Subclass.Two_Handed) return true;
 		return false;
 	}
-	
+
 	protected override void Start ()
 	{
 		base.Start ();
-		Cache_Creature = gameObject.GetComponent<Creature>();
-		Primary = Cache_Creature.Primary_Weapon;
-		Secondary = Cache_Creature.Secondary_Weapon;
-		Helmet = Cache_Creature.Helmet;
-		Chest = Cache_Creature.Chest;
-		Legs = Cache_Creature.Legs;
+		Creature = gameObject.GetComponent<Creature>();
+	}
+
+	private void Start_Hitting_Me_Baby ()
+	{	
+		Primary = Creature.Primary_Weapon;
+		Secondary = Creature.Secondary_Weapon;
+		Helmet = Creature.Helmet;
+		Chest = Creature.Chest;
+		Legs = Creature.Legs;
 	}
 	
 	private void Passives (Equipment_Foundation Primary_Or_Secondary, Creature Adversary, Phase Attack_Phase)
@@ -47,24 +54,24 @@ public class Attack : Raycast
 		Adversary.Counter_Attack(Attack_Phase);
 	}
 
-	public void Hit_Me_Baby (Equipment_Foundation Primary_Or_Secondary) //Assign Weapon; Look into prefabs. 
+	public void Hit_Me_Baby (Equipment_Foundation Primary_Or_Secondary)  
 	{
-
-
+		if (Helmet == null || Chest == null || Legs == null) {Debug.Log(Helmet + " : " + Chest + " : " + Legs); Debug.LogError("You can go in to battle Nude but you have to EQUIP Nude Armor. Why would a character equip the concept of nothing?"); return;} 
+		if (Primary_Or_Secondary == null) return;
 		
-		Hit = Physics2D.Raycast(transform.position, Cache_Creature.Front, Cache_Creature.x * Cache_Creature.Get_Stat(Stat.Distance));
+		Start_Hitting_Me_Baby ();
+		How_Many_Times = Primary_Or_Secondary.Get_Stat(Stat.Number_Of_Attacks);
+		Hit = Physics2D.Raycast(transform.position, Creature.Front, Creature.x * Creature.Get_Stat(Stat.Distance));
 		if (Hit.collider != null)
 		{
-
-		Creature Adversary;
-		Adversary = Hit.collider.GetComponent<Creature>();
-		Class_Level = Cache_Creature.Get_Stat(Primary_Or_Secondary.Class.ToString() + "_Level");
-		Class = Primary_Or_Secondary.Class.ToString();
+			Adversary = Hit.collider.GetComponent<Creature>();
+			Class_Level = Creature.Get_Stat(Primary_Or_Secondary.Class.ToString() + "_Level");
+			Class = Primary_Or_Secondary.Class.ToString();
 
 			while (One_More_Time < How_Many_Times)
 			{
-				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
 				How_Many_Times = Primary_Or_Secondary.Get_Stat(Stat.Number_Of_Attacks);
+				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
 
   //**************************************//
  //*********Calculate: Accuracy**********//
@@ -80,7 +87,7 @@ public class Attack : Raycast
 								  Adversary.Primary_Weapon.Get_Stat(Stat.Evade) + Adversary.Secondary_Weapon.Get_Stat(Stat.Evade) + 
 								  Adversary.Helmet.Get_Stat(Stat.Accuracy) 	    + Adversary.Chest.Get_Stat(Stat.Accuracy)  		  + Adversary.Legs.Get_Stat(Stat.Accuracy))))
 							);
-	
+				Debug.Log(Accuracy);
   //**************************************//
  //******Calculate: Base Damage**********//
 //**************************************//
@@ -88,17 +95,19 @@ public class Attack : Raycast
 				
 				if (Dual_Wield_Equipped ())
 				{
-					Damage += (Tier.Formula(Cache_Creature.Get_Stat(Class + "_Level")) * 0.5f) +
+					Damage += (Tier.Formula(Creature.Get_Stat(Class + "_Level")) * 0.5f) +
 							   Primary_Or_Secondary.Get_Stat(Class + "_Damage") + 
 							  ((Helmet.Get_Stat(Class + "_Damage") + Chest.Get_Stat(Class + "_Damage") + Legs.Get_Stat(Class + "_Damage")) * 0.5f );
 				}
 				if (!Dual_Wield_Equipped ()) 
 				{
-					Damage += (Tier.Formula(Cache_Creature.Get_Stat(Class + "_Level"))) +
+					Damage += (Tier.Formula(Creature.Get_Stat(Class + "_Level"))) +
 							   Primary_Or_Secondary.Get_Stat(Class + "_Damage") + 
 							  ((Helmet.Get_Stat(Class + "_Damage") + Chest.Get_Stat(Class + "_Damage") + Legs.Get_Stat(Class + "_Damage")));
+
 				}
 	
+
   //**************************************//
  //*****Calculate: Critical Damage*******//
 //**************************************//
@@ -106,7 +115,7 @@ public class Attack : Raycast
 				Critical += (
 								Damage 
 								* 
-								(Cache_Creature.Get_Stat(Stat.Critical_Damage) / 100)
+								(Creature.Get_Stat(Stat.Critical_Damage) / 100)
 							);
 
   //**************************************//
@@ -116,7 +125,7 @@ public class Attack : Raycast
 				Resistance += (
 								Damage
 								*
-								(Cache_Creature.Get_Stat(Class + "_Resistance") / 100)
+								(Creature.Get_Stat(Class + "_Resistance") / 100)
 							  );
 
   //**************************************//
@@ -133,9 +142,9 @@ public class Attack : Raycast
 				{	
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Hit);				
 					Adversary.Get_Stat(Stat.Hitpoints,-Damage);	
-					if (Primary_Or_Secondary.Class == Assign_Class.Melee) Cache_Creature.Get_Stat(Stat.Energy,15f);
-					if (Primary_Or_Secondary.Class == Assign_Class.Magic) Cache_Creature.Get_Stat(Stat.Energy,25f);
-					if (Primary_Or_Secondary.Class == Assign_Class.Archery) Cache_Creature.Get_Stat(Stat.Energy,5f);
+					if (Primary_Or_Secondary.Class == Assign_Class.Melee) Creature.Get_Stat(Stat.Energy,15f);
+					if (Primary_Or_Secondary.Class == Assign_Class.Magic) Creature.Get_Stat(Stat.Energy,25f);
+					if (Primary_Or_Secondary.Class == Assign_Class.Archery) Creature.Get_Stat(Stat.Energy,5f);
 				}
 				else
 				{
