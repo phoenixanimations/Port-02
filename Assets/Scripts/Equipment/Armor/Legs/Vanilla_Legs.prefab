@@ -1,46 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &169746
+--- !u!1 &177514
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 425890}
-  - 114: {fileID: 11467752}
+  - 4: {fileID: 483320}
+  - 114: {fileID: 11441660}
   m_Layer: 0
-  m_Name: Generic_Weapon
+  m_Name: Vanilla_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &425890
+--- !u!4 &483320
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169746}
+  m_GameObject: {fileID: 177514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11467752
+--- !u!114 &11441660
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169746}
+  m_GameObject: {fileID: 177514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Vanilla Legs
+  Description: Tastes kind of funny. (Legs)
   Stat_Dictionary:
     _keys:
     - Hitpoints
@@ -63,7 +63,7 @@ MonoBehaviour:
     - Item_Tier
     - Number_Of_Attacks
     _values:
-    - 0
+    - 110
     - 0
     - 0
     - 0
@@ -84,7 +84,7 @@ MonoBehaviour:
     - 1
   ID: 0
   Class: 0
-  Subclass: 0
+  Subclass: 6
   Status: []
 --- !u!1001 &100100000
 Prefab:
@@ -95,5 +95,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 169746}
+  m_RootGameObject: {fileID: 177514}
   m_IsPrefabParent: 1
