@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System_Control;
 
 public class Attack : Raycast
@@ -54,10 +55,14 @@ public class Attack : Raycast
 		Creature = gameObject.GetComponent<Creature>();
 	}
 
-	public void Get_Calculations ()
-	{
-		
-	}
+//	public void Get_Calculations (Equipment_Foundation Primary_Or_Secondary)
+//	{
+//		Dictionary<string,float> Attack_Stats = new Dictionary<string, float>()
+//		{
+//			{"Primary",Damage}	
+//		};
+//	
+//	}
 
 	public void Hit_Me_Baby (Equipment_Foundation Primary_Or_Secondary)  //Get rid of checking for null
 	{
