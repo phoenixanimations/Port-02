@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418550}
   - 114: {fileID: 11429466}
+  - 114: {fileID: 11480662}
   m_Layer: 0
   m_Name: Vanilla_Melee_1H
   m_TagString: Untagged
@@ -23,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.8050604, y: -14.1922693, z: 0}
+  m_LocalPosition: {x: -15.80506, y: -14.192269, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,14 +86,77 @@ MonoBehaviour:
   ID: 0
   Class: 1
   Subclass: 1
-  Status: []
+  Status:
+  - {fileID: 11480662}
+--- !u!114 &11480662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5dfec190a5c4e70b37cbf0e0930dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Description: 
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Distance
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Item_Tier
+    - Number_Of_Attacks
+    _values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Status.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Status.Array.data[0]
+      value: 
+      objectReference: {fileID: 11480662}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123318}

@@ -42,12 +42,21 @@ public class Creature : CreatureMethods
 		if (Player) gameObject.AddComponent<Character_Controller>().hideFlags = HideFlags.HideInInspector;
 	}
 
-	public void Status () 			   
+	public void Activate_Status () 			   
 	{
-		if (Primary_Weapon != null)   Primary_Weapon.Beginning_Of_Turn(this);
-		if (Secondary_Weapon != null) Secondary_Weapon.Beginning_Of_Turn(this);
-		if (Helmet != null)			  Helmet.Beginning_Of_Turn(this);
-		if (Chest != null) 			  Chest.Beginning_Of_Turn(this);
-		if (Legs != null) 	  		  Legs.Beginning_Of_Turn(this);
+		if (Primary_Weapon != null)   Primary_Weapon.Beginning_Of_Turn(this.gameObject);
+		if (Secondary_Weapon != null) Secondary_Weapon.Beginning_Of_Turn(this.gameObject);
+		if (Helmet != null)			  Helmet.Beginning_Of_Turn(this.gameObject);
+		if (Chest != null) 			  Chest.Beginning_Of_Turn(this.gameObject);
+		if (Legs != null) 	  		  Legs.Beginning_Of_Turn(this.gameObject);
+		if (Status.Count > 0)
+		{
+			foreach (var i in Status) 
+			{
+				i.Assign_Status(this.gameObject);
+				i.Beginning_Of_Turn();
+			}
+		}
+
 	}
 }

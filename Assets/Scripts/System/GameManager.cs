@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 		Player = castles;
 
 
-		if (vietnam == 0) {castles[empathy].Status();}
+		if (vietnam == 0) {castles[empathy].Activate_Status();}
 		if (vietnam == 1 && castles[empathy].Turn) return;
 		if (vietnam == 2) {castles[empathy].Clean_Up_Status();}
 		vietnam++;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 		for (int i = crystal.Count - 1; i > -1; i--)
 		{
 			crystal[i].Turn = true;
-			crystal[i].Status();
+			crystal[i].Activate_Status();
 			crystal[i].AI();
 			crystal[i].Clean_Up_Status();
 		}	

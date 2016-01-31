@@ -21,6 +21,7 @@ public class CreatureFoundation : Movement
 	[HideInInspector]
 	public Equipment_Foundation Helmet, Chest, Legs;
 	protected Attack Attack_Cache;
+	public List<Status_Foundation> Status = new List<Status_Foundation>();
 
 	public delegate void Delegate ();
 

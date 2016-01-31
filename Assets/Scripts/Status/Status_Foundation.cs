@@ -5,13 +5,15 @@ using System_Control;
 public class Status_Foundation : Movement
 {	
 	protected Creature Creature;
+	protected Attack Creature_Attack;
 	
 	protected override void Start (){}
 
-	public void Assign_Status (Creature Equipped_Creature)
+	public void Assign_Status (GameObject Equipped_Creature)
 	{
 		Physics2D.queriesStartInColliders = false;
-		Creature = Equipped_Creature;
+		Creature = Equipped_Creature.GetComponent<Creature>();
+		Creature_Attack = Equipped_Creature.GetComponent<Attack>();
 	}
 
 	public virtual void Beginning_Of_Turn () {}

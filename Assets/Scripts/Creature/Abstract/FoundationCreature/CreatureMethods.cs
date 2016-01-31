@@ -20,7 +20,19 @@ public class CreatureMethods : CreatureFoundation
 		if (Helmet != null)			  Helmet.End_Of_Turn();
 		if (Chest != null) 			  Chest.End_Of_Turn();
 		if (Legs != null) 	  		  Legs.End_Of_Turn();
+		if (Status.Count > 0)
+			foreach (var i in Status) { i.End_Of_Turn(); }
 	}
+	
+	public void Attack_Status (Phase Which_Phase)
+	{
+		if (Status.Count > 0) return;
+		foreach (var i in Status) 
+		{
+			i.Attack_Status(Which_Phase);
+		}
+	}
+
 	
 	public virtual void Use () 
 	{

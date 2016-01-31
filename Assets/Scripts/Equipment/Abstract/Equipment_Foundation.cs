@@ -11,7 +11,7 @@ public class Equipment_Foundation : Stats
 	public Assign_Subclass Subclass;
 	public List<Status_Foundation> Status = new List<Status_Foundation>();
 
-	public void Assign_Status (Creature Equipped_Creature)
+	public void Assign_Status (GameObject Equipped_Creature)
 	{
 		if (Status_Less_Than_Zero()) return;
 		foreach (var i in Status) 
@@ -20,7 +20,7 @@ public class Equipment_Foundation : Stats
 		}
 	}
 
-	public void Beginning_Of_Turn (Creature Equipped_Creature)
+	public void Beginning_Of_Turn (GameObject Equipped_Creature)
 	{
 		if (Status_Less_Than_Zero()) return;
 		Assign_Status(Equipped_Creature);
