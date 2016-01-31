@@ -36,6 +36,5 @@ public class CreatureFoundation : Movement
 		if (Equip_Chest != null)  			Helmet 			 = Equip_Helmet.GetComponent<Equipment_Foundation>();
 		if (Equip_Helmet != null) 			Chest 		     = Equip_Chest.GetComponent<Equipment_Foundation>();
 		if (Equip_Legs != null)   			Legs 	  	 	 = Equip_Legs.GetComponent<Equipment_Foundation>();
-		
 	}
 }

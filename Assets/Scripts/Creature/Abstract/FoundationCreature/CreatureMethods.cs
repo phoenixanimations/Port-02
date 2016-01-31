@@ -13,12 +13,6 @@ public class CreatureMethods : CreatureFoundation
 		base.Move (Direction);
 	}
 	
-	protected override void Start ()
-	{
-		base.Start ();
-		
-	}	
-	
 	public void Clean_Up_Status ()	   
 	{
 		if (Primary_Weapon != null)   Primary_Weapon.End_Of_Turn();
