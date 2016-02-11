@@ -15,7 +15,7 @@ public class Attack : Raycast
 	private Creature Adversary;
 	private Creature Creature;
 
-	public float  How_Many_Times {get;private set;}
+	public float  How_Many_Times;
 	public float  One_More_Time {get;private set;}
 
 	private string Class;
@@ -23,12 +23,10 @@ public class Attack : Raycast
 	public float  Accuracy;
 	public float  Resistance;
 	public float  Critical;
+	public float  Critical_Chance = 0;
+	public float  Critical_Damage = 0;
+	public float  Base_Damage;
 	public float  Damage;
-
-//	public void Modify_Attack_Stats (float Amount) MAKE THIS WORK
-//	{
-//		
-//	}
 
 	private bool Dual_Wield_Equipped ()
 	{
@@ -38,19 +36,27 @@ public class Attack : Raycast
 
 	private void Start_Hitting_Me_Baby ()
 	{	
-		How_Many_Times = 0f;
 		One_More_Time = 0f;
-		Class_Level = 0f;
-		Accuracy = 0f;
-		Resistance = 0f;
-		Critical = 0f;
-		Damage = 0f;
+		Reset_Stats();
 
 		Primary = Creature.Primary_Weapon;
 		Secondary = Creature.Secondary_Weapon;
 		Helmet = Creature.Helmet;
 		Chest = Creature.Chest;
 		Legs = Creature.Legs;
+	}
+
+	private void Reset_Stats ()
+	{
+		How_Many_Times = 0f;
+		Class_Level = 0f;
+		Accuracy = 0f;
+		Resistance = 0f;
+		Critical = 0f;
+		Critical_Chance = 0f;
+		Critical_Damage = 0f;
+		Base_Damage = 0f;
+		Damage = 0f;
 	}
 	
 	private void Passives (Equipment_Foundation Primary_Or_Secondary, Creature Adversary, Phase Attack_Phase)
@@ -66,15 +72,6 @@ public class Attack : Raycast
 		base.Start ();
 		Creature = gameObject.GetComponent<Creature>();
 	}
-
-//	public void Get_Calculations (Equipment_Foundation Primary_Or_Secondary)
-//	{
-//		Dictionary<string,float> Attack_Stats = new Dictionary<string, float>()
-//		{
-//			{"Primary",Damage}	
-//		};
-//	
-//	}
 
 	public void Hit_Me_Baby (Equipment_Foundation Primary_Or_Secondary)  //Get rid of checking for null
 	{
@@ -100,13 +97,7 @@ public class Attack : Raycast
 
 			while (One_More_Time < How_Many_Times)
 			{
-  //**************************************//
- //**********Passive Attack Begin********//
-//**************************************//
-				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
-				Creature.Attack_Status(Phase.Attack_Begin);
- 				Adversary.Counter_Attack(Phase.Counter_Attack_Begin);
-
+				Reset_Stats();
   //**************************************//
  //******Calculate: Number of Attacks****//
 //**************************************//
@@ -130,7 +121,7 @@ public class Attack : Raycast
 				float Adversary_Armor_Evade =  Adversary.Helmet.Get_Stat(Stat.Accuracy) + Adversary.Chest.Get_Stat(Stat.Accuracy) + Adversary.Legs.Get_Stat(Stat.Accuracy);
 				float Adversary_Evade = Adversary_Class_Evade + Adversary_Weapon_Evade + Adversary_Armor_Evade;			
 
-				Accuracy += 50f * (Creature_Accuracy/Adversary_Evade);
+				Accuracy += 50f * (Creature_Accuracy/Adversary_Evade); //* Accuracy_bonus // make equal 1
 
   //**************************************//
  //******Calculate: Base Damage**********//
@@ -146,31 +137,37 @@ public class Attack : Raycast
 				if (Dual_Wield_Equipped ())
 				{
 
-					Damage += Equipped_Weapon_Damage + (Equipped_Class_Plus_Equipped_Armor_Damage * 0.5f);
+					Base_Damage += Equipped_Weapon_Damage + (Equipped_Class_Plus_Equipped_Armor_Damage * 0.5f);
 				}
 				if (!Dual_Wield_Equipped ()) 
 				{
-					Damage += Equipped_Weapon_Damage + Equipped_Class_Plus_Equipped_Armor_Damage;
+					Base_Damage += Equipped_Weapon_Damage + Equipped_Class_Plus_Equipped_Armor_Damage;
 				}
 
   //**************************************//
  //*****Calculate: Critical Damage*******//
 //**************************************//
-				float Critical_Damage_Percent = 0;
-				if (Primary_Or_Secondary.Get_Stat(Stat.Critical_Chance) >= UnityEngine.Random.Range(0f,100f))
-					Critical_Damage_Percent = Creature.Get_Stat(Stat.Critical_Damage) / 100;
-				Critical += Damage * Critical_Damage_Percent;
+				if (Primary_Or_Secondary.Get_Stat(Stat.Critical_Chance) + Critical_Chance /*+ Critical_Chance_Bonus*/  >= UnityEngine.Random.Range(0f,100f))
+					Critical_Damage = Primary_Or_Secondary.Get_Stat(Stat.Critical_Damage) /*+ Critical_Damage_Bonus*/ / 100;
+				Critical += Base_Damage * Critical_Damage; 
 
   //**************************************//
  //*****Calculate: Resistance Damage*****//
 //**************************************//
 				float Resistance_Percent = Creature.Get_Stat(Class + "_Resistance") / 100;
-				Resistance += Damage * Resistance_Percent;
+				Resistance += Base_Damage * Resistance_Percent;
 
   //**************************************//
  //*****Calculate: Total Damage**********//
 //**************************************//
-				Damage += -Resistance + Critical;
+				Damage += Critical + Base_Damage -Resistance; //Damage bonus multiplied
+
+  //**************************************//
+ //**********Passive Attack Begin********//
+//**************************************//
+				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
+				Creature.Attack_Status(Phase.Attack_Begin);
+ 				Adversary.Counter_Attack(Phase.Counter_Attack_Begin);
 
   //**************************************//
  //**************Dice Roll***************//
@@ -182,11 +179,12 @@ public class Attack : Raycast
 //**************************************//
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Hit);
 					Creature.Attack_Status(Phase.Attack_Hit);
- 					Adversary.Counter_Attack(Phase.Counter_Attack_Hit);
+					Adversary.Counter_Attack(Phase.Counter_Attack_Hit);
 
   //**************************************//
  //******Calculate: Adversary - Damage***//
 //**************************************//
+					Damage = Mathf.Floor(Damage);
 					Adversary.Get_Stat(Stat.Hitpoints,-Damage);	
 
   //**************************************//

@@ -85,6 +85,170 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &104653869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 104653874}
+  - 212: {fileID: 104653873}
+  - 58: {fileID: 104653872}
+  - 114: {fileID: 104653871}
+  - 114: {fileID: 104653870}
+  m_Layer: 8
+  m_Name: Enemy AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &104653870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104653869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de99a508deba4285b2315ea89d91725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Don
+  Description: :(
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Distance
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Item_Tier
+    - Number_Of_Attacks
+    _values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+  Turn: 0
+  Player: 0
+  CreatureType: 
+  State: 
+  Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
+  Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
+    type: 2}
+  Equip_Helmet: {fileID: 184050, guid: 60b71ef31ed1240e7896b9a87a81f7a0, type: 2}
+  Equip_Chest: {fileID: 117418, guid: ca2cd54797ad5477cae0da16e57ed347, type: 2}
+  Equip_Legs: {fileID: 177514, guid: 15a46ca004b0044049ca4d8b4b84bc6c, type: 2}
+  Primary_Weapon: {fileID: 0}
+  Secondary_Weapon: {fileID: 0}
+  Helmet: {fileID: 0}
+  Chest: {fileID: 0}
+  Legs: {fileID: 0}
+  Status: []
+--- !u!114 &104653871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104653869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Primary_Damage: 0
+  Secondary_Damage: 0
+  Primary_Accuracy: 0
+  Secondary_Accuracy: 0
+  Melee_Resistance: 0
+  Magic_Resistance: 0
+  Archery_Resistance: 0
+--- !u!58 &104653872
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104653869}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
+--- !u!212 &104653873
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104653869}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1698122041
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d0633f9bfabc64ae081cd30760f16a60, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &104653874
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104653869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &159459654
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +298,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0.5078395, g: 0.6357692, b: 0.74264705, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -171,64 +335,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &433454242
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 433454244}
-  - 212: {fileID: 433454243}
-  m_Layer: 0
-  m_Name: sand 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &433454243
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 433454242}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c42d1999fd2d48a0a0a509fdc80d063, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!4 &433454244
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 433454242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!1 &1442650290
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,64 +395,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!1 &1632844382
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1632844384}
-  - 212: {fileID: 1632844383}
-  m_Layer: 0
-  m_Name: sand 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1632844383
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632844382}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c42d1999fd2d48a0a0a509fdc80d063, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!4 &1632844384
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632844382}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
 --- !u!1 &1819462884
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +408,7 @@ GameObject:
   - 114: {fileID: 1819462889}
   - 114: {fileID: 1819462885}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Enemy Controlled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,7 +469,7 @@ MonoBehaviour:
     - 1
     - 1
   Turn: 0
-  Player: 0
+  Player: 1
   CreatureType: 
   State: 
   Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
@@ -511,122 +559,6 @@ MonoBehaviour:
   Melee_Resistance: 0
   Magic_Resistance: 0
   Archery_Resistance: 0
---- !u!1 &1848192413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1848192415}
-  - 212: {fileID: 1848192414}
-  m_Layer: 0
-  m_Name: sand 4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1848192414
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1848192413}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c42d1999fd2d48a0a0a509fdc80d063, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!4 &1848192415
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1848192413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
---- !u!1 &2059090653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2059090655}
-  - 212: {fileID: 2059090654}
-  m_Layer: 0
-  m_Name: sand 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &2059090654
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2059090653}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c42d1999fd2d48a0a0a509fdc80d063, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
---- !u!4 &2059090655
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2059090653}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &2141664680
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +571,6 @@ GameObject:
   - 58: {fileID: 2141664684}
   - 114: {fileID: 2141664685}
   - 114: {fileID: 2141664681}
-  - 114: {fileID: 2141664686}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -705,8 +636,8 @@ MonoBehaviour:
   Player: 1
   CreatureType: 
   State: 
-  Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
-  Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
+  Equip_Primary_Weapon: {fileID: 178330, guid: 571f0f88f9bf64d1db3c395667dc817d, type: 2}
+  Equip_Secondary_Weapon: {fileID: 129048, guid: f31a5dee2c9424885a4f3bec369d77ab,
     type: 2}
   Equip_Helmet: {fileID: 184050, guid: 60b71ef31ed1240e7896b9a87a81f7a0, type: 2}
   Equip_Chest: {fileID: 117418, guid: ca2cd54797ad5477cae0da16e57ed347, type: 2}
@@ -716,8 +647,7 @@ MonoBehaviour:
   Helmet: {fileID: 0}
   Chest: {fileID: 0}
   Legs: {fileID: 0}
-  Status:
-  - {fileID: 2141664686}
+  Status: []
 --- !u!212 &2141664682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -793,57 +723,3 @@ MonoBehaviour:
   Melee_Resistance: 0
   Magic_Resistance: 0
   Archery_Resistance: 0
---- !u!114 &2141664686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5dfec190a5c4e70b37cbf0e0930dff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Stat_Dictionary:
-    _keys:
-    - Hitpoints
-    - Melee_Damage
-    - Magic_Damage
-    - Archery_Damage
-    - Melee_Resistance
-    - Magic_Resistance
-    - Archery_Resistance
-    - Accuracy
-    - Evade
-    - Critical_Chance
-    - Critical_Damage
-    - Energy
-    - Distance
-    - Hitpoints_Level
-    - Melee_Level
-    - Magic_Level
-    - Archery_Level
-    - Item_Tier
-    - Number_Of_Attacks
-    _values:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1

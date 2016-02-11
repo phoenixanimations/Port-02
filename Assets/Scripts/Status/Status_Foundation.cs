@@ -6,6 +6,8 @@ public class Status_Foundation : Movement
 {	
 	protected Creature Creature;
 	protected Attack Creature_Attack;
+	protected Equipment_Foundation Creature_Equipment;
+	protected bool Activate_Once;
 	
 	protected override void Start (){}
 
@@ -14,9 +16,13 @@ public class Status_Foundation : Movement
 		Physics2D.queriesStartInColliders = false;
 		Creature = Equipped_Creature.GetComponent<Creature>();
 		Creature_Attack = Equipped_Creature.GetComponent<Attack>();
+		Creature_Equipment = this.GetComponent<Equipment_Foundation>();
 	}
 
-	public virtual void Beginning_Of_Turn () {}
+	public virtual void Beginning_Of_Turn () 
+	{
+		Activate_Once = true;
+	}
 	public virtual void Attack_Status (Phase Activate_On_What_Phase) {}
 	public virtual void End_Of_Turn () {}
 	
