@@ -91,7 +91,7 @@ public class CreatureMethods : CreatureFoundation
 		Attack_Cache.Hit_Me_Baby(Secondary_Weapon);
 	}	
 
-	public float Max_Health ()
+	public float Max_Hitpoints ()
 	{
 		float Level_Hitpoints = 50f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
 		float Primary_Secondary_Hitpoints = Primary_Weapon.Get_Stat(Stat.Hitpoints) + 
@@ -103,13 +103,13 @@ public class CreatureMethods : CreatureFoundation
 
 	public void Heal (float Amount)
 	{
-		if ((Get_Stat(Stat.Hitpoints) + Amount) < Max_Health())
+		if ((Get_Stat(Stat.Hitpoints) + Amount) < Max_Hitpoints())
 		{
 			Get_Stat(Stat.Hitpoints,Amount);
 		}
 		else
 		{
-			Get_Stat(Stat.Hitpoints,Max_Health(),true);
+			Get_Stat(Stat.Hitpoints,Max_Hitpoints(),true);
 		}	
 	}
 

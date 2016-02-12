@@ -9,7 +9,7 @@ public class Berserk : Status_Foundation
 		base.Attack_Status (Activate_On_What_Phase);
 		if (Activate_On_What_Phase == Phase.Attack_Begin)
 		{
-			if ((Creature.Get_Stat(Stat.Hitpoints)/Creature.Max_Health()) < .5f)
+			if ((Creature.Get_Stat(Stat.Hitpoints)/Creature.Max_Hitpoints()) < .5f)
 			{
 				Creature_Attack.Damage_Bonus.Add(2);
 			}
