@@ -12,7 +12,9 @@ public class Display_Character_Stats : MonoBehaviour
 	[Header("Damage")]
 	public float Max_Damage;
 	public float Primary_Damage;
+//	public float Primary_Damage_Bonus;
 	public float Secondary_Damage;
+//	public float Secondary_Damage_Bonus;
 	[Header("Critical")]
 	public float Primary_Critical;
 	public float Primary_Critical_Chance;
@@ -38,7 +40,9 @@ public class Display_Character_Stats : MonoBehaviour
 	{	
 		Hitpoints = 					Creature.Get_Stat(Stat.Hitpoints);
 		Primary_Damage = 				Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Primary,Attack_Stat.Damage);
+//		Primary_Damage_Bonus = 			Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Primary,Attack_Stat.Damage_Bonus);
 		Secondary_Damage = 				Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Secondary,Attack_Stat.Damage);
+//		Secondary_Damage_Bonus = 		Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Secondary,Attack_Stat.Damage_Bonus);
 		Max_Damage = 					Primary_Damage + Secondary_Damage;
 		Primary_Critical = 				Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Primary,Attack_Stat.Critical);
 		Primary_Critical_Chance =		Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Primary,Attack_Stat.Critical_Chance);
