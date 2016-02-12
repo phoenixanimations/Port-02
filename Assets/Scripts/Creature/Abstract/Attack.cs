@@ -8,9 +8,7 @@ public class Attack : Raycast
 {
 	public Equipment_Foundation Primary;
 	public Equipment_Foundation Secondary;
-	public Equipment_Foundation Helmet;
-	public Equipment_Foundation Chest;
-	public Equipment_Foundation Legs;
+	public Equipment_Foundation Armor;
 
 	public Creature Adversary;
 	private Creature Creature;
@@ -111,9 +109,7 @@ public class Attack : Raycast
 
 		Primary = Creature.Primary_Weapon;
 		Secondary = Creature.Secondary_Weapon;
-		Helmet = Creature.Helmet;
-		Chest = Creature.Chest;
-		Legs = Creature.Legs;
+		Armor = Creature.Armor;
 	}
 
   //**************************************//
@@ -122,9 +118,7 @@ public class Attack : Raycast
 	private void Passives (Equipment_Foundation Primary_Or_Secondary, Creature Adversary, Phase Attack_Phase)
 	{
 		Primary_Or_Secondary.Attack_Status(Attack_Phase);
-		Helmet.Attack_Status(Attack_Phase);
-		Chest.Attack_Status(Attack_Phase);
-		Legs.Attack_Status(Attack_Phase);
+		Armor.Attack_Status(Attack_Phase);
 	}
 
 	protected override void Start ()
@@ -139,7 +133,7 @@ public class Attack : Raycast
 	private float[] Primary_Stats = new float[30];
 	private float[] Secondary_Stats = new float[30];
 	private bool Light_Switch;
-	public void Record_Attack_Stat_To_Display_Character_Stats ()
+	private void Record_Attack_Stat_To_Display_Character_Stats ()
 	{
 		Light_Switch = !Light_Switch;
 		if (Light_Switch)
@@ -194,7 +188,7 @@ public class Attack : Raycast
   //**************************************//
  //***************Check Null*************//
 //**************************************//
-		if (Helmet == null || Chest == null || Legs == null) { Debug.LogError("You can go in to battle Nude but you have to EQUIP Nude Armor. Why would a character equip the concept of nothing?"); return;} 
+		if (Armor == null) { Debug.LogError("You can go in to battle Nude but you have to EQUIP Nude Armor. Why would a character equip the concept of nothing?"); return;} 
 		if (Primary_Or_Secondary == null) return;
 
   //**************************************//
@@ -235,12 +229,12 @@ public class Attack : Raycast
  //*********Calculate: Accuracy**********//
 //**************************************//
 				float Weapon_Accuracy = Primary_Or_Secondary.Get_Stat(Stat.Accuracy);
-				float Armor_Accuracy = Helmet.Get_Stat(Stat.Accuracy) + Chest.Get_Stat(Stat.Accuracy) + Legs.Get_Stat(Stat.Accuracy);
+				float Armor_Accuracy = Armor.Get_Stat(Stat.Accuracy);
 				float Creature_Accuracy = Tier.Formula(Class_Level) + Weapon_Accuracy + Armor_Accuracy;	
 			
 				float Adversary_Class_Evade = Tier.Formula(Adversary.Get_Stat(Primary_Or_Secondary.Class.ToString() + "_Level"));
 				float Adversary_Weapon_Evade = Adversary.Primary_Weapon.Get_Stat(Stat.Evade) + Adversary.Secondary_Weapon.Get_Stat(Stat.Evade);
-				float Adversary_Armor_Evade =  Adversary.Helmet.Get_Stat(Stat.Accuracy) + Adversary.Chest.Get_Stat(Stat.Accuracy) + Adversary.Legs.Get_Stat(Stat.Accuracy);
+				float Adversary_Armor_Evade =  Adversary.Armor.Get_Stat(Stat.Accuracy);
 				float Adversary_Evade = Adversary_Class_Evade + Adversary_Weapon_Evade + Adversary_Armor_Evade;			
 
 				Accuracy += 50f * (Creature_Accuracy/Adversary_Evade) * Calculate_List(Accuracy_Bonus,"Multiple");
@@ -251,7 +245,7 @@ public class Attack : Raycast
 				string Class_Damage = Class + "_Damage";
 				float Equipped_Weapon_Damage = Primary_Or_Secondary.Get_Stat(Class_Damage);
 				float Equipped_Class_Damage = Tier.Formula(Class_Level);
-				float Equipped_Armor_Damage = Helmet.Get_Stat(Class_Damage) + Chest.Get_Stat(Class_Damage) + Legs.Get_Stat(Class_Damage);
+				float Equipped_Armor_Damage = Armor.Get_Stat(Class_Damage);
 				float Equipped_Class_Plus_Equipped_Armor_Damage = Equipped_Class_Damage + Equipped_Armor_Damage;
 			
 

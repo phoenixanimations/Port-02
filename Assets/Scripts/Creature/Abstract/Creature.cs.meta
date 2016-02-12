@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5de99a508deba4285b2315ea89d91725
-timeCreated: 1454204116
+timeCreated: 1455300781
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -9,14 +9,10 @@ MonoImporter:
       type: 2}
   - Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
       type: 2}
-  - Equip_Helmet: {fileID: 184050, guid: 60b71ef31ed1240e7896b9a87a81f7a0, type: 2}
-  - Equip_Chest: {fileID: 117418, guid: ca2cd54797ad5477cae0da16e57ed347, type: 2}
-  - Equip_Legs: {fileID: 177514, guid: 15a46ca004b0044049ca4d8b4b84bc6c, type: 2}
+  - Equip_Armor: {fileID: 179350, guid: 5011b10632a5f43cebd97e27f8553034, type: 2}
   - Primary_Weapon: {instanceID: 0}
   - Secondary_Weapon: {instanceID: 0}
-  - Helmet: {instanceID: 0}
-  - Chest: {instanceID: 0}
-  - Legs: {instanceID: 0}
+  - Armor: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

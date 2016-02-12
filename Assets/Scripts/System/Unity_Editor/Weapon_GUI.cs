@@ -43,7 +43,7 @@ public class Weapon_GUI : Editor
 		Weapon_Editor.Class = (Assign_Class)EditorGUILayout.EnumPopup("Class",Weapon_Editor.Class);
 		Weapon_Editor.Subclass = (Assign_Subclass)EditorGUILayout.EnumPopup("Subclass",Weapon_Editor.Subclass);
 		
-		if (Weapon_Editor.Subclass == Assign_Subclass.Helmet || Weapon_Editor.Subclass == Assign_Subclass.Chest || Weapon_Editor.Subclass == Assign_Subclass.Legs)
+		if (Weapon_Editor.Subclass == Assign_Subclass.Armor)
 		{
 			Not_Armor = false;
 		}		

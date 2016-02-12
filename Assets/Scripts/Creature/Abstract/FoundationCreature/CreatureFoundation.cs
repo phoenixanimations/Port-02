@@ -13,13 +13,11 @@ public class CreatureFoundation : Movement
 	public string CreatureType, State;
 	public GameObject Equip_Primary_Weapon;
 	public GameObject Equip_Secondary_Weapon;
-	public GameObject Equip_Helmet;
-	public GameObject Equip_Chest;
-	public GameObject Equip_Legs;
+	public GameObject Equip_Armor;
 	[HideInInspector]
 	public Equipment_Foundation Primary_Weapon, Secondary_Weapon;
 	[HideInInspector]
-	public Equipment_Foundation Helmet, Chest, Legs;
+	public Equipment_Foundation Armor;
 	protected Attack Attack_Cache;
 	public List<Status_Foundation> Status = new List<Status_Foundation>();
 
@@ -34,8 +32,6 @@ public class CreatureFoundation : Movement
 		Attack_Cache = GetComponent<Attack>();
 		if (Equip_Primary_Weapon != null) 	Primary_Weapon   = Equip_Primary_Weapon.GetComponent<Equipment_Foundation>();
 		if (Equip_Secondary_Weapon != null) Secondary_Weapon = Equip_Secondary_Weapon.GetComponent<Equipment_Foundation>();
-		if (Equip_Chest != null)  			Helmet 			 = Equip_Helmet.GetComponent<Equipment_Foundation>();
-		if (Equip_Helmet != null) 			Chest 		     = Equip_Chest.GetComponent<Equipment_Foundation>();
-		if (Equip_Legs != null)   			Legs 	  	 	 = Equip_Legs.GetComponent<Equipment_Foundation>();
+		if (Equip_Armor != null)  			Armor 			 = Equip_Armor.GetComponent<Equipment_Foundation>();
 	}
 }

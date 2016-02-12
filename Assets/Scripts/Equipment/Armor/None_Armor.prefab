@@ -1,46 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &184050
+--- !u!1 &179350
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 432162}
-  - 114: {fileID: 11436836}
+  - 4: {fileID: 407898}
+  - 114: {fileID: 11479506}
   m_Layer: 0
-  m_Name: Vanilla_Helmet
+  m_Name: None_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &432162
+--- !u!4 &407898
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184050}
+  m_GameObject: {fileID: 179350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11436836
+--- !u!114 &11479506
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184050}
+  m_GameObject: {fileID: 179350}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Vanilla Helmet
-  Description: Tastes kind of funny. (Helmet)
+  Name: None_Armor
+  Description: The concept of nothing, as armor!
   Stat_Dictionary:
     _keys:
     - Hitpoints
@@ -63,7 +63,7 @@ MonoBehaviour:
     - Item_Tier
     - Number_Of_Attacks
     _values:
-    - 110
+    - 0
     - 0
     - 0
     - 0
@@ -95,5 +95,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 184050}
+  m_RootGameObject: {fileID: 179350}
   m_IsPrefabParent: 1

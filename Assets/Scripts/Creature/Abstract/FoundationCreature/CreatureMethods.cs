@@ -17,10 +17,8 @@ public class CreatureMethods : CreatureFoundation
 	{
 		if (Primary_Weapon != null)   Primary_Weapon.End_Of_Turn();
 		if (Secondary_Weapon != null) Secondary_Weapon.End_Of_Turn();
-		if (Helmet != null)			  Helmet.End_Of_Turn();
-		if (Chest != null) 			  Chest.End_Of_Turn();
-		if (Legs != null) 	  		  Legs.End_Of_Turn();
-		if (Status.Count > 0)
+		if (Armor != null)			  Armor.End_Of_Turn();
+				if (Status.Count > 0)
 			foreach (var i in Status) { i.End_Of_Turn(); }
 	}
 	
@@ -98,9 +96,7 @@ public class CreatureMethods : CreatureFoundation
 		float Level_Hitpoints = 50f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
 		float Primary_Secondary_Hitpoints = Primary_Weapon.Get_Stat(Stat.Hitpoints) + 
 								 			Secondary_Weapon.Get_Stat(Stat.Hitpoints);
-		float Helmet_Chest_Legs_Hitpoints = Helmet.Get_Stat(Stat.Hitpoints) + 
-												 	Chest.Get_Stat(Stat.Hitpoints) + 
-		                                        	Legs.Get_Stat(Stat.Hitpoints);
+		float Helmet_Chest_Legs_Hitpoints = Armor.Get_Stat(Stat.Hitpoints);
 		float Max_Hitpoints = Level_Hitpoints + Primary_Secondary_Hitpoints + Helmet_Chest_Legs_Hitpoints;
 		return Max_Hitpoints;
 	}
@@ -121,8 +117,6 @@ public class CreatureMethods : CreatureFoundation
 	{	
 		if (Primary_Weapon != null)   Primary_Weapon.Attack_Status(During_Which_Phase);
 		if (Secondary_Weapon != null) Secondary_Weapon.Attack_Status(During_Which_Phase);
-		if (Helmet != null)			  Helmet.Attack_Status(During_Which_Phase);
-		if (Chest != null) 			  Chest.Attack_Status(During_Which_Phase);
-		if (Legs != null) 	  		  Legs.Attack_Status(During_Which_Phase);
+		if (Armor != null)			  Armor.Attack_Status(During_Which_Phase);
 	}
 }

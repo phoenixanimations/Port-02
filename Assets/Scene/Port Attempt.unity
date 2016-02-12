@@ -165,14 +165,10 @@ MonoBehaviour:
   Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
   Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
     type: 2}
-  Equip_Helmet: {fileID: 184050, guid: 60b71ef31ed1240e7896b9a87a81f7a0, type: 2}
-  Equip_Chest: {fileID: 117418, guid: ca2cd54797ad5477cae0da16e57ed347, type: 2}
-  Equip_Legs: {fileID: 177514, guid: 15a46ca004b0044049ca4d8b4b84bc6c, type: 2}
+  Equip_Armor: {fileID: 179350, guid: 5011b10632a5f43cebd97e27f8553034, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
-  Helmet: {fileID: 0}
-  Chest: {fileID: 0}
-  Legs: {fileID: 0}
+  Armor: {fileID: 0}
   Status: []
 --- !u!114 &104653871
 MonoBehaviour:
@@ -185,14 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Primary_Damage: 0
-  Secondary_Damage: 0
-  Primary_Accuracy: 0
-  Secondary_Accuracy: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0
 --- !u!58 &104653872
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -475,14 +463,10 @@ MonoBehaviour:
   Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
   Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
     type: 2}
-  Equip_Helmet: {fileID: 184050, guid: 60b71ef31ed1240e7896b9a87a81f7a0, type: 2}
-  Equip_Chest: {fileID: 117418, guid: ca2cd54797ad5477cae0da16e57ed347, type: 2}
-  Equip_Legs: {fileID: 177514, guid: 15a46ca004b0044049ca4d8b4b84bc6c, type: 2}
+  Equip_Armor: {fileID: 179350, guid: 5011b10632a5f43cebd97e27f8553034, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
-  Helmet: {fileID: 0}
-  Chest: {fileID: 0}
-  Legs: {fileID: 0}
+  Armor: {fileID: 0}
   Status: []
 --- !u!58 &1819462886
 CircleCollider2D:
@@ -551,14 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Primary_Damage: 0
-  Secondary_Damage: 0
-  Primary_Accuracy: 0
-  Secondary_Accuracy: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0
 --- !u!1 &2141664680
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,14 +615,10 @@ MonoBehaviour:
   Equip_Primary_Weapon: {fileID: 178330, guid: 571f0f88f9bf64d1db3c395667dc817d, type: 2}
   Equip_Secondary_Weapon: {fileID: 129048, guid: f31a5dee2c9424885a4f3bec369d77ab,
     type: 2}
-  Equip_Helmet: {fileID: 184050, guid: 60b71ef31ed1240e7896b9a87a81f7a0, type: 2}
-  Equip_Chest: {fileID: 117418, guid: ca2cd54797ad5477cae0da16e57ed347, type: 2}
-  Equip_Legs: {fileID: 177514, guid: 15a46ca004b0044049ca4d8b4b84bc6c, type: 2}
+  Equip_Armor: {fileID: 179350, guid: 5011b10632a5f43cebd97e27f8553034, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
-  Helmet: {fileID: 0}
-  Chest: {fileID: 0}
-  Legs: {fileID: 0}
+  Armor: {fileID: 0}
   Status: []
 --- !u!212 &2141664682
 SpriteRenderer:
@@ -715,11 +687,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Primary_Damage: 0
-  Secondary_Damage: 0
-  Primary_Accuracy: 0
-  Secondary_Accuracy: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0

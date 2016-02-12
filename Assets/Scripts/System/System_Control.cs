@@ -6,7 +6,7 @@ namespace System_Control
 	public enum Assign_Class {None, Melee, Magic, Archery};
 	public enum Phase {Attack_Begin,	     Attack_Hit,	     Attack_Miss,		  Attack_End, 
 					   Counter_Attack_Begin, Counter_Attack_Hit, Counter_Attack_Miss, Counter_Attack_End};
-	public enum Assign_Subclass {None, One_Handed, Two_Handed, Shield, Helmet, Chest, Legs, Arrow, Bolt};
+	public enum Assign_Subclass {None, One_Handed, Two_Handed, Shield, Armor, Arrow, Bolt};
 	public enum Attack_Stat {Class_Level,
 							 Base_Damage,	Damage,Damage_Bonus,
 							 Critical,	 	Critical_Bonus,	  	 Critical_Chance, 	Critical_Chance_Bonus,
