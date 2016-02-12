@@ -12,6 +12,7 @@ public class Stats : Raycast
 	public string Name;
 	public string Description;
 	
+	[HideInInspector]
 	[SerializeField]	
 	public Serialize_Dictionary Stat_Dictionary = new Serialize_Dictionary()
 	{

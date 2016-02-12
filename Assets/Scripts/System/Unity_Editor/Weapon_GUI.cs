@@ -4,9 +4,6 @@ using UnityEditor;
 using System_Control;
 
 [CustomEditor(typeof(Equipment_Foundation))]
-
-
-
 public class Weapon_GUI : Editor 
 {
 	private enum Limit_Stats {Hitpoints, Melee_Damage,Magic_Damage,Archery_Damage,Accuracy,Evade};
@@ -137,7 +134,7 @@ public class Weapon_GUI : Editor
 			EditorGUILayout.LabelField("Multiplier:", EditorStyles.boldLabel,GUILayout.Width(80f));
 			Limiting_Stats = (Limit_Stats)EditorGUILayout.EnumPopup(Limiting_Stats,GUILayout.Width(120f));
 			Amount = EditorGUILayout.FloatField(Amount,GUILayout.Width(41f));
-//			Set_Stat = EditorGUILayout.Toggle(Set_Stat,GUILayout.Width(15f))
+			//Set_Stat = EditorGUILayout.Toggle(Set_Stat,GUILayout.Width(15f))
 			EditorGUILayout.LabelField(" *  " + Weapon_Editor.Get_Stat(Stat.Item_Tier).ToString() + "", GUILayout.Width(40f));
 			if(GUILayout.Button("DO IT",GUILayout.Width(40f),GUILayout.Height(15f)))
 	        {

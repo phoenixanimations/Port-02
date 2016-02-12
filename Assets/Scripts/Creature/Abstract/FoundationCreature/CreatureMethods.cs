@@ -93,33 +93,30 @@ public class CreatureMethods : CreatureFoundation
 		Attack_Cache.Hit_Me_Baby(Secondary_Weapon);
 	}	
 
+	public float Max_Health ()
+	{
+		float Level_Hitpoints = 50f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
+		float Primary_Secondary_Hitpoints = Primary_Weapon.Get_Stat(Stat.Hitpoints) + 
+								 			Secondary_Weapon.Get_Stat(Stat.Hitpoints);
+		float Helmet_Chest_Legs_Hitpoints = Helmet.Get_Stat(Stat.Hitpoints) + 
+												 	Chest.Get_Stat(Stat.Hitpoints) + 
+		                                        	Legs.Get_Stat(Stat.Hitpoints);
+		float Max_Hitpoints = Level_Hitpoints + Primary_Secondary_Hitpoints + Helmet_Chest_Legs_Hitpoints;
+		return Max_Hitpoints;
+	}
+
 	public void Heal (float Amount)
 	{
-
-		float Level_Hitpoints = 50f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
-
-		float Primary_Secondary_Hitpoints = Primary_Weapon.Get_Stat(Stat.Hitpoints) + 
-								 		 Secondary_Weapon.Get_Stat(Stat.Hitpoints);
-
-		
-
-
-		float Helmet_Chest_Legs_Hitpoints = Helmet.Get_Stat(Stat.Hitpoints) + 
-										 Chest.Get_Stat(Stat.Hitpoints) + 
-                                         Legs.Get_Stat(Stat.Hitpoints);
-		
-		float Max_Hitpoints = Level_Hitpoints + Primary_Secondary_Hitpoints + Helmet_Chest_Legs_Hitpoints;
-
-		if ((Get_Stat(Stat.Hitpoints) + Amount) < Max_Hitpoints)
+		if ((Get_Stat(Stat.Hitpoints) + Amount) < Max_Health())
 		{
 			Get_Stat(Stat.Hitpoints,Amount);
 		}
 		else
 		{
-			Get_Stat(Stat.Hitpoints,Max_Hitpoints,true);
+			Get_Stat(Stat.Hitpoints,Max_Health(),true);
 		}	
 	}
-	
+
 	public void Counter_Attack(Phase During_Which_Phase)
 	{	
 		if (Primary_Weapon != null)   Primary_Weapon.Attack_Status(During_Which_Phase);

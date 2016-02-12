@@ -7,6 +7,8 @@ namespace System_Control
 	public enum Phase {Attack_Begin,	     Attack_Hit,	     Attack_Miss,		  Attack_End, 
 					   Counter_Attack_Begin, Counter_Attack_Hit, Counter_Attack_Miss, Counter_Attack_End};
 	public enum Assign_Subclass {None, One_Handed, Two_Handed, Shield, Helmet, Chest, Legs, Arrow, Bolt};
+	public enum Attack_Stat {Damage,Critical_Chance,Critical_Damage,Accuracy,Resistance}
+
 	public enum Stat {
 					  //Everyone
 					  Hitpoints, 		    
