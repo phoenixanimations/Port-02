@@ -36,11 +36,14 @@ public class Attack : Raycast
 	public float  Base_Damage {private set; get;}
 	public float  Damage {private set; get;}
 	public float  Critical {private set; get;}
+	public float  Critical_Damage_Percent {private set; get;}
 	public float  Critical_Chance {private set; get;}
-	public float  Critical_Damage {private set; get;}
 	public float  Accuracy {private set; get;}
 	public float  Resistance {private set; get;}
 
+  //**************************************//
+ //**************Utilities***************//
+//**************************************//
 	private float Calculate_List (List<float> List_To_Calculate, string Add_Or_Multiple = "Add")
 	{
 		float Calculation = 0f;
@@ -80,6 +83,9 @@ public class Attack : Raycast
 		return false;
 	}
 
+  //**************************************//
+ //**************Set Stats***************//
+//**************************************//
 	private void Reset_Stats ()
 	{
 		Number_Of_Attacks = 0f;
@@ -110,6 +116,9 @@ public class Attack : Raycast
 		Legs = Creature.Legs;
 	}
 
+  //**************************************//
+ //****************Passives**************//
+//**************************************//
 	private void Passives (Equipment_Foundation Primary_Or_Secondary, Creature Adversary, Phase Attack_Phase)
 	{
 		Primary_Or_Secondary.Attack_Status(Attack_Phase);
@@ -124,6 +133,61 @@ public class Attack : Raycast
 		Creature = gameObject.GetComponent<Creature>();
 	}
 
+  //***************************************//
+ //*Send Stats to Display Character Stats*//
+//***************************************//
+	private float[] Primary_Stats = new float[30];
+	private float[] Secondary_Stats = new float[30];
+	private bool Light_Switch;
+	public void Record_Attack_Stat_To_Display_Character_Stats ()
+	{
+		Light_Switch = !Light_Switch;
+		if (Light_Switch)
+		{
+			Primary_Stats[(int)Attack_Stat.Class_Level]				   = 			Class_Level;
+			Primary_Stats[(int)Attack_Stat.Base_Damage] 		       =			Base_Damage;
+			Primary_Stats[(int)Attack_Stat.Damage] 					   = 			Damage;
+			Primary_Stats[(int)Attack_Stat.Damage_Bonus]			   = 			Calculate_List(Damage_Bonus, "Multiple");
+			Primary_Stats[(int)Attack_Stat.Accuracy] 				   =			Accuracy;
+			Primary_Stats[(int)Attack_Stat.Accuracy_Bonus]			   =			Calculate_List(Accuracy_Bonus,"Multiple");
+			Primary_Stats[(int)Attack_Stat.Critical] 				   = 			Critical;
+			Primary_Stats[(int)Attack_Stat.Critical_Bonus] 		 	   = 			Calculate_List(Critical_Damage_Bonus);
+			Primary_Stats[(int)Attack_Stat.Critical_Chance] 		   =  		    Critical_Chance;
+			Primary_Stats[(int)Attack_Stat.Critical_Chance_Bonus]  	   =			Calculate_List(Critical_Chance_Bonus);
+			Primary_Stats[(int)Attack_Stat.Resistance] 			  	   = 		    Resistance;
+			Primary_Stats[(int)Attack_Stat.Resistance_Bonus]		   = 			Calculate_List(Resistance_Bonus);
+			Primary_Stats[(int)Attack_Stat.None] = 0f;
+		}
+		if (!Light_Switch)
+		{
+			Secondary_Stats[(int)Attack_Stat.Class_Level]				   = 			Class_Level;
+			Secondary_Stats[(int)Attack_Stat.Base_Damage] 		       	   =			Base_Damage;
+			Secondary_Stats[(int)Attack_Stat.Damage] 					   = 			Damage;
+			Secondary_Stats[(int)Attack_Stat.Damage_Bonus]			   	   = 			Calculate_List(Damage_Bonus, "Multiple");
+			Secondary_Stats[(int)Attack_Stat.Accuracy] 				   	   =			Accuracy;
+			Secondary_Stats[(int)Attack_Stat.Accuracy_Bonus]			   =			Calculate_List(Accuracy_Bonus,"Multiple");
+			Secondary_Stats[(int)Attack_Stat.Critical] 				   	   = 			Critical;
+			Secondary_Stats[(int)Attack_Stat.Critical_Bonus] 		 	   = 			Calculate_List(Critical_Damage_Bonus);
+			Secondary_Stats[(int)Attack_Stat.Critical_Chance] 		  	   =  		    Critical_Chance;
+			Secondary_Stats[(int)Attack_Stat.Critical_Chance_Bonus]  	   =			Calculate_List(Critical_Chance_Bonus);
+			Secondary_Stats[(int)Attack_Stat.Resistance] 			  	   = 		    Resistance;
+			Secondary_Stats[(int)Attack_Stat.Resistance_Bonus]		  	   = 			Calculate_List(Resistance_Bonus);
+			Secondary_Stats[(int)Attack_Stat.None] = 0f;
+		}
+	}
+
+	public float Attack_Stat_To_Display_Character_Stats (Assign_Hand Primary_Or_Secondary, Attack_Stat Pick_Stat)
+	{
+		if (Primary_Or_Secondary == Assign_Hand.Primary)
+			return Primary_Stats[(int)Pick_Stat];
+		if (Primary_Or_Secondary == Assign_Hand.Secondary)
+			return Primary_Stats[(int)Pick_Stat];
+		return 0f;
+	}
+
+  //**************************************//
+ //*************Start Attack*************//
+//**************************************//
 	public void Hit_Me_Baby (Equipment_Foundation Primary_Or_Secondary)
 	{
 		Start_Hitting_Me_Baby ();
@@ -205,8 +269,8 @@ public class Attack : Raycast
  //*****Calculate: Critical Damage*******//
 //**************************************//
 				if ((Primary_Or_Secondary.Get_Stat(Stat.Critical_Chance) + Calculate_List(Critical_Chance_Bonus)) >= UnityEngine.Random.Range(0f,100f))
-					Critical_Damage = (Primary_Or_Secondary.Get_Stat(Stat.Critical_Damage) + Calculate_List(Critical_Damage_Bonus)) / 100;
-				Critical += Base_Damage * Critical_Damage; 
+					Critical_Damage_Percent = (Primary_Or_Secondary.Get_Stat(Stat.Critical_Damage) + Calculate_List(Critical_Damage_Bonus)) / 100;
+				Critical += Base_Damage * Critical_Damage_Percent; 
 
   //**************************************//
  //*****Calculate: Resistance Damage*****//
@@ -269,7 +333,13 @@ public class Attack : Raycast
 
 				Max_Attacks++;
 			}
-			
+  //**************************************//
+ //**************End Loop****************//
+//**************************************//
 		}
+		Record_Attack_Stat_To_Display_Character_Stats();
 	}
+  //**************************************//
+ //*************End Attack***************//
+//**************************************//
 }

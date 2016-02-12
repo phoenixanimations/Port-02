@@ -5,26 +5,28 @@ using System_Control;
 
 public class Display_Character_Stats : MonoBehaviour 
 {
-	private Creature Cache;
-	public float Hitpoints;
-	public float Primary_Damage;
-	public float Secondary_Damage;
-
-	public float Primary_Accuracy;
-	public float Secondary_Accuracy;
-	public float Melee_Resistance;
-	public float Magic_Resistance;
-	public float Archery_Resistance;
+	private Creature Creature;
+	private Attack Creature_Attack;
+	private float Hitpoints;
+	private float Energy;
 
 	protected void Start ()
 	{
-		Cache = GetComponent<Creature>();
+		Creature = GetComponent<Creature>();
+		Creature_Attack = GetComponent<Attack>();
 	}
 
 	protected void Update ()
 	{	
-		Hitpoints = Cache.Get_Stat(Stat.Hitpoints);	
+		Hitpoints = Creature.Get_Stat(Stat.Hitpoints);
 		
+
+
+
+
+
+
+		Energy = Creature.Get_Stat(Stat.Energy);
 	}
 }
 
@@ -57,8 +59,4 @@ public class Display_Character_Stats : MonoBehaviour
 	[Header("Accuracy Damage")]
 
 	[Header("Class Resistance")]
-
-
-
-
 */
