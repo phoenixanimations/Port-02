@@ -53,6 +53,5 @@ public class Creature : CreatureMethods
 				i.Beginning_Of_Turn();
 			}
 		}
-
 	}
 }
