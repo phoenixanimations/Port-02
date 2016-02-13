@@ -113,10 +113,10 @@ public class CreatureMethods : CreatureFoundation
 		}	
 	}
 
-	public void Counter_Attack(Phase During_Which_Phase)
+	public void Counter_Attack(Phase During_Which_Phase, Creature Advisory, Attack Advisory_Attack)
 	{	
-		if (Primary_Weapon != null)   Primary_Weapon.Attack_Status(During_Which_Phase);
-		if (Secondary_Weapon != null) Secondary_Weapon.Attack_Status(During_Which_Phase);
-		if (Armor != null)			  Armor.Attack_Status(During_Which_Phase);
+		if (Primary_Weapon != null)   Primary_Weapon.Counter_Attack_Status(During_Which_Phase,Advisory,Advisory_Attack);
+		if (Secondary_Weapon != null) Secondary_Weapon.Counter_Attack_Status(During_Which_Phase,Advisory,Advisory_Attack);
+		if (Armor != null)			  Armor.Counter_Attack_Status(During_Which_Phase,Advisory,Advisory_Attack);
 	}
 }

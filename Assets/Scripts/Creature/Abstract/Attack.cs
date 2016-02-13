@@ -16,7 +16,7 @@ public class Attack : Raycast
  //***********Global Modify*************//
 //*************************************//
 	public float  Number_Of_Attacks;
-	public float  Max_Attacks {get;private set;}
+	public float  Attack_Count {get;private set;}
   //**************************************//
  //***************Modify*****************//
 //**************************************//
@@ -104,7 +104,7 @@ public class Attack : Raycast
 
 	private void Start_Hitting_Me_Baby ()
 	{	
-		Max_Attacks = 0f;
+		Attack_Count = 0f;
 		Reset_Stats();
 
 		Primary = Creature.Primary_Weapon;
@@ -204,15 +204,15 @@ public class Attack : Raycast
 		{
 			Adversary = Hit.collider.GetComponent<Creature>();
 
-			while (Max_Attacks < Number_Of_Attacks)
+			while (Attack_Count < Number_Of_Attacks)
 			{
 				Reset_Stats();
   //**************************************//
- //**********Passive Attack Begin********//
+ //*******Passive Attack Begin 1/4*******//
 //**************************************//
 				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Begin);
 				Creature.Attack_Status(Phase.Attack_Begin);
- 				Adversary.Counter_Attack(Phase.Counter_Attack_Begin);
+				Adversary.Counter_Attack(Phase.Counter_Attack_Begin,Creature,this);
 
   //**************************************//
  //******Calculate: Number of Attacks****//
@@ -283,11 +283,11 @@ public class Attack : Raycast
 				if (Accuracy >= UnityEngine.Random.Range(0f,100f))
 				{	
   //**************************************//
- //**********Passive Attack Hit**********//
+ //*******Passive Attack Hit 2/4*********//
 //**************************************//
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Hit);
 					Creature.Attack_Status(Phase.Attack_Hit);
-					Adversary.Counter_Attack(Phase.Counter_Attack_Hit);
+					Adversary.Counter_Attack(Phase.Counter_Attack_Hit,Creature,this);
 
   //**************************************//
  //******Calculate: Adversary - Damage***//
@@ -312,20 +312,20 @@ public class Attack : Raycast
 				else
 				{
   //**************************************//
- //**********Passive Attack Miss*********//
+ //********Passive Attack Miss 3/4*******//
 //**************************************//
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Miss);
 					Creature.Attack_Status(Phase.Attack_Miss);
-					Adversary.Counter_Attack(Phase.Counter_Attack_Miss);				
+					Adversary.Counter_Attack(Phase.Counter_Attack_Miss,Creature,this);				
 				}
   //**************************************//
- //**********Passive Attack End**********//
+ //********Passive Attack End 4/4********//
 //**************************************//
 				Passives (Primary_Or_Secondary, Adversary, Phase.Attack_End);
 				Creature.Attack_Status(Phase.Attack_End);
-				Adversary.Counter_Attack(Phase.Counter_Attack_End);				
+				Adversary.Counter_Attack(Phase.Counter_Attack_End,Creature,this);				
 
-				Max_Attacks++;
+				Attack_Count++;
 			}
   //**************************************//
  //**************End Loop****************//

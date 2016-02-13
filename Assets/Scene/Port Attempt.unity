@@ -181,6 +181,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Max_Damage: 0
+  Primary_Damage: 0
+  Secondary_Damage: 0
+  Primary_Critical: 0
+  Primary_Critical_Chance: 0
+  Secondary_Critical: 0
+  Secondary_Critical_Chance: 0
+  Primary_Accuracy: 0
+  Secondary_Accuracy: 0
+  Melee_Resistance: 0
+  Magic_Resistance: 0
+  Archery_Resistance: 0
+  Energy: 0
 --- !u!58 &104653872
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -535,6 +549,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Max_Damage: 0
+  Primary_Damage: 0
+  Secondary_Damage: 0
+  Primary_Critical: 0
+  Primary_Critical_Chance: 0
+  Secondary_Critical: 0
+  Secondary_Critical_Chance: 0
+  Primary_Accuracy: 0
+  Secondary_Accuracy: 0
+  Melee_Resistance: 0
+  Magic_Resistance: 0
+  Archery_Resistance: 0
+  Energy: 0
 --- !u!1 &2141664680
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,3 +715,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hitpoints: 0
+  Max_Damage: 0
+  Primary_Damage: 0
+  Secondary_Damage: 0
+  Primary_Critical: 0
+  Primary_Critical_Chance: 0
+  Secondary_Critical: 0
+  Secondary_Critical_Chance: 0
+  Primary_Accuracy: 0
+  Secondary_Accuracy: 0
+  Melee_Resistance: 0
+  Magic_Resistance: 0
+  Archery_Resistance: 0
+  Energy: 0

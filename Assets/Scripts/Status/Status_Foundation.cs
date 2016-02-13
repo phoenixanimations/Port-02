@@ -24,6 +24,9 @@ public class Status_Foundation : Movement
 		Activate_Once = true;
 	}
 	public virtual void Attack_Status (Phase Activate_On_What_Phase) {}
+
+	public virtual void Counter_Attack_Status (Phase Activate_On_What_Phase,Creature Advisory, Attack Advisory_Attack) {}
+
 	public virtual void End_Of_Turn () {}
 	
 	public virtual void Terminate_Status ()

@@ -39,6 +39,15 @@ public class Equipment_Foundation : Stats
 		}
 	}
 
+	public void Counter_Attack_Status (Phase Which_Phase, Creature Advisory, Attack Advisory_Attack)
+	{
+		if (Status_Less_Than_Zero()) return;
+		foreach (var i in Status) 
+		{
+			i.Counter_Attack_Status(Which_Phase, Advisory, Advisory_Attack);
+		}
+	}
+
 	public void End_Of_Turn ()
 	{
 		if (Status_Less_Than_Zero()) return;
