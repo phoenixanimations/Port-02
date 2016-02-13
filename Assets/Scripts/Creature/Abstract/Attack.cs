@@ -25,6 +25,7 @@ public class Attack : Raycast
 	public List<float> Resistance_Bonus = new List<float>(){0};
 	public List<float> Critical_Chance_Bonus = new List<float>(){0};
 	public List<float> Critical_Damage_Bonus = new List<float>(){0};
+	public List<float> Energy_Penalty = new List<float>(){0};
 	
   //**************************************//
  //*************Never Modify*************//
@@ -38,6 +39,7 @@ public class Attack : Raycast
 	public float  Critical_Chance {private set; get;}
 	public float  Accuracy {private set; get;}
 	public float  Resistance {private set; get;}
+	public float  Energy {private set; get;}
 
   //**************************************//
  //**************Utilities***************//

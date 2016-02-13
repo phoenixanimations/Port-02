@@ -10,7 +10,7 @@ public class Sacrifice : Status_Foundation
 		base.Attack_Status (Activate_On_What_Phase);
 		if (Activate_On_What_Phase == Phase.Attack_Hit)
 		{
-			
+			Debug.Log("Record energy in attack");
 		}
 
 	}

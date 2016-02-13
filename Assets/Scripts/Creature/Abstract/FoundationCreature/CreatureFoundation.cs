@@ -19,7 +19,8 @@ public class CreatureFoundation : Movement
 	[HideInInspector]
 	public Equipment_Foundation Armor;
 	protected Attack Attack_Cache;
-	public List<Status_Foundation> Status = new List<Status_Foundation>();
+	public List<Status_Foundation> Defects = new List<Status_Foundation>();
+	public List<Status_Foundation> Actives = new List<Status_Foundation>();
 
 	public delegate void Delegate ();
 

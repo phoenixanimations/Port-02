@@ -18,14 +18,14 @@ public class CreatureMethods : CreatureFoundation
 		if (Primary_Weapon != null)   Primary_Weapon.End_Of_Turn();
 		if (Secondary_Weapon != null) Secondary_Weapon.End_Of_Turn();
 		if (Armor != null)			  Armor.End_Of_Turn();
-				if (Status.Count > 0)
-			foreach (var i in Status) { i.End_Of_Turn(); }
+				if (Defects.Count > 0)
+			foreach (var i in Defects) { i.End_Of_Turn(); }
 	}
 	
 	public void Attack_Status (Phase Which_Phase)
 	{
-		if (Status.Count > 0) return;
-		foreach (var i in Status) 
+		if (Defects.Count > 0) return;
+		foreach (var i in Defects) 
 		{
 			i.Attack_Status(Which_Phase);
 		}

@@ -9,21 +9,17 @@ public class Active_Foundation : Status_Foundation
 	public override void Attack_Status (System_Control.Phase Activate_On_What_Phase)
 	{
 		base.Attack_Status (Activate_On_What_Phase);
-		Insert_Energy_Amount();
 		if (Activate_On_What_Phase == Phase.Attack_Begin)
 		{
+			Insert_Energy_Amount();
 			if (Creature.Get_Stat(Stat.Energy) >= Energy_Amount)
-			{
-				Creature.Get_Stat(Stat.Energy, -Energy_Amount);
-				Minus_Energy = true;
 				Active_Status ();
-			}
 		}
 
-		if (Activate_On_What_Phase == Phase.Attack_Miss)
+		if (Activate_On_What_Phase == Phase.Attack_Hit)
 		{
-			if (Minus_Energy)
-				Creature.Get_Stat(Stat.Energy, Energy_Amount);
+			if (Creature.Get_Stat(Stat.Energy) >= Energy_Amount)
+				Creature.Get_Stat(Stat.Energy, -Energy_Amount);
 		}
 	}
 
@@ -36,6 +32,4 @@ public class Active_Foundation : Status_Foundation
 	{
 
 	}
-
-
 }

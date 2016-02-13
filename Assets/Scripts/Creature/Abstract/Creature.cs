@@ -45,9 +45,9 @@ public class Creature : CreatureMethods
 		if (Primary_Weapon != null)   Primary_Weapon.Beginning_Of_Turn(this.gameObject);
 		if (Secondary_Weapon != null) Secondary_Weapon.Beginning_Of_Turn(this.gameObject);
 		if (Armor != null)			  Armor.Beginning_Of_Turn(this.gameObject);
-		if (Status.Count > 0)
+		if (Defects.Count > 0)
 		{
-			foreach (var i in Status) 
+			foreach (var i in Defects) 
 			{
 				i.Assign_Status(this.gameObject);
 				i.Beginning_Of_Turn();
