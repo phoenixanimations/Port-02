@@ -9,8 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 462784}
   - 114: {fileID: 11473776}
+  - 114: {fileID: 11494312}
   m_Layer: 0
-  m_Name: Preservation_Shield
+  m_Name: Preservation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,14 +86,73 @@ MonoBehaviour:
   ID: 0
   Class: 0
   Subclass: 3
-  Status: []
+  Status:
+  - {fileID: 0}
+--- !u!114 &11494312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c6cd5f89f344f5486a3b2cb7dd007a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Description: 
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Distance
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Item_Tier
+    - Number_Of_Attacks
+    _values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Status.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140148}
