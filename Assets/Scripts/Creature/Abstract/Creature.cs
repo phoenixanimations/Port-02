@@ -25,10 +25,11 @@ public class Creature : CreatureMethods
 		if (Secondary_Weapon != null)   Get_Stat(Stat.Hitpoints,Secondary_Weapon.Get_Stat(Stat.Hitpoints));
 		if (Armor != null)			 	Get_Stat(Stat.Hitpoints,Armor.Get_Stat(Stat.Hitpoints));
 		
-		Get_Stat(Stat.Hitpoints,50,Stat.Hitpoints_Level);
+		Get_Stat(Stat.Hitpoints,1,Stat.Hitpoints_Level);
 		Get_Stat(Stat.Melee_Damage,1,Stat.Melee_Level);
 		Get_Stat(Stat.Magic_Damage,1,Stat.Magic_Level);
 		Get_Stat(Stat.Archery_Damage,1,Stat.Archery_Level);
+	
 	}
 
 	protected override void Start ()
@@ -48,6 +49,14 @@ public class Creature : CreatureMethods
 		if (Defects.Count > 0)
 		{
 			foreach (var i in Defects) 
+			{
+				i.Assign_Status(this.gameObject);
+				i.Beginning_Of_Turn();
+			}
+		}
+		if (Actives.Count > 0)
+		{
+			foreach (var i in Actives) 
 			{
 				i.Assign_Status(this.gameObject);
 				i.Beginning_Of_Turn();

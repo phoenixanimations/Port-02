@@ -208,6 +208,7 @@ public class Attack : Raycast
 
 			while (Attack_Count < Number_Of_Attacks)
 			{
+				Debug.Log("Attack");
 				Reset_Stats();
   //**************************************//
  //*******Passive Attack Begin 1/4*******//
@@ -318,7 +319,8 @@ public class Attack : Raycast
 //**************************************//
 					Passives (Primary_Or_Secondary, Adversary, Phase.Attack_Miss);
 					Creature.Attack_Status(Phase.Attack_Miss);
-					Adversary.Counter_Attack(Phase.Counter_Attack_Miss,Creature,this);				
+					Adversary.Counter_Attack(Phase.Counter_Attack_Miss,Creature,this);	
+					Debug.Log("You missed!");			
 				}
   //**************************************//
  //********Passive Attack End 4/4********//

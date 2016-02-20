@@ -31,8 +31,14 @@ public class CreatureFoundation : Movement
 		base.Start ();
 		gameObject.AddComponent<Attack>().hideFlags = HideFlags.HideInInspector;
 		Attack_Cache = GetComponent<Attack>();
+	}
+		
+	public override void Assign_Stats ()
+	{
+		base.Assign_Stats ();
 		if (Equip_Primary_Weapon != null) 	Primary_Weapon   = Equip_Primary_Weapon.GetComponent<Equipment_Foundation>();
 		if (Equip_Secondary_Weapon != null) Secondary_Weapon = Equip_Secondary_Weapon.GetComponent<Equipment_Foundation>();
 		if (Equip_Armor != null)  			Armor 			 = Equip_Armor.GetComponent<Equipment_Foundation>();
+
 	}
 }
