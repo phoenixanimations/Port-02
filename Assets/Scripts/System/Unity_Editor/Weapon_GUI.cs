@@ -118,8 +118,6 @@ public class Weapon_GUI : Editor
 			Weapon_Editor.Stat_Dictionary[Stat.Magic_Resistance.ToString()] = EditorGUILayout.FloatField("Magic Resistance", Weapon_Editor.Get_Stat(Stat.Magic_Resistance));
 			Weapon_Editor.Stat_Dictionary[Stat.Archery_Resistance.ToString()] = EditorGUILayout.FloatField("Archery Resistance", Weapon_Editor.Get_Stat(Stat.Archery_Resistance));
 		    EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
-
-
 		}
 
 			
