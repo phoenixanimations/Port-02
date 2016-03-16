@@ -25,7 +25,7 @@ public class Creature : CreatureMethods
 		if (Secondary_Weapon != null)   Get_Stat(Stat.Hitpoints,Secondary_Weapon.Get_Stat(Stat.Hitpoints));
 		if (Armor != null)			 	Get_Stat(Stat.Hitpoints,Armor.Get_Stat(Stat.Hitpoints));
 		
-		Get_Stat(Stat.Hitpoints,1,Stat.Hitpoints_Level);
+		Get_Stat(Stat.Hitpoints,10,Stat.Hitpoints_Level);
 		Get_Stat(Stat.Melee_Damage,1,Stat.Melee_Level);
 		Get_Stat(Stat.Magic_Damage,1,Stat.Magic_Level);
 		Get_Stat(Stat.Archery_Damage,1,Stat.Archery_Level);

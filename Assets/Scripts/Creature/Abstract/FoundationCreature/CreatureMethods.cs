@@ -97,7 +97,7 @@ public class CreatureMethods : CreatureFoundation
 
 	public float Max_Hitpoints ()
 	{
-		float Level_Hitpoints = 50f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
+		float Level_Hitpoints = 10f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
 		float Primary_Secondary_Hitpoints = Primary_Weapon.Get_Stat(Stat.Hitpoints) + 
 								 			Secondary_Weapon.Get_Stat(Stat.Hitpoints);
 		float Helmet_Chest_Legs_Hitpoints = Armor.Get_Stat(Stat.Hitpoints);
