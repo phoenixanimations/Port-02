@@ -45,7 +45,12 @@ public class Weapon_GUI : Editor
 		if (Weapon_Editor.Subclass == Assign_Subclass.Armor)
 		{
 			Not_Armor = false;
-		}		
+		}	
+
+		if (Weapon_Editor.Subclass == Assign_Subclass.Arrow || Weapon_Editor.Subclass == Assign_Subclass.Bolt)
+		{
+			return;
+		}	
 
 		if (Not_Armor)
 		{
@@ -53,11 +58,11 @@ public class Weapon_GUI : Editor
 	
 			if (Config_Foldout)
 			{ 
-				Weapon_Editor.Stats_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
-				Weapon_Editor.Stats_Dictionary[Stat.Minimum_Distance.ToString()] = EditorGUILayout.FloatField("Minimum Distance", Weapon_Editor.Get_Stat(Stat.Minimum_Distance));
-				Weapon_Editor.Stats_Dictionary[Stat.Maximum_Distance.ToString()] = EditorGUILayout.FloatField("Maximum Distance", Weapon_Editor.Get_Stat(Stat.Maximum_Distance));
-				Weapon_Editor.Stats_Dictionary[Stat.Movement.ToString()] = EditorGUILayout.FloatField("Movement", Weapon_Editor.Get_Stat(Stat.Movement));
-				Weapon_Editor.Stats_Dictionary[Stat.Knockback.ToString()] = EditorGUILayout.FloatField("Knockback", Weapon_Editor.Get_Stat(Stat.Knockback));
+				Weapon_Editor.Stat_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
+				Weapon_Editor.Stat_Dictionary[Stat.Minimum_Distance.ToString()] = EditorGUILayout.FloatField("Minimum Distance", Weapon_Editor.Get_Stat(Stat.Minimum_Distance));
+				Weapon_Editor.Stat_Dictionary[Stat.Maximum_Distance.ToString()] = EditorGUILayout.FloatField("Maximum Distance", Weapon_Editor.Get_Stat(Stat.Maximum_Distance));
+				Weapon_Editor.Stat_Dictionary[Stat.Movement.ToString()] = EditorGUILayout.FloatField("Movement", Weapon_Editor.Get_Stat(Stat.Movement));
+				Weapon_Editor.Stat_Dictionary[Stat.Knockback.ToString()] = EditorGUILayout.FloatField("Knockback", Weapon_Editor.Get_Stat(Stat.Knockback));
 
 //				EditorGUILayout.BeginHorizontal ();
 //				Upper_Left = EditorGUILayout.Toggle(Upper_Left,GUILayout.Width(15f));
@@ -111,15 +116,15 @@ public class Weapon_GUI : Editor
 
 			EditorGUILayout.LabelField("Critical", EditorStyles.boldLabel);
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			Weapon_Editor.Stats_Dictionary[Stat.Critical_Damage.ToString()] = EditorGUILayout.FloatField("Critical Damage", Weapon_Editor.Get_Stat(Stat.Critical_Damage));
-			Weapon_Editor.Stats_Dictionary[Stat.Critical_Chance.ToString()] = EditorGUILayout.FloatField("Critical Chance", Weapon_Editor.Get_Stat(Stat.Critical_Chance));
+			Weapon_Editor.Stat_Dictionary[Stat.Critical_Damage.ToString()] = EditorGUILayout.FloatField("Critical Damage", Weapon_Editor.Get_Stat(Stat.Critical_Damage));
+			Weapon_Editor.Stat_Dictionary[Stat.Critical_Chance.ToString()] = EditorGUILayout.FloatField("Critical Chance", Weapon_Editor.Get_Stat(Stat.Critical_Chance));
 			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 			
 			EditorGUILayout.LabelField("Resistance", EditorStyles.boldLabel);
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			Weapon_Editor.Stats_Dictionary[Stat.Melee_Resistance.ToString()] = EditorGUILayout.FloatField("Melee Resistance", Weapon_Editor.Get_Stat(Stat.Melee_Resistance));
-			Weapon_Editor.Stats_Dictionary[Stat.Magic_Resistance.ToString()] = EditorGUILayout.FloatField("Magic Resistance", Weapon_Editor.Get_Stat(Stat.Magic_Resistance));
-			Weapon_Editor.Stats_Dictionary[Stat.Archery_Resistance.ToString()] = EditorGUILayout.FloatField("Archery Resistance", Weapon_Editor.Get_Stat(Stat.Archery_Resistance));
+			Weapon_Editor.Stat_Dictionary[Stat.Melee_Resistance.ToString()] = EditorGUILayout.FloatField("Melee Resistance", Weapon_Editor.Get_Stat(Stat.Melee_Resistance));
+			Weapon_Editor.Stat_Dictionary[Stat.Magic_Resistance.ToString()] = EditorGUILayout.FloatField("Magic Resistance", Weapon_Editor.Get_Stat(Stat.Magic_Resistance));
+			Weapon_Editor.Stat_Dictionary[Stat.Archery_Resistance.ToString()] = EditorGUILayout.FloatField("Archery Resistance", Weapon_Editor.Get_Stat(Stat.Archery_Resistance));
 		    EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 		}
 		EditorGUILayout.PropertyField(Status,true);
