@@ -22,7 +22,7 @@ public class Weapon_GUI : Editor
 	Stat Add_Assign_Stat;
 	float Add_Amount;
 	
-	bool Not_Armor = true;
+//	bool Not_Armor = true;
 
  	SerializedProperty 	Status;
 
@@ -41,28 +41,21 @@ public class Weapon_GUI : Editor
 		
 		Weapon_Editor.Class = (Assign_Class)EditorGUILayout.EnumPopup("Class",Weapon_Editor.Class);
 		Weapon_Editor.Subclass = (Assign_Subclass)EditorGUILayout.EnumPopup("Subclass",Weapon_Editor.Subclass);
-		
-		if (Weapon_Editor.Subclass == Assign_Subclass.Armor)
-		{
-			Not_Armor = false;
-		}	
 
 		if (Weapon_Editor.Subclass == Assign_Subclass.Arrow || Weapon_Editor.Subclass == Assign_Subclass.Bolt)
 		{
 			return;
 		}	
 
-		if (Not_Armor)
-		{
-			Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
-	
-			if (Config_Foldout)
-			{ 
-				Weapon_Editor.Stat_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
-				Weapon_Editor.Stat_Dictionary[Stat.Minimum_Distance.ToString()] = EditorGUILayout.FloatField("Minimum Distance", Weapon_Editor.Get_Stat(Stat.Minimum_Distance));
-				Weapon_Editor.Stat_Dictionary[Stat.Maximum_Distance.ToString()] = EditorGUILayout.FloatField("Maximum Distance", Weapon_Editor.Get_Stat(Stat.Maximum_Distance));
-				Weapon_Editor.Stat_Dictionary[Stat.Movement.ToString()] = EditorGUILayout.FloatField("Movement", Weapon_Editor.Get_Stat(Stat.Movement));
-				Weapon_Editor.Stat_Dictionary[Stat.Knockback.ToString()] = EditorGUILayout.FloatField("Knockback", Weapon_Editor.Get_Stat(Stat.Knockback));
+		Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
+
+		if (Config_Foldout)
+		{ 
+			Weapon_Editor.Stat_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
+			Weapon_Editor.Stat_Dictionary[Stat.Minimum_Distance.ToString()] = EditorGUILayout.FloatField("Minimum Distance", Weapon_Editor.Get_Stat(Stat.Minimum_Distance));
+			Weapon_Editor.Stat_Dictionary[Stat.Maximum_Distance.ToString()] = EditorGUILayout.FloatField("Maximum Distance", Weapon_Editor.Get_Stat(Stat.Maximum_Distance));
+			Weapon_Editor.Stat_Dictionary[Stat.Movement.ToString()] = EditorGUILayout.FloatField("Movement", Weapon_Editor.Get_Stat(Stat.Movement));
+			Weapon_Editor.Stat_Dictionary[Stat.Knockback.ToString()] = EditorGUILayout.FloatField("Knockback", Weapon_Editor.Get_Stat(Stat.Knockback));
 
 //				EditorGUILayout.BeginHorizontal ();
 //				Upper_Left = EditorGUILayout.Toggle(Upper_Left,GUILayout.Width(15f));
@@ -87,8 +80,8 @@ public class Weapon_GUI : Editor
 //				Plus_Shaped = EditorGUILayout.Toggle(Plus_Shaped,GUILayout.Width(15f));
 //				EditorGUILayout.LabelField("Plus");
 //				EditorGUILayout.EndHorizontal ();
-			}
 		}
+		
 
 		Damage_Foldout = EditorGUILayout.Foldout(Damage_Foldout, "Stats");
 
