@@ -1,46 +1,108 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &111396
+--- !u!1 &132080
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454912}
-  - 114: {fileID: 11450514}
+  - 4: {fileID: 473108}
+  - 114: {fileID: 11444464}
+  - 114: {fileID: 11475318}
   m_Layer: 0
-  m_Name: Rattmanns_Crossbow
+  m_Name: Parrying Dagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &454912
+--- !u!4 &473108
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111396}
+  m_GameObject: {fileID: 132080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11450514
+--- !u!114 &11444464
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111396}
+  m_GameObject: {fileID: 132080}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Rattmann's Crossbow
-  Description: Infinite attack power. [pending passive]
+  Name: Parrying Dagger
+  Description: '... Hidden Human?'
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Distance
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Item_Tier
+    - Number_Of_Attacks
+    _values:
+    - 0
+    - 16
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 11
+    - 5
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+  Stat_Multipler: []
+  ID: 0
+  Class: 1
+  Subclass: 1
+  Status:
+  - {fileID: 11475318}
+  Level: 1
+--- !u!114 &11475318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05dda6e2b5c84590b8a59d529d2056a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Description: 
   Stat_Dictionary:
     _keys:
     - Hitpoints
@@ -66,28 +128,23 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-    - 22
     - 0
     - 0
     - 0
-    - 33
-    - 11
     - 0
     - 0
     - 0
-    - 9
+    - 0
+    - 0
+    - 0
     - 1
     - 1
     - 1
     - 1
     - 1
-    - 3
+    - 1
+    - 1
   Stat_Multipler: []
-  ID: 0
-  Class: 3
-  Subclass: 5
-  Status: []
-  Level: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -97,5 +154,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 111396}
+  m_RootGameObject: {fileID: 132080}
   m_IsPrefabParent: 1

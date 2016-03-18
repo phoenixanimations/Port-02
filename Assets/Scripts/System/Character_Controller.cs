@@ -44,7 +44,7 @@ public class Character_Controller : MonoBehaviour
 	
 	private void Attack (Vector3 Direction)
 	{
-		Cache.MoveAttack (Direction);
+		Cache.Move_Attack (Direction);
 	}
 	
 	private void ChangeFront (Vector3 Direction) 

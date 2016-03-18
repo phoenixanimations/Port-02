@@ -8,25 +8,25 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: .25
+    smallestHole: 0.25
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
-  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
-  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: .5
+  m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -40,7 +40,7 @@ RenderSettings:
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 5
+  serializedVersion: 6
   m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 0}
+  m_LightingDataAsset: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -74,179 +74,17 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: .5
+    agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: .166666672
+    cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &104653869
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 104653874}
-  - 212: {fileID: 104653873}
-  - 58: {fileID: 104653872}
-  - 114: {fileID: 104653871}
-  - 114: {fileID: 104653870}
-  m_Layer: 8
-  m_Name: Enemy AI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &104653870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 104653869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de99a508deba4285b2315ea89d91725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Don
-  Description: :(
-  Stat_Dictionary:
-    _keys:
-    - Hitpoints
-    - Melee_Damage
-    - Magic_Damage
-    - Archery_Damage
-    - Melee_Resistance
-    - Magic_Resistance
-    - Archery_Resistance
-    - Accuracy
-    - Evade
-    - Critical_Chance
-    - Critical_Damage
-    - Energy
-    - Distance
-    - Hitpoints_Level
-    - Melee_Level
-    - Magic_Level
-    - Archery_Level
-    - Item_Tier
-    - Number_Of_Attacks
-    _values:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-  Turn: 0
-  Player: 0
-  CreatureType: 
-  State: 
-  Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
-  Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
-    type: 2}
-  Equip_Armor: {fileID: 179350, guid: 5011b10632a5f43cebd97e27f8553034, type: 2}
-  Primary_Weapon: {fileID: 0}
-  Secondary_Weapon: {fileID: 0}
-  Armor: {fileID: 0}
-  Defects: []
-  Actives: []
---- !u!114 &104653871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 104653869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Max_Damage: 0
-  Primary_Damage: 0
-  Secondary_Damage: 0
-  Primary_Critical: 0
-  Primary_Critical_Chance: 0
-  Secondary_Critical: 0
-  Secondary_Critical_Chance: 0
-  Primary_Accuracy: 0
-  Secondary_Accuracy: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0
-  Energy: 0
---- !u!58 &104653872
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 104653869}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .25
---- !u!212 &104653873
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 104653869}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1698122041
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0633f9bfabc64ae081cd30760f16a60, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &104653874
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 104653869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &159459654
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,14 +134,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .507839501, g: .635769188, b: .742647052, a: .0196078438}
+  m_BackGroundColor: {r: 0.5078395, g: 0.6357692, b: 0.74264705, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -319,7 +157,7 @@ Camera:
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: .0219999999
+  m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
 --- !u!4 &159459659
 Transform:
@@ -328,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159459654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.39999998, y: 0, z: -10}
+  m_LocalPosition: {x: -1.4, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -393,383 +231,88 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!1 &1819462884
-GameObject:
+--- !u!1001 &1693460714
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1819462888}
-  - 212: {fileID: 1819462887}
-  - 58: {fileID: 1819462886}
-  - 114: {fileID: 1819462889}
-  - 114: {fileID: 1819462885}
-  m_Layer: 8
-  m_Name: Enemy Controlled
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1819462885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1819462884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de99a508deba4285b2315ea89d91725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Don
-  Description: :(
-  Stat_Dictionary:
-    _keys:
-    - Hitpoints
-    - Melee_Damage
-    - Magic_Damage
-    - Archery_Damage
-    - Melee_Resistance
-    - Magic_Resistance
-    - Archery_Resistance
-    - Accuracy
-    - Evade
-    - Critical_Chance
-    - Critical_Damage
-    - Energy
-    - Distance
-    - Hitpoints_Level
-    - Melee_Level
-    - Magic_Level
-    - Archery_Level
-    - Item_Tier
-    - Number_Of_Attacks
-    _values:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-  Turn: 0
-  Player: 1
-  CreatureType: 
-  State: 
-  Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
-  Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
-    type: 2}
-  Equip_Armor: {fileID: 196212, guid: 49553294b153844d1a6cc410ae8bfd3d, type: 2}
-  Primary_Weapon: {fileID: 0}
-  Secondary_Weapon: {fileID: 0}
-  Armor: {fileID: 0}
-  Defects: []
-  Actives: []
---- !u!58 &1819462886
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1819462884}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .25
---- !u!212 &1819462887
-SpriteRenderer:
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470696, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11440416, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: b66cc66b75d044f6593a03198989f5c9, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1984016025
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1819462884}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1698122041
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0633f9bfabc64ae081cd30760f16a60, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1819462888
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1819462884}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
---- !u!114 &1819462889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1819462884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Max_Damage: 0
-  Primary_Damage: 0
-  Secondary_Damage: 0
-  Primary_Critical: 0
-  Primary_Critical_Chance: 0
-  Secondary_Critical: 0
-  Secondary_Critical_Chance: 0
-  Primary_Accuracy: 0
-  Secondary_Accuracy: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0
-  Energy: 0
---- !u!1 &2141664680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2141664683}
-  - 212: {fileID: 2141664682}
-  - 58: {fileID: 2141664684}
-  - 114: {fileID: 2141664685}
-  - 114: {fileID: 2141664681}
-  - 114: {fileID: 2141664686}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2141664681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086576dffbf0f4523a14be825a1502cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Arcanym
-  Description: Full on nude.
-  Stat_Dictionary:
-    _keys:
-    - Hitpoints
-    - Melee_Damage
-    - Magic_Damage
-    - Archery_Damage
-    - Melee_Resistance
-    - Magic_Resistance
-    - Archery_Resistance
-    - Accuracy
-    - Evade
-    - Critical_Chance
-    - Critical_Damage
-    - Energy
-    - Distance
-    - Hitpoints_Level
-    - Melee_Level
-    - Magic_Level
-    - Archery_Level
-    - Item_Tier
-    - Number_Of_Attacks
-    _values:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-  Turn: 0
-  Player: 1
-  CreatureType: 
-  State: 
-  Equip_Primary_Weapon: {fileID: 184094, guid: 7d0f7078aafb44f49a61270d743f1725, type: 2}
-  Equip_Secondary_Weapon: {fileID: 184094, guid: 7d0f7078aafb44f49a61270d743f1725,
-    type: 2}
-  Equip_Armor: {fileID: 196212, guid: 49553294b153844d1a6cc410ae8bfd3d, type: 2}
-  Primary_Weapon: {fileID: 0}
-  Secondary_Weapon: {fileID: 0}
-  Armor: {fileID: 0}
-  Defects: []
-  Actives: []
---- !u!212 &2141664682
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1698122041
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0633f9bfabc64ae081cd30760f16a60, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &2141664683
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!58 &2141664684
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .25
---- !u!114 &2141664685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bca51318dfd450e810fcff3723263b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hitpoints: 0
-  Max_Damage: 0
-  Primary_Damage: 0
-  Secondary_Damage: 0
-  Primary_Critical: 0
-  Primary_Critical_Chance: 0
-  Secondary_Critical: 0
-  Secondary_Critical_Chance: 0
-  Primary_Accuracy: 0
-  Secondary_Accuracy: 0
-  Melee_Resistance: 0
-  Magic_Resistance: 0
-  Archery_Resistance: 0
-  Energy: 0
---- !u!114 &2141664686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141664680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff59fe039d2774bdabcc809499fe5334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Stat_Dictionary:
-    _keys:
-    - Hitpoints
-    - Melee_Damage
-    - Magic_Damage
-    - Archery_Damage
-    - Melee_Resistance
-    - Magic_Resistance
-    - Archery_Resistance
-    - Accuracy
-    - Evade
-    - Critical_Chance
-    - Critical_Damage
-    - Energy
-    - Distance
-    - Hitpoints_Level
-    - Melee_Level
-    - Magic_Level
-    - Archery_Level
-    - Item_Tier
-    - Number_Of_Attacks
-    _values:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-  Energy_Amount: 0
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 444980, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4ae14432892094fb692d9d410c373c86, type: 2}
+  m_IsPrefabParent: 0

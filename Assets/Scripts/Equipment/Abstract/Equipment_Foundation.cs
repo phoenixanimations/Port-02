@@ -10,20 +10,17 @@ public class Equipment_Foundation : Stats
 	public Assign_Class Class;
 	public Assign_Subclass Subclass;
 	public List<Status_Foundation> Status = new List<Status_Foundation>();
+	public float Level = 1;
 
-	public void Assign_Status (GameObject Equipped_Creature)
+	public override void Level_Up (Stat Stat, float Amount = 1, bool SetLevel = false)
 	{
-		if (Status_Less_Than_Zero()) return;
-		foreach (var i in Status) 
-		{
-			i.Assign_Status(Equipped_Creature);
-		}
+		base.Level_Up (Stat, Amount, SetLevel);
+		Get_Stat(Stat,Tier.Formula(Level) * Stat_Multiplier[(int)Stat],true);
 	}
 
 	public void Beginning_Of_Turn (GameObject Equipped_Creature)
 	{
 		if (Status_Less_Than_Zero()) return;
-		Assign_Status(Equipped_Creature);
 		foreach (var i in Status) 
 		{
 			i.Beginning_Of_Turn();
