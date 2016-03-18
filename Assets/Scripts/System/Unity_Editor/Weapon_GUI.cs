@@ -56,6 +56,8 @@ public class Weapon_GUI : Editor
 				Weapon_Editor.Stats_Dictionary[Stat.Number_Of_Attacks.ToString()] = EditorGUILayout.FloatField("Number Of Attacks", Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks));
 				Weapon_Editor.Stats_Dictionary[Stat.Minimum_Distance.ToString()] = EditorGUILayout.FloatField("Minimum Distance", Weapon_Editor.Get_Stat(Stat.Minimum_Distance));
 				Weapon_Editor.Stats_Dictionary[Stat.Maximum_Distance.ToString()] = EditorGUILayout.FloatField("Maximum Distance", Weapon_Editor.Get_Stat(Stat.Maximum_Distance));
+				Weapon_Editor.Stats_Dictionary[Stat.Movement.ToString()] = EditorGUILayout.FloatField("Movement", Weapon_Editor.Get_Stat(Stat.Movement));
+				Weapon_Editor.Stats_Dictionary[Stat.Knockback.ToString()] = EditorGUILayout.FloatField("Knockback", Weapon_Editor.Get_Stat(Stat.Knockback));
 
 //				EditorGUILayout.BeginHorizontal ();
 //				Upper_Left = EditorGUILayout.Toggle(Upper_Left,GUILayout.Width(15f));

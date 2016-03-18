@@ -23,6 +23,7 @@ namespace System_Control
 					  Critical_Chance,      	  	Critical_Damage, 
 					  Accuracy,             		Evade,					   Distance,//Delete Later
 					  Maximum_Distance, Minimum_Distance,
+					  Movement, Knockback,
 
 					  //Creatures
 					  Hitpoints_Level,

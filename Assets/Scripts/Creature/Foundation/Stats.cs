@@ -13,7 +13,7 @@ public class Stats : Raycast
 	public string Description;
 	[HideInInspector]
 	[SerializeField]
-	public Serialize_Dictionary Stats_Dictionary = new Serialize_Dictionary ()
+	public Serialize_Dictionary Stats_Dictionary = new Serialize_Dictionary()
 	{
 		{"Hitpoints", 0f},
 		{"Melee_Damage",0f}, {"Magic_Damage",0f}, {"Archery_Damage",0f},
@@ -25,7 +25,9 @@ public class Stats : Raycast
 		{"Minimum_Distance",0f},
 		{"Maximum_Distance",0f},
 		{"Number_Of_Attacks",1f},
-		{"Hitpoints_Level",1f},{"Melee_Level",1f},{"Magic_Level",1f},{"Archery_Level",1f}
+		{"Hitpoints_Level",1f},{"Melee_Level",1f},{"Magic_Level",1f},{"Archery_Level",1f},
+		{"Movement", 0f},
+		{"Knockback",0f}
 	};
 
 	[HideInInspector]
@@ -34,6 +36,7 @@ public class Stats : Raycast
 	public virtual void Assign_Stats() 
 	{
 		Raycast_Stats();
+		Debug.Log(Stats_Dictionary.Count);
 	}
 
 	protected override void Start ()
@@ -47,9 +50,6 @@ public class Stats : Raycast
   //*********TYPE GET_STAT_GENERIC**********//
  //****************************************//
 //****************************************//
-
-
-
 	private void Get_Stat_Generic<T> (T Change_Stat_Selected, float Amount, bool MakeNumberEqualToAmount = false)
 	{
 		float TrueOrFalse;

@@ -4,5 +4,5 @@ using System_Control;
 
 public class Defect_Foundation : Status_Foundation 
 {
-	
+	protected float Turn;
 }

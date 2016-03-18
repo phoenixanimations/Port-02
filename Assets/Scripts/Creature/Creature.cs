@@ -34,7 +34,7 @@ public class Creature : CreatureMethods
 		Get_Stat(Stat.Melee_Damage,Melee_Level,Stat.Melee_Level);
 		Get_Stat(Stat.Magic_Damage,Magic_Level,Stat.Magic_Level);
 		Get_Stat(Stat.Archery_Damage,Archery_Level,Stat.Archery_Level);
-	
+		Get_Stat(Stat.Movement,4f,true);
 	}
 
 	protected override void Start ()

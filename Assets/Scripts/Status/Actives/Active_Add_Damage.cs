@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System_Control;
 
-public class Splitshot : Active_Foundation 
+public class Active_Add_Damage : Active_Foundation 
 {
-	
+	public float Damage;
+
 	protected override void Attack_Change_Stats ()
 	{
 		base.Attack_Change_Stats ();
-		Creature_Attack.Number_Of_Attacks *= 2f;
+		Creature_Attack.Damage_Bonus.Add(Damage);
 	}
 }

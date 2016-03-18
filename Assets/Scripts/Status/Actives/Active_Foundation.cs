@@ -9,15 +9,14 @@ public class Active_Foundation : Status_Foundation
 	public override void Attack_Status (System_Control.Phase Activate_On_What_Phase)
 	{
 		base.Attack_Status (Activate_On_What_Phase);
-		if (Activate_On_What_Phase == Phase.Pre_Attack)
+		if (Activate_On_What_Phase == Phase.Attack_Begin)
 		{
-			Insert_Energy_Amount();
-			if (Creature.Get_Stat(Stat.Energy) >= Energy_Amount)
-				Active_Status ();
+			Attack_Change_Stats();
 		}
 
 		if (Activate_On_What_Phase == Phase.Attack_Hit)
 		{
+			Attack_Hit();
 			Activate_Once = false;
 		}
 	}
@@ -32,13 +31,13 @@ public class Active_Foundation : Status_Foundation
 		}
 	}
 
-	protected virtual void Insert_Energy_Amount()
+	protected virtual void Attack_Change_Stats ()
 	{
-
+		if (Creature.Get_Stat(Stat.Energy) < Energy_Amount) return;
 	}
 
-	protected virtual void Active_Status ()
+	protected virtual void Attack_Hit ()
 	{
-
+		if (Creature.Get_Stat(Stat.Energy) < Energy_Amount) return;
 	}
 }
