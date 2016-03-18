@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Bastard Sword
   Description: It killed Kenny. [passive pending]
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -63,6 +63,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 33
@@ -73,17 +75,19 @@ MonoBehaviour:
     - 0
     - 22
     - 0
+    - 10
+    - 20
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
     - 0
     - 0
-    - 0
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
   Stat_Multiplier:
   - 0
   - 3

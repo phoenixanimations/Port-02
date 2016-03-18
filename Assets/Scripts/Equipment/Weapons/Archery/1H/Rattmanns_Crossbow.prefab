@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Rattmann's Crossbow
   Description: Infinite attack power. [pending passive]
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -63,6 +63,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -73,8 +75,8 @@ MonoBehaviour:
     - 0
     - 25600
     - 15360
-    - 0
-    - 0
+    - 10
+    - 20
     - 0
     - 1
     - 2
@@ -84,6 +86,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0

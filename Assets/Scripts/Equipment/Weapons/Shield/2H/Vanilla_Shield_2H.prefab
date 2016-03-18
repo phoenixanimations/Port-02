@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Vanilla Shield
-  Description: Tastes kind of funny. (Hitpoints)
-  Stats_Dictionary:
+  Description: Tastes kind of funny.
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -63,14 +63,16 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
-    - 11
+    - 22
     - 0
     - 0
     - 0
-    - 40
-    - 40
-    - 40
+    - 0
+    - 0
+    - 0
     - 0
     - 22
     - 0
@@ -84,8 +86,10 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
-  - 1
+  - 2
   - 0
   - 0
   - 0

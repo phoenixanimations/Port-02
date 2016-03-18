@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Claymore
   Description: "Br\xFCtal."
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -64,6 +64,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 33
@@ -74,8 +76,8 @@ MonoBehaviour:
     - 0
     - 22
     - 0
-    - 0
-    - 0
+    - 10
+    - 20
     - 0
     - 1
     - 1
@@ -85,6 +87,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 3
   Stat_Multiplier:
   - 0
   - 3
@@ -305,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -327,6 +331,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -348,6 +354,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0

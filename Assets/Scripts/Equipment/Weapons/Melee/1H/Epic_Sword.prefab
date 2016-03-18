@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -64,6 +64,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -85,6 +87,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0
@@ -297,9 +301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Epic Primary
+  Name: Epic Sword
   Description: Pretty damn epic.
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -321,6 +325,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 16
@@ -331,8 +337,8 @@ MonoBehaviour:
     - 0
     - 11
     - 5
-    - 10
     - 20
+    - 10
     - 0
     - 1
     - 1
@@ -342,6 +348,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 1.5

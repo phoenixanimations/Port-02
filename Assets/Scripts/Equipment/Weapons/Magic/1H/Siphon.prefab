@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -64,6 +64,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -85,6 +87,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0
@@ -298,8 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Siphon Wand
-  Description: It sucks.
-  Stats_Dictionary:
+  Description: It sucks more than anything.
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -321,6 +325,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -331,7 +337,7 @@ MonoBehaviour:
     - 0
     - 11
     - 5
-    - 20
+    - 40
     - 30
     - 0
     - 1
@@ -342,6 +348,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0

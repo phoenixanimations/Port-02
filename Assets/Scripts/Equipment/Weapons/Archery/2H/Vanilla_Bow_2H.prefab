@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Vanilla Archery
-  Description: Tastes kind of funny. (Archery)
-  Stats_Dictionary:
+  Description: Tastes kind of funny.
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -63,11 +63,13 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
     - 0
-    - 11
+    - 33
     - 0
     - 0
     - 0
@@ -84,11 +86,13 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0
   - 0
-  - 1
+  - 3
   - 0
   - 0
   - 0

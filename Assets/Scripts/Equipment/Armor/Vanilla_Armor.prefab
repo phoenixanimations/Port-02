@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Vanilla Armor
-  Description: Tastes kind of funny. (Armor)
-  Stats_Dictionary:
+  Description: Tastes kind of funny.
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -63,8 +63,10 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
-    - 1024000
+    - 11
     - 0
     - 0
     - 0
@@ -84,8 +86,10 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
-  - 100
+  - 1
   - 0
   - 0
   - 0
@@ -287,9 +291,9 @@ MonoBehaviour:
   - 0
   ID: 0
   Class: 0
-  Subclass: 0
+  Subclass: 6
   Status: []
-  Level: 100
+  Level: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
