@@ -36,7 +36,6 @@ public class Stats : Raycast
 	public virtual void Assign_Stats() 
 	{
 		Raycast_Stats();
-		Debug.Log(Stat_Dictionary.Count);
 	}
 
 	protected override void Start ()

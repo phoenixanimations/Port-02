@@ -1,46 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &196212
+--- !u!1 &179350
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 464592}
-  - 114: {fileID: 11474780}
+  - 4: {fileID: 407898}
+  - 114: {fileID: 11479506}
   m_Layer: 0
-  m_Name: Bitch Armor
+  m_Name: Epic_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &464592
+--- !u!4 &407898
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196212}
+  m_GameObject: {fileID: 179350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7336142, y: -1.7448843, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11474780
+--- !u!114 &11479506
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196212}
+  m_GameObject: {fileID: 179350}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Bitch Armor
-  Description: Yes, you're being a bitch right now.
+  Name: Epic Armor
+  Description: Epic Fail
   Stat_Dictionary:
     _keys:
     - Hitpoints
@@ -66,30 +66,29 @@ MonoBehaviour:
     - Movement
     - Knockback
     _values:
-    - 5
     - 0
     - 0
     - 0
-    - 20
-    - 20
-    - 20
-    - 0
-    - 5
     - 0
     - 0
     - 0
-    - 1
+    - 0
+    - 0
+    - 0
     - 0
     - 0
     - 0
     - 1
+    - 0
+    - 0
+    - 0
     - 1
     - 1
     - 1
-    - 2
-    - 2
+    - 1
+    - 0
+    - 0
   Stat_Multiplier:
-  - 0.5
   - 0
   - 0
   - 0
@@ -99,7 +98,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0.5
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   Class: 0
   Subclass: 6
   Status: []
-  Level: 1
+  Level: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -303,5 +303,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 196212}
+  m_RootGameObject: {fileID: 179350}
   m_IsPrefabParent: 1

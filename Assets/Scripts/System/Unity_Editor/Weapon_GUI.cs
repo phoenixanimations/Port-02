@@ -44,6 +44,7 @@ public class Weapon_GUI : Editor
 
 		if (Weapon_Editor.Subclass == Assign_Subclass.Arrow || Weapon_Editor.Subclass == Assign_Subclass.Bolt)
 		{
+			EditorGUILayout.PropertyField(Status,true);
 			return;
 		}	
 
