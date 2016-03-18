@@ -31,7 +31,5 @@ public class Status_Foundation : Movement
 	
 	public virtual void Terminate_Status ()
 	{
-		Creature = null;
-		Destroy(this);
 	}
 }

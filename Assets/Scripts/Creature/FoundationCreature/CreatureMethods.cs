@@ -19,7 +19,7 @@ public class CreatureMethods : CreatureFoundation
 		if (Secondary_Weapon != null) Secondary_Weapon.End_Of_Turn();
 		if (Armor != null)			  Armor.End_Of_Turn();
 		if (Defects.Count > 0)
-			foreach (var i in Defects) { i.End_Of_Turn(); }
+			Defects.ForEach(d => d.End_Of_Turn());
 		if (Actives.Count > 0)
 			foreach (var i in Actives) { i.End_Of_Turn(); }
 	}
@@ -27,8 +27,9 @@ public class CreatureMethods : CreatureFoundation
 	public void Attack_Status (Phase Which_Phase)
 	{
 		if (Defects.Count > 0)
-		foreach (var i in Defects) 
-			i.Attack_Status(Which_Phase);
+		{
+			Defects.ForEach(d => d.Attack_Status(Which_Phase));
+		}
 
 		if (Actives.Count > 0)
 		foreach (var i in Actives) 

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System_Control;
+using System.Linq;
 [RequireComponent (typeof (Display_Character_Stats))]
 public class Creature : CreatureMethods 
 { 
@@ -53,11 +54,7 @@ public class Creature : CreatureMethods
 		if (Armor != null)			  Armor.Beginning_Of_Turn(this.gameObject);
 		if (Defects.Count > 0)
 		{
-			foreach (var i in Defects) 
-			{
-				i.Assign_Status(this.gameObject);
-				i.Beginning_Of_Turn();
-			}
+			Defects.ForEach(d => d.Beginning_Of_Turn());
 		}
 		if (Actives.Count > 0)
 		{
