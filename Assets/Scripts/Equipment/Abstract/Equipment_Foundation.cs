@@ -15,6 +15,12 @@ public class Equipment_Foundation : Stats
 	public override void Level_Up (Stat Stat, float Amount = 1, bool SetLevel = false)
 	{
 		base.Level_Up (Stat, Amount, SetLevel);
+		if (Stat == Stat.Hitpoints)
+		{
+			Get_Stat(Stat,Tier.Formula(Level) * Level * Stat_Multiplier[(int)Stat],true);
+			return;
+		}
+
 		Get_Stat(Stat,Tier.Formula(Level) * Stat_Multiplier[(int)Stat],true);
 	}
 

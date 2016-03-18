@@ -96,10 +96,13 @@ public class Weapon_GUI : Editor
 		{
 			Weapon_Editor.Level = EditorGUILayout.FloatField("Tier", Weapon_Editor.Level);
 
-		    EditorGUILayout.LabelField("Hitpoints", EditorStyles.boldLabel);
-			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			Display_Stat("Hitpoints",Weapon_Editor,Stat.Hitpoints);
-			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+			if (Weapon_Editor.Subclass == Assign_Subclass.Armor || Weapon_Editor.Subclass == Assign_Subclass.Shield)
+			{
+			    EditorGUILayout.LabelField("Hitpoints", EditorStyles.boldLabel);
+				EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
+				Display_Hitpoints_Stat(Weapon_Editor);
+				EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
+			}
 
 		    EditorGUILayout.LabelField("Damage", EditorStyles.boldLabel);
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
@@ -138,5 +141,15 @@ public class Weapon_GUI : Editor
 		Weapon_Editor.Stat_Multiplier[(int)Choose_Stat] = EditorGUILayout.FloatField(Weapon_Editor.Stat_Multiplier[(int)Choose_Stat],GUILayout.Width(50f));
 		EditorGUILayout.EndHorizontal ();
 		Weapon_Editor.Level_Up(Choose_Stat);
+	}
+	
+	private void Display_Hitpoints_Stat (Equipment_Foundation Weapon_Editor)
+	{
+		EditorGUILayout.BeginHorizontal ();
+		EditorGUILayout.FloatField("Hitpoints",Weapon_Editor.Get_Stat(Stat.Hitpoints));
+		EditorGUILayout.LabelField("x" + Weapon_Editor.Level.ToString(),GUILayout.Width(48f));
+		Weapon_Editor.Stat_Multiplier[(int)Stat.Hitpoints] = EditorGUILayout.FloatField(Weapon_Editor.Stat_Multiplier[(int)Stat.Hitpoints],GUILayout.Width(50f));
+		EditorGUILayout.EndHorizontal ();
+		Weapon_Editor.Level_Up(Stat.Hitpoints);
 	}
 }
