@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.369165, y: -7.5565543, z: 0}
+  m_LocalPosition: {x: -13.3691654, y: -7.55655432, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,20 +65,20 @@ MonoBehaviour:
     - Archery_Level
     _values:
     - 0
+    - 33
     - 0
     - 0
     - 0
     - 0
     - 0
-    - 0
-    - 0
+    - 22
     - 0
     - 0
     - 0
     - 0
     - 1
-    - 0
-    - 0
+    - 1
+    - 1
     - 1
     - 1
     - 1
@@ -86,6 +86,7 @@ MonoBehaviour:
     - 1
   Stat_Multiplier:
   - 0
+  - 3
   - 0
   - 0
   - 0
@@ -93,8 +94,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
+  - 2
   - 0
   - 0
   - 0

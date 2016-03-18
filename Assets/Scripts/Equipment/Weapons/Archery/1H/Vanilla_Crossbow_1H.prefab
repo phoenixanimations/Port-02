@@ -1,46 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &184094
+--- !u!1 &131526
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 472102}
-  - 114: {fileID: 11468494}
+  - 4: {fileID: 461992}
+  - 114: {fileID: 11452664}
   m_Layer: 0
-  m_Name: Vanilla_Magic_1H
+  m_Name: Vanilla_Crossbow_1H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &472102
+--- !u!4 &461992
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184094}
+  m_GameObject: {fileID: 131526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5780993, y: -1.9380243, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11468494
+--- !u!114 &11452664
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184094}
+  m_GameObject: {fileID: 131526}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Vanilla Magic
-  Description: Tastes kind of funny. (Magic)
+  Name: Vanilla Crossbow
+  Description: Tastes kind of funny. (Archery)
   Stats_Dictionary:
     _keys:
     - Hitpoints
@@ -67,19 +67,19 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+    - 11
     - 0
     - 0
     - 0
-    - 0
-    - 0
-    - 0
+    - 16
+    - 5
     - 0
     - 0
     - 0
     - 1
-    - 0
-    - 0
-    - 1
+    - 3
+    - 5
+    - 3
     - 1
     - 1
     - 1
@@ -88,14 +88,14 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
+  - 1.5
+  - .5
   - 0
   - 0
   - 0
@@ -286,8 +286,8 @@ MonoBehaviour:
   - 0
   - 0
   ID: 0
-  Class: 2
-  Subclass: 1
+  Class: 3
+  Subclass: 5
   Status: []
   Level: 1
 --- !u!1001 &100100000
@@ -299,5 +299,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 184094}
+  m_RootGameObject: {fileID: 131526}
   m_IsPrefabParent: 1
