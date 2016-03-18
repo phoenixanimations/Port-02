@@ -24,9 +24,20 @@ public class Equipment_Foundation : Stats
 		Get_Stat(Stat,Tier.Formula(Level) * Stat_Multiplier[(int)Stat],true);
 	}
 
-	public void Beginning_Of_Turn (GameObject Equipped_Creature)
+	public void Assign_Status (GameObject Equipped_Creature)
 	{
 		if (Status_Less_Than_Zero()) return;
+		foreach (var i in Status) 
+		{
+			i.Assign_Status(Equipped_Creature);
+		}
+	}
+
+	public void Beginning_Of_Turn (GameObject Equipped_Creature)
+	{
+		
+		if (Status_Less_Than_Zero()) return;
+		Assign_Status(Equipped_Creature);
 		foreach (var i in Status) 
 		{
 			i.Beginning_Of_Turn();

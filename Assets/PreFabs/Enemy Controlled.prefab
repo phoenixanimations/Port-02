@@ -73,12 +73,15 @@ MonoBehaviour:
     - Critical_Damage
     - Energy
     - Distance
+    - Minimum_Distance
+    - Maximum_Distance
+    - Number_Of_Attacks
     - Hitpoints_Level
     - Melee_Level
     - Magic_Level
     - Archery_Level
-    - Item_Tier
-    - Number_Of_Attacks
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -93,18 +96,222 @@ MonoBehaviour:
     - 0
     - 0
     - 1
+    - 0
+    - 0
     - 1
     - 1
     - 1
     - 1
     - 1
-    - 1
+    - 0
+    - 0
+  Stat_Multiplier:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   Turn: 0
   Player: 0
   CreatureType: 
   State: 
-  Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
-  Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
+  Equip_Primary_Weapon: {fileID: 104890, guid: ebd0863a8e06c4de892d7a46ac71cecd, type: 2}
+  Equip_Secondary_Weapon: {fileID: 100314, guid: ad796eafda58f460caeee14cf0c124ff,
     type: 2}
   Equip_Armor: {fileID: 196212, guid: 49553294b153844d1a6cc410ae8bfd3d, type: 2}
   Primary_Weapon: {fileID: 0}
@@ -112,6 +319,9 @@ MonoBehaviour:
   Armor: {fileID: 0}
   Defects: []
   Actives: []
+  Heal_Bonus:
+  - 0
+  Hitpoints_Level: 10
 --- !u!114 &11483872
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,9 +8,10 @@ using System.Linq;
 public class Creature : CreatureMethods 
 { 
 	[Header("Config Levels")]
-	public float Melee_Level = 1f;
-	public float Magic_Level = 1f;
-	public float Archery_Level = 1f;
+	public float Hitpoints_Level = 1f;
+//	public float Melee_Level = 1f;
+//	public float Magic_Level = 1f;
+//	public float Archery_Level = 1f;
 
 	public override void Dead ()
 	{
@@ -27,15 +28,21 @@ public class Creature : CreatureMethods
 	{
 		base.Assign_Stats ();
 		CreatureType = "Creature";
-		if (Primary_Weapon != null) 	Get_Stat(Stat.Hitpoints,Primary_Weapon.Get_Stat(Stat.Hitpoints));
-		if (Secondary_Weapon != null)   Get_Stat(Stat.Hitpoints,Secondary_Weapon.Get_Stat(Stat.Hitpoints));
-		if (Armor != null)			 	Get_Stat(Stat.Hitpoints,Armor.Get_Stat(Stat.Hitpoints));
-		
-		Get_Stat(Stat.Hitpoints,10f,Stat.Hitpoints_Level);
-		Get_Stat(Stat.Melee_Damage,Melee_Level,Stat.Melee_Level);
-		Get_Stat(Stat.Magic_Damage,Magic_Level,Stat.Magic_Level);
-		Get_Stat(Stat.Archery_Damage,Archery_Level,Stat.Archery_Level);
+			
+		Get_Stat(Stat.Hitpoints_Level   ,  Hitpoints_Level,true);
+		Get_Stat(Stat.Melee_Level,   Hitpoints_Level,true);//Hitpoints_Level
+		Get_Stat(Stat.Magic_Level,   Hitpoints_Level,true);//Hitpoints_Level
+		Get_Stat(Stat.Archery_Level, Hitpoints_Level,true);//Hitpoints_Level
+		Primary_Weapon.Level = Hitpoints_Level;
+		Secondary_Weapon.Level = Hitpoints_Level;
+		Armor.Level = Hitpoints_Level;
+
+
+		Get_Stat(Stat.Hitpoints,Primary_Weapon.Get_Stat(Stat.Hitpoints));
+		Get_Stat(Stat.Hitpoints,Secondary_Weapon.Get_Stat(Stat.Hitpoints));
 		Get_Stat(Stat.Movement,4f,true);
+		Get_Stat(Stat.Hitpoints,10f,Stat.Hitpoints_Level,true);
+		Get_Stat(Stat.Hitpoints,Armor.Get_Stat(Stat.Hitpoints));
 	}
 
 	protected override void Start ()
@@ -49,11 +56,15 @@ public class Creature : CreatureMethods
 
 	public void Activate_Status () 			   
 	{
+		Heal_Bonus.Clear();
+		Heal_Bonus.Add(0f);
+		
 		if (Primary_Weapon != null)   Primary_Weapon.Beginning_Of_Turn(this.gameObject);
 		if (Secondary_Weapon != null) Secondary_Weapon.Beginning_Of_Turn(this.gameObject);
 		if (Armor != null)			  Armor.Beginning_Of_Turn(this.gameObject);
 		if (Defects.Count > 0)
 		{
+			Defects.ForEach(d => d.Assign_Status(this.gameObject));
 			Defects.ForEach(d => d.Beginning_Of_Turn());
 		}
 		if (Actives.Count > 0)

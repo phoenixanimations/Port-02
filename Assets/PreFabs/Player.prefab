@@ -11,8 +11,9 @@ GameObject:
   - 212: {fileID: 21276764}
   - 58: {fileID: 5876156}
   - 114: {fileID: 11496936}
-  - 114: {fileID: 11440416}
   - 114: {fileID: 11415100}
+  - 114: {fileID: 11482342}
+  - 114: {fileID: 11429288}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Arcanym
   Description: Full on nude.
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -81,6 +82,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -102,6 +105,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0
@@ -307,16 +312,20 @@ MonoBehaviour:
   Player: 1
   CreatureType: 
   State: 
-  Equip_Primary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544, type: 2}
-  Equip_Secondary_Weapon: {fileID: 123318, guid: fb93b0cfc51674eb99de26444d25b544,
+  Equip_Primary_Weapon: {fileID: 100198, guid: e4d44c613678a473e82e88a81bfb0a32, type: 2}
+  Equip_Secondary_Weapon: {fileID: 100314, guid: ad796eafda58f460caeee14cf0c124ff,
     type: 2}
-  Equip_Armor: {fileID: 179350, guid: 5011b10632a5f43cebd97e27f8553034, type: 2}
+  Equip_Armor: {fileID: 196212, guid: 49553294b153844d1a6cc410ae8bfd3d, type: 2}
   Primary_Weapon: {fileID: 0}
   Secondary_Weapon: {fileID: 0}
   Armor: {fileID: 0}
   Defects: []
-  Actives: []
---- !u!114 &11440416
+  Actives:
+  - {fileID: 11429288}
+  Heal_Bonus:
+  - 0
+  Hitpoints_Level: 5
+--- !u!114 &11429288
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -324,12 +333,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 117358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3babb40aaebc743c58da843f2f45cf75, type: 3}
+  m_Script: {fileID: 11500000, guid: 0695956d7c5d144ea880b1b3c71a3f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Arcanym
-  Description: Full on nude.
-  Stats_Dictionary:
+  Name: 
+  Description: 
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -351,6 +360,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -372,6 +383,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0
@@ -574,7 +587,271 @@ MonoBehaviour:
   - 0
   - 0
   Energy_Amount: 0
-  Damage: 0
+  Select_Defect: {fileID: 11482342}
+  Is_It_Bleed: 0
+--- !u!114 &11482342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b90127e833e4187b770cbc84a60408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Description: 
+  Stat_Dictionary:
+    _keys:
+    - Hitpoints
+    - Melee_Damage
+    - Magic_Damage
+    - Archery_Damage
+    - Melee_Resistance
+    - Magic_Resistance
+    - Archery_Resistance
+    - Accuracy
+    - Evade
+    - Critical_Chance
+    - Critical_Damage
+    - Energy
+    - Distance
+    - Minimum_Distance
+    - Maximum_Distance
+    - Number_Of_Attacks
+    - Hitpoints_Level
+    - Melee_Level
+    - Magic_Level
+    - Archery_Level
+    - Movement
+    - Knockback
+    _values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0
+    - 0
+  Stat_Multiplier:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  Turn: 0
+  Modify_Stat: 0
 --- !u!114 &11496936
 MonoBehaviour:
   m_ObjectHideFlags: 1

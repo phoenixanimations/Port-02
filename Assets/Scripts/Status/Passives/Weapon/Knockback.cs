@@ -9,7 +9,9 @@ public class Knockback : Status_Foundation
 		base.Attack_Status (Activate_On_What_Phase);
 		if (Activate_On_What_Phase == Phase.Attack_Hit)
 		{
-			Creature_Attack.Adversary.Move(Creature.Front);
+			
+				Creature_Attack.Adversary.Move(Creature.Front);
+			
 		}
 	}
 }

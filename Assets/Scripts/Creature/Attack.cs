@@ -191,7 +191,7 @@ public class Attack : Raycast
  //***************Check Null*************//
 //**************************************//
 		if (Armor == null) { Debug.LogError("You can go in to battle Nude but you have to EQUIP Nude Armor. Why would a character equip the concept of nothing?"); return;} 
-		if (Primary_Or_Secondary == null) return;
+		if (Primary_Or_Secondary.Class == Assign_Class.None) return;
 		if (Primary_Or_Secondary.Subclass == Assign_Subclass.Shield || 
 			Primary_Or_Secondary.Subclass == Assign_Subclass.Armor ||
 			Primary_Or_Secondary.Subclass == Assign_Subclass.Arrow ||
@@ -212,7 +212,6 @@ public class Attack : Raycast
 
 			while (Attack_Count < Number_Of_Attacks)
 			{
-				Debug.Log("Attack");
 				Reset_Stats();
   //**************************************//
  //*******Passive Attack Begin 1/4*******//
@@ -245,7 +244,6 @@ public class Attack : Raycast
 				float Adversary_Evade = Adversary_Class_Evade + Adversary_Weapon_Evade + Adversary_Armor_Evade;			
 
 				Accuracy += 50f * (Creature_Accuracy/Adversary_Evade) * Calculate_List(Accuracy_Bonus,"Multiple");
-
   //**************************************//
  //******Calculate: Base Damage**********//
 //**************************************//
@@ -258,7 +256,6 @@ public class Attack : Raycast
 
 				if (Dual_Wield_Equipped ())
 				{
-
 					Base_Damage += Equipped_Weapon_Damage + (Equipped_Class_Plus_Equipped_Armor_Damage * 0.5f);
 				}
 				if (!Dual_Wield_Equipped ()) 

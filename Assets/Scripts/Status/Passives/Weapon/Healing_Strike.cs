@@ -9,7 +9,7 @@ public class Healing_Strike : Status_Foundation
 		base.Attack_Status (Activate_On_What_Phase);
 		if (Activate_On_What_Phase == Phase.Attack_Hit)
 		{
-			Creature.Heal(Creature_Attack.Damage * .5f);
+			Creature.Heal(Creature_Attack.Damage * 50f);
 		}
 	}
 }

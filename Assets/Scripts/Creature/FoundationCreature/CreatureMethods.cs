@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 using System_Control;
+using System.Linq;
 
 public class CreatureMethods : CreatureFoundation
 {
 	public override void Move (Vector3 Direction)
 	{
+		Attack_Status(Phase.Move);
 		AllowMovement(true);
 		Hit = Physics2D.Raycast(transform.position,Direction,x);
 		if (Hit.collider != null) AllowMovement(false);
@@ -47,7 +50,7 @@ public class CreatureMethods : CreatureFoundation
 	{
 		State = "MoveAttack";
 		ModifyFront(Direction);
-	
+		Debug.Log("hi");
 		Attack_Status(Phase.Pre_Attack);
 
 		if (EnableState)
@@ -112,11 +115,20 @@ public class CreatureMethods : CreatureFoundation
 		return Max_Hitpoints;
 	}
 
+	public List<float> Heal_Bonus = new List<float>();
 	public void Heal (float Amount)
 	{
 		if ((Get_Stat(Stat.Hitpoints) + Amount) < Max_Hitpoints())
 		{
-			Get_Stat(Stat.Hitpoints,Amount);
+			if (Heal_Bonus.Sum() > 0)
+			{
+				Get_Stat(Stat.Hitpoints,Amount * (Heal_Bonus.Sum()));
+				Debug.Log("HEAL" + Amount * (Heal_Bonus.Sum()));
+			}
+			else
+			{
+				Get_Stat(Stat.Hitpoints,Amount);
+			}
 		}
 		else
 		{

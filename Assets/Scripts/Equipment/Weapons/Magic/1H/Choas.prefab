@@ -330,13 +330,13 @@ MonoBehaviour:
     _values:
     - 0
     - 0
-    - 11
+    - 20
     - 0
     - 0
     - 0
     - 0
-    - 11
-    - 5
+    - 20
+    - 10
     - 50
     - 25
     - 0
@@ -361,7 +361,7 @@ MonoBehaviour:
   - 0
   - 0
   - 1
-  - .5
+  - 0.5
   - 0
   - 0
   - 0
@@ -555,15 +555,19 @@ MonoBehaviour:
   Class: 2
   Subclass: 1
   Status:
-  - {fileID: 0}
-  Level: 1
+  - {fileID: 11449572}
+  Level: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Status.Array.data[0]
+      value: 
+      objectReference: {fileID: 11449572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100198}

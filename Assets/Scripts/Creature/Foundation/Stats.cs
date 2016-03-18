@@ -13,7 +13,7 @@ public class Stats : Raycast
 	public string Description;
 	[HideInInspector]
 	[SerializeField]
-	public Serialize_Dictionary Stats_Dictionary = new Serialize_Dictionary()
+	public Serialize_Dictionary Stat_Dictionary = new Serialize_Dictionary()
 	{
 		{"Hitpoints", 0f},
 		{"Melee_Damage",0f}, {"Magic_Damage",0f}, {"Archery_Damage",0f},
@@ -52,21 +52,21 @@ public class Stats : Raycast
 	private void Get_Stat_Generic<T> (T Change_Stat_Selected, float Amount, bool MakeNumberEqualToAmount = false)
 	{
 		float TrueOrFalse;
-		if (!Stats_Dictionary.TryGetValue(Change_Stat_Selected.ToString(),out TrueOrFalse)) Debug.LogError("This Class doesn't have the variable you inputed");
-		if (Stats_Dictionary.TryGetValue(Change_Stat_Selected.ToString(),out TrueOrFalse))
+		if (!Stat_Dictionary.TryGetValue(Change_Stat_Selected.ToString(),out TrueOrFalse)) Debug.LogError("This Class doesn't have the variable you inputed");
+		if (Stat_Dictionary.TryGetValue(Change_Stat_Selected.ToString(),out TrueOrFalse))
 		{
 			if (MakeNumberEqualToAmount)
 			{
-				Stats_Dictionary[Change_Stat_Selected.ToString()] = Mathf.Floor(Amount);
+				Stat_Dictionary[Change_Stat_Selected.ToString()] = Mathf.Floor(Amount);
 				return;
 			}
-			Stats_Dictionary[Change_Stat_Selected.ToString()] += Mathf.Floor(Amount);
+			Stat_Dictionary[Change_Stat_Selected.ToString()] += Mathf.Floor(Amount);
 		 }
 	}
 
 	private float Get_Stat_Generic<T> (T Change_Stat_Selected)
 	{
-		return Stats_Dictionary[Change_Stat_Selected.ToString()];
+		return Stat_Dictionary[Change_Stat_Selected.ToString()];
 	}
 
 	private void Get_Stat_Generic<T> (T Change_Stat_Selected, float Amount, float Times_Tier_Formula_Float, bool MakeNumberEqualToAmount = false)

@@ -8,7 +8,7 @@ public class Magic_Cylinder : Status_Foundation
 		base.Counter_Attack_Status (Phase, Advisory, Advisory_Attack);
 		if (Phase == System_Control.Phase.Counter_Attack_Hit)
 		{
-			Advisory.Get_Stat(System_Control.Stat.Hitpoints,Advisory_Attack.Damage);
+			Advisory.Get_Stat(System_Control.Stat.Hitpoints,-Advisory_Attack.Damage * .5f);
 		}
 	}
 }
