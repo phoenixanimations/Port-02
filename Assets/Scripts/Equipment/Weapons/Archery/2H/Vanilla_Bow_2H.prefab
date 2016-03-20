@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683e7ba46a5494596b4b92a5b8c52d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Vanilla Archery
+  Name: Vanilla Bow
   Description: Tastes kind of funny.
   Stat_Dictionary:
     _keys:
@@ -69,7 +69,7 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-    - 33
+    - 11
     - 0
     - 0
     - 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 3
+  - 1
   - 0
   - 0
   - 0
