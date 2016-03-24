@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Epic Shield
   Description: Super absorbative.
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -64,14 +64,16 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 11
     - 0
     - 0
     - 0
-    - 20
-    - 20
-    - 20
+    - 12.5
+    - 12.5
+    - 12.5
     - 0
     - 16
     - 0
@@ -80,11 +82,13 @@ MonoBehaviour:
     - 1
     - 0
     - 0
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
     - 0
-    - 1
-    - 1
-    - 1
-    - 1
+    - 0
   Stat_Multiplier:
   - 1
   - 0
@@ -305,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Stats_Dictionary:
+  Stat_Dictionary:
     _keys:
     - Hitpoints
     - Melee_Damage
@@ -327,6 +331,8 @@ MonoBehaviour:
     - Melee_Level
     - Magic_Level
     - Archery_Level
+    - Movement
+    - Knockback
     _values:
     - 0
     - 0
@@ -348,6 +354,8 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 0
+    - 0
   Stat_Multiplier:
   - 0
   - 0

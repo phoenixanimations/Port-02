@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 464592}
   - 114: {fileID: 11474780}
   m_Layer: 0
-  m_Name: Bitch Armor 1
+  m_Name: Bitch_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7336142, y: -1.7448843, z: 0}
+  m_LocalPosition: {x: -2.73361421, y: -1.74488425, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,13 +66,13 @@ MonoBehaviour:
     - Movement
     - Knockback
     _values:
-    - 1100
+    - 5
     - 0
     - 0
     - 0
-    - 20
-    - 20
-    - 20
+    - 25
+    - 25
+    - 25
     - 0
     - 5
     - 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     - 2
     - 2
   Stat_Multiplier:
-  - 100
+  - .5
   - 0
   - 0
   - 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0.5
+  - .5
   - 0
   - 0
   - 0
