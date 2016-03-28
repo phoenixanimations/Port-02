@@ -67,7 +67,7 @@ MonoBehaviour:
     - Knockback
     _values:
     - 0
-    - 33
+    - 49
     - 0
     - 0
     - 0
@@ -90,7 +90,7 @@ MonoBehaviour:
     - 0
   Stat_Multiplier:
   - 0
-  - 3
+  - 4.5
   - 0
   - 0
   - 0

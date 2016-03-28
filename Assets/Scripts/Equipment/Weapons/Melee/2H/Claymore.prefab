@@ -68,13 +68,13 @@ MonoBehaviour:
     - Knockback
     _values:
     - 0
-    - 60
+    - 49
     - 0
     - 0
     - 0
     - 0
     - 0
-    - 40
+    - 22
     - 0
     - 10
     - 20
@@ -91,7 +91,7 @@ MonoBehaviour:
     - 3
   Stat_Multiplier:
   - 0
-  - 3
+  - 4.5
   - 0
   - 0
   - 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   Subclass: 2
   Status:
   - {fileID: 11420722}
-  Level: 10
+  Level: 1
 --- !u!114 &11420722
 MonoBehaviour:
   m_ObjectHideFlags: 1
