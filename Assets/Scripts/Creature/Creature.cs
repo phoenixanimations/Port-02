@@ -7,6 +7,20 @@ using System.Linq;
 [RequireComponent (typeof (Display_Character_Stats))]
 public class Creature : CreatureMethods 
 { 
+
+/*
+function Formulate_Combat() {
+	Sum = ((TierArray[Melee_Level]) + (TierArray[Magic_Level]) + (TierArray[Archery_Level]) + (TierArray[Hitpoints_Level]));
+	Average = (Sum / 4);
+	for (TierSearch = 0; TierArray[TierSearch] <= Average; TierSearch++);
+	TierSearch--;
+	CombatLevel = TierSearch;
+	//CombatLevel_Display = ("Combat Level: " + CombatLevel);
+	//trace("Combat Level: " + CombatLevel);
+}
+Formulate_Combat();
+
+*/
 	[Header("Config Levels")]
 	public float Hitpoints_Level = 1f;
 //	public float Melee_Level = 1f;

@@ -324,7 +324,7 @@ MonoBehaviour:
   - {fileID: 11429288}
   Heal_Bonus:
   - 0
-  Hitpoints_Level: 5
+  Hitpoints_Level: 10
 --- !u!114 &11429288
 MonoBehaviour:
   m_ObjectHideFlags: 1
