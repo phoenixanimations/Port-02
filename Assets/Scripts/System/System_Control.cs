@@ -26,7 +26,7 @@ namespace System_Control
 							 };
 
 	public enum Assign_Subclass {
-								 None, One_Handed, Two_Handed, Shield, Bow, Crossbow, Armor, Arrow, Bolt
+								 None, One_Handed, Two_Handed, Shield, Bow, One_Handed_Crossbow, Two_Handed_Crossbow, Armor, Arrow, Bolt
 								};
 	public enum Defect {
 						None, Burn, Poison, Slow, Stun, Shock, Bleed, Bind, Numb, Corruption, Drunk
