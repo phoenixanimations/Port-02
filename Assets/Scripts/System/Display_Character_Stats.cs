@@ -39,6 +39,7 @@ public class Display_Character_Stats : MonoBehaviour
 	protected void Update ()
 	{	
 		Hitpoints = 					Creature.Get_Stat(Stat.Hitpoints);
+		
 		Primary_Damage = 				Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Primary,Attack_Stat.Damage);
 //		Primary_Damage_Bonus = 			Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Primary,Attack_Stat.Damage_Bonus);
 		Secondary_Damage = 				Creature_Attack.Attack_Stat_To_Display_Character_Stats(Assign_Hand.Secondary,Attack_Stat.Damage);
