@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5de99a508deba4285b2315ea89d91725
+timeCreated: 1460284007
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - PrimaryHand: {fileID: 11446802, guid: 2597ce4134a524976a66ec20dd2de704, type: 2}
+  - SecondaryHand: {fileID: 11446802, guid: 2597ce4134a524976a66ec20dd2de704, type: 2}
+  - Armor: {fileID: 11426142, guid: 1f08d6c8dfd044d819cc24174682e592, type: 2}
+  - Arrow: {fileID: 11416804, guid: 0c81b1cd43c4d4e33bef7ed051a2a8ec, type: 2}
+  - Assign_AI: {fileID: 11473940, guid: f57836d85a1334be295271453f60dcd8, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
