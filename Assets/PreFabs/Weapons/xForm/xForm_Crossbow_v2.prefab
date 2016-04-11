@@ -1275,7 +1275,7 @@ MonoBehaviour:
   - 0
   Slot: 0
   Class: 3
-  Subclass: 6
+  Subclass: 7
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
@@ -1899,7 +1899,7 @@ MonoBehaviour:
   - 0
   Slot: 0
   Class: 0
-  Subclass: 3
+  Subclass: 4
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 

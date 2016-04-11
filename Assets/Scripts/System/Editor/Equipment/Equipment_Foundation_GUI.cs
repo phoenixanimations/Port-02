@@ -74,14 +74,14 @@ public class Equipment_Foundation_GUI : Editor
 			if (Select == Menu.Default)
 			{
 				Layout.Float("Number of Attacks",ref Weapon_Editor.Stat_Dictionary,Stat.Number_Of_Attacks);
+				Layout.Float("Minimum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Minimum_Distance);
+				Layout.Float("Maximum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Maximum_Distance);
 				Layout.Float("Movement", ref Weapon_Editor.Stat_Dictionary, Stat.Movement);
 				Layout.Float("Jump", ref Weapon_Editor.Stat_Dictionary, Stat.Jump);
 				Layout.Float("Knockback", ref Weapon_Editor.Stat_Dictionary, Stat.Knockback);
 			}
 			if (Select == Menu.AOE)
 			{
-				Layout.Float("Minimum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Minimum_Distance);
-				Layout.Float("Maximum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Maximum_Distance);
 				EditorGUILayout.BeginHorizontal();
 				Layout.Float("Area of Effect",ref Weapon_Editor.Stat_Dictionary,Stat.Area_Of_Effect);
 				AOE_Button(ref Weapon_Editor);
@@ -127,7 +127,8 @@ public class Equipment_Foundation_GUI : Editor
 
 	private void Display_Damage_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
-			if (Weapon_Editor.Subclass == Assign_Subclass.Armor || Weapon_Editor.Subclass == Assign_Subclass.Shield)
+			if (Weapon_Editor.Subclass == Assign_Subclass.Armor || Weapon_Editor.Subclass == Assign_Subclass.One_Handed_Shield || 
+				Weapon_Editor.Subclass == Assign_Subclass.Two_Handed_Shield || Weapon_Editor.Class == Assign_Class.xForm)
 			{
 			    EditorGUILayout.LabelField("Hitpoints", EditorStyles.boldLabel);
 				EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
@@ -165,8 +166,6 @@ public class Equipment_Foundation_GUI : Editor
 			Layout.Float("Magic Resistance", ref Weapon_Editor.Stat_Dictionary,Stat.Magic_Resistance);
 			Layout.Float("Archery Resistance", ref Weapon_Editor.Stat_Dictionary,Stat.Archery_Resistance);
 		    EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
-
-			EditorGUILayout.PropertyField(Defect,true);
 	}
 
 	protected virtual void Display_Class_Stats ()
@@ -200,6 +199,19 @@ public class Equipment_Foundation_GUI : Editor
 				Layout.Float("Tier",ref Equipment_Foundation_Editor.Level);
 				Display_Damage_Foldout(ref Equipment_Foundation_Editor);
 			}
+		}
+		else
+		{
+			Display_Stat("Archery Damage",Equipment_Foundation_Editor,Stat.Archery_Damage);
+			Layout.Float("Accuracy",ref Equipment_Foundation_Editor.Stat_Dictionary,Stat.Accuracy);
+		}
+
+		if (Equipment_Foundation_Editor.Subclass != Assign_Subclass.One_Handed_Crossbow &&
+			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Two_Handed_Crossbow &&
+			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Bow &&
+			Equipment_Foundation_Editor.Class != Assign_Class.Magic)
+		{
+			EditorGUILayout.PropertyField(Defect,true);
 		}
 		Display_Passive();
 	}

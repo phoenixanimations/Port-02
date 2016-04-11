@@ -647,7 +647,7 @@ MonoBehaviour:
   - 0
   Slot: 0
   Class: 3
-  Subclass: 4
+  Subclass: 5
   Passives:
   - {fileID: 11452340}
   Select_AOE_Pattern: 0
