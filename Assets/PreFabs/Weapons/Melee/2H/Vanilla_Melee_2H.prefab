@@ -39,10 +39,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Vanilla Broadsword
+  Description: Basic.
   Stat_Dictionary:
   - 0
+  - 49
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 22
+  - 0
+  - 1
+  - 1
   - 0
   - 0
   - 0
@@ -51,19 +63,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 1
   - 0
   - 0
   - 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   - 0
   Stat_Multiplier:
   - 0
+  - 4.5
   - 0
   - 0
   - 0
@@ -251,8 +252,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
+  - 2
   - 0
   - 0
   - 0
@@ -645,12 +645,12 @@ MonoBehaviour:
   - 0
   - 0
   Slot: 0
-  Class: 0
-  Subclass: 0
+  Class: 1
+  Subclass: 2
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
-  Level: 0
+  Level: 1
   Defect: 0
 --- !u!1001 &100100000
 Prefab:

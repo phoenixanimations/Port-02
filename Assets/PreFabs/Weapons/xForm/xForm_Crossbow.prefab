@@ -39,12 +39,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55701d455a53842b5829aa906b26cb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: xForm Crossbow (v1)
+  Description: Version 1 (Passive Pending x2)
   Stat_Dictionary:
   - 0
   - 0
   - 0
+  - 11
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 13
+  - 11
+  - 5
+  - 3
   - 0
   - 0
   - 0
@@ -53,17 +63,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 3
   - 0
   - 0
   - 0
@@ -246,14 +246,14 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
+  - 1.25
+  - 1
   - 0
   - 0
   - 0
@@ -646,17 +646,17 @@ MonoBehaviour:
   - 0
   Slot: 0
   Class: 0
-  Subclass: 0
+  Subclass: 6
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
-  Level: 0
+  Level: 1
   Defect: 0
   Switch_Sides: 0
-  Class_A_Side: 0
+  Class_A_Side: 3
   Class_B_Side: 0
-  Subclass_A_Side: 0
-  Subclass_B_Side: 0
+  Subclass_A_Side: 6
+  Subclass_B_Side: 3
   Passive_A_Side: []
   Passive_B_Side: []
 --- !u!1001 &100100000

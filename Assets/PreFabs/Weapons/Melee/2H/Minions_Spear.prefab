@@ -1,70 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &179350
+--- !u!1 &160910
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 407898}
-  - 114: {fileID: 11499766}
+  - 4: {fileID: 454446}
+  - 114: {fileID: 11487798}
   m_Layer: 0
-  m_Name: None_Armor
+  m_Name: Minions_Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &407898
+--- !u!4 &454446
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179350}
+  m_GameObject: {fileID: 160910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11499766
+--- !u!114 &11487798
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179350}
+  m_GameObject: {fileID: 160910}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Minion's Spear
+  Description: Pried from the cold, dead hands of Minion.
   Stat_Dictionary:
   - 0
+  - 49
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 20
+  - 20
+  - 22
+  - 0
+  - 2
+  - 1
+  - 0
+  - 5
   - 0
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 1
+  - 5
   - 0
   - 0
   - 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   - 0
   Stat_Multiplier:
   - 0
+  - 4.5
   - 0
   - 0
   - 0
@@ -251,8 +252,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
+  - 2
   - 0
   - 0
   - 0
@@ -645,13 +645,13 @@ MonoBehaviour:
   - 0
   - 0
   Slot: 0
-  Class: 0
-  Subclass: 0
+  Class: 1
+  Subclass: 2
   Passives: []
   Select_AOE_Pattern: 0
-  AOE_Pattern: 
-  Level: 0
-  Defect: 0
+  AOE_Pattern: 01000100010001010100010101010100010101000100010001
+  Level: 1
+  Defect: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -661,5 +661,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 179350}
+  m_RootGameObject: {fileID: 160910}
   m_IsPrefabParent: 1

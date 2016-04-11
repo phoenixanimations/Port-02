@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Res Steal
+  Description: Steals resistance. (Passive Pending)
   Stat_Dictionary:
   - 0
   - 0
@@ -645,8 +645,8 @@ MonoBehaviour:
   - 0
   - 0
   Slot: 0
-  Class: 0
-  Subclass: 0
+  Class: 3
+  Subclass: 8
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 

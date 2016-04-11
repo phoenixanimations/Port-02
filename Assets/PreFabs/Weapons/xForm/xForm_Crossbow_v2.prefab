@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11423300}
   - 114: {fileID: 11443432}
   m_Layer: 0
-  m_Name: xForm_Unlimited
+  m_Name: xForm_Crossbow_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,12 +668,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: xForm Crossbow
+  Description: Transforms into a shield. (Passive Pending)
   Stat_Dictionary:
   - 0
   - 0
   - 0
+  - 11
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 33
+  - 5
+  - 5
+  - 3
   - 0
   - 0
   - 0
@@ -682,17 +692,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 3
   - 0
   - 0
   - 0
@@ -875,14 +875,14 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
+  - 3
+  - 0.5
   - 0
   - 0
   - 0
@@ -1274,12 +1274,12 @@ MonoBehaviour:
   - 0
   - 0
   Slot: 0
-  Class: 0
-  Subclass: 0
+  Class: 3
+  Subclass: 6
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
-  Level: 0
+  Level: 1
   Defect: 0
 --- !u!114 &11443432
 MonoBehaviour:
@@ -1292,20 +1292,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: xForm Shield
+  Description: Transforms into a crossbow. (Passive Pending)
   Stat_Dictionary:
+  - 11
   - 0
   - 0
   - 0
+  - 25
+  - 25
+  - 25
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 33
   - 0
   - 0
   - 0
@@ -1496,6 +1496,7 @@ MonoBehaviour:
   - 0
   - 0
   Stat_Multiplier:
+  - 1
   - 0
   - 0
   - 0
@@ -1505,8 +1506,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 0
+  - 3
   - 0
   - 0
   - 0
@@ -1899,11 +1899,11 @@ MonoBehaviour:
   - 0
   Slot: 0
   Class: 0
-  Subclass: 0
+  Subclass: 3
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
-  Level: 0
+  Level: 1
   Defect: 0
 --- !u!1001 &100100000
 Prefab:
