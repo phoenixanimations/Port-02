@@ -1,62 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &178330
+--- !u!1 &123318
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 404466}
-  - 114: {fileID: 11475270}
+  - 4: {fileID: 418550}
+  - 114: {fileID: 11489270}
   m_Layer: 0
-  m_Name: Developer_Weapon
+  m_Name: Razorwire_Whip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &404466
+--- !u!4 &418550
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178330}
+  m_GameObject: {fileID: 123318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.80506, y: -14.192269, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11475270
+--- !u!114 &11489270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178330}
+  m_GameObject: {fileID: 123318}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: DevSword 2.0
-  Description: The old Devsword just didn't cut it. (Passive Pending; 'Devlogik')
+  Name: Razorwire Whip
+  Description: 'Whip it good! (Passive Pending; ''Double Bind: if the enemy is bound,
+    add one turn to their bind'')'
   Stat_Dictionary:
   - 0
-  - 49
+  - 16
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 50
-  - 10
-  - 22
   - 0
+  - 0
+  - 11
+  - 5
   - 1
   - 1
   - 0
-  - 1
+  - 0
   - 0
   - 0
   - 0
@@ -244,7 +245,7 @@ MonoBehaviour:
   - 0
   Stat_Multiplier:
   - 0
-  - 4.5
+  - 1.5
   - 0
   - 0
   - 0
@@ -252,8 +253,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 2
-  - 0
+  - 1
+  - 0.5
   - 0
   - 0
   - 0
@@ -669,5 +670,5 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 178330}
+  m_RootGameObject: {fileID: 123318}
   m_IsPrefabParent: 1
