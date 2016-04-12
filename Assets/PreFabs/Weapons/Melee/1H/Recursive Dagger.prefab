@@ -1266,7 +1266,7 @@ MonoBehaviour:
   Class: 1
   Subclass: 1
   Passives:
-  - {fileID: 0}
+  - {fileID: 11427446}
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 1
