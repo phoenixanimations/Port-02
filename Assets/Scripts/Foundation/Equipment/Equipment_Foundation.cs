@@ -14,6 +14,7 @@ public class Equipment_Foundation : Stats
 	public List<bool> AOE_Pattern = new List<bool>();
 	public float Level;
 	public Defect Defect;
+	public string Equipment_Notes;
 	public void Level_Up (Stat Stat)
 	{
 		if (Stat == Stat.Hitpoints)

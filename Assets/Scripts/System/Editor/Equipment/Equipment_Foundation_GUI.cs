@@ -15,7 +15,7 @@ public class Equipment_Foundation_GUI : Editor
 	SerializedProperty Subclass;
 	SerializedProperty Passives;
 	SerializedProperty Defect;
-	enum Menu {Default, AOE};
+	enum Menu {Default, AOE, Notes};
 	Menu Select;
 
 	public virtual void OnEnable()
@@ -112,6 +112,12 @@ public class Equipment_Foundation_GUI : Editor
 				}
 				EditorGUILayout.EndHorizontal();
 
+			}
+
+			if (Select == Menu.Notes)
+			{
+				Layout.Text(string.Empty,ref Weapon_Editor.Equipment_Notes,GUILayout.MaxWidth(400f),GUILayout.MaxHeight(200f));
+				Weapon_Editor.Equipment_Notes = Weapon_Editor.Equipment_Notes.Replace("/","\n");
 			}
 		}
 	}
