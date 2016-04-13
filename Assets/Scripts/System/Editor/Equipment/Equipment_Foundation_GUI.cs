@@ -116,7 +116,8 @@ public class Equipment_Foundation_GUI : Editor
 
 			if (Select == Menu.Notes)
 			{
-				Layout.Text(string.Empty,ref Weapon_Editor.Equipment_Notes,GUILayout.MaxWidth(400f),GUILayout.MaxHeight(200f));
+				EditorGUILayout.HelpBox("Use / to make a newline. When typing it is possible to type everything out first like: line1/line2/line3/etc and then press return.",MessageType.Info);
+				Layout.Text(string.Empty,ref Weapon_Editor.Equipment_Notes,GUILayout.MaxHeight(200f));
 				Weapon_Editor.Equipment_Notes = Weapon_Editor.Equipment_Notes.Replace("/","\n");
 			}
 		}
