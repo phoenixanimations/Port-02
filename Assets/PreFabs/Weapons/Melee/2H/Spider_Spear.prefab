@@ -652,7 +652,9 @@ MonoBehaviour:
   AOE_Pattern: 00000100000001010100010101010100000000000000000000
   Level: 1
   Defect: 0
-  Equipment_Notes: 'Venom:
+  Equipment_Notes: '(Defect Pending)
+
+    Venom:
 
     Take Defect_Level% of Max HP
 

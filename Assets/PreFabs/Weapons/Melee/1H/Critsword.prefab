@@ -652,7 +652,9 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 5
-  Equipment_Notes: 
+  Equipment_Notes: '(Passive Pending)
+
+    ''Devlogik'' : Hits the enemy for 5% of its Max HP'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

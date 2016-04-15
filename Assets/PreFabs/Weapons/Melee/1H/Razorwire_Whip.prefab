@@ -40,8 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Razorwire Whip
-  Description: 'Whip it good! (Passive Pending; ''Double Bind: if the enemy is bound,
-    add one turn to their bind'')'
+  Description: Whip it good!
   Stat_Dictionary:
   - 0
   - 16
@@ -653,6 +652,9 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 6
+  Equipment_Notes: '(Passive Pending)
+
+    ''Double Bind'' : if the enemy is bound, add one turn to their bind defect'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

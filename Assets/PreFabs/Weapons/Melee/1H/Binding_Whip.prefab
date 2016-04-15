@@ -40,8 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Binding Whip
-  Description: 'The ties that bind. Constrict, that is. (Passive Pending; ''Grapple:
-    if targetting an enemy, drag them in; if a tile, grapple up to tile'')'
+  Description: 'The ties that bind. Constrict, that is. '
   Stat_Dictionary:
   - 0
   - 16
@@ -653,6 +652,9 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 7
+  Equipment_Notes: '(Passive Pending)
+
+    ''Drag'' : drags enemies into Melee range'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Recursive Dagger
-  Description: Crouching Dagger ... (Passive Pending)
+  Description: Crouching Dagger ...
   Stat_Dictionary:
   - 0
   - 16
@@ -1271,6 +1271,7 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 0
+  Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

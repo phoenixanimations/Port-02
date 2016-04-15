@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Rattmann's Crossbow
-  Description: Infinite attack power. (Passive Pending)
+  Description: Infinite attack power.
   Stat_Dictionary:
   - 0
   - Infinity
@@ -652,6 +652,13 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 100
   Defect: 2
+  Equipment_Notes: '(Passive Pending)
+
+    ''Inspiration'' : Inspiration increases by +1 for every attack that hits
+
+    Increases your damage by 10% and Accuracy by 5% per stack of Inspiration
+
+    (stacks up to 10 levels, all stacks reset to 0 if you miss)'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

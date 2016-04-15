@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Preservation
-  Description: Too many preservatives. (Passive Pending)
+  Description: Too many preservatives.
   Stat_Dictionary:
   - 5
   - 0
@@ -652,6 +652,11 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 0
+  Equipment_Notes: '(Passive Pending)
+
+    Increases your Energy by 20% of the amount of Energy consumed by your
+
+    enemy when they attack'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

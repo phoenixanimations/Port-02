@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Claymore
-  Description: Bloodthirsty. (Passive Pending; 'Bloodthirst')
+  Description: Bloodthirsty.
   Stat_Dictionary:
   - 0
   - 49
@@ -652,6 +652,11 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 6
+  Equipment_Notes: '(Passive Pending)
+
+    ''Bloodthirst'' : Chain-kills increase the Bleed level when it is applied
+
+    (stacks up to a maximum of level 10 on the first strike)'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

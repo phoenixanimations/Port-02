@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Bitch Armor
-  Description: Yes, you're being a bitch right now. (Passive Pending)
+  Description: Yes, you're being a bitch right now.
   Stat_Dictionary:
   - 11
   - 0
@@ -652,6 +652,7 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 0
+  Equipment_Notes: (Passive Pending) ?
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

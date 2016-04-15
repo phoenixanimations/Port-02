@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Bowzooka
-  Description: Fires air rows. (Passive Pending; does not consume ammo)
+  Description: Fires air rows.
   Stat_Dictionary:
   - 0
   - 0
@@ -652,6 +652,9 @@ MonoBehaviour:
   AOE_Pattern: 00000000000100000000000000000000010000000000000000000001000000000000000000000100000000000000000000010000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   Level: 1
   Defect: 3
+  Equipment_Notes: '(Passive Pending)
+
+    ''Air Blast'' : does not consume ammo'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
