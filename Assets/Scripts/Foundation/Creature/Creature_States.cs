@@ -82,39 +82,16 @@ public class Creature_States : Creature_Movement
 	  //************************************//
 	 //****************Equip***************//
     //************************************//
-	public virtual void Equip (Equipment_Foundation Equipment)
+	public virtual void Equip (Equipment_Foundation Equipment, Assign_Slot Equip_Slot)
 	{	
-		switch (Equipment.Slot) 
-		{
-		case Assign_Slot.Primary_Hand:
-			PrimaryHand.Passives.ForEach(p => Passives.Remove(p));
-			PrimaryHand = Equipment;
-			break;
-		
-		case Assign_Slot.Secondary_Hand:
-			SecondaryHand.Passives.ForEach(p => Passives.Remove(p));
-			SecondaryHand = Equipment;
-			break;
-		
-		case Assign_Slot.Armor:
-			Armor.Passives.ForEach(p => Passives.Remove(p));
-			Armor = Equipment;
-			break;
-		
-		case Assign_Slot.Arrow:
-			Arrow.Passives.ForEach(p => Passives.Remove(p));
-			Arrow = Equipment;
-			break;
-
-		default:
-			Debug.LogError("No slots meet, bad weapon");
-			break;
-		}
-			
+		StatusesActivate(State.Equip);
+		Slot[(int)Equip_Slot].Passives.ForEach(p => Passives.Remove(p));
+		Slot[(int)Equip_Slot] = Equipment;
 		if (Equipment.Passives.Count > 0)
 		{
-			Equipment.Passives.ForEach(s => Passives.Add(s));
+			Equipment.Passives.ForEach(p => Passives.Add(p));
 		}
+
 		Turn = false;
 	}
 

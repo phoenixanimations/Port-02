@@ -65,9 +65,9 @@ public class Creature_GUI : Editor
 				Creature_Editor.Level_Up(Stat.Melee_Level,Creature_Editor.Change_All_Levels,true);
 				Creature_Editor.Level_Up(Stat.Magic_Level,Creature_Editor.Change_All_Levels,true);
 				Creature_Editor.Level_Up(Stat.Archery_Level,Creature_Editor.Change_All_Levels,true);
-				Level_Up_Equipment (ref Creature_Editor.PrimaryHand, Creature_Editor.Change_All_Levels);
-				Level_Up_Equipment (ref Creature_Editor.SecondaryHand, Creature_Editor.Change_All_Levels);
-				Level_Up_Equipment (ref Creature_Editor.Armor, Creature_Editor.Change_All_Levels);
+				Level_Up_Equipment (ref Creature_Editor.Slot[(int)Assign_Slot.Primary_Hand], Creature_Editor.Change_All_Levels);
+				Level_Up_Equipment (ref Creature_Editor.Slot[(int)Assign_Slot.Secondary_Hand], Creature_Editor.Change_All_Levels);
+				Level_Up_Equipment (ref Creature_Editor.Slot[(int)Assign_Slot.Armor], Creature_Editor.Change_All_Levels);
 			} 
 			EditorGUILayout.EndHorizontal();
 			EditorGUILayout.LabelField("Combat",EditorStyles.boldLabel);
@@ -80,9 +80,9 @@ public class Creature_GUI : Editor
 			EditorGUI.indentLevel--;
 			EditorGUILayout.LabelField("Equipment",EditorStyles.boldLabel);
 			EditorGUI.indentLevel++;
-			Layout.Float("Primary Hand",ref Creature_Editor.PrimaryHand.Level);
-			Layout.Float("Secondary Hand",ref Creature_Editor.SecondaryHand.Level);
-			Layout.Float("Armor",ref Creature_Editor.Armor.Level);
+			Layout.Float("Primary Hand",ref Creature_Editor.Slot[(int)Assign_Slot.Primary_Hand].Level);
+			Layout.Float("Secondary Hand",ref Creature_Editor.Slot[(int)Assign_Slot.Secondary_Hand].Level);
+			Layout.Float("Armor",ref Creature_Editor.Slot[(int)Assign_Slot.Armor].Level);
 			EditorGUI.indentLevel--;
 		}
 		EditorGUILayout.PropertyField(Passives,true);
@@ -99,23 +99,29 @@ public class Creature_GUI : Editor
 		Equipment.Level_Up(Stat.Archery_Damage);
 		Equipment.Level_Up(Stat.Accuracy);
 		Equipment.Level_Up(Stat.Evade);
-	}
+	}	
 
 	Assign_Slot Slot;
 	private void Equipment (ref Creature Creature_Editor)
 	{
-		EditorGUILayout.ObjectField("Primary Hand",Creature_Editor.PrimaryHand,typeof(Equipment_Foundation),true);
-		EditorGUILayout.ObjectField("Secondary Hand",Creature_Editor.SecondaryHand,typeof(Equipment_Foundation),true);
-		EditorGUILayout.ObjectField("Armor",Creature_Editor.Armor,typeof(Equipment_Foundation),true);
-		EditorGUILayout.ObjectField("Arrow",Creature_Editor.Arrow,typeof(Equipment_Foundation),true);
+		EditorGUILayout.ObjectField("Primary Hand",Creature_Editor.Slot[(int)Assign_Slot.Primary_Hand],typeof(Equipment_Foundation),true);
+		EditorGUILayout.ObjectField("Secondary Hand",Creature_Editor.Slot[(int)Assign_Slot.Secondary_Hand],typeof(Equipment_Foundation),true);
+		EditorGUILayout.ObjectField("Armor",Creature_Editor.Slot[(int)Assign_Slot.Armor],typeof(Equipment_Foundation),true);
+		EditorGUILayout.ObjectField("Arrow",Creature_Editor.Slot[(int)Assign_Slot.Arrow],typeof(Equipment_Foundation),true);
 	
 		EditorGUILayout.BeginHorizontal ();
 		Equipped = (Equipment_Foundation)EditorGUILayout.ObjectField("Equip",Equipped,typeof(Equipment_Foundation),true);
 		Slot = (Assign_Slot)EditorGUILayout.EnumPopup(Slot);
 		if(GUILayout.Button("Yield",GUILayout.Width(45f),GUILayout.Height(14f)))
 		{
-			Equipped.Slot = Slot;
-			Creature_Editor.Equip(Equipped);
+			Creature_Editor.Equip(Equipped,Slot);
+		}
+		if(GUILayout.Button("Reset",GUILayout.Width(45f),GUILayout.Height(14f)))
+		{
+			Creature_Editor.Slot[(int)Assign_Slot.Primary_Hand] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Hand_1H.prefab",typeof(Equipment_Foundation));
+			Creature_Editor.Slot[(int)Assign_Slot.Secondary_Hand] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Hand_1H.prefab",typeof(Equipment_Foundation));
+			Creature_Editor.Slot[(int)Assign_Slot.Armor] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Armor.prefab",typeof(Equipment_Foundation));
+			Creature_Editor.Slot[(int)Assign_Slot.Arrow] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Arrow.prefab",typeof(Equipment_Foundation));
 		}
 		EditorGUILayout.EndHorizontal ();
 	}

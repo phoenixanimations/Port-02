@@ -6,6 +6,20 @@ using System_Control;
 
 public class Create_Menu
 {
+	[MenuItem("Create/Generic Creature")]
+	private static void Create_Generic_Creature()
+    {
+		GameObject Generic_Creature = new GameObject("Generic_Creature");
+		var Default_Creature_Equipment = Generic_Creature.AddComponent<Creature>();
+		Default_Creature_Equipment.Slot[(int)Assign_Slot.Primary_Hand] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Hand_1H.prefab",typeof(Equipment_Foundation));
+		Default_Creature_Equipment.Slot[(int)Assign_Slot.Secondary_Hand] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Hand_1H.prefab",typeof(Equipment_Foundation));
+		Default_Creature_Equipment.Slot[(int)Assign_Slot.Armor] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Armor.prefab",typeof(Equipment_Foundation));
+		Default_Creature_Equipment.Slot[(int)Assign_Slot.Arrow] = (Equipment_Foundation)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/System/Nothing/None_Arrow.prefab",typeof(Equipment_Foundation));
+		PrefabUtility.CreatePrefab(Spawn_In_Folder("Generic_Creature.prefab"),Generic_Creature);
+		UnityEngine.Object.DestroyImmediate(Generic_Creature);
+	}
+
+
 	[MenuItem("Create/Generic Equipment")]
  	private static void Create_Generic_Equipment()
     {	

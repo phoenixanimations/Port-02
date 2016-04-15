@@ -5,7 +5,6 @@ using System_Control;
 
 public class Equipment_Foundation : Stats 
 {
-	public Assign_Slot Slot;
 	public Assign_Class Class;
 	public Assign_Subclass Subclass;
 	public List <Status_Foundation> Passives = new List<Status_Foundation>();	

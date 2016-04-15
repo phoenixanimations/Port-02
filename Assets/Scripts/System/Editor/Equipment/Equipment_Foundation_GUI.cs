@@ -11,11 +11,12 @@ public class Equipment_Foundation_GUI : Editor
 {
 	public static bool Damage_Foldout;
 	public static bool Config_Foldout;
+	public static bool Note_Foldout;
 	SerializedProperty Class;
 	SerializedProperty Subclass;
 	SerializedProperty Passives;
 	SerializedProperty Defect;
-	enum Menu {Default, AOE, Notes};
+	enum Menu {Default, AOE};
 	Menu Select;
 
 	public virtual void OnEnable()
@@ -113,13 +114,6 @@ public class Equipment_Foundation_GUI : Editor
 				EditorGUILayout.EndHorizontal();
 
 			}
-
-			if (Select == Menu.Notes)
-			{
-				EditorGUILayout.HelpBox("Use / to make a newline. When typing it is possible to type everything out first like: line1/line2/line3/etc and then press return.",MessageType.Info);
-				Layout.Text(string.Empty,ref Weapon_Editor.Equipment_Notes,GUILayout.MaxHeight(200f));
-				Weapon_Editor.Equipment_Notes = Weapon_Editor.Equipment_Notes.Replace("/","\n");
-			}
 		}
 	}
 
@@ -185,6 +179,17 @@ public class Equipment_Foundation_GUI : Editor
 	{
 		EditorGUILayout.PropertyField(Passives,true);
 	}
+	
+	private void Notes (Equipment_Foundation Weapon_Editor)
+	{
+		Note_Foldout = EditorGUILayout.Foldout(Note_Foldout, "Notes");
+		if (Note_Foldout)
+		{
+			EditorGUILayout.HelpBox("Use / to make a newline. When typing it is possible to type everything out first like: line1/line2/line3/etc and then press return.",MessageType.Info);
+			Layout.Text(string.Empty,ref Weapon_Editor.Equipment_Notes,GUILayout.MaxHeight(200f));
+			Weapon_Editor.Equipment_Notes = Weapon_Editor.Equipment_Notes.Replace("/","\n");
+		}
+	}
 
 	protected void Display_All_Stats (ref Equipment_Foundation Equipment_Foundation_Editor)
 	{
@@ -221,5 +226,6 @@ public class Equipment_Foundation_GUI : Editor
 			EditorGUILayout.PropertyField(Defect,true);
 		}
 		Display_Passive();
+		Notes(Equipment_Foundation_Editor);
 	}
 }

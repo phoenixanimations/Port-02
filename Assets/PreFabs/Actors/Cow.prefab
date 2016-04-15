@@ -665,10 +665,11 @@ MonoBehaviour:
   Turn: 0
   Storey: 1
   Height: 1.98
-  PrimaryHand: {fileID: 11446802, guid: 2597ce4134a524976a66ec20dd2de704, type: 2}
-  SecondaryHand: {fileID: 11446802, guid: 2597ce4134a524976a66ec20dd2de704, type: 2}
-  Armor: {fileID: 11426142, guid: 1f08d6c8dfd044d819cc24174682e592, type: 2}
-  Arrow: {fileID: 11416804, guid: 0c81b1cd43c4d4e33bef7ed051a2a8ec, type: 2}
+  Slot:
+  - {fileID: 11446802, guid: 2597ce4134a524976a66ec20dd2de704, type: 2}
+  - {fileID: 11446802, guid: 2597ce4134a524976a66ec20dd2de704, type: 2}
+  - {fileID: 11426142, guid: 1f08d6c8dfd044d819cc24174682e592, type: 2}
+  - {fileID: 11416804, guid: 0c81b1cd43c4d4e33bef7ed051a2a8ec, type: 2}
   Catagory: 0
   Passives: []
   Actives: []

@@ -12,11 +12,7 @@ public class Creature_Stats : Stats
 	public float Storey = 1;
 	public float Height = 1.98f;
 
-	public Equipment_Foundation PrimaryHand;	  
-	public Equipment_Foundation SecondaryHand;  
-	public Equipment_Foundation Armor;  
-	public Equipment_Foundation Arrow;   
-
+	public Equipment_Foundation[] Slot = new Equipment_Foundation[4];	  
 	public Catagory Catagory;
 
 	public List<Status_Foundation> Passives = new List<Status_Foundation>();
@@ -37,11 +33,11 @@ public class Creature_Stats : Stats
 	public float Max_Hitpoints ()
 	{
 		float Level_Hitpoints = 10f * Tier.Formula(Get_Stat(Stat.Hitpoints_Level));
-		float Primary_Secondary_Hitpoints = PrimaryHand.Get_Stat(Stat.Hitpoints) + 
-								 			SecondaryHand.Get_Stat(Stat.Hitpoints);
+		float Primary_Secondary_Hitpoints = Slot[(int)Assign_Slot.Primary_Hand].Get_Stat(Stat.Hitpoints) + 
+											Slot[(int)Assign_Slot.Secondary_Hand].Get_Stat(Stat.Hitpoints);
 
-		float Armor_Hitpoints = Armor.Get_Stat(Stat.Hitpoints);
-		float Arrow_Hitpoints = Arrow.Get_Stat(Stat.Hitpoints);
+		float Armor_Hitpoints = Slot[(int)Assign_Slot.Armor].Get_Stat(Stat.Hitpoints);
+		float Arrow_Hitpoints = Slot[(int)Assign_Slot.Arrow].Get_Stat(Stat.Hitpoints);
 		float Max_Hitpoints = Level_Hitpoints + Primary_Secondary_Hitpoints + Armor_Hitpoints + Arrow_Hitpoints;
 		return Max_Hitpoints;
 	}

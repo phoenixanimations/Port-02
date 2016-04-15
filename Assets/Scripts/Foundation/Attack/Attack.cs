@@ -1,22 +1,17 @@
-﻿//using UnityEngine;
-//using System;
-//using System.Collections;
-//using System.Collections.Generic;
-//using System.Control;
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System_Control;
+using System.Linq;
 ////For Actives:
 ////Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy))));
-//public class Attack
-//{
-//	public EquipmentFoundation Primary;
-//	public EquipmentFoundation Secondary;
-//	public EquipmentFoundation Armor;
-//	public EquipmentFoundation Arrow;
-//
+public class Attack
+{
 //	public Creature Adversary;
 //	private Creature Creature;
-// //**************************************//
-// //***********Global Modify*************//
-////*************************************//
+  //**************************************//
+ //***********Global Modify*************//
+//*************************************//
 //	public float  Number_Of_Attacks;
 //	public float  Attack_Count {get;private set;}
 //  //**************************************//
@@ -343,4 +338,4 @@
 //  //**************************************//
 // //*************End Attack***************//
 ////**************************************//
-//}
+}
