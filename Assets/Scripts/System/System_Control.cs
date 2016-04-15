@@ -7,11 +7,22 @@ namespace System_Control
 	 //*********State**********//
     //************************//
 	public enum State {
+   	  //************************//
+	 //*****Creature States****//
+	//************************//
 					   Idle,Use,Equip,MoveAttack,Jump,RequestInteraction,
 					   BeginningOfTurn,EndOfTurn,
 					   Move,Interact,
-				       CounterAttack,Attack,
-					   MurderedCreature, Heal, LevelUp
+				       Attack,
+					   MurderedCreature, Heal, LevelUp,
+   	  //************************//
+	 //******Attack States*****//
+	//************************//
+					   Attack_Begin,
+   	  //************************//
+	 //**Counter Attack States*//
+	//************************//
+					   Counter_Attack_Begin
 					  };
 
 	  //************************//
@@ -29,7 +40,7 @@ namespace System_Control
 								 None, One_Handed, Two_Handed, One_Handed_Shield, Two_Handed_Shield, Bow, One_Handed_Crossbow, Two_Handed_Crossbow, Armor, Arrow, Bolt
 								};
 	public enum Defect {
-						None, Burn, Poison, Slow, Stun, Shock, Bleed, Bind, Numb, Corruption, Drunk
+						None, Burn, Poison, Slow, Stun, Shock, Bleed, Bind, Numb, Corruption, Drunk, Virus
 					   };
 
 	  //************************//

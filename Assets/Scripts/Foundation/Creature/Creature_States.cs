@@ -6,11 +6,11 @@ using System_Control;
 
 public class Creature_States : Creature_Movement
 {
-	private void StatusesActivate(State State)
+	private void StatusesActivate(State State, Attack Attack = null)
 	{
 		if (Passives.Count > 0)
-			foreach (var i in Passives) 
-				i.Activate(this,Raycast,State);
+			foreach (var i in Passives)
+				i.Activate(this,Raycast,State,Attack);
 	}
 
  	  //************************************//
@@ -47,9 +47,10 @@ public class Creature_States : Creature_Movement
     //************************************//
 	public void Attack (Vector2 Direction, float LengthTimesAmount, float WhichStorey)
 	{
-		StatusesActivate(State.Attack);
 		if (Raycast.SearchForCreature(Direction,LengthTimesAmount,WhichStorey))
 		{
+			Attack Creature_Attacks_Advisory = new Attack(this,Raycast,Raycast.TargetCreature); 
+			StatusesActivate(State.Attack,Creature_Attacks_Advisory);
 			if (Raycast.TargetCreature.Get_Stat(Stat.Hitpoints) < 1)
 			{
 				StatusesActivate(State.MurderedCreature);

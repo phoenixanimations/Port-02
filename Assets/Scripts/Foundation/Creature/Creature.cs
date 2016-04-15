@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System_Control;
+using System_Control.Extensions;
 
 [RequireComponent (typeof (Raycast))]
 public class Creature : Creature_Physics 
