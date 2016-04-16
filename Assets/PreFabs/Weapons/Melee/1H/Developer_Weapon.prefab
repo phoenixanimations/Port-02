@@ -644,7 +644,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
   Class: 1
   Subclass: 1
   Passives: []
@@ -652,7 +651,7 @@ MonoBehaviour:
   AOE_Pattern: 
   Level: 1
   Defect: 6
-  Equipment_Notes: 
+  Equipment_Notes: asdf
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
