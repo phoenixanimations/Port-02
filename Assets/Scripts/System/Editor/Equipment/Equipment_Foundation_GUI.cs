@@ -50,7 +50,7 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 		serializedObject.ApplyModifiedProperties();
 	}
 
-	private void Display_Stat (string Name, Equipment_Foundation Weapon_Editor, Stat Choose_Stat) 
+	private void Display_Stat (string Name, ref Equipment_Foundation Weapon_Editor, Stat Choose_Stat) 
 	{
 		EditorGUILayout.BeginHorizontal ();
 		EditorGUILayout.FloatField(Name,Weapon_Editor.Get_Stat(Choose_Stat));
@@ -65,7 +65,6 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 
 		if (Config_Foldout)
 		{
-			
 			Layout.Float("Number of Attacks",ref Weapon_Editor.Stat_Dictionary,Stat.Number_Of_Attacks);
 			Layout.Float("Minimum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Minimum_Distance);
 			Layout.Float("Maximum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Maximum_Distance);
@@ -134,15 +133,15 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 
  			EditorGUILayout.LabelField("Damage", EditorStyles.boldLabel);
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			Display_Stat("Melee Damage",Weapon_Editor,Stat.Melee_Damage);
-			Display_Stat("Magic Damage",Weapon_Editor,Stat.Magic_Damage);
-			Display_Stat("Archery Damage",Weapon_Editor,Stat.Archery_Damage);
+			Display_Stat("Melee Damage",ref Weapon_Editor,Stat.Melee_Damage);
+			Display_Stat("Magic Damage",ref Weapon_Editor,Stat.Magic_Damage);
+			Display_Stat("Archery Damage",ref Weapon_Editor,Stat.Archery_Damage);
 			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 				
 			EditorGUILayout.LabelField("Accuracy", EditorStyles.boldLabel);
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
-			Display_Stat("Accuracy",Weapon_Editor,Stat.Accuracy);
-			Display_Stat("Evade",Weapon_Editor,Stat.Evade);
+			Display_Stat("Accuracy",ref Weapon_Editor,Stat.Accuracy);
+			Display_Stat("Evade",ref Weapon_Editor,Stat.Evade);
 			EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 
 			EditorGUILayout.LabelField("Critical", EditorStyles.boldLabel);
@@ -173,6 +172,7 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 		{
 			Layout.Bool("Two Handed",ref Weapon_Editor.Two_Handed);
 		}
+		Default_Stats(ref Weapon_Editor);
 	}
 
 	protected virtual void Display_Passive()
@@ -215,7 +215,7 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 		}
 		else
 		{
-			Display_Stat("Archery Damage",Equipment_Foundation_Editor,Stat.Archery_Damage);
+			Display_Stat("Archery Damage",ref Equipment_Foundation_Editor,Stat.Archery_Damage);
 			Layout.Float("Accuracy",ref Equipment_Foundation_Editor.Stat_Dictionary,Stat.Accuracy);
 		}
 

@@ -18,15 +18,23 @@ public class Stats : Basic_Tile
   //****************GET_STAT****************//
  //****************************************//
 //****************************************//
-	public void Get_Stat (Stat Change_Stat_Selected, float Amount, bool MakeNumberEqualToAmount = false)
+	public void Get_Stat (Stat Change_Stat_Selected, float Amount, bool Make_Number_Equal_To_Amount = false, bool Dont_Floor = false)
 	{
-		if (MakeNumberEqualToAmount)
+		if (Make_Number_Equal_To_Amount)
 		{
 			Stat_Dictionary[(int)Change_Stat_Selected] = Mathf.Floor(Amount);
+			if (Dont_Floor)
+			{
+				Stat_Dictionary[(int)Change_Stat_Selected] = Amount;
+			}
 		}
 		else
 		{
 			Stat_Dictionary[(int)Change_Stat_Selected] += Mathf.Floor(Amount);
+			if (Dont_Floor)
+			{
+				Stat_Dictionary[(int)Change_Stat_Selected] += Amount;
+			}
 		} 
 	}
 
@@ -34,18 +42,8 @@ public class Stats : Basic_Tile
 	{
 		return Stat_Dictionary[(int)Change_Stat_Selected];
 	}
-
-	public void Get_Stat (Stat Change_Stat_Selected, float Amount, float Times_Tier_Formula_Float, bool MakeNumberEqualToAmount = false)
-	{
-		Amount *= Tier.Formula(Times_Tier_Formula_Float);
-		Get_Stat(Change_Stat_Selected, Amount,MakeNumberEqualToAmount);
-	}
-
-	public void Get_Stat (Stat Change_Stat_Selected, float Amount,  Stat Times_Tier_Formula_Stat, bool MakeNumberEqualToAmount = false)
-	{
-		Amount *= Tier.Formula(Get_Stat(Times_Tier_Formula_Stat));
-		Get_Stat(Change_Stat_Selected, Amount,MakeNumberEqualToAmount);
-	}
+	
+	
 
     //****************************************//
    //****************************************//
