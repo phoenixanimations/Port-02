@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,10 +7,11 @@ using System_Control.Editor;
 using System.Linq;
 
 [CustomEditor(typeof(Equipment_Foundation))]
-public class Equipment_Foundation_GUI : Editor 
+public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI 
 {
 	public static bool Damage_Foldout;
 	public static bool Config_Foldout;
+	public static bool AOE_Foldout;
 	public static bool Note_Foldout;
 	SerializedProperty Class;
 	SerializedProperty Subclass;
@@ -60,61 +61,60 @@ public class Equipment_Foundation_GUI : Editor
  
 	private void Display_Config_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
+		Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
+
 		if (Config_Foldout)
 		{
-			if (Select == Menu.Default)
-			{
-				Layout.Float("Number of Attacks",ref Weapon_Editor.Stat_Dictionary,Stat.Number_Of_Attacks);
-				Layout.Float("Minimum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Minimum_Distance);
-				Layout.Float("Maximum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Maximum_Distance);
-				Layout.Float("Movement", ref Weapon_Editor.Stat_Dictionary, Stat.Movement);
-				Layout.Float("Jump", ref Weapon_Editor.Stat_Dictionary, Stat.Jump);
-				Layout.Float("Knockback", ref Weapon_Editor.Stat_Dictionary, Stat.Knockback);
-			}
-			if (Select == Menu.AOE)
-			{
-				EditorGUILayout.BeginHorizontal();
-				Layout.Float("Area of Effect",ref Weapon_Editor.Stat_Dictionary,Stat.Area_Of_Effect);
-				AOE_Button(ref Weapon_Editor);
-				EditorGUILayout.EndHorizontal();
-				Layout.Label("The center represents the enemy you clicked on to attack.");
-				Layout.Label("If the center isn't 'checked' then when you click on someone");
-				Layout.Label("you will not hit them. Anything checked off around the center is");
-				Layout.Label("considered AOE damage.");
-
-				if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 11)
-				{
-					Layout.Label("AOE is too high for the editor contact me if you want to");
-					Layout.Label("do something nuts.");
-					return;
-				}
-
-				if (Mathf.Sqrt((float)Weapon_Editor.AOE_Pattern.Count) != Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) return;
-				
-				EditorGUILayout.BeginHorizontal();
-				for (float i = 0; i < Weapon_Editor.AOE_Pattern.Count; i++) 
-				{
-					if (i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) == Mathf.Floor(i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) && i != 0)
-					{
-					   EditorGUILayout.EndHorizontal();
-					   EditorGUILayout.BeginHorizontal();
-					}
-					Weapon_Editor.AOE_Pattern[(int)i] = EditorGUILayout.Toggle(Weapon_Editor.AOE_Pattern[(int)i],GUILayout.Width(10f));
-				}
-				EditorGUILayout.EndHorizontal();
-
-			}
+			
+			Layout.Float("Number of Attacks",ref Weapon_Editor.Stat_Dictionary,Stat.Number_Of_Attacks);
+			Layout.Float("Minimum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Minimum_Distance);
+			Layout.Float("Maximum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Maximum_Distance);
+			Layout.Float("Movement", ref Weapon_Editor.Stat_Dictionary, Stat.Movement);
+			Layout.Float("Jump", ref Weapon_Editor.Stat_Dictionary, Stat.Jump);
+			Layout.Float("Knockback", ref Weapon_Editor.Stat_Dictionary, Stat.Knockback);
 		}
 	}
 
-	private void AOE_Button (ref Equipment_Foundation Weapon_Editor)
+	private void Display_AOE_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
-		if(GUILayout.Button("Show",GUILayout.Height(14f)))
-        {
-			float Number_Of_Booleans = Mathf.Pow(Weapon_Editor.Get_Stat(Stat.Area_Of_Effect),2f);
-			Weapon_Editor.AOE_Pattern = new List<bool>(new bool[(int)Number_Of_Booleans]);
+		AOE_Foldout = EditorGUILayout.Foldout(AOE_Foldout, "Area of Effect");
+		if (AOE_Foldout)
+		{
+			EditorGUILayout.BeginHorizontal();
+			Layout.Float("Area of Effect",ref Weapon_Editor.Stat_Dictionary,Stat.Area_Of_Effect);
+			if(GUILayout.Button("Show",GUILayout.Height(14f)))
+		  	{
+				float Number_Of_Booleans = Mathf.Pow(Weapon_Editor.Get_Stat(Stat.Area_Of_Effect),2f);
+				Weapon_Editor.AOE_Pattern = new List<bool>(new bool[(int)Number_Of_Booleans]);
+			} 	
+			EditorGUILayout.EndHorizontal();
+			if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 0)
+			{
+				EditorGUILayout.HelpBox("The center represents the enemy you clicked on to attack. If the center isn't 'checked' then when you click on someone you will not hit them. Anything checked off around the center is considered AOE damage.",MessageType.Warning);
+			}
+	
+			if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 15)
+			{
+				Layout.Label("AOE is too high for the editor contact me if you want to");
+				Layout.Label("do something nuts.");
+				return;
+			}
+	
+			if (Mathf.Sqrt((float)Weapon_Editor.AOE_Pattern.Count) != Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) return;
+			
+			EditorGUILayout.BeginHorizontal();
+			for (float i = 0; i < Weapon_Editor.AOE_Pattern.Count; i++) 
+			{
+				if (i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) == Mathf.Floor(i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) && i != 0)
+				{
+				   EditorGUILayout.EndHorizontal();
+				   EditorGUILayout.BeginHorizontal();
+				}
+				Weapon_Editor.AOE_Pattern[(int)i] = EditorGUILayout.Toggle(Weapon_Editor.AOE_Pattern[(int)i],GUILayout.Width(10f));
+			}
+			EditorGUILayout.EndHorizontal();
 		}
-	}
+	}	
 
 	private void Display_Damage_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
@@ -204,12 +204,8 @@ public class Equipment_Foundation_GUI : Editor
 			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Arrow && 
 			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Bolt)
 		{
-			EditorGUILayout.BeginHorizontal();
-			Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
-			Select = (Menu)EditorGUILayout.EnumPopup(Select,GUILayout.Width(50f));
-			EditorGUILayout.EndHorizontal();
+			Display_AOE_Foldout(ref Equipment_Foundation_Editor);
 			Display_Config_Foldout(ref Equipment_Foundation_Editor);
-
 			Damage_Foldout = EditorGUILayout.Foldout(Damage_Foldout, "Stats");
 			if (Damage_Foldout)
 			{
