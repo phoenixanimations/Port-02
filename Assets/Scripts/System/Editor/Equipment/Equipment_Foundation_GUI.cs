@@ -7,7 +7,7 @@ using System_Control.Editor;
 using System.Linq;
 
 [CustomEditor(typeof(Equipment_Foundation))]
-public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI 
+public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI 
 {
 	public static bool Damage_Foldout;
 	public static bool Config_Foldout;
@@ -130,7 +130,11 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 				Weapon_Editor.Level_Up(Stat.Hitpoints);
 				EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 			}
-
+			else 
+			{
+				Check_For_Wrong_Stats(ref Weapon_Editor,Stat.Hitpoints);
+			}
+			
  			EditorGUILayout.LabelField("Damage", EditorStyles.boldLabel);
 			EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
 			Display_Stat("Melee Damage",ref Weapon_Editor,Stat.Melee_Damage);
@@ -171,6 +175,13 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 			Weapon_Editor.Class == Assign_Class.Archery)
 		{
 			Layout.Bool("Two Handed",ref Weapon_Editor.Two_Handed);
+		}
+		else
+		{
+			if (Weapon_Editor.Two_Handed)
+			{
+				EditorGUILayout.HelpBox("Two Handed is true",MessageType.Warning);
+			}
 		}
 		Default_Stats(ref Weapon_Editor);
 	}
@@ -217,12 +228,26 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Default_Stats_GUI
 		{
 			Display_Stat("Archery Damage",ref Equipment_Foundation_Editor,Stat.Archery_Damage);
 			Layout.Float("Accuracy",ref Equipment_Foundation_Editor.Stat_Dictionary,Stat.Accuracy);
+			foreach (Stat All_Stats in System.Enum.GetValues(typeof(Stat)))
+			{
+				if (All_Stats != Stat.Archery_Damage && All_Stats != Stat.Accuracy)
+				{
+					Check_For_Wrong_Stats(ref Equipment_Foundation_Editor,All_Stats);
+				}
+			}
 		}
 
 		if (Equipment_Foundation_Editor.Class != Assign_Class.Archery &&
 			Equipment_Foundation_Editor.Class != Assign_Class.Magic)
 		{
 			EditorGUILayout.PropertyField(Defect,true);
+		}
+		else 
+		{
+			if (Equipment_Foundation_Editor.Defect != System_Control.Defect.None)
+			{
+				EditorGUILayout.HelpBox("Defect is not set to None, if this is expected please contact me",MessageType.Warning);
+			}
 		}
 		Display_Passive();
 		Notes(Equipment_Foundation_Editor);
