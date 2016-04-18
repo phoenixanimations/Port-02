@@ -47,7 +47,7 @@ public class xForm_Limited_GUI : Equipment_Foundation_GUI
 		Weapon_Editor.Subclass_B_Side = (Assign_Subclass)EditorGUILayout.EnumPopup(Weapon_Editor.Subclass_B_Side);
 	}
 
-	protected override void Display_Class_Stats ()
+	protected override void Display_Class_Stats (ref Equipment_Foundation Weapon_Editor)
 	{
 		Layout.Horizontal(xForm_Class_Stats);
 		Layout.Horizontal(xForm_Subclass_Stats);

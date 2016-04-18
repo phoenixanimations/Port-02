@@ -55,17 +55,12 @@ public class Attack
 		Equipment_Foundation Primary_Hand = Creature.Slot[(int)Assign_Slot.Primary_Hand];
 		Equipment_Foundation Secondary_Hand = Creature.Slot[(int)Assign_Slot.Secondary_Hand];
 		///Make it so when you equip two handed it auto equips the other hand with none. 
-		if ((Primary_Hand.Subclass == Assign_Subclass.One_Handed || 
-			Primary_Hand.Subclass == Assign_Subclass.Two_Handed ||
-			Primary_Hand.Subclass == Assign_Subclass.Bow ||
-			Primary_Hand.Subclass == Assign_Subclass.One_Handed_Crossbow ||
-			Primary_Hand.Subclass == Assign_Subclass.Two_Handed_Crossbow)
-			&&
-			(Secondary_Hand.Subclass == Assign_Subclass.One_Handed || 
-			Secondary_Hand.Subclass == Assign_Subclass.Two_Handed ||
-			Secondary_Hand.Subclass == Assign_Subclass.Bow ||
-			Secondary_Hand.Subclass == Assign_Subclass.One_Handed_Crossbow ||
-			Secondary_Hand.Subclass == Assign_Subclass.Two_Handed_Crossbow)) 
+		if ((Primary_Hand.Class == Assign_Class.Melee || 
+			Primary_Hand.Class == Assign_Class.Magic ||
+			Primary_Hand.Class == Assign_Class.Archery) &&
+			Secondary_Hand.Class == Assign_Class.Melee ||
+			Secondary_Hand.Class == Assign_Class.Magic ||
+			Secondary_Hand.Class == Assign_Class.Archery)
 		{
 			return true;
 		}
@@ -173,11 +168,9 @@ public class Attack
  //*********Check For Non Weapons********//
 //**************************************//
 		if (Weapon.Class == Assign_Class.None) return;
-		if (Weapon.Subclass == Assign_Subclass.One_Handed_Shield || 
-			Weapon.Subclass == Assign_Subclass.Two_Handed_Shield ||
-			Weapon.Subclass == Assign_Subclass.Armor ||
-			Weapon.Subclass == Assign_Subclass.Arrow ||
-			Weapon.Subclass == Assign_Subclass.Bolt)
+		if (Weapon.Class != Assign_Class.Melee && 
+			Weapon.Class != Assign_Class.Magic &&
+			Weapon.Class != Assign_Class.Archery)  
 		{
 			Debug.LogError(Weapon.Name + "is not supported when classed as: " + Weapon.Class + "and Subclass: " + Weapon.Subclass);
 		}

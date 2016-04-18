@@ -25,6 +25,7 @@ public class Equipment_Foundation_GUI : Editor
 		Subclass = serializedObject.FindProperty("Subclass");
 		Passives = serializedObject.FindProperty("Passives");
 		Defect = serializedObject.FindProperty("Defect");
+		
 	}
 
 	public override void OnInspectorGUI ()
@@ -44,18 +45,7 @@ public class Equipment_Foundation_GUI : Editor
 		Layout.Text("Name", ref Weapon_Editor.Name);		
 		Layout.Text("Description", ref Weapon_Editor.Description);
 		EditorGUILayout.PropertyField(Class,true);
-		
-		EditorGUILayout.BeginHorizontal ();
-		Layout.Label("Please use",58f);
-		EditorGUILayout.LabelField("Create -> xForm 1",EditorStyles.boldLabel,GUILayout.Width(110f));
-		Layout.Label("or",15f);
-		EditorGUILayout.LabelField("Create->xForm 2",EditorStyles.boldLabel);
-		EditorGUILayout.EndHorizontal ();
-		
-		EditorGUILayout.BeginHorizontal ();
-		EditorGUILayout.LabelField("Equipment_Foundation (this class) does not support xForms");
-		EditorGUILayout.EndHorizontal ();
-
+		EditorGUILayout.HelpBox("Please use Create -> xForm 1 or Create -> xForm 2. Equipment_Foundation (this class) does not support xForms",MessageType.Warning);
 		serializedObject.ApplyModifiedProperties();
 	}
 
@@ -128,8 +118,8 @@ public class Equipment_Foundation_GUI : Editor
 
 	private void Display_Damage_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
-			if (Weapon_Editor.Subclass == Assign_Subclass.Armor || Weapon_Editor.Subclass == Assign_Subclass.One_Handed_Shield || 
-				Weapon_Editor.Subclass == Assign_Subclass.Two_Handed_Shield || Weapon_Editor.Class == Assign_Class.xForm)
+			if (Weapon_Editor.Class == Assign_Class.Armor || Weapon_Editor.Class == Assign_Class.Shield || 
+				Weapon_Editor.Class == Assign_Class.xForm)
 			{
 			    EditorGUILayout.LabelField("Hitpoints", EditorStyles.boldLabel);
 				EditorGUI.indentLevel = EditorGUI.indentLevel + 1;
@@ -169,10 +159,20 @@ public class Equipment_Foundation_GUI : Editor
 		    EditorGUI.indentLevel = EditorGUI.indentLevel - 1;
 	}
 
-	protected virtual void Display_Class_Stats ()
+	protected virtual void Display_Class_Stats (ref Equipment_Foundation Weapon_Editor)
 	{
 		EditorGUILayout.PropertyField(Class,true);
-		EditorGUILayout.PropertyField(Subclass,true);
+		if (Weapon_Editor.Class != Assign_Class.Armor)
+		{
+			EditorGUILayout.PropertyField(Subclass,true);
+		}
+		
+		if (Weapon_Editor.Class == Assign_Class.Melee ||
+			Weapon_Editor.Class == Assign_Class.Magic ||
+			Weapon_Editor.Class == Assign_Class.Archery)
+		{
+			Layout.Bool("Two Handed",ref Weapon_Editor.Two_Handed);
+		}
 	}
 
 	protected virtual void Display_Passive()
@@ -198,9 +198,11 @@ public class Equipment_Foundation_GUI : Editor
 	{
 		Layout.Text("Name", ref Equipment_Foundation_Editor.Name);		
 		Layout.Text("Description", ref Equipment_Foundation_Editor.Description);
-		Display_Class_Stats();	
-		
-		if (Equipment_Foundation_Editor.Subclass != Assign_Subclass.Arrow && Equipment_Foundation_Editor.Subclass != Assign_Subclass.Bolt)
+		Display_Class_Stats(ref Equipment_Foundation_Editor);	
+
+		if (Equipment_Foundation_Editor.Class != Assign_Class.Ammo &&
+			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Arrow && 
+			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Bolt)
 		{
 			EditorGUILayout.BeginHorizontal();
 			Config_Foldout = EditorGUILayout.Foldout(Config_Foldout, "Config");
@@ -221,9 +223,7 @@ public class Equipment_Foundation_GUI : Editor
 			Layout.Float("Accuracy",ref Equipment_Foundation_Editor.Stat_Dictionary,Stat.Accuracy);
 		}
 
-		if (Equipment_Foundation_Editor.Subclass != Assign_Subclass.One_Handed_Crossbow &&
-			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Two_Handed_Crossbow &&
-			Equipment_Foundation_Editor.Subclass != Assign_Subclass.Bow &&
+		if (Equipment_Foundation_Editor.Class != Assign_Class.Archery &&
 			Equipment_Foundation_Editor.Class != Assign_Class.Magic)
 		{
 			EditorGUILayout.PropertyField(Defect,true);

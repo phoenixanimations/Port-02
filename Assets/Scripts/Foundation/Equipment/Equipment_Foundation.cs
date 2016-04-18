@@ -12,6 +12,7 @@ public class Equipment_Foundation : Stats
 	public Select_AOE_Pattern_Enum Select_AOE_Pattern;
 	public List<bool> AOE_Pattern = new List<bool>();
 	public float Level;
+	public bool Two_Handed;
 	public Defect Defect;
 	public string Equipment_Notes;
 	public void Level_Up (Stat Stat)

@@ -33,11 +33,11 @@ namespace System_Control
 							};
 
 	public enum Assign_Class {
-								None, Melee, Magic, Archery, xForm
+								None, Melee, Magic, Archery, Ammo, Armor, Shield, xForm
 							 };
 
 	public enum Assign_Subclass {
-								 None, One_Handed, Two_Handed, One_Handed_Shield, Two_Handed_Shield, Bow, One_Handed_Crossbow, Two_Handed_Crossbow, Armor, Arrow, Bolt
+								 None, Sword, Spear, Staff, Wand, Spellbook, Bow, Crossbow, Bolt, Arrow
 								};
 	public enum Defect {
 						None, Burn, Poison, Slow, Stun, Shock, Bleed, Bind, Numb, Corruption, Drunk, Virus
