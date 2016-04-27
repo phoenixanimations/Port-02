@@ -18,11 +18,11 @@ namespace System_Control
    	  //************************//
 	 //******Attack States*****//
 	//************************//
-					   Attack_Begin,
+					   Attack_Begin, Attack_Roll, Attack_Miss, Attack_End,
    	  //************************//
 	 //**Counter Attack States*//
 	//************************//
-					   Counter_Attack_Begin
+					   Counter_Attack_Begin, Counter_Attack_Roll, Counter_Attack_Miss, Counter_Attack_End
 					  };
 
 	  //************************//
@@ -33,7 +33,7 @@ namespace System_Control
 							};
 
 	public enum Assign_Class {
-								None, Melee, Magic, Archery, Ammo, Armor, Shield, xForm
+								None, Melee, Magic, Archery, Ammo, Armor, Shield, xForm, Artifact
 							 };
 
 	public enum Assign_Subclass {
