@@ -1,0 +1,16 @@
+Intro_Dante_v1_1_part2
+
+You: Well, I guess I do owe you a favor ...
+Dante: Fantastic! To start, you will need a map.
+- Dante Hands you a map
+Map Get!
+You read the map.
+After reading the map, you look up at Dante.
+You: This is pretty far you know.
+Dante: It is no farther than my bodyguards had to travel to find you.
+You: There is a more direct path than the one you have outlined. You realize this ...
+Dante: You are correct, however that path is not nearly as safe as the one I have marked.
+* [Surely it's safer than assassinating a madman.]
+You: Surely it's safer than assassinating a madman.
+* [Fine. We'll take the long route.]
+You: Fine. We'll take the long route.
