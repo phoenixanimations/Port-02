@@ -78,7 +78,6 @@ public class Attack
 
 			default:
 				return false;
-			break;
 		}
 		return true; 
 	}
