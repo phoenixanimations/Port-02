@@ -18,11 +18,6 @@ public class Creature : Creature_Physics
 		Get_Stat(Stat.Hitpoints,Max_Hitpoints(),true);
 	}
 
-	protected override void Update ()
-	{
-		base.Update ();
-	}
-
 	public void AI () 
 	{
 		Assign_AI.StateMachine();

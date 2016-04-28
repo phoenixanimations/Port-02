@@ -20,43 +20,10 @@
 		{
 			return Current_List.Select(z => z = 1).ToList();
 		}
-
-//		public static int Enum (this System.Type Cast_Enum)
-//		{
-//			return (int)Cast_Enum;
-////			try 
-////			{
-////				return Current_List[(int)Enum];
-////			} 
-////			catch (System.Exception ex) 
-////			{
-////				Debug.LogError("Cannot convert Type to Enum");
-////			}
-//		}
+		
+		public static int toInt (this System.Enum Cast_Enum)
+		{
+			return System.Convert.ToInt32(Cast_Enum);
+		}
 	}
 }
-
-
-
-/*
-
-
-public static TEnum ToEnum<TInput, TEnum>(this TInput value)
-{
-    Type type = typeof(TEnum);
-
-    if (value == null)
-    {
-        throw new ArgumentException("Value is null or empty.", "value");
-    }
-
-    if (!type.IsEnum)
-    {
-        throw new ArgumentException("Enum expected.", "TEnum");
-    }
-
-    return (TEnum)Enum.Parse(type, value.ToString(), true);
-}
-
-
-*/

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System;
 using System_Control;
+using System_Control.Extensions;
 
 public class Creature_States : Creature_Movement
 {
@@ -50,7 +51,11 @@ public class Creature_States : Creature_Movement
 		if (Raycast.SearchForCreature(Direction,LengthTimesAmount,WhichStorey))
 		{
 			Attack Creature_Attacks_Advisory = new Attack(this,Raycast,Raycast.TargetCreature); 
-			StatusesActivate(State.Attack,Creature_Attacks_Advisory);
+
+			StatusesActivate(State.Attack,Creature_Attacks_Advisory);	
+			Creature_Attacks_Advisory.Initiate(Slot[(int)Assign_Slot.Primary_Hand]);	
+			Creature_Attacks_Advisory.Initiate(Slot[(int)Assign_Slot.Secondary_Hand]);	
+
 			if (Raycast.TargetCreature.Get_Stat(Stat.Hitpoints) < 1)
 			{
 				StatusesActivate(State.MurderedCreature);

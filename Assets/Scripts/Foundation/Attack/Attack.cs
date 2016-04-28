@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System_Control;
 using System.Linq;
 using System_Control.Extensions;
+
+//Have a multiplier and additive for all bonuses.
+//Actives
+//Defects
+//AOE
 ////For Actives:
 ////Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy))));
-	//The aoe will happen in the attack and re attack but with reduced damage.
+  //The aoe will happen in the attack and re attack but with reduced damage.
 public class Attack
 {
 	private Creature_States Creature;
 	private Raycast Creature_Raycast;
 	public Creature_States Advisory {private set;get;}
-
 	public Attack (Creature_States Assign_Creature, Raycast Assign_Creature_Raycast, Creature_States Assign_Advisory)
 	{
 		Creature = Assign_Creature;
@@ -42,6 +46,12 @@ public class Attack
 	public Stat Class_Level {private set; get;}
 	public Stat Class_Damage {private set; get;}
 	public Stat Class_Resistance {private set; get;}
+
+	public float Shield_Damage {private set; get;}
+	public float Shield_Accuracy {private set; get;}
+	public float Shield_Critical_Chance {private set; get;}
+	public float Shield_Critical_Damage {private set; get;}
+
 	public float  Base_Damage {private set; get;}
 	public float  Damage {private set; get;}
 	public float  Critical_Damage {private set; get;}
@@ -49,6 +59,17 @@ public class Attack
 	public float  Accuracy {private set; get;}
 	public float  Resistance {private set; get;}
 	public float  Energy {private set; get;}
+
+	private void Shield_Bonus (Stat Assign_Class_Damage, Stat Class_Resistance)
+	{
+		if (Creature.Slot[Assign_Slot.Secondary_Hand.toInt()].Class == Assign_Class.Shield)
+		{
+			Shield_Damage = Creature.Slot[Assign_Slot.Primary_Hand.toInt()].Get_Stat(Assign_Class_Damage);
+			Shield_Accuracy = Creature.Slot[Assign_Slot.Primary_Hand.toInt()].Get_Stat(Stat.Accuracy);
+			Shield_Critical_Chance = Creature.Slot[Assign_Slot.Primary_Hand.toInt()].Get_Stat(Stat.Critical_Chance);
+			Shield_Critical_Chance = Creature.Slot[Assign_Slot.Primary_Hand.toInt()].Get_Stat(Stat.Critical_Damage);
+		}
+	}
 
 	private bool Is_Level_Damage_Resistance_Statable (Assign_Class Class)
 	{
@@ -84,11 +105,10 @@ public class Attack
 	
 	private bool Dual_Wield_Equipped ()
 	{
-		Assign_Class Primary_Hand = Creature.Slot[(int)Assign_Slot.Primary_Hand].Class;
-		Assign_Class Secondary_Hand = Creature.Slot[(int)Assign_Slot.Secondary_Hand].Class;
+		Assign_Class Primary_Hand = Creature.Slot[Assign_Slot.Primary_Hand.toInt()].Class;
+		Assign_Class Secondary_Hand = Creature.Slot[Assign_Slot.Secondary_Hand.toInt()].Class;
 		return (Is_Level_Damage_Resistance_Statable(Primary_Hand) && Is_Level_Damage_Resistance_Statable(Secondary_Hand));
 	}
-
   //**************************************//
  //**************Set Stats***************//
 //**************************************//
@@ -138,10 +158,11 @@ public class Attack
 			Debug.Log(Weapon.Name + " was not run threw the attack code");
 			return;
 		}
-  //**************************************//
- //********Calculate: Attack Count*******//
-//**************************************//		
+  //****************************************//
+ //*Calculate: Attack Count & Shield Bonus*//
+//****************************************//		
 		Number_Of_Attacks = Weapon.Get_Stat(Stat.Number_Of_Attacks);
+		Shield_Bonus(Class_Damage,Class_Resistance);	
 
   //**************************************//
  //***********Start Attack Loop**********//
@@ -166,43 +187,42 @@ public class Attack
 				//Enforce a primary or secondary system or have some way where shields commincate to the weapon or something??????? Maybe shields have a passive that's run or something?????
 				float Class_Accuracy = Tier.Formula(Creature.Get_Stat(Class_Level));
 				float Weapon_Accuracy = Weapon.Get_Stat(Stat.Accuracy);
-				float Armor_Accuracy = Creature.Slot[(int)Assign_Slot.Armor].Get_Stat(Stat.Accuracy);
-				float Creature_Accuracy = Class_Accuracy + Weapon_Accuracy + Armor_Accuracy;	
+				float Armor_Accuracy = Creature.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Stat.Accuracy);
+				float Creature_Accuracy = Class_Accuracy + Weapon_Accuracy + Armor_Accuracy + Shield_Accuracy;	
 				
-				float Advisory_Primary_Evade = Advisory.Slot[(int)Assign_Slot.Primary_Hand].Get_Stat(Stat.Evade); 
-				float Advisory_Secondary_Evade = Advisory.Slot[(int)Assign_Slot.Secondary_Hand].Get_Stat(Stat.Evade); 
+				float Advisory_Primary_Evade = Advisory.Slot[Assign_Slot.Primary_Hand.toInt()].Get_Stat(Stat.Evade); 
+				float Advisory_Secondary_Evade = Advisory.Slot[Assign_Slot.Secondary_Hand.toInt()].Get_Stat(Stat.Evade); 
 				float Advisory_Weapon_Evade = Advisory_Primary_Evade + Advisory_Secondary_Evade;
-				float Advisory_Armor_Evade =  Advisory.Slot[(int)Assign_Slot.Armor].Get_Stat(Stat.Evade);
+				float Advisory_Armor_Evade =  Advisory.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Stat.Evade);
 				float Advisory_Class_Level_Evade = Tier.Formula(Advisory.Get_Stat(Class_Level));
 				float Advisory_Evade = Advisory_Weapon_Evade + Advisory_Armor_Evade + Advisory_Class_Level_Evade;			
 
-				Accuracy += 50f * (Creature_Accuracy/Advisory_Evade) * Accuracy_Bonus.Multiple(); 
+				Accuracy = 50f * (Creature_Accuracy/Advisory_Evade) * Accuracy_Bonus.Multiple(); 
   //**************************************//
  //******Calculate: Base Damage**********//
 //**************************************//
 				if (Dual_Wield_Equipped ())
 				{
-					float Armor_Damage = Creature.Slot[(int)Assign_Slot.Armor].Get_Stat(Class_Damage);
+					float Armor_Damage = Creature.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Class_Damage);
 					float Class_Level_Damage = Tier.Formula(Creature.Get_Stat(Class_Level));
 					float All_Damage = Weapon.Get_Stat(Class_Damage) + (Armor_Damage * .5f) + (Class_Level_Damage * .5f);
 					Base_Damage = (All_Damage * Damage_Bonus.Multiple()) / Number_Of_Attacks;
 				}
 				else 
 				{
-					float Armor_Damage = Creature.Slot[(int)Assign_Slot.Armor].Get_Stat(Class_Damage);
+					float Armor_Damage = Creature.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Class_Damage);
 					float Class_Level_Damage = Tier.Formula(Creature.Get_Stat(Class_Level));
-					float All_Damage = Weapon.Get_Stat(Class_Damage) + (Armor_Damage) + (Class_Level_Damage);
+					float All_Damage = Weapon.Get_Stat(Class_Damage) + (Armor_Damage) + (Class_Level_Damage) + Shield_Damage;
 					Base_Damage = (All_Damage * Damage_Bonus.Multiple()) / Number_Of_Attacks;
 				}
-//
   //**************************************//
  //*****Calculate: Critical Damage*******//
 //**************************************//
 				float  Critical_Damage_Percent = 0f;
-				Critical_Chance = Weapon.Get_Stat(Stat.Critical_Chance) + Critical_Chance_Bonus.Sum();
+				Critical_Chance = Weapon.Get_Stat(Stat.Critical_Chance) + Critical_Chance_Bonus.Sum() + Shield_Critical_Chance;
 				if (Critical_Chance >= UnityEngine.Random.Range(0f,100f)) 
 				{
-					Critical_Damage_Percent = (Weapon.Get_Stat(Stat.Critical_Damage) + Critical_Damage_Bonus.Sum()) / 100;
+					Critical_Damage_Percent = (Weapon.Get_Stat(Stat.Critical_Damage) + Critical_Damage_Bonus.Sum()) + Shield_Critical_Damage / 100;
 				}
 
 				Critical_Damage = Base_Damage * Critical_Damage_Percent;
@@ -215,7 +235,7 @@ public class Attack
   //**************************************//
  //*****Calculate: Total Damage**********//
 //**************************************//
-				Damage = Critical_Damage + Base_Damage - Resistance; //Damage bonus multiplied
+				Damage = Critical_Damage + Base_Damage - Resistance;
 
   //**************************************//
  //**************Dice Roll***************//
