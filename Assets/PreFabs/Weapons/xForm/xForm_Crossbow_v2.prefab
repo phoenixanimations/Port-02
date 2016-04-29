@@ -646,14 +646,15 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
   Class: 4
   Subclass: 0
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 0
+  Two_Handed: 0
   Defect: 0
+  Equipment_Notes: 
   Switch_Sides: 0
   Side_A: {fileID: 11423300}
   Side_B: {fileID: 11443432}
@@ -1273,14 +1274,15 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
   Class: 3
   Subclass: 7
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 1
+  Two_Handed: 1
   Defect: 0
+  Equipment_Notes: 
 --- !u!114 &11443432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1295,7 +1297,7 @@ MonoBehaviour:
   Name: xForm Shield
   Description: Transforms into a crossbow. (Passive Pending)
   Stat_Dictionary:
-  - 11
+  - 22
   - 0
   - 0
   - 0
@@ -1496,7 +1498,7 @@ MonoBehaviour:
   - 0
   - 0
   Stat_Multiplier:
-  - 1
+  - 2
   - 0
   - 0
   - 0
@@ -1897,14 +1899,15 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
-  Class: 0
-  Subclass: 4
+  Class: 6
+  Subclass: 0
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 1
+  Two_Handed: 0
   Defect: 0
+  Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

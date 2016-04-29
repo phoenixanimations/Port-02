@@ -1262,15 +1262,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
   Class: 3
-  Subclass: 5
+  Subclass: 6
   Passives:
   - {fileID: 11423212}
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 100
+  Two_Handed: 1
   Defect: 0
+  Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

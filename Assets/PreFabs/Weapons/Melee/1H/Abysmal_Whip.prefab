@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 418550}
   - 114: {fileID: 11489270}
   m_Layer: 0
-  m_Name: Binding_Whip
+  m_Name: Abysmal_Whip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Binding Whip
-  Description: 'The ties that bind. Constrict, that is. '
+  Name: Abysmal Whip
+  Description: Pretty awful.
   Stat_Dictionary:
   - 0
   - 16
@@ -644,13 +644,13 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
   Class: 1
-  Subclass: 1
+  Subclass: 0
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 1
+  Two_Handed: 0
   Defect: 7
   Equipment_Notes: '(Passive Pending)
 

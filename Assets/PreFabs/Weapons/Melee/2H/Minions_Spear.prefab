@@ -644,14 +644,15 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Slot: 0
   Class: 1
   Subclass: 2
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 01000100010001010100010101010100010101000100010001
   Level: 1
+  Two_Handed: 1
   Defect: 4
+  Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

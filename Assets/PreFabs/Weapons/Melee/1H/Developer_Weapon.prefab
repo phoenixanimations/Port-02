@@ -650,6 +650,7 @@ MonoBehaviour:
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 1
+  Two_Handed: 0
   Defect: 6
   Equipment_Notes: asdf
 --- !u!1001 &100100000
