@@ -1,70 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &104890
+--- !u!1 &123318
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 409038}
-  - 114: {fileID: 11459098}
+  - 4: {fileID: 418550}
+  - 114: {fileID: 11489270}
   m_Layer: 0
-  m_Name: Bowzooka
+  m_Name: Lance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &409038
+--- !u!4 &418550
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104890}
+  m_GameObject: {fileID: 123318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.80506, y: -14.192269, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11459098
+--- !u!114 &11489270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104890}
+  m_GameObject: {fileID: 123318}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Bowzooka
-  Description: Fires air rows.
+  Name: Lance
+  Description: Basic.
   Stat_Dictionary:
   - 0
+  - 15360
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - Infinity
-  - 0
-  - 7
+  - 20
+  - 20
+  - 10240
+  - 2048
+  - 2
   - 1
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
   - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
-  - 11
   - 0
   - 0
   - 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   - 0
   Stat_Multiplier:
   - 0
+  - 1.5
   - 0
   - 0
   - 0
@@ -251,9 +252,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - Infinity
-  - 0
+  - 1
+  - 0.2
   - 0
   - 0
   - 0
@@ -644,25 +644,31 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Class: 3
-  Subclass: 6
+  Class: 1
+  Subclass: 2
   Passives: []
   Select_AOE_Pattern: 0
-  AOE_Pattern: 00000000000100000000000000000000010000000000000000000001000000000000000000000100000000000000000000010000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  Level: 1
-  Two_Handed: 1
-  Defect: 0
-  Equipment_Notes: '(Passive Pending)
-
-    ''Air Blast'' : does not consume ammo'
+  AOE_Pattern: 000100000100000000
+  Level: 100
+  Two_Handed: 0
+  Defect: 4
+  Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Status.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Status.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 104890}
+  m_RootGameObject: {fileID: 123318}
   m_IsPrefabParent: 1
