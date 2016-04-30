@@ -1,48 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &122392
+--- !u!1 &196212
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454352}
-  - 114: {fileID: 11478510}
+  - 4: {fileID: 464592}
+  - 114: {fileID: 11418180}
   m_Layer: 0
-  m_Name: Vanilla_Shield_2H
+  m_Name: Enduring_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &454352
+--- !u!4 &464592
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122392}
+  m_GameObject: {fileID: 196212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.7336142, y: -1.7448843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11478510
+--- !u!114 &11418180
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122392}
+  m_GameObject: {fileID: 196212}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Vanilla 2H Shield
+  Name: Enduring Armor
   Description: Basic.
   Stat_Dictionary:
-  - 22
+  - 11
   - 0
   - 0
   - 0
@@ -51,11 +51,11 @@ MonoBehaviour:
   - 25
   - 0
   - 0
+  - 2
+  - 1
   - 0
-  - 33
   - 0
-  - 0
-  - 0
+  - 1
   - 0
   - 0
   - 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   - 0
   - 0
   Stat_Multiplier:
-  - 2
+  - 1
   - 0
   - 0
   - 0
@@ -252,8 +252,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
-  - 3
+  - 0.2
+  - 0.1
   - 0
   - 0
   - 0
@@ -644,13 +644,13 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Class: 6
+  Class: 5
   Subclass: 0
   Passives: []
   Select_AOE_Pattern: 0
   AOE_Pattern: 
   Level: 1
-  Two_Handed: 1
+  Two_Handed: 0
   Defect: 0
   Equipment_Notes: 
 --- !u!1001 &100100000
@@ -662,5 +662,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 122392}
+  m_RootGameObject: {fileID: 196212}
   m_IsPrefabParent: 1
