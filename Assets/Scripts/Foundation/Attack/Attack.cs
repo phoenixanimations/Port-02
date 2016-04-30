@@ -5,15 +5,12 @@ using System_Control;
 using System.Linq;
 using System_Control.Extensions;
 
-//Weapons have a stat called energy.
-//Actives make it so you never gain energy during the turn of the active.
-//Actives
-//Defects
-//AOE
-//xForms Hitpoints on anything
-////For Actives:
-////Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy))));
-  //The aoe will happen in the attack and re attack but with reduced damage.
+//	Actives Add the actives he wants. //	Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy))));
+//	Defects //Figure out whether or not you want to change the value of defects to a drag and drop or have an if statement in the code... that looks at each defect. 
+//	AOE
+
+//	For Actives:
+//	The aoe will happen in the attack and re attack but with reduced damage.
 
 public class Attack
 {
@@ -29,8 +26,10 @@ public class Attack
   //**************************************//
  //***********Global Modify*************//
 //*************************************//
-	public float  Number_Of_Attacks {get;set;}
-	public float  Attack_Count {get;private set;}
+	public float Number_Of_Attacks {get;set;}
+	public float Attack_Count {get;private set;}
+	public bool Dont_Negate_Energy {get;set;}
+
   //**************************************//
  //***************Modify*****************//
 //**************************************//
@@ -122,9 +121,12 @@ public class Attack
 //**************************************//
 	private void Reset_Stats ()
 	{
+		
   //**************************************//
  //******Modified Stats Reset************//
 //**************************************//
+		Dont_Negate_Energy = true;	
+
 		Damage_Bonus_Multiplier.One();
 		Accuracy_Bonus_Multiplier.One();
 		Resistance_Bonus_Multiplier.One();
@@ -269,21 +271,25 @@ public class Attack
 					Advisory.Get_Stat(Stat.Hitpoints,-Damage);	
 
   //**************************************//
- //***********Calculate: Energy**********//	 //ENERGY LATER 
+ //***********Calculate: Energy**********//
 //**************************************//
+					Energy = (Weapon.Get_Stat(Stat.Energy) + Energy_Bonus_Additive.Sum()) * Energy_Bonus_Multiplier.Multiple();
+					Energy *= Dont_Negate_Energy.toFloat();
+					Creature.Get_Stat(Stat.Energy, Energy);
 					
-//					if (Class == Assign_Class.Melee) Creature.Get_Stat(Stat.Energy,15f);
-//					if (Class == Assign_Class.Magic) Creature.Get_Stat(Stat.Energy,15f);
-//					if (Class == Assign_Class.Archery) Creature.Get_Stat(Stat.Energy,15f);
-				
-//					if (Primary_Or_Secondary.Class == Assign_Class.Melee) Creature.Get_Stat(Stat.Energy,15f);
-//					if (Primary_Or_Secondary.Class == Assign_Class.Magic) Creature.Get_Stat(Stat.Energy,25f);
-//					if (Primary_Or_Secondary.Class == Assign_Class.Archery) Creature.Get_Stat(Stat.Energy,5f);
+					if (Creature.Get_Stat(Stat.Energy) > 100) 
+					{
+						Creature.Get_Stat(Stat.Energy, 100, true); 
+					}
+					if (Creature.Get_Stat(Stat.Energy) < 0) 
+					{
+						Creature.Get_Stat(Stat.Energy, 0, true);
+					}
 					
-//					if (Creature.Get_Stat(Stat.Energy) > 100) 
-//						Creature.Get_Stat(Stat.Energy, 100, true); 
-//					if (Creature.Get_Stat(Stat.Energy) < 0) 
-//						Creature.Get_Stat(Stat.Energy, 0, true); 
+					if (Weapon.Defect != Defect.None) 
+					{
+//						Advisory.gameObject.AddComponent()
+					}
 
 				}
 				else
@@ -293,7 +299,7 @@ public class Attack
 //**************************************//
 					Passives (Creature, State.Attack_Miss);
 					Passives (Advisory, State.Counter_Attack_Miss);
-					Debug.Log("You missed!");			
+					Debug.Log(Creature.Name + ": Missed!");			
 				}
   //**************************************//
  //********Passive Attack End 4/4********//

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System_Control;
 
-public class Defect_Foundation : Status_Foundation
+public class Stun : Defect_Foundation 
 {
-	
+
 }

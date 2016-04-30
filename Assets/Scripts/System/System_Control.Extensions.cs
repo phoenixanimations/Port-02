@@ -21,9 +21,24 @@
 			return Current_List.Select(z => z = 1).ToList();
 		}
 		
+	}
+	public static class Convert
+	{
+		public static float toFloat (this bool Bool)
+		{
+			if (Bool)
+			{
+				return 1f;
+			}
+			else
+			{
+				return 0f;
+			}
+		}		
+
 		public static int toInt (this System.Enum Cast_Enum)
 		{
 			return System.Convert.ToInt32(Cast_Enum);
-		}
+		}		
 	}
 }
