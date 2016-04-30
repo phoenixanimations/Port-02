@@ -17,47 +17,47 @@ public class Equipment_Foundation_Default_Stats_GUI : Editor
 				{
 					if (Weapon_Editor.Two_Handed == false)
 					{
-						Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,1f,0,0,0,1f,1.5f,0f,0f,1f,.5f,0,0,0,0,0);
+						Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,1f,0,0,0,1f,1.5f,0f,0f,1f,.5f,0,0,0,0,0,0,15f);
 					}
 					else 
 					{
-						Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,1f,0,0,0,1f,4.5f,0f,0f,2f,0f,0,0,0,0,0);
+						Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,1f,0,0,0,1f,4.5f,0f,0f,2f,0f,0,0,0,0,0,0,30f);
 					}
 				}
 				
 				if (Weapon_Editor.Subclass == Assign_Subclass.Spear)
 				{
 					Weapon_Editor.Two_Handed = true;
-					Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,2f,0,0,0,1f,4.5f,0f,0f,2f,0f,0,0,0,0,0);
+					Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,2f,0,0,0,1f,4.5f,0f,0f,2f,0f,0,0,0,0,0,0,30f);
 				}
 				break;
 			case Assign_Class.Magic:
 				if (Weapon_Editor.Subclass == Assign_Subclass.Wand)
 				{
 					Weapon_Editor.Two_Handed = false;
-					Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,5f,0,0,0,1f,0f,1f,0f,1f,.5f,20,40,5,5,5);					
+					Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,5f,0,0,0,1f,0f,1f,0f,1f,.5f,20,40,5,5,5,0,20);					
 				}
 				if (Weapon_Editor.Subclass == Assign_Subclass.Staff)
 				{
 					Weapon_Editor.Two_Handed = true;
-					Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,5f,0,0,0,1f,0f,3f,0f,2f,0f,60,80,10,10,10);
+					Set_Default_Stats(ref Weapon_Editor,0f,1f,1f,5f,0,0,0,1f,0f,3f,0f,2f,0f,60,80,10,10,10,0,30);
 				}
 				if (Weapon_Editor.Subclass == Assign_Subclass.Spellbook)
 				{
 					Weapon_Editor.Class = Assign_Class.Shield;
-					Set_Default_Stats(ref Weapon_Editor,0f,0f,0f,0f,0,0,0,1f,0f,.2f,0f,.2f,1f,20,20,7.5f,7.5f,7.5f);
+					Set_Default_Stats(ref Weapon_Editor,0f,0f,0f,0f,0,0,0,1f,0f,.2f,0f,.2f,1f,20,20,7.5f,7.5f,7.5f,0);
 				}
 				break;
 			case Assign_Class.Archery:
 				if (Weapon_Editor.Subclass == Assign_Subclass.Bow)
 				{
 					Weapon_Editor.Two_Handed = true;
-					Set_Default_Stats(ref Weapon_Editor,0f,3f,4f,7f,0,0,0,1f,0f,0f,3f,3f,0f,0,0,0,0,0);
+					Set_Default_Stats(ref Weapon_Editor,0f,3f,4f,7f,0,0,0,1f,0f,0f,3f,3f,0f,0,0,0,0,0,0,10);
 				}
 				if (Weapon_Editor.Subclass == Assign_Subclass.Crossbow)
 				{
 					Weapon_Editor.Two_Handed = false;
-					Set_Default_Stats(ref Weapon_Editor,0f,3f,3f,5f,0,0,0,1f,0f,0f,1f,1.5f,.5f,0,0,0,0,0);
+					Set_Default_Stats(ref Weapon_Editor,0f,3f,3f,5f,0,0,0,1f,0f,0f,1f,1.5f,.5f,0,0,0,0,0,0,5);
 				}
 				break;
 			case Assign_Class.Shield:
@@ -88,7 +88,7 @@ public class Equipment_Foundation_Default_Stats_GUI : Editor
 	private void Set_Default_Stats (ref Equipment_Foundation Weapon_Editor, float Area_Of_Effect, float Number_Of_Attacks,
 		float Minimum_Distance, float Maximum_Distance, float Movement, float Jump, float Knockback, float Level, float Melee_Multiplier,
 		float Magic_Multiplier, float Archery_Multiplier, float Accuracy, float Evade, float Critical_Damage, float Critical_Chance, float Melee_Resistance,
-		float Magic_Resistance, float Archery_Resistance,float Hitpoints_Multiplier = 0f, Defect Defect = Defect.None)
+		float Magic_Resistance, float Archery_Resistance,float Hitpoints_Multiplier = 0f, float Energy = 0f, Defect Defect = Defect.None)
 	{
 		Weapon_Editor.Get_Stat(Stat.Area_Of_Effect,Area_Of_Effect,true);
 		Weapon_Editor.Get_Stat(Stat.Number_Of_Attacks,Number_Of_Attacks,true);
@@ -108,6 +108,7 @@ public class Equipment_Foundation_Default_Stats_GUI : Editor
 		Weapon_Editor.Get_Stat(Stat.Melee_Resistance,Melee_Resistance,true,true);
 		Weapon_Editor.Get_Stat(Stat.Magic_Resistance,Magic_Resistance,true,true);
 		Weapon_Editor.Get_Stat(Stat.Archery_Resistance,Archery_Resistance,true,true);
+		Weapon_Editor.Get_Stat(Stat.Energy,Energy,true,true);
 		Weapon_Editor.Stat_Multiplier[(int)Stat.Hitpoints] = Hitpoints_Multiplier;
 		Weapon_Editor.Defect = Defect;
 		Weapon_Editor.Passives.Clear();

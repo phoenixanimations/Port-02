@@ -65,6 +65,10 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 
 		if (Config_Foldout)
 		{
+			if (Weapon_Editor.Class == Assign_Class.Melee || Weapon_Editor.Class == Assign_Class.Magic || Weapon_Editor.Class == Assign_Class.Archery)
+			{
+				Layout.Float("Energy",ref Weapon_Editor.Stat_Dictionary,Stat.Energy);
+			}
 			Layout.Float("Number of Attacks",ref Weapon_Editor.Stat_Dictionary,Stat.Number_Of_Attacks);
 			Layout.Float("Minimum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Minimum_Distance);
 			Layout.Float("Maximum Distance",ref Weapon_Editor.Stat_Dictionary,Stat.Maximum_Distance);
