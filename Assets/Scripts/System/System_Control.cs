@@ -40,7 +40,7 @@ namespace System_Control
 								 None, Sword, Spear, Staff, Wand, Spellbook, Bow, Crossbow, Bolt, Arrow
 								};
 	public enum Defect {
-						None, Burn, Poison, Slow, Stun, Shock, Bleed, Bind, Numb, Corruption, Drunk, Virus
+						None, Burn, Poison, Slow, Stun, Shock, Bleed, Bind, Numb, Corruption, Drunk, Virus, Venom
 					   };
 
 	  //************************//
