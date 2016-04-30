@@ -5,8 +5,8 @@ using System_Control;
 using System.Linq;
 using System_Control.Extensions;
 
-//	Actives Add the actives he wants. //	Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy))));
-//	Defects //Figure out whether or not you want to change the value of defects to a drag and drop or have an if statement in the code... that looks at each defect. 
+//	Actives Add the actives he wants. //	Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy)))); 
+//	Defects //Figure out whether or not you want to change the value of defects to a drag and drop or have an if statement in the code... that looks at each defect. DEFECTS effects WILL NEVER CHANGE BY ANYONE 
 //	AOE
 
 //	For Actives:
