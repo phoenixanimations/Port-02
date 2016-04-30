@@ -172,7 +172,8 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 		
 		if (Weapon_Editor.Class == Assign_Class.Melee ||
 			Weapon_Editor.Class == Assign_Class.Magic ||
-			Weapon_Editor.Class == Assign_Class.Archery)
+			Weapon_Editor.Class == Assign_Class.Archery ||
+			Weapon_Editor.Class == Assign_Class.Shield)
 		{
 			Layout.Bool("Two Handed",ref Weapon_Editor.Two_Handed);
 		}

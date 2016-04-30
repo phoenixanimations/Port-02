@@ -5,13 +5,16 @@ using System_Control;
 using System.Linq;
 using System_Control.Extensions;
 
-//Have a multiplier and additive for all bonuses.
+//Weapons have a stat called energy.
+//Actives make it so you never gain energy during the turn of the active.
 //Actives
 //Defects
 //AOE
+//xForms Hitpoints on anything
 ////For Actives:
 ////Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy))));
   //The aoe will happen in the attack and re attack but with reduced damage.
+
 public class Attack
 {
 	private Creature_States Creature;
@@ -31,14 +34,19 @@ public class Attack
   //**************************************//
  //***************Modify*****************//
 //**************************************//
-	public List<float> Damage_Bonus = new List<float>(){1};
-	public List<float> Accuracy_Bonus = new List<float>(){1};
-	public List<float> Resistance_Bonus = new List<float>(){0};
-	public List<float> Area_Of_Effect_Bonus = new List<float>(){0};
-	public List<float> Critical_Chance_Bonus = new List<float>(){0};
-	public List<float> Critical_Damage_Bonus = new List<float>(){0};
-	public List<float> Energy_Bonus = new List<float>(){0};
-	
+	public List<float> Damage_Bonus_Multiplier = new List<float>(){1};   	 //No Additive support, is on purpose. This is not allowed because if you do have additive support it makes duel wielding confusing.
+	public List<float> Accuracy_Bonus_Multiplier = new List<float>(){1}; 	//No Additive support, is on purpose. This is not allowed because if you do have additive support it makes duel wielding confusing.
+	public List<float> Resistance_Bonus_Multiplier = new List<float>(){1};
+	public List<float> Critical_Chance_Bonus_Multiplier = new List<float>(){1};
+	public List<float> Critical_Damage_Bonus_Multiplier = new List<float>(){1};
+	public List<float> Energy_Bonus_Multiplier = new List<float>(){1};
+
+	public List<float> Resistance_Bonus_Additive = new List<float>(){0};
+	public List<float> Area_Of_Effect_Bonus_Additive = new List<float>(){0};
+	public List<float> Critical_Chance_Bonus_Additive = new List<float>(){0};
+	public List<float> Critical_Damage_Bonus_Additive = new List<float>(){0};
+	public List<float> Energy_Bonus_Additive = new List<float>(){0};
+
   //**************************************//
  //*************Never Modify*************//
 //**************************************//
@@ -117,13 +125,18 @@ public class Attack
   //**************************************//
  //******Modified Stats Reset************//
 //**************************************//
-		Damage_Bonus.One();
-		Accuracy_Bonus.One();
-		Resistance_Bonus.Zero();
-		Area_Of_Effect_Bonus.Zero();
-		Critical_Chance_Bonus.Zero();
-		Critical_Damage_Bonus.Zero();
-		Energy_Bonus.Zero();
+		Damage_Bonus_Multiplier.One();
+		Accuracy_Bonus_Multiplier.One();
+		Resistance_Bonus_Multiplier.One();
+		Critical_Chance_Bonus_Multiplier.One();
+		Critical_Damage_Bonus_Multiplier.One();
+		Energy_Bonus_Multiplier.One();
+
+		Area_Of_Effect_Bonus_Additive.Zero();
+		Resistance_Bonus_Additive.Zero();
+		Critical_Chance_Bonus_Additive.Zero();
+		Critical_Damage_Bonus_Additive.Zero();
+		Energy_Bonus_Additive.Zero();
 
   //**************************************//
  //*****Never Modify Stats Reset*********//
@@ -188,7 +201,7 @@ public class Attack
 				float Class_Accuracy = Tier.Formula(Creature.Get_Stat(Class_Level));
 				float Weapon_Accuracy = Weapon.Get_Stat(Stat.Accuracy);
 				float Armor_Accuracy = Creature.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Stat.Accuracy);
-				float Creature_Accuracy = Class_Accuracy + Weapon_Accuracy + Armor_Accuracy + Shield_Accuracy;	
+				float Creature_Accuracy = Class_Accuracy + Weapon_Accuracy + Armor_Accuracy + Shield_Accuracy;
 				
 				float Advisory_Primary_Evade = Advisory.Slot[Assign_Slot.Primary_Hand.toInt()].Get_Stat(Stat.Evade); 
 				float Advisory_Secondary_Evade = Advisory.Slot[Assign_Slot.Secondary_Hand.toInt()].Get_Stat(Stat.Evade); 
@@ -197,7 +210,7 @@ public class Attack
 				float Advisory_Class_Level_Evade = Tier.Formula(Advisory.Get_Stat(Class_Level));
 				float Advisory_Evade = Advisory_Weapon_Evade + Advisory_Armor_Evade + Advisory_Class_Level_Evade;			
 
-				Accuracy = 50f * (Creature_Accuracy/Advisory_Evade) * Accuracy_Bonus.Multiple(); 
+				Accuracy = 50f * (Creature_Accuracy/Advisory_Evade) * Accuracy_Bonus_Multiplier.Multiple(); 
   //**************************************//
  //******Calculate: Base Damage**********//
 //**************************************//
@@ -206,32 +219,33 @@ public class Attack
 					float Armor_Damage = Creature.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Class_Damage);
 					float Class_Level_Damage = Tier.Formula(Creature.Get_Stat(Class_Level));
 					float All_Damage = Weapon.Get_Stat(Class_Damage) + (Armor_Damage * .5f) + (Class_Level_Damage * .5f);
-					Base_Damage = (All_Damage * Damage_Bonus.Multiple()) / Number_Of_Attacks;
+					Base_Damage = (All_Damage * Damage_Bonus_Multiplier.Multiple()) / Number_Of_Attacks;
 				}
 				else 
 				{
 					float Armor_Damage = Creature.Slot[Assign_Slot.Armor.toInt()].Get_Stat(Class_Damage);
 					float Class_Level_Damage = Tier.Formula(Creature.Get_Stat(Class_Level));
 					float All_Damage = Weapon.Get_Stat(Class_Damage) + (Armor_Damage) + (Class_Level_Damage) + Shield_Damage;
-					Base_Damage = (All_Damage * Damage_Bonus.Multiple()) / Number_Of_Attacks;
+					Base_Damage = (All_Damage * Damage_Bonus_Multiplier.Multiple()) / Number_Of_Attacks;
 				}
   //**************************************//
  //*****Calculate: Critical Damage*******//
 //**************************************//
 				float  Critical_Damage_Percent = 0f;
-				Critical_Chance = Weapon.Get_Stat(Stat.Critical_Chance) + Critical_Chance_Bonus.Sum() + Shield_Critical_Chance;
+				Critical_Chance = Weapon.Get_Stat(Stat.Critical_Chance) + Critical_Chance_Bonus_Additive.Sum() + Shield_Critical_Chance;
+				Critical_Chance *= Critical_Chance_Bonus_Multiplier.Multiple();
 				if (Critical_Chance >= UnityEngine.Random.Range(0f,100f)) 
 				{
-					Critical_Damage_Percent = (Weapon.Get_Stat(Stat.Critical_Damage) + Critical_Damage_Bonus.Sum()) + Shield_Critical_Damage / 100;
+					Critical_Damage_Percent = (Weapon.Get_Stat(Stat.Critical_Damage) + Critical_Damage_Bonus_Additive.Sum()) + Shield_Critical_Damage / 100;
+					Critical_Damage_Percent *= Critical_Damage_Bonus_Multiplier.Multiple();
 				}
-
 				Critical_Damage = Base_Damage * Critical_Damage_Percent;
   //**************************************//
  //*****Calculate: Resistance Damage*****//
 //**************************************//
-				float Resistance_Percent = (Creature.Get_Stat(Class_Resistance) + Resistance_Bonus.Sum()) / 100;
+				float Resistance_Percent = (Creature.Get_Stat(Class_Resistance) + Resistance_Bonus_Additive.Sum()) / 100 * Resistance_Bonus_Multiplier.Multiple();
 				Resistance = Base_Damage * Resistance_Percent;
-
+				
   //**************************************//
  //*****Calculate: Total Damage**********//
 //**************************************//
@@ -257,15 +271,20 @@ public class Attack
   //**************************************//
  //***********Calculate: Energy**********//	 //ENERGY LATER 
 //**************************************//
+					
+//					if (Class == Assign_Class.Melee) Creature.Get_Stat(Stat.Energy,15f);
+//					if (Class == Assign_Class.Magic) Creature.Get_Stat(Stat.Energy,15f);
+//					if (Class == Assign_Class.Archery) Creature.Get_Stat(Stat.Energy,15f);
+				
 //					if (Primary_Or_Secondary.Class == Assign_Class.Melee) Creature.Get_Stat(Stat.Energy,15f);
 //					if (Primary_Or_Secondary.Class == Assign_Class.Magic) Creature.Get_Stat(Stat.Energy,25f);
 //					if (Primary_Or_Secondary.Class == Assign_Class.Archery) Creature.Get_Stat(Stat.Energy,5f);
-//					
+					
 //					if (Creature.Get_Stat(Stat.Energy) > 100) 
 //						Creature.Get_Stat(Stat.Energy, 100, true); 
 //					if (Creature.Get_Stat(Stat.Energy) < 0) 
 //						Creature.Get_Stat(Stat.Energy, 0, true); 
-//
+
 				}
 				else
 				{
