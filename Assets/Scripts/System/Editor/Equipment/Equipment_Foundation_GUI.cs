@@ -173,6 +173,11 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 		{
 			EditorGUILayout.PropertyField(Subclass,true);
 		}
+
+		if (Weapon_Editor.Class != Assign_Class.Ammo && (Weapon_Editor.Subclass == Assign_Subclass.Arrow || Weapon_Editor.Subclass == Assign_Subclass.Bolt))
+		{
+			EditorGUILayout.HelpBox(Weapon_Editor.Class + " does not support the '" + Weapon_Editor.Subclass + "' subclass",MessageType.Warning);
+		}
 		
 		if (Weapon_Editor.Class == Assign_Class.Melee ||
 			Weapon_Editor.Class == Assign_Class.Magic ||
