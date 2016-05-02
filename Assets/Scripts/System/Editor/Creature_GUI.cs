@@ -133,6 +133,4 @@ public class Creature_GUI : Editor
 		Layout.Float("Height", ref Creature_Editor.Height);
 		EditorGUILayout.PropertyField(AI,true);
 	}
-
-	
 }

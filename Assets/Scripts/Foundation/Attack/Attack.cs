@@ -5,12 +5,16 @@ using System_Control;
 using System.Linq;
 using System_Control.Extensions;
 
-//	Actives Add the actives he wants. //	Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy)))); 
 //	Defects //Figure out whether or not you want to change the value of defects to a drag and drop or have an if statement in the code... that looks at each defect. DEFECTS effects WILL NEVER CHANGE BY ANYONE 
-//	AOE
-
+//For defects make them seperate components and then have the weapon_editor read the enum of defects if one exists add it and then attach it to the passive that adds a defect on attack. 
+//Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy)))); 
 //	For Actives:
 //	The aoe will happen in the attack and re attack but with reduced damage.
+
+
+//	AOE
+
+
 
 public class Attack
 {
