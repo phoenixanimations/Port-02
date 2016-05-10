@@ -45,7 +45,7 @@ MonoBehaviour:
   - 0
   - Infinity
   - 0
-  - 40960
+  - 20480
   - 0
   - 0
   - 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
+  - 7
   - 3
   - 0
   - 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   - 0
   - Infinity
   - 0
-  - 4
+  - 2
   - 0
   - 0
   - 0
