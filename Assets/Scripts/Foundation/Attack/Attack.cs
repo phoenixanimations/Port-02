@@ -7,12 +7,14 @@ using System_Control.Extensions;
 
 //	Defects //Figure out whether or not you want to change the value of defects to a drag and drop or have an if statement in the code... that looks at each defect. DEFECTS effects WILL NEVER CHANGE BY ANYONE 
 //For defects make them seperate components and then have the weapon_editor read the enum of defects if one exists add it and then attach it to the passive that adds a defect on attack. 
-//Value = (100 + 5 * ((ScaleValue * 0.1 * Energy) + (0.5 * Mathf.Pow((0.1 * Energy),2) - 0.5 * (0.1 * Energy)))); 
-//	For Actives:
-//	The aoe will happen in the attack and re attack but with reduced damage.
+//In the attack code read the weapons defect and then add component.
+
+//	AOE (For Actives: The aoe will happen in the attack and re attack but with reduced damage.)
 
 
-//	AOE
+//GO OVER AMMO AND BOLTS
+//Make sure arrows take your weapon stat as the tier multiplier. In the attack code accuracy and damage is added.
+//Accuracy make it a multiplier
 
 
 
@@ -181,14 +183,13 @@ public class Attack
  //*Calculate: Attack Count & Shield Bonus*//
 //****************************************//		
 		Number_Of_Attacks = Weapon.Get_Stat(Stat.Number_Of_Attacks);
-		Shield_Bonus(Class_Damage,Class_Resistance);	
-
+		Shield_Bonus(Class_Damage,Class_Resistance);
   //**************************************//
  //***********Start Attack Loop**********//
 //**************************************//	
 			while (Attack_Count < Number_Of_Attacks)
 			{
-				Reset_Stats();
+				Reset_Stats();  		
   //**************************************//
  //*******Passive Attack Begin 1/4*******//
 //**************************************//

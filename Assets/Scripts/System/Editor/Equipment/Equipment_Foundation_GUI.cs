@@ -237,7 +237,7 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 		else
 		{
 			Display_Stat("Archery Damage",ref Equipment_Foundation_Editor,Stat.Archery_Damage);
-			Layout.Float("Accuracy",ref Equipment_Foundation_Editor.Stat_Dictionary,Stat.Accuracy);
+			Display_Stat("Accuracy",ref Equipment_Foundation_Editor,Stat.Accuracy);
 			foreach (Stat All_Stats in System.Enum.GetValues(typeof(Stat)))
 			{
 				if (All_Stats != Stat.Archery_Damage && All_Stats != Stat.Accuracy)
