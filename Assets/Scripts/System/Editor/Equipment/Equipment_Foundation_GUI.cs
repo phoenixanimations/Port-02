@@ -123,10 +123,13 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 	
 	private void AOE_Box_Layout (ref Equipment_Foundation Weapon_Editor, AOE_Type_Enum AOE_Type)
 	{
-		if (AOE_Type == AOE_Type_Enum.Pattern) EditorGUILayout.HelpBox("The center represents the enemy you clicked on to attack. Check off the areas you want the AOE to hit.",MessageType.Info);
-		if (AOE_Type == AOE_Type_Enum.Damage) EditorGUILayout.HelpBox("Each box represents the % damage that will be dealt to the enemy. The percent is based off of your total damage when you attack.",MessageType.Info);
-		if (AOE_Type == AOE_Type_Enum.Knockback_Direction) EditorGUILayout.HelpBox("The direction the enemy will go if you have knockback.",MessageType.Info);
-		if (AOE_Type == AOE_Type_Enum.Hit_Order) EditorGUILayout.HelpBox("The order in which each enemy will be hit. This is mostly for knockback, as you would want it to be outer -> inner to avoid people bumping into each other",MessageType.Info);
+		if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 0)
+		{
+			if (AOE_Type == AOE_Type_Enum.Pattern) EditorGUILayout.HelpBox("The center represents the enemy you clicked on to attack. Check off the areas you want the AOE to hit.",MessageType.Info);
+			if (AOE_Type == AOE_Type_Enum.Damage) EditorGUILayout.HelpBox("Each box represents the % damage that will be dealt to the enemy. The percent is based off of your total damage when you attack.",MessageType.Info);
+			if (AOE_Type == AOE_Type_Enum.Knockback_Direction) EditorGUILayout.HelpBox("The direction the enemy will go if you have knockback.",MessageType.Info);
+			if (AOE_Type == AOE_Type_Enum.Hit_Order) EditorGUILayout.HelpBox("The order in which each enemy will be hit. This is mostly for knockback, as you would want it to be outer -> inner to avoid people bumping into each other",MessageType.Info);
+		}
 
 		if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 0 && (Weapon_Editor.AOE_Damage.Count == 0 || Weapon_Editor.AOE_Knockback_Direction.Count == 0 || Weapon_Editor.AOE_Hit_Order.Count == 0))
 		{
