@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using System_Control;
+using System_Control.Extensions;
 using System_Control.Editor;
 using System.Linq;
+using Unicode;
 
 [CustomEditor(typeof(Equipment_Foundation))]
 public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI 
@@ -77,6 +79,15 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 			Layout.Float("Knockback", ref Weapon_Editor.Stat_Dictionary, Stat.Knockback);
 		}
 	}
+	    //******************************//
+	   //******************************//
+	  //*******Area of Effect*********//
+	 //******************************//
+	//******************************//
+	//Write a more accurate warning for not hitting the center (have it appear only when the center isn't hit).
+	//Rewrite the code so they can be side by side.
+
+	private enum AOE_Type_Enum {Pattern,Damage,Knockback_Direction,Hit_Order};
 
 	private void Display_AOE_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
@@ -89,35 +100,74 @@ public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI
 		  	{
 				float Number_Of_Booleans = Mathf.Pow(Weapon_Editor.Get_Stat(Stat.Area_Of_Effect),2f);
 				Weapon_Editor.AOE_Pattern = new List<bool>(new bool[(int)Number_Of_Booleans]);
+				Weapon_Editor.AOE_Knockback_Direction = new List<Equipment_Foundation.AOE_Knockback_Direction_Enum>(new Equipment_Foundation.AOE_Knockback_Direction_Enum[(int)Number_Of_Booleans]);
+				Weapon_Editor.AOE_Damage = new List<float>(new float[(int)Number_Of_Booleans]);
+				Weapon_Editor.AOE_Hit_Order = new List<float>(new float[Weapon_Editor.AOE_Pattern.Count]);
 			} 	
 			EditorGUILayout.EndHorizontal();
-			if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 0)
-			{
-				EditorGUILayout.HelpBox("The center represents the enemy you clicked on to attack. If the center isn't 'checked' then when you click on someone you will not hit them. Anything checked off around the center is considered AOE damage.",MessageType.Warning);
-			}
-	
+
 			if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 15)
 			{
 				Layout.Label("AOE is too high for the editor contact me if you want to");
 				Layout.Label("do something nuts.");
 				return;
 			}
-	
+
 			if (Mathf.Sqrt((float)Weapon_Editor.AOE_Pattern.Count) != Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) return;
-			
-			EditorGUILayout.BeginHorizontal();
-			for (float i = 0; i < Weapon_Editor.AOE_Pattern.Count; i++) 
-			{
-				if (i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) == Mathf.Floor(i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) && i != 0)
-				{
-				   EditorGUILayout.EndHorizontal();
-				   EditorGUILayout.BeginHorizontal();
-				}
-				Weapon_Editor.AOE_Pattern[(int)i] = EditorGUILayout.Toggle(Weapon_Editor.AOE_Pattern[(int)i],GUILayout.Width(10f));
-			}
-			EditorGUILayout.EndHorizontal();
+			AOE_Box_Layout (ref Weapon_Editor, AOE_Type_Enum.Pattern);
+			AOE_Box_Layout (ref Weapon_Editor, AOE_Type_Enum.Damage);
+			AOE_Box_Layout (ref Weapon_Editor, AOE_Type_Enum.Knockback_Direction);
+			AOE_Box_Layout (ref Weapon_Editor, AOE_Type_Enum.Hit_Order);
 		}
+	}
+	
+	private void AOE_Box_Layout (ref Equipment_Foundation Weapon_Editor, AOE_Type_Enum AOE_Type)
+	{
+		if (AOE_Type == AOE_Type_Enum.Pattern) EditorGUILayout.HelpBox("The center represents the enemy you clicked on to attack. Check off the areas you want the AOE to hit.",MessageType.Info);
+		if (AOE_Type == AOE_Type_Enum.Damage) EditorGUILayout.HelpBox("Each box represents the % damage that will be dealt to the enemy. The percent is based off of your total damage when you attack.",MessageType.Info);
+		if (AOE_Type == AOE_Type_Enum.Knockback_Direction) EditorGUILayout.HelpBox("The direction the enemy will go if you have knockback.",MessageType.Info);
+		if (AOE_Type == AOE_Type_Enum.Hit_Order) EditorGUILayout.HelpBox("The order in which each enemy will be hit. This is mostly for knockback, as you would want it to be outer -> inner to avoid people bumping into each other",MessageType.Info);
+
+		if (Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) > 0 && (Weapon_Editor.AOE_Damage.Count == 0 || Weapon_Editor.AOE_Knockback_Direction.Count == 0 || Weapon_Editor.AOE_Hit_Order.Count == 0))
+		{
+			Weapon_Editor.AOE_Knockback_Direction = new List<Equipment_Foundation.AOE_Knockback_Direction_Enum>(new Equipment_Foundation.AOE_Knockback_Direction_Enum[Weapon_Editor.AOE_Pattern.Count]);
+			Weapon_Editor.AOE_Damage = new List<float>(new float[Weapon_Editor.AOE_Pattern.Count]);
+			Weapon_Editor.AOE_Hit_Order = new List<float>(new float[Weapon_Editor.AOE_Pattern.Count]);
+		}		
+
+		EditorGUILayout.BeginHorizontal();
+		for (float i = 0; i < Weapon_Editor.AOE_Pattern.Count; i++) 
+		{
+			if (i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect) == Mathf.Floor(i/Weapon_Editor.Get_Stat(Stat.Area_Of_Effect)) && i != 0)
+			{
+			   EditorGUILayout.EndHorizontal();
+			   EditorGUILayout.BeginHorizontal();
+			}
+
+			if (AOE_Type == AOE_Type_Enum.Pattern)
+			{
+				Weapon_Editor.AOE_Pattern[(int)i] = EditorGUILayout.Toggle(Weapon_Editor.AOE_Pattern[(int)i],GUILayout.Width(12f));
+			}
+
+			if (AOE_Type != AOE_Type_Enum.Pattern)
+			{
+				if (Weapon_Editor.AOE_Pattern[(int)i])
+				{
+					if (AOE_Type == AOE_Type_Enum.Damage) Weapon_Editor.AOE_Damage[(int)i] = EditorGUILayout.FloatField(Weapon_Editor.AOE_Damage[(int)i],GUILayout.Width(30f));
+					if (AOE_Type == AOE_Type_Enum.Knockback_Direction) Weapon_Editor.AOE_Knockback_Direction[(int)i] = (Equipment_Foundation.AOE_Knockback_Direction_Enum)EditorGUILayout.Popup(Weapon_Editor.AOE_Knockback_Direction[(int)i].toInt(),Arrow.Array,GUILayout.Width(30f));
+					if (AOE_Type == AOE_Type_Enum.Hit_Order) Weapon_Editor.AOE_Hit_Order[(int)i] = EditorGUILayout.FloatField(Weapon_Editor.AOE_Hit_Order[(int)i],GUILayout.Width(30f));
+
+				}
+				else
+				{
+				Layout.Label("",30f);
+				}
+
+			}
+		}
+		EditorGUILayout.EndHorizontal();
 	}	
+
 
 	private void Display_Damage_Foldout (ref Equipment_Foundation Weapon_Editor)
 	{
