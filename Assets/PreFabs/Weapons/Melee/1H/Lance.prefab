@@ -43,7 +43,7 @@ MonoBehaviour:
   Description: Basic.
   Stat_Dictionary:
   - 0
-  - 16
+  - 19
   - 0
   - 0
   - 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   - 2
   - 1
   - 0
-  - 0
+  - 1
   - 0
   - 0
   - 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   - 0
   Stat_Multiplier:
   - 0
-  - 1.5
+  - 1.75
   - 0
   - 0
   - 0
@@ -644,14 +644,34 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  Level: 1
   Class: 1
   Subclass: 2
-  Passives: []
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 000100000100000000
-  Level: 1
   Two_Handed: 0
+  AOE_Pattern: 000100000100000000
+  AOE_Damage:
+  - 0
+  - 100
+  - 0
+  - 0
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  AOE_Knockback_Direction: 000000000100000000000000000000000100000000000000000000000000000000000000
+  AOE_Hit_Order:
+  - 0
+  - 2
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
   Defect: 4
+  Passives: []
   Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
