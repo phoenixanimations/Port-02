@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451b87331ad2640c2aa6d720b588db6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Chaos Stack
   Description: 
   Stat_Dictionary:
   - 0

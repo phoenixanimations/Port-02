@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3896c3cc01ffc48b0a2a7f66f18f26d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Doveshot
+  Description: Fires 2 arrows at once.
   Stat_Dictionary:
   - 0
   - 0
@@ -1262,15 +1262,17 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  Level: 100
   Class: 3
   Subclass: 6
+  Two_Handed: 1
+  AOE_Pattern: 
+  AOE_Damage: []
+  AOE_Knockback_Direction: 
+  AOE_Hit_Order: []
+  Defect: 0
   Passives:
   - {fileID: 11423212}
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 
-  Level: 100
-  Two_Handed: 1
-  Defect: 0
   Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:

@@ -644,17 +644,17 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  Level: 1
   Class: 1
   Subclass: 1
-  Passives: []
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 
-  Level: 1
   Two_Handed: 0
+  AOE_Pattern: 
+  AOE_Damage: []
+  AOE_Knockback_Direction: 
+  AOE_Hit_Order: []
   Defect: 5
-  Equipment_Notes: '(Passive Pending)
-
-    ''Devlogik'' : Hits the enemy for 5% of its Max HP'
+  Passives: []
+  Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

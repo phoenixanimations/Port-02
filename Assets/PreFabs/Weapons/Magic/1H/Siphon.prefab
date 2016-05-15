@@ -766,8 +766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a58c367733f4bab806f377ff80cd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Siphon
+  Description: Steals 5% Energy from Enemy.
   Stat_Dictionary:
   - 0
   - 0

@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d002d0e487684d16b6fd3c583930269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Parry
+  Description: Allows for an instantaneous attack.
   Stat_Dictionary:
   - 0
   - 0
@@ -1262,15 +1262,17 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  Level: 1
   Class: 1
   Subclass: 1
+  Two_Handed: 1
+  AOE_Pattern: 
+  AOE_Damage: []
+  AOE_Knockback_Direction: 
+  AOE_Hit_Order: []
+  Defect: 4
   Passives:
   - {fileID: 11470568}
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 
-  Level: 1
-  Two_Handed: 1
-  Defect: 4
   Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
