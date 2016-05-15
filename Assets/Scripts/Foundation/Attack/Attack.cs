@@ -5,6 +5,8 @@ using System_Control;
 using System.Linq;
 using System_Control.Extensions;
 
+//Make it so you can jump on top of enemies and Nuwas has an active that if you jump on top she will take you and curb stomp you to the ground. 
+
 //	Defects //Figure out whether or not you want to change the value of defects to a drag and drop or have an if statement in the code... that looks at each defect. DEFECTS effects WILL NEVER CHANGE BY ANYONE 
 //For defects make them seperate components and then have the weapon_editor read the enum of defects if one exists add it and then attach it to the passive that adds a defect on attack. 
 //In the attack code read the weapons defect and then add component.
