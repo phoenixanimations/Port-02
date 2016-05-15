@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class Rage : Status_Foundation 
-{
-
-}
+﻿//using UnityEngine;
+//using System.Collections;
+//
+//public class Rage : MonoBehaviour 
+//{
+//
+//}

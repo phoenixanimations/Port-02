@@ -7,7 +7,7 @@ using System_Control.Extensions;
 using System_Control.Editor;
 using System.Linq;
 using Unicode;
-
+//ADD WARNING THAT CHECKS if the Passive List is > 0 but contains empty passives. 
 [CustomEditor(typeof(Equipment_Foundation))]
 public class Equipment_Foundation_GUI : Equipment_Foundation_Stats_Warning_GUI 
 {

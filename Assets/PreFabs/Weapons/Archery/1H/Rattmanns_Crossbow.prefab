@@ -655,7 +655,7 @@ MonoBehaviour:
   AOE_Hit_Order: []
   Defect: 0
   Passives:
-  - {fileID: 0}
+  - {fileID: 11444066}
   Equipment_Notes: '(Passive Pending)
 
     ''Inspiration'' : Inspiration increases by +1 for every attack that hits
@@ -1280,7 +1280,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  WhenToActivate: 0
+  When_To_Activate: 0
+  Status_Notes: 
   Bonus_Accuracy_Damage_Percent: 10
   Bonus_Accuracy: 5
 --- !u!1001 &100100000

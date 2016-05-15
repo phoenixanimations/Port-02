@@ -268,8 +268,8 @@ public class Attack
   //**************************************//
  //*******Passive Attack Hit 2/4*********//
 //**************************************//
-					Passives (Creature, State.Attack_Roll);
-					Passives (Advisory, State.Counter_Attack_Roll);
+					Passives (Creature, State.Attack_Hit);
+					Passives (Advisory, State.Counter_Attack_Hit);
 
   //**************************************//
  //******Calculate: Adversary - Damage***//

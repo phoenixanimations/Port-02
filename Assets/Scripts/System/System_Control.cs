@@ -18,11 +18,11 @@ namespace System_Control
    	  //************************//
 	 //******Attack States*****//
 	//************************//
-					   Attack_Begin, Attack_Roll, Attack_Miss, Attack_End,
+					   Attack_Begin, Attack_Hit, Attack_Miss, Attack_End,
    	  //************************//
 	 //**Counter Attack States*//
 	//************************//
-					   Counter_Attack_Begin, Counter_Attack_Roll, Counter_Attack_Miss, Counter_Attack_End
+					   Counter_Attack_Begin, Counter_Attack_Hit, Counter_Attack_Miss, Counter_Attack_End
 					  };
 
 	  //************************//

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System_Control;
-//** Activate_Foundation **//
 public class Sacrifice : Status_Foundation 
 {
 /*
@@ -14,8 +13,4 @@ public class Sacrifice : Status_Foundation
 		}
 
 	}*/
-
 }
-
-
-

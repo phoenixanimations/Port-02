@@ -4,15 +4,18 @@ using System_Control;
 
 public class Siphon : Status_Foundation 
 {
-/*
-	public override void Attack_Status (Phase Activate_On_What_Phase)
-	{
-		base.Attack_Status (Activate_On_What_Phase);
-		if (Activate_On_What_Phase == Phase.Attack_Hit)
-		{
-			if (Creature_Attack.Adversary.Get_Stat(Stat.Energy) >= 10f)
-				Creature_Attack.Adversary.Get_Stat(Stat.Energy,-10f);
-		}
-	}	*/
+	public float Siphon_Energy;
 
+	public override void Activate (Creature_States Creature, Raycast Raycast, State State, Attack Attack)
+	{
+		base.Activate (Creature, Raycast, State, Attack);
+		if (State == State.Attack_Begin)
+		{
+			if (Attack.Advisory.Get_Stat(Stat.Energy) >= Siphon_Energy)
+			{
+				Attack.Advisory.Get_Stat(Stat.Energy, -Siphon_Energy);
+				Creature.Get_Stat(Stat.Energy, Siphon_Energy);
+			}
+		}
+	}
 }

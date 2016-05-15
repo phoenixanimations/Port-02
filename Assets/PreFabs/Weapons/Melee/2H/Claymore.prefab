@@ -653,8 +653,7 @@ MonoBehaviour:
   AOE_Knockback_Direction: 
   AOE_Hit_Order: []
   Defect: 6
-  Passives:
-  - {fileID: 0}
+  Passives: []
   Equipment_Notes: '(Passive Pending)
 
     ''Bloodlust'' : Chain-kills increase the Bleed level when it is applied
