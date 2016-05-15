@@ -910,7 +910,9 @@ MonoBehaviour:
 
     2.5x
 
-    etc.'
+    etc.
+
+'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
