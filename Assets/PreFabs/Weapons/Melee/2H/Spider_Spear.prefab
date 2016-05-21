@@ -680,7 +680,7 @@ MonoBehaviour:
 
     Increases Defect_Level per turn instead of decreasing
 
-    At Level_10, instead of taking 10% HP in damage, auto-KO'
+    \\At Level_10, instead of taking 10% HP in damage, auto-KO'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
