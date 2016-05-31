@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11423300}
   - 114: {fileID: 11443432}
   m_Layer: 0
-  m_Name: xForm_Crossbow_v2
+  m_Name: xForm_CrossWand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,14 +646,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  Level: 0
   Class: 4
   Subclass: 0
-  Passives: []
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 
-  Level: 0
   Two_Handed: 0
+  AOE_Pattern: 
+  AOE_Damage: []
+  AOE_Knockback_Direction: 
+  AOE_Hit_Order: []
   Defect: 0
+  Passives: []
   Equipment_Notes: 
   Switch_Sides: 0
   Side_A: {fileID: 11423300}
@@ -669,32 +671,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: xForm Crossbow
-  Description: Transforms into a shield. (Passive Pending)
+  Name: xForm CrossWand (Wand)
+  Description: Transforms into a crossbow. (Passive Pending)
   Stat_Dictionary:
   - 0
   - 0
-  - 0
-  - 33
-  - 0
+  - 11
   - 0
   - 0
   - 0
   - 0
-  - 33
+  - 40
+  - 20
+  - 11
   - 5
   - 5
-  - 3
+  - 1
+  - 0
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 3
-  - 0
+  - 20
+  - 1
+  - 9
   - 0
   - 0
   - 0
@@ -875,14 +877,14 @@ MonoBehaviour:
   Stat_Multiplier:
   - 0
   - 0
-  - 0
-  - 3
-  - 0
+  - 1
   - 0
   - 0
   - 0
   - 0
-  - 3
+  - 0
+  - 0
+  - 1
   - 0.5
   - 0
   - 0
@@ -1274,14 +1276,178 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Class: 3
-  Subclass: 7
-  Passives: []
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 
   Level: 1
-  Two_Handed: 1
+  Class: 2
+  Subclass: 4
+  Two_Handed: 0
+  AOE_Pattern: 000000000000000000000001000100010000000000010101000000000000010101000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000
+  AOE_Damage:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 25
+  - 0
+  - 40
+  - 0
+  - 25
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 40
+  - 55
+  - 40
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 55
+  - 75
+  - 55
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  AOE_Knockback_Direction: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000100000000000000050000000000000000000000000000000000000000000000040000000100000005000000000000000000000000000000000000000000000000000000040000000100000005000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  AOE_Hit_Order:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 5
+  - 0
+  - 4
+  - 0
+  - 5
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 4
+  - 3
+  - 4
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 3
+  - 2
+  - 3
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   Defect: 0
+  Passives: []
   Equipment_Notes: 
 --- !u!114 &11443432
 MonoBehaviour:
@@ -1294,31 +1460,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: xForm Shield
-  Description: Transforms into a crossbow. (Passive Pending)
+  Name: xForm CrossWand (Crossbow)
+  Description: Transforms into a wand. (Passive Pending)
   Stat_Dictionary:
-  - 22
   - 0
   - 0
   - 0
-  - 25
-  - 25
-  - 25
+  - 13
   - 0
   - 0
   - 0
-  - 33
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 20
+  - 10
+  - 16
+  - 5
+  - 5
+  - 3
   - 0
   - 0
   - 0
   - 0
   - 0
   - 0
+  - 0
+  - 5
+  - 3
   - 0
   - 0
   - 0
@@ -1498,17 +1664,17 @@ MonoBehaviour:
   - 0
   - 0
   Stat_Multiplier:
-  - 2
+  - 0
+  - 0
+  - 0
+  - 1.2
   - 0
   - 0
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
+  - 1.5
+  - 0.5
   - 0
   - 0
   - 0
@@ -1899,14 +2065,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Class: 6
-  Subclass: 0
-  Passives: []
-  Select_AOE_Pattern: 0
-  AOE_Pattern: 
   Level: 1
-  Two_Handed: 1
+  Class: 3
+  Subclass: 7
+  Two_Handed: 0
+  AOE_Pattern: 
+  AOE_Damage: []
+  AOE_Knockback_Direction: 
+  AOE_Hit_Order: []
   Defect: 0
+  Passives: []
   Equipment_Notes: 
 --- !u!1001 &100100000
 Prefab:
