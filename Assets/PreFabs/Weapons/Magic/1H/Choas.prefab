@@ -47,9 +47,9 @@ MonoBehaviour:
   - 0
   - 11
   - 0
-  - 5
-  - 5
-  - 5
+  - 0
+  - 0
+  - 0
   - 50
   - 25
   - 11
@@ -1291,7 +1291,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  WhenToActivate: 0
+  When_To_Activate: 0
+  Status_Notes: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

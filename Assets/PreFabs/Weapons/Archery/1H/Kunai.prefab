@@ -1,70 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &198992
+--- !u!1 &131526
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 498946}
-  - 114: {fileID: 11446294}
+  - 4: {fileID: 461992}
+  - 114: {fileID: 11465444}
   m_Layer: 0
-  m_Name: Rays_Caster
+  m_Name: Kunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &498946
+--- !u!4 &461992
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198992}
+  m_GameObject: {fileID: 131526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11446294
+--- !u!114 &11465444
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198992}
+  m_GameObject: {fileID: 131526}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ebae912dc754a96895af766f9aba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Ray's Cast Staff
-  Description: This may be a little too meta.
+  Name: Kunai
+  Description: A knife enchanted with teleportation attributes.
   Stat_Dictionary:
   - 0
   - 0
-  - 16
   - 0
-  - 0
-  - 0
-  - 0
-  - 50
-  - 100
-  - 22
-  - 0
-  - 6
-  - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 40
-  - 1
   - 11
+  - 0
+  - 0
+  - 0
+  - 10
+  - 25
+  - 22
+  - 2
+  - 5
+  - 3
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 15
+  - 1
+  - 0
   - 0
   - 0
   - 0
@@ -245,15 +245,15 @@ MonoBehaviour:
   Stat_Multiplier:
   - 0
   - 0
-  - 1.5
   - 0
+  - 1
   - 0
   - 0
   - 0
   - 0
   - 0
   - 2
-  - 0
+  - 0.25
   - 0
   - 0
   - 0
@@ -645,272 +645,20 @@ MonoBehaviour:
   - 0
   - 0
   Level: 1
-  Class: 2
-  Subclass: 3
-  Two_Handed: 1
-  AOE_Pattern: 00000000000100000000000000000000010000000000000000000001000000000000000000000100000000000000000000010000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  AOE_Damage:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  AOE_Knockback_Direction: 00000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  AOE_Hit_Order:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 6
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 5
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 4
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 3
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 2
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 1
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  Class: 3
+  Subclass: 7
+  Two_Handed: 0
+  AOE_Pattern: 
+  AOE_Damage: []
+  AOE_Knockback_Direction: 
+  AOE_Hit_Order: []
   Defect: 0
   Passives: []
-  Equipment_Notes: '(Passive Pending)
+  Equipment_Notes: 'Needs a new Archery Subclass, ''Thrown''.
 
-    '''' : Increases damage by (0.5 * TierArray) per enemy hit
+    Thrown subclass items do not require ammo to be used.
 
-    0.5x
-
-    1x
-
-    1.5x
-
-    2x
-
-    2.5x
-
-    3.0x'
+    For now, all ''Thrown'' Subclass items will be listed as ''Crossbow''.'
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -920,5 +668,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 198992}
+  m_RootGameObject: {fileID: 131526}
   m_IsPrefabParent: 1
