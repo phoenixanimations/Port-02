@@ -11,7 +11,7 @@ public class Stats : Basic_Tile
 
 	public List <float> Stat_Dictionary = new List<float>(new float[200]);
 	public List <float> Stat_Multiplier = new List<float>(new float[200]);
-	public List<float> Heal_Bonus = new List<float>(new float[200]);
+	public List <float> Heal_Bonus = new List<float>(new float[200]);
 	
     //****************************************//
    //****************************************//
@@ -43,14 +43,11 @@ public class Stats : Basic_Tile
 		return Stat_Dictionary[(int)Change_Stat_Selected];
 	}
 	
-	
-
     //****************************************//
    //****************************************//
   //*****************LEVEL UP***************//
  //****************************************//
 //****************************************//
-
 	public virtual void Level_Up(Stat Stat, float Amount = 1, bool SetLevel = false)
 	{			
 	}

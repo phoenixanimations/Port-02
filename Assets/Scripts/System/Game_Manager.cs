@@ -43,8 +43,8 @@ public class Game_Manager : MonoBehaviour
 	void Start()
 	{
 		Creatures = Physics2D.CircleCastAll(transform.position,200f,Vector2.zero,Mathf.Infinity,(int)Mask.Default).Select(c => c.collider.GetComponent<Creature>())
-																								  				  .OrderByDescending(c => c.Player)
-																				 				 				  .ToList();		
+																							  				  	  .OrderByDescending(c => c.Player)
+																				 				 				  .ToList();
 	}
 
 	void Update () 

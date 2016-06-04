@@ -5,6 +5,8 @@ using System;
 using System_Control;
 using System_Control.Extensions;
 
+//Figure out Turn = false. Put it in the controller.  
+
 public class Creature_States : Creature_Movement
 {
 	private void StatusesActivate(State State, Attack Attack = null)
