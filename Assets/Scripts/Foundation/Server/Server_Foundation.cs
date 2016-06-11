@@ -8,8 +8,8 @@ public class Server_Foundation : MonoBehaviour
 
 	public void Start () 
 	{
-		InvokeRepeating("Upload",2f,1f);
-//		InvokeRepeating("Download",2f,.25f);
+//		InvokeRepeating("Upload",2f, 5f);
+		InvokeRepeating("Download",2f,.5f);
 	}
 	
 	void Upload ()
@@ -23,6 +23,7 @@ public class Server_Foundation : MonoBehaviour
 		StartCoroutine(Get_Ping());
 	}
 
+	//Maybe switch between urls.
 
 	IEnumerator Upload_Ping ()
 	{
@@ -44,9 +45,29 @@ public class Server_Foundation : MonoBehaviour
 		}
 	}
 
+	int Different_State = 0;
+
 	IEnumerator Get_Ping ()
 	{
-	    string url = "http://www.phoenixanimations.com/_server/PHP/stresstest/getstress.php";
+		string url = "";
+		if (Different_State == 0)
+		{
+			url = "http://www.phoenixanimations.com/_server/PHP/stresstest/getstress1.php";
+			Debug.Log("1\n");
+		}
+	
+		if (Different_State == 1)
+		{
+			url = "http://www.phoenixanimations.com/_server/PHP/stresstest/getstress1.php";
+			Debug.Log("2\n");
+		}
+
+		if (Different_State == 2)
+		{
+			url = "http://www.phoenixanimations.com/_server/PHP/stresstest/getstress1.php";
+			Debug.Log("3\n");
+		}
+
 	    WWW www = new WWW(url);
 	    yield return www;
 		
@@ -57,6 +78,12 @@ public class Server_Foundation : MonoBehaviour
 		else 
 		{
             Debug.Log("Get_Ping Error: "+ www.error);
-        } 
+        }
+
+		Different_State++; 
+		if (Different_State > 2)
+		{
+			Different_State = 0;
+		}
 	}
  }

@@ -84,7 +84,11 @@ namespace System_Control
 	  //************************//
 	 //******SYSTEM LAYERS*****//
     //************************//
-	public enum Mask {Default = 1,UI};
+	class Mask
+	{
+		public static readonly int Default = 1;
+		
+	}
 
 	  //************************//
 	 //*****SYSTEM VECTORS*****//

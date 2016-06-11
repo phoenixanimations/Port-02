@@ -25,6 +25,7 @@ public class Mouse_Controller : MonoBehaviour
 //		test.gameObject.AddComponent<BoxCollider2D>();
 //		test.transform.position = Vector3.
 //		Debug.Log(test.transform.position);
+//		test.layer = 
 		test.transform.parent = this.transform;
 		
 	}	
