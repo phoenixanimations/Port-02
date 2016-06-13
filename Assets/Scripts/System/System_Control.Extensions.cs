@@ -22,6 +22,7 @@
 		}
 		
 	}
+
 	public static class Convert
 	{
 		public static float toFloat (this bool Bool)
@@ -38,7 +39,7 @@
 
 		public static int toInt (this System.Enum Cast_Enum)
 		{
-			return System.Convert.ToInt32(Cast_Enum);
+			return System.Convert.ToInt32(Cast_Enum);	
 		}		
 	}
 }

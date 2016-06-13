@@ -8,8 +8,8 @@ public class Server_Foundation : MonoBehaviour
 
 	public void Start () 
 	{
-//		InvokeRepeating("Upload",2f, 5f);
-		InvokeRepeating("Download",2f,.5f);
+		InvokeRepeating("Upload",2f, 1f);
+//		InvokeRepeating("Download",2f,.5f);
 	}
 	
 	void Upload ()
