@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 118878, guid: b48c94f03dad44dd39166fdf0621c9bb, type: 2}
   Move_Select: {fileID: 132756, guid: 1099f4eeec95347dba761806e74fcb01, type: 2}
+  Creature: {fileID: 0}
 --- !u!114 &11449716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +103,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  - 0
+  - 3
   - 0
   - 0
   - 1

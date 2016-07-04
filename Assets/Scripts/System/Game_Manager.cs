@@ -55,7 +55,7 @@ public class Game_Manager : MonoBehaviour
 		switch (PlayerState) 
 		{
 		case 0:
-			Creatures[0].BeginningOfTurn();
+			Creatures[0].Beginning_Of_Turn();
 			PlayerState++;
 			break;
 		case 1:
@@ -65,7 +65,7 @@ public class Game_Manager : MonoBehaviour
 			}
 			break;
 		case 2:
-			Creatures[0].EndOfTurn();
+			Creatures[0].End_Of_Turn();
 			PlayerState++;
 			break;
 		default:
@@ -88,9 +88,9 @@ public class Game_Manager : MonoBehaviour
 		for (int i = 1; i < Creatures.Count; i++)
 		{
 			Creatures[i].Turn = true;
-			Creatures[i].BeginningOfTurn();
+			Creatures[i].Beginning_Of_Turn();
 			Creatures[i].AI();
-			Creatures[i].EndOfTurn();
+			Creatures[i].End_Of_Turn();
 		}
 
 		 //*******************//

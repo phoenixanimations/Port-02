@@ -10,8 +10,8 @@ namespace System_Control
    	  //************************//
 	 //*****Creature States****//
 	//************************//
-					   Idle,Use,Equip,MoveAttack,Jump,RequestInteraction,
-					   BeginningOfTurn,EndOfTurn,
+					   Idle,Use,Equip,MoveAttack,Jump,Request_Interaction,
+					   Beginning_Of_Turn,End_Of_Turn,
 					   Move,Interact,
 				       Attack,
 					   MurderedCreature, Heal, LevelUp,

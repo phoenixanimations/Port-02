@@ -77,12 +77,13 @@ public class Creature_GUI : Editor
 			Layout.Float("Melee Level",ref Creature_Editor.Stat_Dictionary,Stat.Melee_Level);
 			Layout.Float("Magic Level",ref Creature_Editor.Stat_Dictionary,Stat.Magic_Level);
 			Layout.Float("Archery Level",ref Creature_Editor.Stat_Dictionary,Stat.Archery_Level);
+			Layout.Float("Movement",ref Creature_Editor.Stat_Dictionary,Stat.Movement);
 			EditorGUI.indentLevel--;
 			EditorGUILayout.LabelField("Equipment",EditorStyles.boldLabel);
 			EditorGUI.indentLevel++;
-			Layout.Float("Primary Hand",ref Creature_Editor.Slot[(int)Assign_Slot.Primary_Hand].Level);
-			Layout.Float("Secondary Hand",ref Creature_Editor.Slot[(int)Assign_Slot.Secondary_Hand].Level);
-			Layout.Float("Armor",ref Creature_Editor.Slot[(int)Assign_Slot.Armor].Level);
+			Layout.Float("Primary Hand Level",ref Creature_Editor.Slot[(int)Assign_Slot.Primary_Hand].Level);
+			Layout.Float("Secondary Hand Level",ref Creature_Editor.Slot[(int)Assign_Slot.Secondary_Hand].Level);
+			Layout.Float("Armor Level",ref Creature_Editor.Slot[(int)Assign_Slot.Armor].Level);
 			EditorGUI.indentLevel--;
 		}
 		EditorGUILayout.PropertyField(Passives,true);

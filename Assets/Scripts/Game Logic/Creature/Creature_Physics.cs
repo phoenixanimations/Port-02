@@ -6,9 +6,9 @@ using System_Control;
 public class Creature_Physics : Creature_States 
 {
 	private float FallDistance;
-	public override void BeginningOfTurn ()
+	public override void Beginning_Of_Turn ()
 	{
-		base.BeginningOfTurn ();
+		base.Beginning_Of_Turn ();
 		RecordHeight(this,Raycast);
 	}	
 
@@ -29,9 +29,9 @@ public class Creature_Physics : Creature_States
 			}
 	}
 
-	public override void EndOfTurn ()
+	public override void End_Of_Turn ()
 	{
-		base.EndOfTurn ();
+		base.End_Of_Turn ();
 		RecordHeight(this,Raycast);
 		Fall(this, Raycast);
 	}

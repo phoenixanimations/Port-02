@@ -59,7 +59,7 @@ public class CreatureController : MonoBehaviour
 	
 	private void Attack (Vector2 Direction)
 	{
-		Creature.MoveAttack (Direction);
+		Creature.Move_Attack (Direction);
 	}
 
 	private void ChangeFront (Vector2 Direction) 
@@ -82,7 +82,7 @@ public class CreatureController : MonoBehaviour
 	
 	private void Interact ()
 	{
-		Creature.RequestInteraction();
+		Creature.Request_Interaction();
 	}
 
 	private void Idle ()

@@ -13,12 +13,12 @@ public class Defect_Foundation : Status_Foundation
 	public override void Activate (Creature_States Creature, Raycast Raycast, State State, Attack Attack)
 	{
 		base.Activate (Creature, Raycast, State, Attack);
-		if (State == State.BeginningOfTurn)
+		if (State == State.Beginning_Of_Turn)
 		{
 			Turns_Left--;
 		}	
 
-		if (State == State.EndOfTurn && Turns_Left < 1)
+		if (State == State.End_Of_Turn && Turns_Left < 1)
 		{
 			Creature.Defects.Remove(this);
 			Destroy(this);
