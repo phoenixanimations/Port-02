@@ -2,12 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Mouse_Move_Up : MonoBehaviour 
+public class Move_Select : MonoBehaviour 
 {
-
 	public void OnMouseDown()
 	{
-//		Debug.Log("hi");
+		Debug.Log("Hi");
 	}
-	
 }

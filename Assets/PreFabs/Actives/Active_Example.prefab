@@ -644,7 +644,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  WhenToActivate: 0
+  When_To_Activate: 0
+  Status_Notes: 
   Damage_Bonus_Multiplier: 1
   Scale_Value: 0
   Passives: []

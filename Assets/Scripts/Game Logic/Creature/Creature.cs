@@ -24,5 +24,5 @@ public class Creature : Creature_Physics
 	}
 }
 
-///Have a level up for change all levels
-// Have a level up section in the thingy
+//Have another slot for magic. Magic have actives now. 
+//Spells can spawn objects (maybe) mostly modify the state of other objects. 

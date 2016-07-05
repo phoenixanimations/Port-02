@@ -9,22 +9,19 @@ public class Mouse_Controller : Pathfinding
 	public GameObject Move_Select;
 	public Creature Creature;
 
-	
 	override protected void Start ()
 	{
 		base.Start ();
 		Creature = GetComponent<Creature>();
-	}
-	
-	protected override void Update ()
-	{
-		base.Update ();
-//		Debug.Log(Creature.Get_Stat(Stat.Movement));
-//		Spawn_Diamond(Move_Select,Creature.Get_Stat(Stat.Movement));
+		gameObject.AddComponent<BoxCollider2D>();
+
+//		Move_Select.AddComponent<BoxCollider2D>();
+//		Move_Select.AddComponent<Move_Select>();
 	}
 
 	public void OnMouseDown()
 	{
+		Spawn_Diamond(Move_Select,Creature.Get_Stat(Stat.Movement));
 //		float x = transform.position.x;
 //		float y = transform.position.y;
 //		Move_Select.transform.position = new Vector3(x + Vector.Up.x,y + Vector.Up.y,0f);
